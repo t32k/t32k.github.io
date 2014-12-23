@@ -2,26 +2,8 @@ module.exports = function (grunt) {
   'use strict';
   // Project configuration
   grunt.initConfig({
-    // Metadata
-    pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
-    '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-    '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-    '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-    ' Licensed <%= props.license %> */\n',
-    // Task configuration
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
-      }
-    },
     csso: {
-      dist: {
+      skeleton: {
         options: {
           banner: '/*' +
           '* Skeleton V2.0.2' +
@@ -35,16 +17,31 @@ module.exports = function (grunt) {
         files: {
           'skeleton.min.css': ['skeleton.css']
         }
+      },
+      critical: {
+        files: {
+          '_templates/includes/critical.min.css': ['_templates/includes/critical.css']
+        }
       }
     },
-    htmlmin: {
+    criticalcss: {
+      custom_options: {
+        options: {
+          url: "http://localhost:8000",
+          width: 1024,
+          height: 768,
+          outputfile: "_templates/includes/critical.css",
+          filename: "skeleton.min.css"
+        }
+      }
+    },
+    jade: {
       dist: {
         options: {
-          removeComments: true,
-          collapseWhitespace: true
+          // pretty: true
         },
         files: {
-          'index.html': '_index.html'
+          "index.html": ["_templates/index.jade"]
         }
       }
     }
@@ -52,9 +49,10 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks
   grunt.loadNpmTasks('grunt-csso');
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-criticalcss');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
   // Default task
-  grunt.registerTask('default', ['htmlmin', 'csso']);
+  grunt.registerTask('build', ['criticalcss', 'csso', 'jade']);
 };
 
