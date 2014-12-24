@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   // Project configuration
   grunt.initConfig({
     csso: {
-      skeleton: {
+      dist: {
         options: {
           banner: '/*' +
           '* Skeleton V2.0.2' +
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
       }
     },
     criticalcss: {
-      custom_options: {
+      dist: {
         options: {
           url: "http://localhost:8000",
           width: 1024,
@@ -38,21 +38,31 @@ module.exports = function (grunt) {
     jade: {
       dist: {
         options: {
-          // pretty: true
+          pretty: true
         },
         files: {
           "index.html": ["_templates/index.jade"]
         }
+      }
+    },
+    watch: {
+      dist: {
+        files: ['**/*.jade'],
+        tasks: ['jade']
       }
     }
   });
 
   // These plugins provide necessary tasks
   grunt.loadNpmTasks('grunt-csso');
+  grunt.loadNpmTasks('grunt-perfbudget');
   grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+
 
   // Default task
+  grunt.registerTask('default', ['watch']);
   grunt.registerTask('build', ['criticalcss', 'csso', 'jade']);
 };
 
