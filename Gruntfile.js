@@ -38,10 +38,18 @@ module.exports = function (grunt) {
     jade: {
       dist: {
         options: {
-          pretty: true
+          // pretty: true
         },
         files: {
           "index.html": ["_templates/index.jade"]
+        }
+      }
+    },
+    perfbudget: {
+      dist: {
+        options: {
+          url: 'http://t32k.me',
+          key: 'API_KEY_HERE'
         }
       }
     },
