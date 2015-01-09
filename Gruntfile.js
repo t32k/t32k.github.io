@@ -2,6 +2,18 @@ module.exports = function (grunt) {
   'use strict';
   // Project configuration
   grunt.initConfig({
+    browserSync: {
+      bsFiles: {
+        src: '*.css'
+      },
+      options: {
+        watchTask: true,
+        server: {
+          baseDir: './'
+
+        }
+      }
+    },
     csso: {
       dist: {
         options: {
@@ -39,11 +51,12 @@ module.exports = function (grunt) {
 
   // These plugins provide necessary tasks
   grunt.loadNpmTasks('grunt-csso');
+  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['browserSync','watch']);
   grunt.registerTask('build', ['csso', 'jade']);
 };
 
