@@ -6,7 +6,11 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 12/15/2014
 */
-
+.profile {
+  float:left;
+  margin:0 10px 10px;
+  border-radius: 60px;
+}
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
