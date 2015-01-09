@@ -17,60 +17,33 @@ module.exports = function (grunt) {
         files: {
           'skeleton.min.css': ['skeleton.css']
         }
-      },
-      critical: {
-        files: {
-          '_templates/includes/critical.min.css': ['_templates/includes/critical.css']
-        }
-      }
-    },
-    criticalcss: {
-      dist: {
-        options: {
-          url: "http://localhost:8000",
-          width: 1024,
-          height: 768,
-          outputfile: "_templates/includes/critical.css",
-          filename: "skeleton.min.css"
-        }
       }
     },
     jade: {
       dist: {
         options: {
-          // pretty: true
+          pretty: true
         },
         files: {
           "index.html": ["_templates/index.jade"]
         }
       }
     },
-    perfbudget: {
-      dist: {
-        options: {
-          url: 'http://t32k.me',
-          key: 'API_KEY_HERE'
-        }
-      }
-    },
     watch: {
       dist: {
-        files: ['**/*.jade'],
-        tasks: ['jade']
+        files: ['**/*.jade', '**/*.css'],
+        tasks: ['build']
       }
     }
   });
 
   // These plugins provide necessary tasks
   grunt.loadNpmTasks('grunt-csso');
-  grunt.loadNpmTasks('grunt-perfbudget');
-  grunt.loadNpmTasks('grunt-criticalcss');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-
   // Default task
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['criticalcss', 'csso', 'jade']);
+  grunt.registerTask('build', ['csso', 'jade']);
 };
 
