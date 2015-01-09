@@ -4,13 +4,15 @@ module.exports = function (grunt) {
   grunt.initConfig({
     browserSync: {
       bsFiles: {
-        src: '*.css'
+        src: ['*.css', '**/*.jade']
       },
       options: {
         watchTask: true,
         server: {
           baseDir: './'
-
+        },
+        watchOptions: {
+          debounceDelay: 1000
         }
       }
     },
@@ -34,7 +36,7 @@ module.exports = function (grunt) {
     jade: {
       dist: {
         options: {
-          pretty: true
+          // pretty: true
         },
         files: {
           "index.html": ["_templates/index.jade"]
