@@ -1,0 +1,34 @@
+extends _layoute
+
+block title
+  title 404 Not found - MOL
+block description
+  meta(name='description' content='ごめんなさい。ないです。')
+
+ block body
+   article.container
+     h1 404 Not Found!
+     hr
+     section
+       .azlink-image(style='float:left')
+         a(href='http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/', name='azlinklink', target='_blank')
+           img(src='http://ecx.images-amazon.com/images/I/51K%2BQlzoQlL._SL160_.jpg', alt='フロントエンドエンジニア養成読本［HTML ，CSS，JavaScriptの基本から現場で役立つ技術まで満載！］ Software Design Plus', style='border:none')
+       .azlink-info(style='float:left;margin-left:15px;line-height:120%')
+         .azlink-name(style='margin-bottom:10px;line-height:120%')
+           a(href='http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/', name='azlinklink', target='_blank') フロントエンドエンジニア養成読本
+           br
+           | 養成読本編集部
+           br
+           | 技術評論社
+           br
+         .azlink-link(style='margin-top:5px')
+           a(href='http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/', target='_blank') Amazon.co.jp で詳細を見る
+       .azlink-footer(style='clear:left')
+
+     p まぁ、ゆっくりしていってね!!!
+     p
+       strong
+        a(href='/mol/') Homeに戻る
+     hr
+     footer(role='contentinfo')
+       small © 2007 t32k.me

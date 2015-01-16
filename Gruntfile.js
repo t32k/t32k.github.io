@@ -36,10 +36,11 @@ module.exports = function (grunt) {
     jade: {
       dist: {
         options: {
-          // pretty: true
+           pretty: true
         },
         files: {
-          "index.html": ["_templates/index.jade"]
+          "index.html": ["_templates/index.jade"],
+          "404.html": ["_templates/404.jade"]
         }
       }
     },
