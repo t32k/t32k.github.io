@@ -1,0 +1,8 @@
+baseurl = "http://t32k.me/mol/"
+languageCode = "en-us"
+title = "MOL"
+publishdir = "mol"
+
+[params]
+  description = "Tesla's Awesome Hugo Site"
+  author = "Koji Ishimoto"

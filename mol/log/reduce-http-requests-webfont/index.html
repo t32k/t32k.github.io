@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Wednesday, August 21, 2013</time></p>
+            <h1 class="post-h1 m-0">HTTPリクエストを減らすために【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <p>このシリーズはHTTPリクエストの理解を通じてWebパフォーマンスの重要性について考える5章構成になっております。
+<ul>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-overview/">【序章】HTTPリクエストは甘え</a></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-css-sprite/">【CSS Sprite編】スプライト地獄からの解放</a></li>
+    <li><strong>【WebFont編】ドラッグ＆ドロップしてコマンド叩いてウェーイ</strong></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-datauri/">【DataURI編】遅延ロードでレンダリングブロックを回避</a></li>
+    <li><a href="http://t32k.me/mol/log/reduce-http-requests-one-second/">【終章】我々には1000msの猶予しか残されていない</a></li>
+</ul>
+3日目は、スマホ環境であればHTTPリクエストを減らすためにWebフォントの採用について考慮しても、やぶさかではないでしょう。</p>
+
+<p>まずは下記の画像をご覧頂きたい。</p>
+
+<p><img class="aligncenter size-full wp-image-5274" alt="arrows" src="/static/blog/2013/08/arrows.png" width="607" height="30" /></p>
+
+<p>これは私がプロジェクトで使用していたスプライト画像ですが（実際は縦にして使用）、このような単純な形状、単色のアイコンであれば、Webフォント化したほうがなにかと都合がよいです。</p>
+
+<p>このスプライトであれば、カラー×矢印の向き×シャドウのありなしでパターンが増えていく可能性があり、スプライトすれば1リクエストで収まりますが、それでも画像が肥大化していけば、<strong>Receiving </strong>が無視できない状況になっていきます。</p>
+
+<p>そこでWebフォント化すれば、色は自由に変更できますし、フォントなので<span class="code">text-shadow</span>で影を当てることもできますし、<span class="code">font-size</span>で大きさも変更でき柔軟に対応することができます。</p>
+
+<p>それではWebフォントって一体どうやって作るのでしょうか？高いフォント作成アプリケーションを購入しなければならないのでしょうか？オンライン作成ツールもあるようですが、毎回新しいアイコン追加の度にそのツールのサイトを訪問しなければならないのでしょうか？
+<ul>
+    <li><a href="http://icomoon.io/"> IcoMoon</a></li>
+</ul>
+以前は上記のオンラインツールを使ってましたが、やはり更新対応を考えるとめんどくさかったです。ということで、<a href="https://github.com/t32k/maple">Mapleプロジェクト</a>では<a href="https://github.com/sapegin/grunt-webfont"><strong>grunt-webfont</strong></a>を導入しました。</p>
+
+<p>ということで、前回の記事を見ながら、<span class="code">grunt-init maple</span>しましょう^_^</p>
+
+<p>必要環境として以下のものインストールしておきましょう 。
+<a href="http://brew.sh/">Homebrew</a>も入っていなければインストールしておきましょう。
+<pre class="bash"><code>$ brew install fontforge ttfautohint
+$ brew install <a href="https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb">https://raw.github.com/sapegin/grunt-webfont/master/Formula/sfnt2woff.rb</a></code></pre>
+あと事前に必要になるのは、フォントの元となるSVGファイルです。<a href="https://github.com/cognitom/symbols">SVGファイルを作る上で便利なテンプレート</a>があるのでそれを拝借してきましょう。</p>
+
+<p><img class="aligncenter  wp-image-5163" alt="arrow" src="/static/blog/2013/07/c2eef1dbac4917459d28818432f9c6b8.png" width="640" /></p>
+
+<p>テンプレートを使ってMapleでは上記のような.aiを作成しました。<a href="http://iconmonstr.com/">iconmonstr</a>にはいろいろ使い勝手がいいアイコンが無料で配布されていますので、ここから必要な物をとってくるのもいいでしょう。ここからIllustratorでアートボード別に書きだしてSVGファイルとして保存します。要注意なのはこのアートボードの空白部分も含めてSVGファイルなので気をつけてください。</p>
+
+<p><img class="aligncenter size-full wp-image-5282" alt="fontdir" src="/static/blog/2013/08/fontdir.png" width="675" height="387" /></p>
+
+<p>基本的にこの部分はデザイナーさんにやってもらえればよいことなので、フロントエンドデベロッパーは完成したSVGファイルを、<span class="code">/src/files/font/svg</span> ディレクトリに投げ込んでコマンド打つだけです。
+<pre><code>$ grunt webfont
+Running &ldquo;webfont:dist&rdquo; (webfont) task
+Font &lsquo;myfont-b5fd89266afbbfbfc281a0ce9a5bf50e&rsquo; with 13 glyphs created.</code></pre>
+で、<span class="code">/src/tools/</span>で<span class="code">grunt webfont</span>を実行すれば上記のようなログなとともに、<strong>.woff</strong>と<strong>.ttf</strong>と_myfont.scssが作成されます。
+<pre><code>// _setting.scss
+//&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-
+@import &ldquo;../vendors/myfont&rdquo;;</p>
+
+<p>// _myfont.scss
+.icon-hoge:before {
+content:&rdquo;\f100&rdquo;;
+}</code></pre>
+_myfont.scssは_setting.scssで<span class="code">@import</span>されていますので、特にCSSをいじることはありません。</p>
+
+<p><img class="aligncenter size-full wp-image-5170" alt="icon" src="/static/blog/2013/08/icon.png" width="640" height="250" /></p>
+
+<p>上記のように、<span class="code">.icon-{SVGファイル名}</span>のクラスを当てれば、すぐさま使えます。</p>
+
+<p>Webフォント使えば、CSSスプライトに頼らなくても大丈夫だー＼(-o-)／って使う前は思っていましたが、やはり単純な表現に限定されます。グラデーションカラーかつシャドウ有りや、部分的に色を変えるなどはWebフォントでは無理がありますので、そこはCSSスプライトを採用するか、デザインを少し調整してWebフォント化するかはデザイナーと相談しましょう。</p>
+
+<p>また、Webフォントも複数のアイコンのリクエストをまとめることができますが、Webフォント自体のリクエストが必要になるので、フォントがダウンロードされるまでは、当たり前ですが表示されません。そのため、数種類のパターンで収まることがわかっていればWebフォント化可能でもCSSスプライトでまとめることも考慮すべきです。</p>
+
+<p>なにごともバランスが重要です。</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/reduce-http-requests-datauri/"> HTTPリクエストを減らすために【DataURI編】遅延ロードでレンダリングブロックを回避</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/reduce-http-requests-css-sprite/"> HTTPリクエストを減らすために【CSS Sprite編】スプライト地獄からの解放</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

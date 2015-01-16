@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>High Performance Browser Networking 読むでしょ！ &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Friday, May 23, 2014</time></p>
+            <h1 class="post-h1 m-0">High Performance Browser Networking 読むでしょ！</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            
+
+<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0-%E2%80%95%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E6%9C%80%E9%81%A9%E5%8C%96-Ilya-Grigorik/dp/4873116767%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873116767" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg" border="0" alt="ハイパフォーマンス ブラウザネットワーキング ―ネットワークアプリケーションのためのパフォーマンス最適化" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0-%E2%80%95%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E6%9C%80%E9%81%A9%E5%8C%96-Ilya-Grigorik/dp/4873116767%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873116767" target="_blank">ハイパフォーマンス ブラウザネットワーキング<br />―ネットワークアプリケーションのためのパフォーマンス最適化</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br />Ilya Grigorik 和田 祐一郎<br />オライリージャパン  2014-05-16<br />売り上げランキング : 3048<br /><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9-%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AD%E3%83%B3%E3%82%B0-%E2%80%95%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E6%9C%80%E9%81%A9%E5%8C%96-Ilya-Grigorik/dp/4873116767%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4873116767" target="_blank">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
+<p>Ilya Grigorik氏の『ハイパフォーマンス ブラウザネットワーキング』が発売されたので流し読んでみた感想。</p>
+
+<h2 id="design-fast-websites:376cc893284a08adb8924c5e301e1e94">Design Fast Websites</h2>
+
+<div class="fluid"><iframe src="//www.youtube.com/embed/7HC3OV1dDZ4" allowfullscreen></iframe></div>
+
+<p>思い起こせば、僕がWebパフォーマンスに興味を持ったのは2008年にYUI Theaterで公開されたNicole Sullivan氏の『Design Fast Websites』の動画を見てからだ。</p>
+
+<p>当時Webデザイナーだった僕にとってデザインもWebパフォーマンスに貢献出来るんだ！決してバックエンドのエンジニアだけの問題じゃないんだと知ったのは衝撃的であり、それと同時にやりがいのあることだと感じモチベーションが上がったのを今でも覚えている。クリスマス・イブの夜のことだった。</p>
+
+<h2 id="high-performance-web-sites:376cc893284a08adb8924c5e301e1e94">High Performance Web Sites</h2>
+
+<table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51hIDIWHmYL._SL160_.jpg" border="0" alt="ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank">ハイパフォーマンスWebサイト ―高速サイトを実現する14のルール</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br />Steve Souders スティーブ サウダーズ 武舎 広幸 <br /><br />オライリージャパン  2008-04-11<br />売り上げランキング : 56034<br /><br /><a href="http://www.amazon.co.jp/%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9Web%E3%82%B5%E3%82%A4%E3%83%88-%E2%80%95%E9%AB%98%E9%80%9F%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B14%E3%81%AE%E3%83%AB%E3%83%BC%E3%83%AB-Steve-Souders/dp/487311361X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D487311361X" target="_blank">Amazonで詳しく見る</a></font><font size="-2"> by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
+<p>それから、フロントエンドのパフォーマンスつながりで、Steve Souders氏の『ハイパフォーマンスWebサイト』を手にとって夢中で読んだのが5年前。以後、僕の口癖は『HTTPリクエストを減らす』になった。</p>
+
+<h2 id="perfmatters:376cc893284a08adb8924c5e301e1e94">Perfmatters</h2>
+
+<p><img src="/mol/images/2014/05-23-fig01.png" alt="" />
+</p>
+
+<p>最近ではフロントエンドのパフォーマンスも細分化されてきて、Network、Render、Computeの3つに大別されるようになってきたが、僕はやっぱり『HTTPリクエストを減らす』の精神でネットワークの分野に一番興味があるし、大抵の場合においてネットワークが問題の主要な要因になってるのは間違いないと思っている。</p>
+
+<ul>
+<li><a href="http://t32k.me/mol/log/reduce-http-requests-overview/">HTTPリクエストを減らすために【序章】HTTPリクエストは甘え — MOL</a></li>
+<li><a href="http://t32k.me/mol/log/reduce-http-requests-one-second/">HTTPリクエストを減らすために【終章】我々には1000msの猶予しか残されていない — MOL</a></li>
+</ul>
+
+<p>そんなとき、いつも参考にしてきたのがIlya Grigorik氏の記事であったりスライド・動画だ。</p>
+
+<ul>
+<li><a href="https://www.youtube.com/user/igrigorik/videos">Ilya Grigorik - YouTube</a></li>
+</ul>
+
+<p>彼はとてもスマートでしっかりとした根拠を持って、いつも発表しているので、とても尊敬しているのだが、なにぶん難しいテーマなので、今回、『High Performance Browser Networking』が邦訳されて日本語として理解できるのは喜ばしいことだ（日本語でも難しいが&hellip;）。彼の近年の発表の詳細がこの本には詰まっているから。</p>
+
+<ul>
+<li>パケットを送信しないことより速くパケットを送信する方法は存在しない</li>
+<li>パケットをより速く進ませることは不可能だが、より近い場所からの送信は可能
+<div style="text-align:right">2章 TCPの構成要素より</div></li>
+</ul>
+
+<p>結局のところは、上記に尽きる。</p>
+
+<ol>
+<li>HTTPリクエストを減らす</li>
+<li>CDNを使う
+<div style="text-align:right">高速サイトを実現する14のルール</div></li>
+</ol>
+
+<p>ハイパフォーマンスWebサイトで最も効果のある上位2つはネットワークに関することであり、ハイパフォーマンスブラウザネットワーキングでは、なぜそれがコストのかかることなのか、事細かに書かれている。</p>
+
+<p>ネットワークを本気で学ぼうと思ったら一体何冊の本を読んだら良いかわからないが、本書はパフォーマンスとネットワークに絞ることで350Pと比較的コンパクトにまとまっている。けど、やっぱり重いので<a href="http://www.oreilly.co.jp/books/9784873116761/">電子書籍</a>のほうを買ったほうがいいと思う、安いし。</p>
+
+<p>また僕のバイブルが増えた。</p>
+
+<hr />
+
+<p>Photo Credit: <a href="https://www.flickr.com/photos/rob_zweers/14091847074/in/photolist-ntfpbA-dZzrZ6-dibguj-diXabS-dibgmy-dibgFm-dibgaQ-dibiBk">Steppekiekendief (Circus macrourus) | Flickr</a></p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/available-for-hire/"> 6月16日晴れ</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/sketch3/"> Sketch3ハジメマシタ</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

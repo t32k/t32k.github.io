@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>getElementsByName と getElementsByClassName &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Monday, December 27, 2010</time></p>
+            <h1 class="post-h1 m-0">getElementsByName と getElementsByClassName</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <p>ちょっと気になったのでメモメモ。</p>
+
+<p>普段、jQueryなど使っているときは特に気にしなくてもいいのですが、フレームワークなしでなんかしらの要素取ってくるのって結構大変というか、document.getElementById しか頭に思いつかないのです。</p>
+
+<p>最近というか先々々月ぐらいのことですが、document.getElementsByName なるものを知りました。このメソッドはどんなものかと言いますと、</p>
+
+<p><blockquote>document.getElementsByName は、name 属性に与えられた値を持つ全ての要素の NodeList を返します。
+<a href="https://developer.mozilla.org/ja/DOM/document.getElementsByName"><span style="font-size: x-small;">document.getElementsByName - MDC Doc Center</span></a></blockquote>
+ほうほう、なるほど。でも、これと似たような名前のメソッドなかったけ？
+<blockquote>document.getElementsByClassNameは、与えられたクラス名で得られる要素の集合を返します。
+<a href="https://developer.mozilla.org/ja/DOM/document.getElementsByClassName"><span style="font-size: x-small;">document.getElementsByClassName - MDC Doc Center</span></a></blockquote>
+おう、これこれ。でも getElementsByClassName のほうはＩＥ対応してないっぽいし、どんな要素にでもname属性つけれたら、getElementsByName で十分じゃね？という疑問が湧いてきたのですが、そうでもないみたいです。</p>
+
+<p>HTML4.01でname属性が設定できるのは以下の要素だけ。
+<blockquote>
+<ul style="-moz-column-count: 3; -webkit-column-count: 3;">
+    <li>a</li>
+    <li>applet</li>
+    <li>button</li>
+    <li>form</li>
+    <li>frame</li>
+    <li>iframe</li>
+    <li>img</li>
+    <li>input</li>
+    <li>map</li>
+    <li>meta</li>
+    <li>object</li>
+    <li>param</li>
+    <li>select</li>
+    <li>textarea</li>
+</ul>
+<a href="http://www.mitsue.co.jp/glossary/html/attribute/name.html"><span style="font-size: x-small;">name属性 | HTML用語集 | ミツエーリンクス</span></a></blockquote>
+ぷらす&hellip;
+<blockquote>IE、Netscape系共通で使えるのは、JavaScriptの基礎部分でname指定取りができるHTMLタグに限られます。 IMG、FORM、FORM部品、などです。ま、時代的にname属性はフォーム以外ではあり得ない時代でもありますので、使えなくても差し支えないでしょう。</p>
+
+<p><a href="http://www.artemis.ac/contents/javascript/javascript11.htm#names"><span style="font-size: x-small;">初心者のJavaScript HTMLエレメントのオブジェクト指定方法 各種 [ ARTEMIS ] </span></a></blockquote>
+つまり、&lt;div name=&ldquo;hoge&rdquo;&gt;の要素をgetElementsByNameで取りたいと思っても必ずしも全てのブラウザで正常に動作することもないし、そもそも文法的にやっちゃだめてことで。。。</p>
+
+<p>そうなってくると、どんな要素にでもclass属性がつけれるので、getElementsByClassName がやっぱり重要というか、こっちを使っていくほうがベターなんだと理解しました。</p>
+
+<p>ちなみに、getElementsByClassNameの各ブラウザのサポート状況はこんな感じ。IE以外OKってな感じで。
+<blockquote><a href="/static/blog/2010/12/gebcn.png"><img class="alignnone size-medium wp-image-2240" title="gebcn" src="/static/blog/2010/12/gebcn-300x50.png" alt="" width="550" /></a></p>
+
+<p><a href="http://www.quirksmode.org/dom/w3c_core.html"><span style="font-size: x-small;">W3C DOM Compatibility - Core</span></a></blockquote>
+ちなみに、似たような名前のメソッドでgetElementsByTagNameてのもある。
+<ul>
+    <li><a href="https://developer.mozilla.org/ja/DOM/document.getElementsByTagName">document.getElementsByTagName - MDC Doc Center</a></li>
+</ul>
+結論：jQueryないと僕生きていけません :(</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/live-or-static/"> querySelector と querySelectorAll というか Live NodeList と Static NodeList</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/the-naked-presenter/"> The Naked Presenter</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

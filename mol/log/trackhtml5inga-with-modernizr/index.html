@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>ModernizrでHTML5時代のWeb技術をトラッッキング &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Thursday, December 2, 2010</time></p>
+            <h1 class="post-h1 m-0">ModernizrでHTML5時代のWeb技術をトラッッキング</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <p><blockquote><strong><a href="http://atnd.org/events/10497">JavaScript Advent Calendar 2010 : ATND</a></strong>
+2010年12月1日から25日まで、毎日違う人が JavaScript にまつわるブログ記事を書く企画です。
+参加表明した順番が日付（12月◯日）となります。</blockquote>
+こうゆうおもしろい催し事があるみたいなので僕からは便利なJSライブラリの紹介をばしたいと思います。
+<h3>What is Modernizr?</h3>
+<a href="http://www.flickr.com/photos/24374884@N08/5141958757/"><img class="alignleft size-full wp-image-2020" title="newt" src="/static/blog/2010/12/newt.jpg" alt="" width="151" height="191" /></a></p>
+
+<p>まずはタイトルにもある <a href="http://www.modernizr.com/">Modernizr </a>ですが、これはHTML5時代のWeb技術、最近では「<strong>NEWT</strong>」、New Exciting Web Technologies （HTML5、CSS3、SVG、XHR2、Geolocation&hellip; などの技術総称）と呼ばれている技術がブラウザで実装されているか検出してくれるライブラリです。</p>
+
+<p>最近、開発者の<a href="http://east.webdirections.org/2010/speaker/paul-irish/">Paul Irishさんが来日</a>してその存在を知りました（汗</p>
+
+<p>Modernizr を読み込んだページにアクセスすると自動的にHTML要素のclass属性に対応状況がこん感じで記述される具合です。</p>
+
+<p><img class="fig" title="firefox" src="/static/blog/2010/12/firefox.png" alt="" width="402" height="268" />
+<em>Firefox 3.6.12</em></p>
+
+<p><img class="fig" title="chrome" src="/static/blog/2010/12/chrome.png" alt="" width="403" height="230" />
+<em>Google Chrome 7.0.517.44</em></p>
+
+<p><img class="fig" title="opera" src="/static/blog/2010/12/opera.png" alt="" width="403" height="239" />
+<em>Opera 10.63</em></p>
+
+<p>機能が実装されていばその機能名、実装されていなければno-が頭につく感じですね。おおもとのHTML要素にclass属性がついたので、
+<pre><code>.borderradius .hoge div {
+ /* border-radiusのプロパティを記述 <em>/
+}
+.no-borderradius .hoge div {
+ /</em> border-radiusに対応していないから画像で再現する記述とか */
+}</code></pre>
+こんな感じで子孫セレクタを使って実装状況に合わせたスタイルを記述することができます。
+<pre><code>if (Modernizr.localstorage){
+  // localstorage 使う！使う！
+} else {
+  // 代替手段として Cookie 使ったりとか
+}</code></pre>
+もちろんJavaScriptからもこんな感じで分岐処理することも可能です。
+<h3>Track HTML5 in Google Analytics</h3>
+この非常に便利な Modernizr を利用して、Google Analytics のレポート上でも確認できるようにしてくれるのが <a href="https://github.com/smeranda/trackHTML5inGA">trackHTML5inGA </a>です。Modernizr で検出したプロパティをカスタム変数（デフォルトではスロット#5を使用する）で取り込んで Google Analytics に渡す感じでしょうか。（<a href="http://t32k.me/mol/2010/10/google-analytics-custom-variables-part1/">カスタム変数についてはこちらを参照</a>）</p>
+
+<p>使い方はModernizrとtrackHTML5inGA をダウンロードしてきて任意のサーバーにアップして以下のコードをGATC（Google Analytics Tracking Code）の後にでも挿入しておきましょう。（※非同期版トラッキングコードのみに対応）
+<pre><code>&lt;script type=&ldquo;text/javascript&rdquo;&gt;
+   // トッラッキングしたいプロパティを記述
+   featuresToTrack = [&lsquo;video&rsquo;,&lsquo;audio&rsquo;];
+   (function(d, t) {
+     var s=d.createElement(t),x=d.getElementsByTagName(t)[0];
+     s.async=1;s.src=&lsquo;js/trackHTML5inGA.js&rsquo;;
+     x.parentNode.insertBefore(s,x);
+   })(document, &lsquo;script&rsquo;);
+&lt;/script&gt;</code></pre>
+上記のfeaturesToTrackの部分にトラッキングしたいプロパティ（40種類くらいトラッキングできるプロパティはあるけど、GAの仕様上、配列内に記述できる文字列は55byte以内に納めなければならない）を記述することで、GAのレポートの<em>ユーザー</em> &gt; <em>カスタム変数</em> に <em>HTML5</em> の項目できているのでクリックすると、任意のプロパティを実装しているブラウザのセッション数などがわかります。もちろん、コンバージョンを設定すれば、実装機能別の成果を確認することができます。</p>
+
+<p><img class="fig" title="customvar" src="/static/blog/2010/12/customvar.png" alt="" width="470" height="352" />
+<em>上記の場合、borderradius/boxshadow/webworkers/applicationcache とborderradiusをトラッキング</em></p>
+
+<p>これをうまく使えば、CSS3アニメーションを使ったバリバリインタラクティブ登録フォームを作成してその成果を確かめたり、application cacheを大いに活用すればパフォーマンス的に良くなるわけですからapplication cacheを実装していないセグメントと比べてどのくらい成果が違うかなど確認できるかなど使い方はあなた次第！</p>
+
+<p>単一のプロパティであれば、カスタムセグメントでブラウザのバージョンごとの実装状況を調べて自力でセグメント分けすればいいのですが、これが複数のプロパティ（ex. border-radiusかつCSS AnimationsかつGeolocation APIを実装しているブラウザとか）を対象とするとややこしくなるので、やはりそういう点ではこのtrackHTML5inGAを使うメリットがあるのではないでしょうか。</p>
+
+<p>そういうわけで、Modernizr と trackHTML5inGA の紹介でした。
+<h3>宣伝</h3>
+さて、なんか後半はアクセス解析っぽい話になっちゃいましたけど、よかったのかな&hellip;と。心配ついでにせっかくJS大好きっ子が見てると思うのでkanazawa.jsの宣伝もしとこ。</p>
+
+<p>kanazawa.js は金沢市、石川県、北陸の近辺の JavaScript デザイナー・プログラマによるコミュニティです。月1で勉強会を開いていくつもりなので、近くに寄ったときはぜひ参加してください！</p>
+
+<ul>
+  <li><a href="http://kanazawajs.tumblr.com/">Tumblr</a></li>
+  <li><a href="http://twitter.com/kanazawajs">Twitter</a></li>
+  <li><a href="http://www.facebook.com/pages/kanazawajs/109048162494785">Facebook</a></li>
+  <li><a href="http://www.ustream.tv/channel/kanazawajs">Ustream</a></li>
+</ul>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/designing-for-the-iphone/"> Designing for the iPhone</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/long-life-web-performance-optimization/"> Long Life Web Performance Optimization ~ 心理学から考えるWebパフォーマンス ~</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>開発効率をUPする Git逆引き入門 &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Monday, April 7, 2014</time></p>
+            <h1 class="post-h1 m-0">開発効率をUPする Git逆引き入門</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <table  border="0" cellpadding="5"><tr><td valign="top"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/" target="_blank"><img src="http://ecx.images-amazon.com/images/I/51RtoUsheVL._SL160_.jpg" border="0" alt="開発効率をUPする Git逆引き入門" /></a></td><td valign="top"><font size="-1"><a href="http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465" target="_blank">開発効率をUPする Git逆引き入門</a><img src="http://www.assoc-amazon.jp/e/ir?t=warikiru-22&l=ur2&o=9" width="1" height="1" style="border: none;" alt="" /><br />松下 雅和 船ヶ山 慶 平木 聡 土橋 林太郎 三上 丈晴 <br /><br />シーアンドアール研究所  2014-04-09<br />売り上げランキング : 306<br /><br /><a href="http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465" target="_blank">Amazonで詳しく見る</a></font> <font size="-2">by <a href="http://www.goodpic.com/mt/aws/index.html" >G-Tools</a></font></td></tr></table>
+
+<p><a href="http://layzie.hatenablog.com/entry/20140403/1396509428">id:Layzie</a>さんより本頂いた。なお著者は全員緑の会社の人である。この本はデザイナー・エンジニア両方をターゲットとしているみたいなので、僕からはどちらからと言えば、デザイナー側からのレビューをしたいと思う。</p>
+
+<p>そもそも弊社某緑の会社ですが2年前くらいまではどのプロジェクトもSVNを使用していたが、1年前くらいに<a href="https://enterprise.github.com/">GitHub Enterprise</a>を全社的に導入する（CAに入るとGHE使えるんだよヽ(=´▽`=)ﾉ）にあたって、SVNからGitへバージョン管理システムを移行しなければならない状況になった。その時、今回の著者の方々が移行のための勉強会を何回も開催してくれたのだった。</p>
+
+<p>全社的に導入するにあたって、当然デザイナーや、HTMLコーダーのような非エンジニアに対してもフォローしなければならない。そうゆう理由もあってかこの本にはGUIクライアントである<a href="http://www.sourcetreeapp.com/">SourceTree</a>の説明も多い。数多くGUIクライアントはあるが、無料でありWin/Macで問題なく動作するという意味ではSourceTreeが妥当な選択だったと思う。</p>
+
+<p>また、僕のような非エンジニアが初めてGitを触った時はとりあえずはエンジニアさんから言われたとおり、AddしてCommitしてPushして、たまにブランチを切るくらいで、なんかよく分かんなくなったら、ローカルレポジトリ全部消してもう一回リモートレポジトリをPullしてくるのが精一杯だった（今でも似たようなもんだが…）。そのようなGit初心者に対して、最初から裏ワザ的なオプションとかいろいろ教えられてもキャパオーバーである。</p>
+
+<p><iframe src="http://www.slideshare.net/slideshow/embed_code/28304397" width="597" height="486" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/matsukaz/git-28304397" title="いつやるの？Git入門 v1.1.0" target="_blank">いつやるの？Git入門 v1.1.0</a> </strong> from <strong><a href="http://www.slideshare.net/matsukaz" target="_blank">Masakazu Matsushita</a></strong> </div></p>
+
+<p>その点、本書に関しては図解も抱負でシンプルに解説されており非エンジニアにも優しい（SourceTreeの操作画面もふんだんにある）。本書のメイン著者である<a href="https://twitter.com/matsukaz">@matsukaz</a>のスライドを見れば、その分かりやすさが理解できると思う。</p>
+
+<p>この辺りに関しては、『いや、Gitのすべてを知りたいんだ！』って人もいれば、『最低限、使えればいーや』って人もいると思うので、自分にあった本を選択すれば良いと思うが、本書は少なくとも前者ではない。</p>
+
+<p>弊社のように全社導入的な事例では、つまり全体のボトムアップという意味では業務で必要なことを必要な分だけ勉強できる本書のようなタイプが適切なんだろうと思う。まさしく、緑社のGit導入マニュアルと言っても過言ではないだろう。</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/stylestats.org/"> オンラインCSS解析 StyleStats.org</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/choice/"> 若人へ</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>デブサミ2008 Day1 &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Wednesday, February 20, 2008</time></p>
+            <h1 class="post-h1 m-0">デブサミ2008 Day1</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            
+
+<p>2月13-14日に行われた Developers Summit 2008に行ってきた。テーマが『越境しよう、コードで世界を変えよう』ということで、デザイナーの自分だけど越境してきたよ。といっても、JavaとかRubyとかさっぱりなので、結局、受講したセッションはRIAやPMばっかしになった。 そんなわけで、一応メモっておく。</p>
+
+<h2 id="2月13日-1日目:70b81ea25fa517dc54b04ecf1a550444">2月13日（1日目）</h2>
+
+<p>###【13-D-1】　RIA開発におけるデザイナー／デベロッパー協業のワークフローについて</p>
+
+<p>このセッションは、自分みたいなプログラミングにも興味があるデザイナにとってはぴったりのセッションだった。 RIA(Rich Internet Application)は分かりやすく言えば、なんらかのリッチな要素があり、インターネットも利用していて、特定の目的を果たすための機能を提供するソフトウェアと説明。またJames Wardが考えるリッチを構成する要素として</p>
+
+<ul>
+<li>Connected(接続している)</li>
+<li>Alive(活き活きとしている)</li>
+<li>Interactive(インタラクティブである)</li>
+<li>Responsive(反応が良い)</li>
+</ul>
+
+<p>の4つが挙げられたが、Aliveの説明がイマイチつかめなかった。「活き活きしている」って要は「インタラクティブで反応がよい」ってことじゃないのか？ まぁ、要するにアプリケーションをリッチにすることでそれを使うユーザーの体験（エクスペリエンス）を向上させることができる。</p>
+
+<p>体験というのは、例えば、コーヒーを飲むなら缶コーヒーで十分なのに、なぜその3～5倍の価格がするのに人はカフェにいくのか。休息するという点もあるが、コーヒーを飲むということ以上にそのカフェで過ごす時間（体験）に重きを置いていることを、スターバックスの事例で説明。 つまり付加価値が重要であり、なぜソフトウェアの世界もその点を考慮しなければならないか。</p>
+
+<p>既に多くのソフトウェアが機能的には成熟し、機能だけでは競争優位が保てない状態競争優位獲得のための差別化要因としてソフトウェアのエクスペリエンスを考え直す必要がある DISTINCT or EXTINCT (差別するか、さもなくば絶滅か) 動いて当たり前、便利で当たり前、それプラスアルファが求められている時代ということですかね。</p>
+
+<p>そのあとは、エクスペリエンスをデザインするにあたってセカンドファクトリーでの手法や流れを説明。 チームモデルとしてはプロジェクトマネージャーを頂点に、その下にアーキテクチャデザイナー、エクスペリエンスデザイナーさらに、実装レベルで、システムデベロッパー(SD)、インタラクションデベロッパー(ID)、グラフィックデザイナー(GD)という構成。</p>
+
+<p>また、SD、ID、GDがスムーズに業務を遂行するにはMicrosoftのWPFやAdobeのAIRなどが有用であると説明。最後にビジネス、システム、デザインの三者が互いに密にコミュニケーションがとれるかが重要であると説明。</p>
+
+<p>1発目ということもあってだいぶ緊張したが、デザイナでも理解できる分野だったので安心した。 まさしく「越境しよう」というテーマにふさわしいセッションだった。</p>
+
+<p>###【13-D-2】　デベロッパーに贈る！業務アプリのためのユーザーエクスペリエンス向上講座</p>
+
+<p>続いて、2コマ目もRIA関連。こちらのセッションはデべロッパー向けのUX(User Experience)のセッションということで、 より実践的なテクニック、お作法についての話だった。</p>
+
+<p>リッチというのはただグラデーションなどを用いて見た目を綺麗にすることではなく、 様々な無駄を無くした結果の機能美でと考えたほうがよい。人とアプリケーションが情報をやり取りする方法は入力系と参照系に分けられる。</p>
+
+<p>入力系（個人情報の登録フォームなど）でできることは、入力作業の省力化であり、自動入力、入力補助（自動遷移、ショートカット、入力モード）などや、ヒューマンエラーの軽減とそのエラー通知の方法とタイミングなどを工夫すればエクスペリエンス向上につながる。</p>
+
+<p>参照系は情報を分かりやすく視覚化（見える化）すればよい話だが、曖昧さも生じてしまう問題。人によって求められる表現は千差万別で難しい。そういうときにWPFを使うと幾分か楽になるよという話。</p>
+
+<p>###【13-D-3】　リッチクライアント最前線</p>
+
+<p>Adobeの小島氏、Curlの三野氏、MSの春日井氏の三者を招いて、自社のリッチクライアントについてパネルディスカッションが行われた。各社、各技術に関しての簡単な説明と強み、またリッチとは何かついて討論していた。 まぁ、時間も時間だけに、突っ込んだ話もできず終わってしました印象。</p>
+
+<p>SilverlightとAIRがほぼ同時期に出たことにより、世間では2つが対抗する技術と思われているが、実際はSilverlightはブラウザのプラグインでAIRというよりFlashに対抗する技術であり、AIRと対抗するのはMSで言えば、.NET(WPF)であることを勘違いしないでねと言ってた。</p>
+
+<p>###【13-C-4】　ＸＭＬデータベースというカンブリア爆発とその行方</p>
+
+<p>このセッションは寝ちゃった。XMLに関してはなんとなく分かるが、DBに関してはまったくの無知なので、あまり興味がもてず。。。</p>
+
+<p>とりあえず、XMLDBは柔軟なDBだよ！ってことは分かった。</p>
+
+<h3 id="13-d-5-次世代ウェブフレームワークの幕開け-ステートフルはじめました-君が僕を望むなら僕は君を忘れない:70b81ea25fa517dc54b04ecf1a550444">【13-D-5】　次世代ウェブフレームワークの幕開け～ステートフルはじめました/君が僕を望むなら僕は君を忘れない～</h3>
+
+<p>開始20分くらいは僕の知識不足から一体何に関してしゃべってるのかわからなかった。ステートフルということは状態を持っている、てことはわかったけど、だからなんだという話だ！</p>
+
+<p>フレームワークに関しても1度たりとも聞いたことのない名前ばかり、かなり冷や汗がでた。後半、ようやくサーバサイドのJavaの話かと理解する。当たり前だけど、まだまだ知らないことが多いってことを痛感するとともに、 RIA関連だからといってたかをくくってた自分が情けないと思う。 とはいえ、講師の<a href="http://yoshiori.org/blog/">Yoshiori</a>さんの親身なプレゼンは好感が持てたし、熱い人だった。</p>
+
+<h3 id="13-d-6-いよいよ現実となるria-on-desktop-君はこの流れについてこれるか:70b81ea25fa517dc54b04ecf1a550444">【13-D-6】いよいよ現実となるRIA on Desktop。　君はこの流れについてこれるか？</h3>
+
+<p>AIRの事例を紹介。 待望のAIR1.0正式リリースは数週間以内になるとのこと。
+まず英語版（ヨーロッパ言語）がリリース、そのさらに数週間後に日本語版がリリースの予定。</p>
+
+<p><strong>AIRの事例</strong></p>
+
+<ul>
+<li><a href="http://weblift.jp/">Web私書箱β</a></li>
+<li><a href="http://japan.cnet.com/news/media/story/0,2000056023,20360280,00.htm">楽天デスクトップアプケーション</a></li>
+<li><a href="http://www.itmedia.co.jp/enterprise/articles/0710/30/news011_2.ht">経営コックピットシステム</a></li>
+<li><a href="http://ascii.jp/elem/000/000/081/81885/">ASKUL DESKTOP</a></li>
+</ul>
+
+<p>AIRはWin/Macに対応、その後Linuxにも対応予定。 今までの技術が使える（HTML,JavaScript,Ajax,Flash,Flexなど）イメージとしてはそれらのファイル全部zipにまとめてアプリケーションにするといった感じ。</p>
+
+<p>開発環境としては</p>
+
+<ul>
+<li>Flex Builder 3</li>
+<li>Flash/Dreamweaverの機能拡張</li>
+<li>無料のAIR SDK</li>
+</ul>
+
+<p>またAIRはバイナリ通信ができるため既存のAjaxにくらべ4倍早いということ。 Flexを使った簡単なコーディングのデモンストレーションを披露。</p>
+
+<p><strong>参考サイト</strong></p>
+
+<ul>
+<li><a href="http://www.fxug.net/">Flex User Group</a></li>
+<li><a href="http://weblogs.macromedia.com/akamijo/">Akihiro Kamijo Blog</a></li>
+</ul>
+
+<h3 id="13-d-7-javascript-tips-technique:70b81ea25fa517dc54b04ecf1a550444">【13-D-7】　JavaScript Tips &amp; Technique</h3>
+
+<p>amachangさんに関してはいろいろと<a href="http://d.hatena.ne.jp/HolyGrail/20080214/1202995743">他のブログ</a>でも書いてあると思うので省略。</p>
+
+<p>個人的にはあともうちょっとで、素人なりに、 『あ～、JSってそういうこと～！』って分かりそうな分からないようなもどかしい状態にはなった。まだまだ勉強しなきゃね、JavaScript。</p>
+
+<h3 id="1日目まとめ:70b81ea25fa517dc54b04ecf1a550444">1日目まとめ</h3>
+
+<p>メモの内容を見てもらえば分かるように、後半に行くほどだらけてしまった。とはいえ、１セッションあたり50分というのは、僕にとってはテンポがよかった（途中寝てしまったけど）</p>
+
+<p>また、１日でパネルディスカッションも合わせれば10人のプレゼンスタイルが見れたわけで、大変参考になった。やはり、皆それぞれスタイルがある。</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/devsumi-part2/"> デブサミ2008 Day2</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/history-of-japanese/"> 日本語の歴史 山口 仲美</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

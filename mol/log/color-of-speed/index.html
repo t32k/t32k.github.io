@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>【翻訳】色のスピード &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">Blog</a>
+    <a href="/">About</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Thursday, December 9, 2010</time></p>
+            <h1 class="post-h1 m-0">【翻訳】色のスピード</h1>
+            <h4 class="t-hint">The Color of Speed</h4>
+        </header>
+        <section>
+            <p>色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。</p>
+
+<p><cite class="citation">
+<img src="/mol/images/people/tim_kadlec.jpg" alt="Steve Souders" />
+
+原文：<a href="http://timkadlec.com/2010/12/the-color-of-speed/">The Color of Speed</a>（<time>2010-12-02</time>）by <a href="http://timkadlec.com/">Tim Kadlec</a>
+</cite></p>
+
+<p>3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。</p>
+
+<p>そのような1つの要因として色が挙げられる。様々な色相・明度・彩度は人間の体感時間に関わるすべてに影響する。一般的に、ユーザーが待ち時間の間にいかにストレスになっていたか、リラックスしていたのかと関係してくる。リラックスした状態になればなるほど待ち時間は短く感じられる。これは、ストレスを感じているユーザーがまるで遅いサイトと感じている一方で、リラックスしたユーザーは同じサイトだけれども反応が良いと感じる可能性がある。</p>
+
+<p>それで、私たちはリラックした状態を色を使ってどのように引き起こしたらよいのだろうか？まず第一に、ユーザーの最もリラックスした状態を引き出すために青系の色を選ぶことができる。対照的に、黄、赤系の色は刺激を与えるので、ストレスにつながる。特に赤色は逃避や失敗といった感情を引き起こし、さらに強いレベルでのストレスとにつながる。</p>
+
+<p>他の考慮すべきこととして、彩度が挙げられる。低彩度な色を見たユーザーは高彩度を見たユーザーよりもリラックスした状態が観察された。この効果は、コントラストが強い環境（コンピュータ画面のような）において、より顕著になる。</p>
+
+<p>最後に、明度について私たちは考えなければならない、パステルカラー（高明度）はリラックスした状態をもたらすので、低明度（暗い色）な色よりも体感時間を短くすることができる。</p>
+
+<p>これらの知識を使えば、私たちは本質的に速さをほのめかすデザインができ、反応のよい体験をユーザーに提供できる。決して、これはサイトのパフォーマンスをチューニングする作業に置き換わるものではない。しかしながら、もしこれらの知識をパフォーマンス最適化の技術と一緒に利用すれば、実測値と同じくらい速く感じるサイトを作成可能で、ユーザーの体験をより最適化できるだろう。</p>
+
+<hr />
+
+<p>実験データなどの参照元が明記されてなかったので、鵜呑みにするのはちょっと抵抗ありますが、本文自体も、あくまで色だけで速くできるのではなく、HTTPリクエストを減らすとかそういった基本的なパフォーマンス対策をおこなった上でのさらなる対策として提示していますので、青色にしたからといって万事OKなわけではありませんｗ</p>
+
+<p>色とスピードに関しては、Yahoo!のエンジニアでパフォーマンスについても講演している@stoyanstefanovもブログで以下のようなことを記述しています。</p>
+
+<blockquote>
+<p>Google Reader used to have this blue background on the left hand side menu (where the list of feeds is), but it&rsquo;s now white. Turns out they made a user study to ask people what they think given the two options and nothing else changed in the app. People consistently said that the version with the white background was faster, although it&rsquo;s the same page. How crazy is this?</p>
+</blockquote>
+
+<ul>
+<li><a href="http://www.phpied.com/psychology-of-performance/">Psychology of performance / Stoyan&rsquo;s phpied.com</a></li>
+</ul>
+
+<p>Google Readerで青背景から白背景に変更した例を挙げています。なぜ白い色にしたのかというとユーザーが白色のほうが速いと感じたからそうです。青系の色はリラックスさせるのでパフォーマンス的に有効だと翻訳した記事には書いてありましたが、まぁ白色は明度は高いですし、背景以外のバーなど青色基調ですし、理にかなっているかなと思います。</p>
+
+<p>そうでなくても、Googleは全体を通して白地にブルーのイメージがあります。あ、速いと噂の Facebookもそういえば青色基調ですね。彼らはそういった点も気づいているのかもしれませんね。</p>
+
+<p>個人的な考えを述べるのであれば、Webパフォーマンスは数年前と比べて改善されてきています。以前はサイトの応答速度の8秒ルールといったものがありましたが、現在では4秒、3秒といったことが言われおり、どんどん0に近づいてきています。つまり、これ以上ない限界が見えはじめてきた現在では、他のサイトとパフォーマンス（秒数）を競いあっても数百、数十ミリ秒の違いしか出せなくなってきています。そういった面からみれば、こういった人間の心理・知覚から考えて差別化するのも重要なパフォーマンス対策になってくるのかなと考えます。（この辺に関しては、こちらを参照：<a href="/mol/log/long-life-web-performance-optimization/">心理学から考えるWebパフォーマンス</a>）</p>
+
+<p>そうゆうわけで、Webデザイナーさんは制作しているサイトのブランドイメージにこれらの知識が応用できるのであれば採用すれば良いと思いますよ。（ブランドイメージをねじ曲げてまで対応する必要はないと思いますけど）</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/the-naked-presenter/"> The Naked Presenter</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/mac-mini-mid-2010-8gb-memory/"> Mac mini (Mid 2010) メモリ増設（8GB）</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Translate on MOL</title>
+    <link>http://localhost:1313/mol/categories/translate/</link>
+    <description>Recent content in Translate on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Wed, 11 Apr 2012 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/mol/categories/translate/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>【翻訳】document.writeでSCRIPTを書き出すなやで！</title>
+      <link>http://localhost:1313/mol/log/dont-docwrite-scripts/</link>
+      <pubDate>Wed, 11 Apr 2012 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/dont-docwrite-scripts/</guid>
+      <description>&lt;p&gt;&lt;cite class=&#34;citation&#34;&gt;
+&lt;img src=&#34;/mol/images/people/steve_souders.jpg&#34; alt=&#34;Steve Souders&#34; /&gt;
+
+原文：&lt;a href=&#34;http://www.stevesouders.com/blog/2012/04/10/dont-docwrite-scripts/&#34;&gt;Don’t docwrite scripts&lt;/a&gt;（&lt;time&gt;2012-04-10&lt;/time&gt;）by &lt;a href=&#34;http://stevesouders.com/&#34;&gt;Steve Souders&lt;/a&gt;
+&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;昨日のブログ記事の&lt;a href=&#34;http://www.stevesouders.com/blog/2012/04/09/making-the-http-archive-faster/&#34;&gt;HTTP Archiveが速くなっている&lt;/a&gt;、大きな要因の一つとしてはスクリプトローダーを&lt;strong&gt;使用しない&lt;/strong&gt;ことです。そのスクリプトローダーとはスクリプトを動的に読み込むためにdocument.writeを使用しているものです。振り返れば、私は2009年4月の&lt;a href=&#34;http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/&#34;&gt;ブロッキングなしのスクリプト読み込み&lt;/a&gt;、&lt;a href=&#34;http://www.amazon.co.jp/dp/4873114462/&#34;&gt;続・ハイパフォーマンスWebサイト(4章)&lt;/a&gt;において、document.writeテクニックについて記述していました。それは以下のようなものです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;document.write(&#39;&amp;lt;script src=&amp;quot;&#39; + src + &#39;&amp;quot; type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;lt;\/script&amp;gt;’);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;document.writeを使ったスクリプトローダーの問題点：
+&lt;ul&gt;
+    &lt;li&gt;挿入したスクリプトより下の全てのDOM要素はスクリプトのダウンロードが完了するまでレンダリングがブロックされます。 (&lt;a href=&#34;http://stevesouders.com/cuzillion/?c0=bi1hfff0_0_f&amp;amp;c1=bj1wfff4_0_f&amp;amp;c2=bi1hfff0_0_f&#34;&gt;example&lt;/a&gt;).&lt;/li&gt;
+    &lt;li&gt;また、ほかの動的読み込みもブロックします (&lt;a title=&#34;document.write script blocks async script&#34; href=&#34;http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;amp;c1=bj1dfff2_0_f&#34;&gt;example&lt;/a&gt;)。例外としては、複数のスクリプトが同一のSCRIPTブロック内にdocument.writeを使用して注入された場合です(&lt;a title=&#34;Two document.write scripts in one SCRIPT block&#34; href=&#34;http://stevesouders.com/cuzillion/?c0=hj1wfff2_0_f&amp;amp;c1=hj1wfff2_0_f&#34;&gt;example&lt;/a&gt;)。&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;document.writeを使用したスクリプトローダーのため、私が最適化しようとしたページのレンダリングは遅れ、同じページ内の他の非同期スクリプトに関しても読み込みに時間がかかるようになりました。私はこのスクリプトローダーをはずし、非同期にスクリプトを読み込むために代わりのコードを書きました。それはGoogle アナリティクスの非同期スニペットで有名になった createElement-insertBefore パターンです。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var sNew = document.createElement(&amp;quot;script&amp;quot;);
+sNew.async = true;
+sNew.src = &amp;quot;http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js&amp;quot;;
+var s0 = document.getElementsByTagName(&#39;script&#39;)[0];
+s0.parentNode.insertBefore(sNew, s0);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;なぜdocument.writeによる非同期読み込みはこのような悪いパフォーマンスになってしまうのでしょうか？&lt;/p&gt;
+
+&lt;p&gt;順を追って考えて見れば、そんなに不思議なことではありません。通常のマークアップによるSCRPT SRC=読み込みは後続のDOM要素のレンダリングを止めることを既に私たち知っています。また、スクリプト実行段階を抜ける前にdocument.writeは評価され、その後、ページのパースが再開されることも理解しています。したがって、通常のSCRPT SRC=をスニペットとした document.writeテクニックは残りのページのレンダリングをブロックしてしまいます。&lt;/p&gt;
+
+&lt;p&gt;反対に、createElement-insertBeforeテクニックはレンダリングを&lt;strong&gt;ブロックしません&lt;/strong&gt;。事実、document.writeでcreateElement-insertBefore スニペットを生成しても、そのときレンダリングはブロックされません。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.stevesouders.com/blog/2009/04/27/loading-scripts-without-blocking/&#34;&gt;ブロッキングなしのスクリプト読み込み&lt;/a&gt;記事での私の結論はスクリプトロード手法を選択するための&lt;a href=&#34;http://stevesouders.com/efws/images/0405-load-scripts-decision-tree-04.gif&#34;&gt;決定木&lt;/a&gt;を使用することです。そうすれば異なるシナリオにおいてどの非同期読み込みテクニックを選択するか困らないでしょう。また注意深く見れば、document.writeの使用は決して推奨されないこともお分かりになるでしょう。Webの世界はたいへん多くのものが移り変わりますが、私が2009年に出したアドバイスは今日においても正しいのです。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;改めて、続・ハイパフォーマンスWebサイトを読んでみるとdocument.writeテクニックはIEのときだけ並列ダウンロードされますと書いてある。しかもスクリプトのダウンロード中は他のリソースはブロックされるとも書いてあり、そもそも使う用途が限定的だなと印象。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【翻訳】サイトカタリストとGoogle アナリティクスの比較</title>
+      <link>http://localhost:1313/mol/log/omniture-sitecatalyst-vs-google-analytics/</link>
+      <pubDate>Wed, 22 Feb 2012 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/omniture-sitecatalyst-vs-google-analytics/</guid>
+      <description>
+
+&lt;p&gt;&lt;cite class=&#34;citation&#34;&gt;
+原文：&lt;a href=&#34;http://www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945&#34;&gt;Omniture SiteCatalyst vs. Google Analytics&lt;/a&gt;（&lt;time&gt;2011-05-03&lt;/time&gt;）by &lt;a href=&#34;http://stevesouders.com/&#34;&gt;Semetis&lt;/a&gt;
+&lt;/cite&gt;&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;
+&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/7814945&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;//www.slideshare.net/Semetis/omniture-sitecatalyst-vs-google-analytics-an-objective-comparison-7814945&#34; title=&#34;Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison&#34; target=&#34;_blank&#34;&gt;Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;//www.slideshare.net/Semetis&#34; target=&#34;_blank&#34;&gt;Semetis&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;implementation:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Implementation&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;複雑な実装（evars, props&amp;hellip;）&lt;/li&gt;
+&lt;li&gt;カスタマイズの必要性&lt;/li&gt;
+&lt;li&gt;要：テクニカルスーパーバイザー&lt;/li&gt;
+&lt;li&gt;メンテナンスのために要：ITサポート&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;→ かなり複雑（実装&amp;amp;メンテナンス）&lt;br /&gt;
+ → セットアップに週/月単位でかかる&lt;br /&gt;
+ → 非常に高価なソリューション￥￥￥&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;すべてのページに（ユニークな）1つのタグを入れるだけ&lt;/li&gt;
+&lt;li&gt;オプション実装が可能
+
+&lt;ul&gt;
+&lt;li&gt;カスタム変数&lt;/li&gt;
+&lt;li&gt;イベントトラッキング&lt;/li&gt;
+&lt;li&gt;仮想ページビュー&lt;/li&gt;
+&lt;li&gt;Eコマース, &amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;→ 基本的な実装は簡単（1日もかからない）&lt;br /&gt;
+ → 高度な実装に関してはそれなりに複雑&lt;br /&gt;
+ → 無料であり、すべての人が使える&lt;/p&gt;
+
+&lt;h2 id=&#34;input:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Input&lt;/h2&gt;
+
+&lt;h3 id=&#34;input-traffic-filtering:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Input: Traffic filtering&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;フィルタリングオプションに制限がある&lt;/li&gt;
+&lt;li&gt;いくつかのフィルタは追加のコスト発生&lt;/li&gt;
+&lt;li&gt;フィルタはプロファイルではなくレポート毎に設定する必要がある&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;あらかじめ定義したカスタムフィルタをプロファイルレベルで適用可能&lt;/li&gt;
+&lt;li&gt;簡単な設定&lt;/li&gt;
+&lt;li&gt;例：IP除外、サイトの一部分だけ含める、特定の地域だけ含めるなど&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;input-tracking-traffic-sources-campaigns:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Input: Tracking – Traffic sources/Campaigns&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;トラッキングコードはすべてのリンクに設定しなければならない&lt;/li&gt;
+&lt;li&gt;その時、トラッキングコードをSiteCatalystレポート上で確認するために分類用のファイルを送信しなければならない（SAINT 分類） 追加のステップとしてキャンペーントラッキングも同様&lt;/li&gt;
+&lt;li&gt; AdWordsの費用データはトラッキングコードに統合されていない&lt;/li&gt;
+&lt;li&gt;Google AdWordsとの統合はこれまた追加のコストでAdobe SearchCenterというのが存在&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;費用データも含めてGoogle Adowordsとの完全なる統合（無料）&lt;/li&gt;
+&lt;li&gt;その他のリンク（バナーやメルマガ&amp;hellip;）もまた、キャンペーン名やソース、メディアを含んだurmパラメータで手動でトラッキングすべき&lt;/li&gt;
+&lt;li&gt;フィルタを使用することでレポート上でリネームや複数のキャンペーン/流入元をまとめることが可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;input-tracking-goals-events-custom-variables:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Input: Tracking – Goals/Events/Custom Variables&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;複数の変数をトラッキング可能、いくつかの計算指標ではブレイクダウンでレポート可能&lt;/li&gt;
+&lt;li&gt;カスタムイベント、コンバージョン、トラフィック（要：カスタマイズ実装）をトラッキング可能&lt;/li&gt;
+&lt;li&gt;CVファネルレポートはSCレポートインターフェース上からセットアップ可能（イベント指標に関して。計算指標はできない）&lt;/li&gt;
+&lt;li&gt;ファネルレポートは事前に設定する必要はなく遡って評価可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ゴール設定は特に実装の手間はない（URLベースのため）&lt;/li&gt;
+&lt;li&gt;ファネルパスとビジュアリゼーションレポートの設定は追加のコード実装無しで簡単にセットアップ可能&lt;/li&gt;
+&lt;li&gt;ファネルレポートは過去に遡れない&lt;/li&gt;
+&lt;li&gt;Eコマーストラッキングは追加のタグ実装が必要&lt;/li&gt;
+&lt;li&gt;カスタム変数（最大で5つ）とイベントトラッキングは異なるセグメントやインタラクションタイプをトラッキング可能&lt;/li&gt;
+&lt;li&gt;イベントをゴールとして設定できる（新GA）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;interpretation:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Interpretation&lt;/h2&gt;
+
+&lt;h3 id=&#34;interpretation-metrics:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Interpretation: Metrics&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;指標の計算が可能。これらの指標はSC上で事前に定義された重要指標（例：直帰率、離脱率、ページビュー/訪問数、訪問者あたりの訪問数、ランディングページ、イベントコンバージョンレート,&amp;hellip;）とは別の重要指標として定義が可能&lt;/li&gt;
+&lt;li&gt;データウェアハウス全ての生データを蓄積可能、カスタム・複雑なレポートも実行可能(72時間はかかる)&lt;/li&gt;
+&lt;li&gt;クリックスルー、インスタンスはデフォルトの指標として使用される&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;指標を計算することができない&lt;/li&gt;
+&lt;li&gt;しかし、最も重要な指標に関してはGAで事前に定義されておりすべての（カスタム）レポートで閲覧可能&lt;/li&gt;
+&lt;li&gt;訪問は最も使用されるデフォルト指標&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;interpretation-dashboards:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Interpretation: Dashboards&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;いちから作成可能&lt;/li&gt;
+&lt;li&gt;ダッシュボードは全てのレポートを取り込むことが可能&lt;/li&gt;
+&lt;li&gt;フィルタとセグメント設定も保持可能&lt;/li&gt;
+&lt;li&gt;複数のフォーマットで共有可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最大でプロファイルごとに20ダッシュボードまで作成可能&lt;/li&gt;
+&lt;li&gt;ユーザーフレンドリーで簡単にカスタマイズ可能&lt;/li&gt;
+&lt;li&gt;ダッシュボードレポートにもフィルタが適用されるようになった&lt;/li&gt;
+&lt;li&gt;新GAでは一瞬で他のユーザーへ複製が可能&lt;/li&gt;
+&lt;li&gt;複数のフォーマットで共有可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;interpretation-on-site-performance-reporting:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Interpretation: On-site performance reporting&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst (・∀・) GOOD!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;柔軟なカスタムレポートで訪問者の行動を分析可能&lt;/li&gt;
+&lt;li&gt;ページレベルの遷移、累積的なパスレポート&lt;/li&gt;
+&lt;li&gt;内部キャンペーンのためのトラッキングコード追加可能（分類ファイルは不要）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics (´・ω・｀) BAD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;指定したページの前後しか分析できない&lt;/li&gt;
+&lt;li&gt;ページ内（例：ヘッダー、メニュー&amp;hellip;）のインタラクションはイベントトラッキングで評価可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;other-differentiating-specificities:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Other Differentiating Specificities&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;SiteCatalyst&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;カスタマイズ性が高い（ユーザー行動、ネガティブ分析, &amp;hellip; ）&lt;/li&gt;
+&lt;li&gt;サードパーティや外部システムとの統合（SAINT classification）&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;Data Sources&amp;rdquo;経由でデータのインポートが可能（インポート後は削除できない）&lt;/li&gt;
+&lt;li&gt;ページ遷移:ページレベルの遷移と累積的なパスレポート（GAは前後しか見れない）&lt;/li&gt;
+&lt;li&gt;カスタマーサポート&lt;/li&gt;
+&lt;li&gt;計算指標&lt;/li&gt;
+&lt;li&gt;複数サイトで同様のレポートが比較可能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Google Analytics&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;生データの利用性、フィルタオプションの拡張性によって複数のプロファイルを作成可能&lt;/li&gt;
+&lt;li&gt;簡単なCVファネルレポート vs. SCのフォールアウトレポートとイベントコンバージョンファネル&lt;/li&gt;
+&lt;li&gt;追加のタグ実装なしでのGoogle AdWordsとの統合&lt;/li&gt;
+&lt;li&gt;簡単に使える！しかも理解しやすい！&lt;/li&gt;
+&lt;li&gt;共有設定が簡単（但しサブセットデータのみ）&lt;/li&gt;
+&lt;li&gt;新・ベータバージョンの機能&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;conclusions:86b4e01eff31a98245a480d935edc2e0&#34;&gt;Conclusions&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;もし、ある解析ツールから他のツールへ変更するならば、これまでに貯めたデータはあきらめなければならない&lt;/li&gt;
+&lt;li&gt;新たな機能は移行コストに見合うものですか？またこれからも投資し続けますか（SiteCatalyst）？&lt;/li&gt;
+&lt;li&gt;決定は見積もり次第です
+
+&lt;ul&gt;
+&lt;li&gt;実装コストは？&lt;/li&gt;
+&lt;li&gt;新たなデータの解釈の必要性は？&lt;/li&gt;
+&lt;li&gt;導入するためのリソースと時間は？&lt;/li&gt;
+&lt;li&gt;サードパーティのデータとの連携によるポテンシャルは？（統合の必要性）&lt;/li&gt;
+&lt;li&gt;自社の要件とSLAの条件は？&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;というわけで、2011年5月のスライドということでちょいちょい古い部分もありますが、なんとなく理解。これにGoogleアナリティクスPremiumとかも入ってくると話は変わってくるだろうなと。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【翻訳】色のスピード</title>
+      <link>http://localhost:1313/mol/log/color-of-speed/</link>
+      <pubDate>Thu, 09 Dec 2010 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/color-of-speed/</guid>
+      <description>&lt;p&gt;色とWebパフォーマンスという奇妙な組み合わせの面白い記事を見つけたので紹介をば。&lt;/p&gt;
+
+&lt;p&gt;&lt;cite class=&#34;citation&#34;&gt;
+&lt;img src=&#34;/mol/images/people/tim_kadlec.jpg&#34; alt=&#34;Steve Souders&#34; /&gt;
+
+原文：&lt;a href=&#34;http://timkadlec.com/2010/12/the-color-of-speed/&#34;&gt;The Color of Speed&lt;/a&gt;（&lt;time&gt;2010-12-02&lt;/time&gt;）by &lt;a href=&#34;http://timkadlec.com/&#34;&gt;Tim Kadlec&lt;/a&gt;
+&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;3秒間は必ずしも3秒とは限らない。私たちの時間感覚は、一見無関係に思える要因によって大いに歪められており、3秒間を5秒と感じたり、もしくは1秒と感じるのは容易なことだ。最終的に、ユーザーが私たちのサイトをどのくらい速いと感じるかが問題なので、各種統計情報に関係なく、私たちはユーザーの知覚に影響する外的要因について深く理解する必要性がある。&lt;/p&gt;
+
+&lt;p&gt;そのような1つの要因として色が挙げられる。様々な色相・明度・彩度は人間の体感時間に関わるすべてに影響する。一般的に、ユーザーが待ち時間の間にいかにストレスになっていたか、リラックスしていたのかと関係してくる。リラックスした状態になればなるほど待ち時間は短く感じられる。これは、ストレスを感じているユーザーがまるで遅いサイトと感じている一方で、リラックスしたユーザーは同じサイトだけれども反応が良いと感じる可能性がある。&lt;/p&gt;
+
+&lt;p&gt;それで、私たちはリラックした状態を色を使ってどのように引き起こしたらよいのだろうか？まず第一に、ユーザーの最もリラックスした状態を引き出すために青系の色を選ぶことができる。対照的に、黄、赤系の色は刺激を与えるので、ストレスにつながる。特に赤色は逃避や失敗といった感情を引き起こし、さらに強いレベルでのストレスとにつながる。&lt;/p&gt;
+
+&lt;p&gt;他の考慮すべきこととして、彩度が挙げられる。低彩度な色を見たユーザーは高彩度を見たユーザーよりもリラックスした状態が観察された。この効果は、コントラストが強い環境（コンピュータ画面のような）において、より顕著になる。&lt;/p&gt;
+
+&lt;p&gt;最後に、明度について私たちは考えなければならない、パステルカラー（高明度）はリラックスした状態をもたらすので、低明度（暗い色）な色よりも体感時間を短くすることができる。&lt;/p&gt;
+
+&lt;p&gt;これらの知識を使えば、私たちは本質的に速さをほのめかすデザインができ、反応のよい体験をユーザーに提供できる。決して、これはサイトのパフォーマンスをチューニングする作業に置き換わるものではない。しかしながら、もしこれらの知識をパフォーマンス最適化の技術と一緒に利用すれば、実測値と同じくらい速く感じるサイトを作成可能で、ユーザーの体験をより最適化できるだろう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;実験データなどの参照元が明記されてなかったので、鵜呑みにするのはちょっと抵抗ありますが、本文自体も、あくまで色だけで速くできるのではなく、HTTPリクエストを減らすとかそういった基本的なパフォーマンス対策をおこなった上でのさらなる対策として提示していますので、青色にしたからといって万事OKなわけではありませんｗ&lt;/p&gt;
+
+&lt;p&gt;色とスピードに関しては、Yahoo!のエンジニアでパフォーマンスについても講演している@stoyanstefanovもブログで以下のようなことを記述しています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Google Reader used to have this blue background on the left hand side menu (where the list of feeds is), but it&amp;rsquo;s now white. Turns out they made a user study to ask people what they think given the two options and nothing else changed in the app. People consistently said that the version with the white background was faster, although it&amp;rsquo;s the same page. How crazy is this?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.phpied.com/psychology-of-performance/&#34;&gt;Psychology of performance / Stoyan&amp;rsquo;s phpied.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Google Readerで青背景から白背景に変更した例を挙げています。なぜ白い色にしたのかというとユーザーが白色のほうが速いと感じたからそうです。青系の色はリラックスさせるのでパフォーマンス的に有効だと翻訳した記事には書いてありましたが、まぁ白色は明度は高いですし、背景以外のバーなど青色基調ですし、理にかなっているかなと思います。&lt;/p&gt;
+
+&lt;p&gt;そうでなくても、Googleは全体を通して白地にブルーのイメージがあります。あ、速いと噂の Facebookもそういえば青色基調ですね。彼らはそういった点も気づいているのかもしれませんね。&lt;/p&gt;
+
+&lt;p&gt;個人的な考えを述べるのであれば、Webパフォーマンスは数年前と比べて改善されてきています。以前はサイトの応答速度の8秒ルールといったものがありましたが、現在では4秒、3秒といったことが言われおり、どんどん0に近づいてきています。つまり、これ以上ない限界が見えはじめてきた現在では、他のサイトとパフォーマンス（秒数）を競いあっても数百、数十ミリ秒の違いしか出せなくなってきています。そういった面からみれば、こういった人間の心理・知覚から考えて差別化するのも重要なパフォーマンス対策になってくるのかなと考えます。（この辺に関しては、こちらを参照：&lt;a href=&#34;/mol/log/long-life-web-performance-optimization/&#34;&gt;心理学から考えるWebパフォーマンス&lt;/a&gt;）&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、Webデザイナーさんは制作しているサイトのブランドイメージにこれらの知識が応用できるのであれば採用すれば良いと思いますよ。（ブランドイメージをねじ曲げてまで対応する必要はないと思いますけど）&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>【翻訳】Facebookのデザイン</title>
+      <link>http://localhost:1313/mol/log/design-at-facebook/</link>
+      <pubDate>Sun, 22 Nov 2009 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/design-at-facebook/</guid>
+      <description>
+
+&lt;p&gt;&lt;cite class=&#34;citation&#34;&gt;
+原文：&lt;a href=&#34;http://www.lukew.com/ff/entry.asp?879&#34;&gt;Design at Facebook&lt;/a&gt;（&lt;time&gt;2009-04-26&lt;/time&gt;）by Luke Wroblewski
+&lt;/cite&gt;&lt;/p&gt;
+
+&lt;p&gt;パロ・アルト本社にて、Facebookデザインチームの理念や2.5億人にも及ぶユーザーに対してのデザインアプローチを確認し合った。彼らはコードを書くことの重要性、デザインを早い段階でこまめに共有すること、最初から最後までプロジェクトに関わること、そして自らの仕事に固執しないことを力説した。デザイナーがコードを書くのに十分にテクニカルであると確認した。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Facebookデザインチームはプロダクトデザイン、マーケティング、UIパターン、ブランディングやフロントエンドのコーディングに取り組んでいる。チームは、15人のプロダクトデザイナー、5人のUIエンジニア、5人のUXリサーチャー、4人のコミュニケーションデザイナーと、1人のコンテンツストラテジストからなる。1000人の従業員あたり25人のデザイナーがいる。&lt;/li&gt;
+&lt;li&gt;フロントエンドコーディングはエンジニア文化にデザインを結びつける。&lt;/li&gt;
+&lt;li&gt;2.5億人のユーザーのためにどのようにチームはデザインをしているのか？4つの仮説：最初から最後まで携わること、早くまめに共有すること、泥臭いこともやる、愛着を持たない。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;1-デザイナーは戦略からローンチの瞬間までそこにいる必要がある-これは他の企業とは異なる:2b83af5f8b3910ab5ec13b28a267626a&#34;&gt;1) デザイナーは戦略からローンチの瞬間までそこにいる必要がある。これは他の企業とは異なる。&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Facebookはデザイナーが最初から最後まで立ち会うのを確認することに多くの時間を費やす。&lt;/li&gt;
+&lt;li&gt;例：3月に公開されたホームページのリデザイン。単純化し、情報をあちこち探さなくてもいいように合理化する必要があった。これはデータ構造とビジュアル構造を含んだ問題だ。&lt;/li&gt;
+&lt;li&gt;ビジョンが決定された後、スケッチを作るためにコードを書き始めた。コードでデザインすることで実際のデータがレイアウトの中でどのように動くのか簡単に理解できる。&lt;/li&gt;
+&lt;li&gt;安定したトレードオフ - ホームページのデザインについて、インタラクションやビジュアルの詳細まで繰り返し調査をした。&lt;/li&gt;
+&lt;li&gt;会議に様々なチームを席につかせるために：デザインを伝えるためにモックアップを用意した。大抵の場合、静的なデザインはお勧めしない。&lt;/li&gt;
+&lt;li&gt;コードを書けるデザイナーを持つことは理解と実装を早めることができる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;2-こまめに共有する-チームでユーザーヘルプを共有すればデザインがより良くなる:2b83af5f8b3910ab5ec13b28a267626a&#34;&gt;2) こまめに共有する。チームでユーザーヘルプを共有すればデザインがより良くなる。&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Facebookにクリエィティブディレクターはいない、その代わりにボトムアッププロセスの採用で調整をしている。つまり、自分たちが何をしているのか共有することはチームにとって重要な意味を持つ。&lt;/li&gt;
+&lt;li&gt;自社開発されたツールを共有することはもっと効果的だ。Pixelcloudと呼ばれるツールはオンライン上のコメント付きギャラリーだ。3月のリリース以来、1日毎に15の画像が追加されている。&lt;/li&gt;
+&lt;li&gt;ワーキンググループはビジュアルデザインをカバーし、フロントエンドコーディングはFacebookのデザインの一貫性を維持するのに役立つ。すべてのワーキンググループは残りのデザイナーにフィードバックを知らせる時間を与えられている。&lt;/li&gt;
+&lt;li&gt;例：プライバシーウィザードのデザイン。キックオフの段階で12人のユーザーを招いプロジェクトの方向性を理解するために30のモックアップを見せた。開発段階においてはもうちょっと少ないユーザーに7個のモックアップを見せた。&lt;/li&gt;
+&lt;li&gt;フィードバックは良いことだ。できるだけ早くできるだけ多くを得るべき。時間を節約できる。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;3-泥臭いこともやる-webのコードがどのように動いているのか理解することは重要だ-全てのデザイナーはhtml-cssを書くことができる-あと-たぶんphpも:2b83af5f8b3910ab5ec13b28a267626a&#34;&gt;3) 泥臭いこともやる。Webのコードがどのように動いているのか理解することは重要だ。全てのデザイナーはHTML/CSSを書くことができる。あと、たぶんPHPも。&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;デザインとエンジニアリングの関係を緩和させる。デザイナーはバグを作りがちだが、プロトタイプを早く作る。&lt;/li&gt;
+&lt;li&gt;デザイナーはシンプルにしすぎる傾向がある。エンジニアは機能をつけすぎる傾向がある。&lt;/li&gt;
+&lt;li&gt;この中間を理解することはデザインの役に立つ。&lt;/li&gt;
+&lt;li&gt;素早い対応は重要。Facebookは多くのエリアで競争をしていて、ユーザーのWebの使い方は常に変化している。これらに素早く対応していくことは極めて重要なことだ。&lt;/li&gt;
+&lt;li&gt;Facebookが信じるコアな部分、つまりプロダクトをユーザーがどのように使うか理解するために早くリリースすることは重要だということ。&lt;/li&gt;
+&lt;li&gt;モックアップは嘘っぱちだ、それらにはコンテンツと文脈が欠落している。デザインがどのように機能しているか理解するためにも実際のコンテンツ、ページデザインでのテストが求められている。&lt;/li&gt;
+&lt;li&gt;素早い対応をするためにはプロトタイプは早期に必要。例：ユーザーにリリースする前に内部でUIテストすることで批評を受け修正できる。The new design broke the existing scan line in the news stream.&lt;/li&gt;
+&lt;li&gt;Facebookのデザイナーは1週間におおよそ40コミットする。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;4-愛着を持つな-ソフトウェアは永遠ではない-常に変わり続けるものでありそれを受け入れる必要がある:2b83af5f8b3910ab5ec13b28a267626a&#34;&gt;4) 愛着を持つな。ソフトウェアは永遠ではない、常に変わり続けるものでありそれを受け入れる必要がある。&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ゴールは絶え間なく変化する。&lt;/li&gt;
+&lt;li&gt;現状満足でいれば、あなたは出遅れるだろう。デザイナーとして、これからの1年について考え、予測する必要がある。&lt;/li&gt;
+&lt;li&gt;Facebookで最も長い期間、変更しなかったデザインは2004年のトップページで、それは18ヶ月間だった。&lt;/li&gt;
+&lt;li&gt;例：グローバルナビゲーションのリデザイン。数ヶ月間かけて多くのアイデアを試した。昨日でさえ、サイトのヘッダーを変更した。&lt;/li&gt;
+&lt;li&gt;これまで以上に、私たちの仕事は終わらない。&lt;/li&gt;
+&lt;li&gt;ほとんどの機能がA/Bテストされている。前もって明確に評価指標を定義する。そして測定する。決して指標にデザインを決定させてはいけない。&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
