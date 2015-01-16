@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>UIRequiredDeviceCapabilities &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">MOL</a>
+    <a href="/">About</a>
+    <a href="/mol/log/">Logs</a>
+    <a href="/mol/categories/">Categories</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Wednesday, April 27, 2011</time></p>
+            <h1 class="post-h1 m-0">UIRequiredDeviceCapabilities</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <p><img class="alignnone size-full wp-image-2988" title="still-camera" src="/static/blog/2011/04/still-camera.png" alt="still-camera" width="470" height="105" /></p>
+
+<p>初リジェクトなう！ってことでiPhone Appの申請しましたが、めでたくリジェクトされました。大好きなあの子にリジェクトされるのは勘弁願いたいものですが、Appleなら俺何度でもアタックするよ！</p>
+
+<p>その理由はAppleさん律儀なコでして、ちゃんとどこが嫌なのか言ってくれます。そこを修正してもう一度トライすればいいんですよ。</p>
+
+<p>ってことで、今回は簡単に意訳すると、「テメーのアプリ、カメラ使うのにカメラが必要って書いてないじゃん！無理じゃん！！UIRequiredDeviceCapabilitiesでググッたらいいんじゃないの！？こんなサービスめったにしないんだからねっ！！！」ってな感じなことがrりんごちゃんの返答メールの行間から読み取れました。</p>
+
+<p>はい、メチャいい子です。早速、UIRequiredDeviceCapabilitieでググってみるといっぱい出てきました。みんな必ずぶち当たる登竜門みたいなもんですかね。
+<blockquote><span style="color: #000000;">Key: </span>UIRequiredDeviceCapabilities
+<span style="color: #000000;">Xcode name: </span>&ldquo;Required device capabilities”
+<span style="color: #000000;">Summary: </span>Specifies the device-related features required for the application to run. See “UIRequiredDeviceCapabilities” for details.
+<span style="color: #000000;">Availability: </span>iOS 3.0 and later</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html">Information Property List Key Reference</a></span></blockquote>
+はい、<a href="http://t32k.me/mol/log/ios-prerendered-icon/">アイコンのテカリを無くしたい時にも出ててきましたね</a>、Info.plistです。そのKeyにUIRequiredDeviceCapabilitieって書いて必要な機能埋めちゃいなよって書いてあります。</p>
+
+<p>その機能のリストが以下です。いろいろありますなー。</p>
+
+<p><strong><a href="http://developer.apple.com/library/ios/#documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW3">Dictionary keys for the UIRequiredDeviceCapabilities key</a></strong>
+<ul>
+    <li>telephony</li>
+    <li>wifi</li>
+    <li>sms</li>
+    <li>still-camera</li>
+    <li>auto-focus-camera</li>
+    <li>front-facing-camera</li>
+    <li>camera-flash</li>
+    <li>video-camera</li>
+    <li>accelerometer</li>
+    <li>gyroscope</li>
+    <li>location-services</li>
+    <li>gps</li>
+    <li>magnetometer</li>
+    <li>gamekit</li>
+    <li>microphone</li>
+    <li>opengles-1</li>
+    <li>opengles-2</li>
+    <li>armv6</li>
+    <li>armv7</li>
+</ul>
+今回のアプリでrequireな機能といえば、カメラ機能なのでstill-cameraを選択しました。スチールカメラね、写真撮る方のカメラね。
+<blockquote>Copy the info.plist to the root of your project and edit it from there. It will be copied over to the complied project from there.</p>
+
+<p><span style="font-size: x-small;"><a href="http://developer.appcelerator.com/question/43711/any-way-to-edit-the-uirequireddevicecapabilities-key-in-infoplist">Appcelerator Developer Center - Any way to edit the UIRequiredDeviceCapabilities key in Info.plist?</a></span></blockquote></p>
+
+<p><img class="fig" title="UIRequiredDeviceCapabilitie" src="/static/blog/2011/04/UIRequiredDeviceCapabilitie.png" alt="Required device capabilitie" width="470" height="108" /></p>
+
+<p>んで、TItanium Mobile のプロジェクトフォルダの、buid/iphone/Info.plistをルートディレクトリにコピーして、そのファイルでRequired device capabilitieの項目を作って必要な機能を記入してけばいいよ。2つも3つでも必要なだけ書けばいいお！</p>
+
+<p><blockquote>Custom Info.plist</p>
+
+<p>To use a custom Info.plist, copy the Info.plist from the build/iphone folder. If this folder does not exist, run your application in the simulator once and it should be created automatically. You&rsquo;ll want to copy the Info.plist file into the root directory of your project (at the same level as tiapp.xml). Whatever values are placed in your custom Info.plist will be used as-is by the Titanium compiler.</p>
+
+<p><span style="font-size: x-small;"><a href="http://wiki.appcelerator.org/display/guides/The+Application+Project+Structure#TheApplicationProjectStructure-CustomInfo.plist">The Application Project Structure - Documentation Guides - Appcelerator Wiki</a></span></blockquote>
+Info.plistをルートに持ってくるのは、そのままだとビルドするときに上書きしちゃって消えちゃうからしい。</p>
+
+<p><blockquote>tiapps.xmlでrequires要素を用いて、デバイス機能によるインストール制限に対応した。(UIRequiredDeviceCapabilities)</p>
+
+<p><span style="font-size: x-small;"><a href="http://d.hatena.ne.jp/donayama/20110224/ti160released ">Titanium Mobile 1.6.0がリリースされました - JP::HSJ::Junknews::HatenaSide</a></span></blockquote>
+んなことしなくても、どうやらTitanium Mobile 1.6からはtiapp.xmlで指定するっぽい。</p>
+
+<p>[xml]
+&lt;iphone&gt;
+　&lt;requires&gt;
+　　&lt;feature&gt;still-camera&lt;/feature&gt;
+　&lt;/requires&gt;
+&lt;/iphone&gt;
+[/xml]</p>
+
+<p>多分こんな感じでうまくいった、iphone要素なかにネストでrequires要素を作ってその中に必要なfeature(機能)を記述していく感じ。</p>
+
+<p>はい、そんなこんなで再申請しました。今度は通るといいな。</p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/nyars/"> WebデザイナーだけどiPhoneカメラアプリ、リリースできました！</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/communities-of-practice/"> Communities of Practice  - kanazawa.js結成までの軌跡 -</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

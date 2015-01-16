@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>Heroku Dropbox Syncで実現するWeb開発の未来 &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">MOL</a>
+    <a href="/">About</a>
+    <a href="/mol/log/">Logs</a>
+    <a href="/mol/categories/">Categories</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Saturday, December 13, 2014</time></p>
+            <h1 class="post-h1 m-0">Heroku Dropbox Syncで実現するWeb開発の未来</h1>
+            <h4 class="t-hint">Heroku Advent Calendar 2014 - Qita</h4>
+        </header>
+        <section>
+            
+
+<p><a href="http://qiita.com/advent-calendar/2014/heroku">Heroku Advent Calendar 2014</a>の13日目の記事です。</p>
+
+<p>2014年11月に<a href="https://blog.heroku.com/archives/2014/11/19/announcing_beta_dropbox_sync">HerokuからDropbox Sync機能のアナウンス（Beta版）</a>がありました。今日はこれを使ってみようと思います。</p>
+
+<p><small>この記事はBeta機能について解説しています。機能に関しては変更の可能性があります。</small></p>
+
+<h2 id="デザイナーとデプロイ:b7480bac813dd1dc3bd7cb37aec5cb78">デザイナーとデプロイ</h2>
+
+<p>まず先に私とHerokuと言えば、<a href="http://www.stylestats.org/">StyleStats</a>というCSS解析ツールをHeroku上で動かしています。私は元はWebデザイナーでしたので、つい最近まで『デプロイ？なにそれ？おいしいの？』って感じでしたが、<code>git push heroku master</code>でデプロイできるHerokuさんのおかげで、こんな私でもWebアプリを稼働・運用していけています。</p>
+
+<blockquote>
+<p>配備する、配置する、展開する、配置につく、などの意味を持つ英単語。
+ソフトウェアの分野で、開発したソフトウェアを利用できるように実際の運用環境に展開することをデプロイということがある。</p>
+</blockquote>
+
+<ul>
+<li><a href="http://e-words.jp/w/E38387E38397E383ADE382A4.html">デプロイとは 【 deploy 】： IT用語辞典</a></li>
+</ul>
+
+<p>とはいえ、純粋なるWebデザイナーさんがGitコマンドを使いこなし黒い画面から<code>git push heroku master</code>とタッターンッ！！と軽快にデプロイする姿を見れるのはまだ先かもしれません。</p>
+
+<p>Herokuにデプロイすることに関して言えば、Gitコマンドを使いこなす必要はなく最低限のコマンドを覚えるだけですし、黒い画面も使わなくてもGUIアプリを使えばよいわけですが、やっぱりGitを使うということには見えない大きな壁があるように個人的には考えています。</p>
+
+<p>そうゆうわけで、Gitを使わないユーザーにもデプロイの手段を提供するのが、今回のDropbox Sync機能です。その名の通り、Dropboxを通して、Web上からデプロイできる機能です。</p>
+
+<h2 id="heroku-dropbox-syncの使い方:b7480bac813dd1dc3bd7cb37aec5cb78">Heroku Dropbox Syncの使い方</h2>
+
+<p>Dropboxであれば、デザイナーさんもよく使ってますよね、デザインマテリアルの保存とか、それこそDropboxでバージョン管理してたりとか、デザイナーさんにとってDropboxがGitみたいな位置づけかもしれません。</p>
+
+<p><img src="/mol/images/2014/12-13-fig01.jpg" alt="Heroku Dashboard" />
+<br />
+使い方はすごく簡単です。Herokuアカウントとか基本的なセッティングは終わってる前提で話します。まず、<a href="https://dashboard.heroku.com/apps">Heroku Dashboard</a>で新規Appを作成して（ここではt32k-drop-sync）、Codeタブを選択してその下部に[Connect to Dropbox]のボタンがありますので、そこをクリックします。</p>
+
+<p><img src="/mol/images/2014/12-13-fig02.jpg" alt="Authorize" />
+<br />
+Dropboxから確認を求められる画面になるので許可しましょう(Dropboxにログインしてなかったらまずログイン画面がでてきます)。</p>
+
+<p><img src="/mol/images/2014/12-13-fig03.jpg" alt="Finder" />
+<br />
+許可するとローカルマシンの中に<code>Dropbox/アプリ/Heoku/t32k-drop-sync/</code>というフォルダが作成されているのが確認できます。</p>
+
+<p><code>アプリ</code>はローカライズ部分なので、人によっては<code>Dropbox/Apps/Heroku/{APP-NAME}</code>って感じのディレクトリになってるかと思います。</p>
+
+<p>あとはここのディレクトリにアプリを作成していくだけです。試しにRailsアプリを作ってみました。</p>
+
+<p><img src="/mol/images/2014/12-13-fig05.png" alt="Deploy" />
+<br />
+ひととおりの作業が終わったら、またHeroku Dashboardのt32k-drop-syncアプリのCodeタブの下部にデプロイボタンがあります。コミットメッセージを記入します。</p>
+
+<p><img src="/mol/images/2014/12-13-fig04.png" alt="Deploy" />
+<br />
+うまくいけばこのようにチェックされます。というわけで、Dropbox Syncって名前だけど、Dropboxがファイルを同期するたびにデプロイが実行されるわけじゃないです。ちゃんとWeb UI上からデプロイボタンを押さないといけません。</p>
+
+<p><img src="/mol/images/2014/12-13-fig06.png" alt="Rails new" />
+<br />
+とりま、できました。</p>
+
+<h2 id="heroku-dropbox-syncの使いドコロ:b7480bac813dd1dc3bd7cb37aec5cb78">Heroku Dropbox Syncの使いドコロ</h2>
+
+<p>HerokuアプリをGitを使わずにDropbox Syncで作成できましたが、実際のところ、Herokuに新規アプリをデプロイするときにはアプリケーション側でいろいろ設定しなきゃいけないことが多いので、デザイナーがひとりで完遂できるかというと疑問ですが、Dropbox Syncはなにも新規アプリでDropbox Syncを有効にしたアプリだけに適用されるわけではないです。</p>
+
+<p><img src="/mol/images/2014/12-13-fig07.png" alt="2Ways" />
+</p>
+
+<p>Gitで管理している既存アプリでもDropbox Sync機能を有効にすることができます。使い方は上記と同じです。また、デザイナーが修正したファイルをDropbox Syncからデプロイした場合、Git管理しているエンジニアは次にデプロイしたいときは<code>git pull heroku master</code>をしてデザイナーが行った修正の差分をマージしておかなければなりません。その逆にエンジニアが<code>git push heroku master</code>でデプロイした場合は自動的にデザイナー側のDropboxが同期します。</p>
+
+<p>極端な話、文言修正だけだったら、iPadにDropboxアプリ入れて、Dropbox連携のテキストエディタで編集して、Safariからデプロイボタン押せばiPadだけでデブロイが可能となります。</p>
+
+<p>まぁそれ自体には意味は無いですけど、デプロイの敷居はだいぶ下がったのではないかなと思います。ちょっとデザイナーさんにバナー差し替えを依頼したいときなど、編集してaddしてcommitしてpushしてもらうより、Dropbox内のファイルいじってもらって、終わったらエンジニア側でデプロイボタン押せば圧倒的に説明コストが低くて済みます。</p>
+
+<p>しかしコミットの粒度を考えると、こまめにGitでコミットしておいたほうがなにかと良いので、Dropbox Sync機能はその点まだクリアできていない問題だけど、非エンジニアのデプロイの敷居を下げるという意味ではすごく良いアプローチだと思うし、それで興味をもった人が今度はGitからデプロイ！って段階が踏めるようになったのは良い流れじゃないかなと個人的には感じます。</p>
+
+<p>そういうわけで、エンジニアとデザイナー仲良くデプロイしていきましょう。</p>
+
+<ul>
+<li><strong><a href="https://devcenter.heroku.com/articles/dropbox-sync">Dropbox Sync | Heroku Dev Center</a></strong></li>
+</ul>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/matome-2014/"> 2014年の振り返りと人気記事まとめ</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/sublime-text-icon-2014/"> Sublime Text Icon 2014</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

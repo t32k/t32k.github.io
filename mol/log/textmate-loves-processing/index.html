@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="fb:app_id" content="212646065416408">
+        <meta property="og:type" content="article">
+        <meta property="og:site_name" content="MOL">
+        <title>TextMateをProcessingのエディタ代わりにする &middot; MOL</title>
+        <link rel="stylesheet" href="http://localhost:1313/mol/css/skeleton.css">
+        <link rel="publisher" href="//plus.google.com/+kojiishimoto">
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700">
+        <link rel="alternate" href="" type="application/rss+xml" title="MOL">
+    </head>
+    <body role="document">
+    <div class="container">
+<header class="site-header">
+  <nav>
+    <a href="/mol/">MOL</a>
+    <a href="/">About</a>
+    <a href="/mol/log/">Logs</a>
+    <a href="/mol/categories/">Categories</a>
+    <a href="https://github.com/t32k/feedback/issues/new">Questions</a>
+  </nav>
+</header>
+
+    <article class="post">
+        <header class="post-header">
+            <p class="t-hint">By Koji Ishimoto — <time>Saturday, August 15, 2009</time></p>
+            <h1 class="post-h1 m-0">TextMateをProcessingのエディタ代わりにする</h1>
+            <h4 class="t-hint"></h4>
+        </header>
+        <section>
+            <p><img src="http://lh5.ggpht.com/_1drnogi3vdg/SnrLKtoIT3I/AAAAAAAAAgc/3Q5un_J7fSU/pt.png" alt="" />
+<a href="http://warikiru.blogspot.com/2009/08/iamas-openhouse-2009.html">IAMASのオープンキャンパス</a>に行って以来、<a href="http://processing.org/download/index.html">Processing</a>をちょいちょい触っている。が、この標準のエディタ、文字は小さいしコードの補完機能もない。</p>
+
+<p><img src="http://lh3.ggpht.com/_1drnogi3vdg/SoaiX-oRdpI/AAAAAAAAAhI/uc9llrJvJEc/editor.png" alt="" />
+<h3>高機能テキストエディタ：TextMate</h3>
+てことで、形から入る男：t32kなので、なんか良いエディタはないものかと探してたら<a href="http://macromates.com/">TextMate</a>なるものを見つけた。TextMate自体、Processingどうこうゆう前から素晴らしいエディタというのは耳にしていたので、JavaScriptでも使えるし5000円ぐらいするけど、エイヤ！の勢いで買ってしまった。</p>
+
+<p>早速、TextMateを使ってみる。TextMateは補完機能がハンパねぇと聞いていたので、どれほどのものかと期待していたが補完されない。。。　Aptanaみたいにfun..と入力したら勝手に補完するコードをリストアップして提示してくれるのかと思ったら、これはどうやらTabキーなど押さなきゃいけないらしい。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/Sn6SuzlosVI/AAAAAAAAAgk/uAjYAKfhJU0/t1.png9" alt="" />
+funと入力してTabキーを押すと（JavaScriptの場合）</p>
+
+<p><img src="http://lh5.ggpht.com/_1drnogi3vdg/Sn6SvKAOAsI/AAAAAAAAAgo/wUsO7qFc1jA/t2.png" alt="" />
+補完されたコードが表示される。
+自動補完よりもこっちの方が慣れたら速いのかもね。</p>
+
+<p><img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiYGy_mVI/AAAAAAAAAhM/e4DQ_GSWDU4/sc.png" alt="" />
+<span style="font-style: italic; color: #666666; font-size: 85%;">JavaScriptのBundle例</span>
+<h3>GetBundleをインストール</h3>
+てことで、TextMateの使い方も大体分かったのでProcessingでも使えるようにする。ネットで調べてみると、情報はあることはあるが散見していて内容も少し古かったりするので、以下の情報は僕の環境で動いた方法を紹介する。
+<ul>
+    <li>Mac OS X <span style="font-style: italic;">10.5.8</span></li>
+    <li>TextMate <span style="font-style: italic;">1.5.8</span></li>
+    <li>Processing <span style="font-style: italic;">1.0.5</span></li>
+</ul>
+まず、TextMateでProcessingを有意義に使うにはProcessing用のBundle(ショートカットなどの設定)をインストールしなければならない。このBundleのインストールがややこいので簡単にインストールできるBundle、<span style="font-weight: bold;">GetBundle</span>をまずインストールする。</p>
+
+<p>ターミナルを開いて以下のコマンドを打ち込む。
+<pre><span style="color: #999999;">$ </span>mkdir Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>cd Library/Application\ Support/TextMate/Bundles
+<span style="color: #999999;">$ </span>svn co <a href="http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/">http://svn.textmate.org/trunk/Bundles/GetBundle.tmbundle/</a></pre>
+ターミナルとかよくわからんので合ってるかどうかわからないけど説明すると、mkdirでBundlesのディレクトリを作成して、<span style="font-weight: bold;">cd</span>でそのディレクトリに移動、<span style="font-weight: bold;">svn co</span>でSubversionからGetBundleをCheckOut(ダウンロード)してインストール完了。たぶんこんな感じｗ</p>
+
+<p>そしてTextMateを再起動させると、BundlesメニューにGetBundleの項目が表示されるので、そこのInstall Bundleを選択！</p>
+
+<p>で動かなかった場合、
+Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; GetBundle &gt; Install BundleのBASE_URL部分を以下に変更。
+<pre>BASE_URL=<a href="http://svn.textmate.org/trunk/">http://svn.textmate.org/trunk/</a></pre>
+<img src="http://lh4.ggpht.com/_1drnogi3vdg/SoWQhyEn9XI/AAAAAAAAAgw/IIk_x0lpycU/base.png" alt="" />
+<span style="font-family: monospace;">
+</span>で、再度Install Bundleを選択すると、このようなウィンドウが表示され好きなBundleを選択するだけでインストールできる。
+<img src="http://lh6.ggpht.com/_1drnogi3vdg/SoaiXxtQINI/AAAAAAAAAhE/izQJmsdpf7A/choose.png" alt="" />
+<h3>ProcessingのBundleをインストール</h3>
+ProcessingのBundleをインストールして、Bundles &gt; Bundle Editor &gt; Show Bundle Editor &gt; Processing &gt; Run in ProcessingのCommands部分を以下に書き換え
+<pre>osascript  &lt;&lt;EOF
+tell application &ldquo;Processing&rdquo; to run
+tell application &ldquo;Processing&rdquo; to activate
+tell application &ldquo;Processing&rdquo; to open POSIX file &ldquo;${TM_FILEPATH}&rdquo;
+delay 1
+tell application &ldquo;System Events&rdquo; to tell process &ldquo;Processing&rdquo;</p>
+
+<p>keystroke &ldquo;r&rdquo; using command down
+end tell
+EOF</pre>
+<img src="http://lh5.ggpht.com/_1drnogi3vdg/SoWQhx3IxtI/AAAAAAAAAg4/hEepORHoY7w/pro.png" alt="" />
+<span style="font-family: monospace;">
+</span>これで設定完了♪
+TextMateで適当にProcessingのコードを打ち込んでCtrl + Rを押すとProcessingが立ち上がります。</p>
+
+<p><span style="font-size: 85%;">参考サイト
+</span>
+<ul>
+    <li><span style="font-size: 85%;"><a href="http://mialweb.ddo.jp/jam/?p=69">Jam’s Blog » TextMate</a></span></li>
+    <li><span style="font-size: 85%;"><a href="http://blog.wozozo.jp/archives/144">TextMateでProcessing - ヲゾゾ wozozo ウンコプログラマー 〜綺麗なお姉さん〜</a></span></li>
+</ul>
+<table border="0" cellpadding="5">
+<tbody>
+<tr>
+<td valign="top"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank"><img src="http://ecx.images-amazon.com/images/I/41hpiWi3FxL._SL160_.jpg" border="0" alt="Textmate: Power Editing for the Mac (Pragmatic Programmers)" /></a></td>
+<td valign="top"><span style="font-size: 85%;"><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Textmate: Power Editing for the Mac (Pragmatic Programmers)</a><img src="http://www.blogger.com/%27http://www.assoc-amazon.jp/e/ir?t=" border="0" alt="''" width="1" height="1" /></span></p>
+
+<p>Pragmatic Bookshelf  2007-02
+売り上げランキング : 30287</p>
+
+<p><a href="http://www.amazon.co.jp/Textmate-Power-Editing-Pragmatic-Programmers/dp/097873923X%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D097873923X" target="_blank">Amazonで詳しく見る</a><span style="font-size: 85%;"> by <a href="http://www.goodpic.com/mt/aws/index.html">G-Tools</a></span></td>
+</tr>
+</tbody>
+</table></p>
+
+        </section>
+    </article>
+
+    <div class="post-social">
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+    <div class="fb-like" data-width="150" data-layout="button_count" data-action="like" data-show-faces="true" data-send="false"></div>
+    <div class="g-plusone" data-size="medium"></div>
+</div>
+
+<div class="u-cf" style="padding:2rem 0; border-radius: 1rem">
+    <p class="u-pull-left"><img src="/mol/images/t32k.png" width="64" height="64" alt></p>
+    <p style="margin-left: 80px">Written by <strong>Koji Ishimoto</strong>, Web Developer in Vancouver.<br>
+        <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ft32k.me%2Fmol%2Ffeed.xml" target="blank">
+            <img src="http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png" width="20" height="20" alt style="vertical-align: middle"> Subscribe on feedly.</a>
+    </p>
+</div>
+
+<hr>
+
+    <div class="row li-pagination">
+        <div class="six columns">
+            <div class="li-pagination-previous">
+                
+                    Later article<br>
+                    <a href="http://localhost:1313/mol/log/technical-writing-science/"> 理科系の作文技術</a>
+                
+            </div>
+        </div>
+        <div class="six columns">
+            <div class="li-pagination-next">
+                
+                    Older article<br>
+                    <a href="http://localhost:1313/mol/log/iamas-openhouse/"> IAMAS OPENHOUSE 2009</a>
+                
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<section>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-1326877318485833"
+       data-ad-slot="7307465775"
+       data-ad-format="auto"></ins>
+</section>
+
+<hr>
+
+<footer>
+  <small roll="contentinfo">&copy; 2007 t32k.me</small>
+</footer>
+    <script>
+        
+        (function(d, s) {
+            var js,
+                fjs = d.getElementsByTagName(s)[0],
+                load = function(url, id) {
+                    if (d.getElementById(id)) {return;}
+                    js = d.createElement(s); js.src = url; js.id = id;
+                    fjs.parentNode.insertBefore(js, fjs);
+                };
+            load('//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=212646065416408&version=v2.0', 'fbjssdk');
+            load('//platform.twitter.com/widgets.js', 'tweetjs');
+            load('https://apis.google.com/js/plusone.js', 'gplusjs');
+            load('//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', 'adsense');
+        }(document, 'script'));
+        
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-2317436-26', 't32k.me');
+        ga('send', 'pageview');
+    </script>
+
+    </div>
+    <script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

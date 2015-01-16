@@ -2,7 +2,7 @@
 date: 2010-12-09
 title: 【翻訳】色のスピード
 subtitle: The Color of Speed
-categories: translate
+categories: translation
 excerpt: The Color of Speed | TimKadlec.com
 ---
 

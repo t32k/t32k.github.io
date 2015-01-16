@@ -2,7 +2,7 @@
 date: 2012-02-22
 title: 【翻訳】サイトカタリストとGoogle アナリティクスの比較
 subtitle: Omniture SiteCatalyst vs. Google Analytics
-categories: translate
+categories: translation
 excerpt: Omniture SiteCatalyst vs. Google Analytics - An Objective Comparison
 ---
 

@@ -1,0 +1,1560 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on MOL</title>
+    <link>http://localhost:1313/mol/categories/development/</link>
+    <description>Recent content in Development on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Wed, 24 Dec 2014 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/mol/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Smashing Magazineのパフォーマンス改善ケースが凄まじい件</title>
+      <link>http://localhost:1313/mol/log/style-class-conference/</link>
+      <pubDate>Wed, 24 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/style-class-conference/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/frontrend&#34;&gt;Frontrend Advent Calendar 2014 - Qiita&lt;/a&gt;の24日目。たぶん。知らんけど。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig01.jpg&#34; alt=&#34;The Style &amp;amp; Class Conference 2014&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ちょっと前になるが12/13にバンクーバーで開催された&lt;a href=&#34;http://www.eventbrite.com/e/the-style-class-conference-tickets-13842235499&#34;&gt;The Style &amp;amp; Class Conference 2014&lt;/a&gt;に参加してきた。前日に&lt;a href=&#34;http://smashingconf.com/&#34;&gt;Smashing Conference&lt;/a&gt;が、ウィスラーというバンクーバーから比較的近い所で開催されていて、本当はそっちに行きたかったんだけど高額なため、地元コミュニティのほうにだけ参加した。ウィスラーの方の記事は&lt;a href=&#34;http://www.ygoto3.com/?p=107&#34;&gt;@ygoto3が書いてたっぽい。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Smashing Conferenceで登壇していた&lt;a href=&#34;https://twitter.com/johnallsopp&#34;&gt;John Allsopp&lt;/a&gt;氏や&lt;a href=&#34;https://twitter.com/vlh&#34;&gt;Val Head&lt;/a&gt;氏もこのカンファレンスで登壇するということで、『なんだ、ウィスラーのついでかよー』と思い全然期待してなかったのだが、行ってみたらカンファレンス全体の構成などすごく考えられていて、とても素晴らしいカンファレンスだった。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、今回はその中で最も気に入った&lt;a href=&#34;https://twitter.com/smashingmag&#34;&gt;Vitaly Friedman&lt;/a&gt;氏のセッションを紹介したいと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;improving-smashing-magazine-s-performance:6a3d5e7bca1f2497d73d6b9fafc5cac0&#34;&gt;Improving Smashing Magazine&amp;rsquo;s Performance&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig02.jpg&#34; alt=&#34;Vitaly Friedman&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/&#34;&gt;Improving Smashing Magazine&amp;rsquo;s Performance: A Case Study&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;講演内容と同じ内容と思われる記事がすでに9月に上がっているみたい。バックエンドからフロントエンドまでいろいろなことやってみるみたいで、めちゃめちゃ長文なので時間あるときにでも読んでおくとよい。その中でも僕が気に入ったのがCritical CSSの対応をしていたことだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;critical-rendering-path:6a3d5e7bca1f2497d73d6b9fafc5cac0&#34;&gt;Critical Rendering Path&lt;/h3&gt;
+
+&lt;p&gt;Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.p19&#34;&gt;&lt;img src=&#34;http://t32k.me/static/blog/2013/07/31.png&#34; alt=&#34;Critical Rendering Path&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なぜCSSがレンダリングをブロックするのかというと、上図の通り、レンダリングを完成するにあたってブラウザはDOMとCSSOM(CSSオブジェクトモデル)が必要なわけでして、スタイルシートがダウンロードされない限りレンダリングが開始されないわけだ。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTML マークアップを処理して DOM ツリーを作成&lt;/li&gt;
+&lt;li&gt;CSS マークアップを処理して CSSOM ツリーを作成&lt;/li&gt;
+&lt;li&gt;DOM と CSSOM を組み合わせてレンダーツリーを作成&lt;/li&gt;
+&lt;li&gt;レンダーツリーでレイアウトを実行して各ノードの形状を計算&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;各ノードを画面にペインティング&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=ja&#34;&gt;Render-tree construction, Layout, and Paint — Web Fundamentals&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;少なくともブラウザに何かが描画されるまでには上記のような流れをふまないといけない。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、是が非でも速く描画するために、Critical Rendering Pathの最適化をしようとすると以下のことに気をつけなければならない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリティカル リソース数の最小化&lt;/li&gt;
+&lt;li&gt;クリティカル バイト数の最小化&lt;/li&gt;
+&lt;li&gt;クリティカル パス長の最小化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ことCSSだけに関して言えば、リソース数の最小化はスタイルシートを何個も読み込まず、1個にまとめればよいし、バイト数の最小化は&lt;a href=&#34;https://github.com/t32k/grunt-csso&#34;&gt;CSSO&lt;/a&gt;や&lt;a href=&#34;https://github.com/t32k/speed/blob/master/articles/gzip.md&#34;&gt;gzip&lt;/a&gt;をかけてやればよい。&lt;/p&gt;
+
+&lt;p&gt;まぁそれらはそんなに難しいことではないので、すぐにでも対応できると思われる。問題なのはクリティカル パス長（音的にリヴァイ兵長みたいな感じなので以後Critical Path Lengthと表記する）の最適化だ。&lt;/p&gt;
+
+&lt;p&gt;基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、それではGoogle様が認めてくれない。&lt;/p&gt;
+
+&lt;p&gt;試しに、&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/?hl=ja&#34;&gt;PageSpeed Insights&lt;/a&gt;で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：&lt;a href=&#34;http://t32k.me/&#34;&gt;t32k.me&lt;/a&gt;を計測してみると、『&lt;strong&gt;スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する&lt;/strong&gt;』なことを言われモバイル評価で89点といった結果が返ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig03.png&#34; alt=&#34;PageSpeed Insights：Before&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;で、対処法として&lt;a href=&#34;https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery&#34;&gt;CSSの配信を最適化&lt;/a&gt;しなさいと言われる。こっちの説明より&lt;a href=&#34;https://developers.google.com/web/fundamentals/&#34;&gt;Web Fundamentals&lt;/a&gt;の説明のほうが分かりやすいのでこっちを引用。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;インライン レンダリング ブロック CSS&lt;/strong&gt;&lt;br /&gt;
+クリティカル CSS は、HTML ドキュメント内で直接インライン化することをおすすめします。これにより、クリティカル パスの追加ラウンドトリップが削減され、適切に設定できれば、HTML が唯一のブロック リソースの場合に「1 ラウンドトリップ」のクリティカル パス長が実現できます。&lt;br /&gt;
+― &lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations&#34;&gt;PageSpeed Rules and Recommendations&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;つまり、外部スタイルシートを読み込んでいては1.) HTMLを読み込む、2.) 外部CSSファイルを読み込むので、最低でも2ラウンドトリップ（往復）しないといけない。ゆえに描画が遅くなるのでHTML内にインラインで記述しなよっと仰せられておる。&lt;/p&gt;
+
+&lt;p&gt;でも、だからといって全部CSSをインライン化しちゃうとHTMLが膨れ上がっちゃう。TCPスロースタートのせいで1回目のレスポンスで送信できるサイズは14KBなので、オーバーしちゃう。この辺りは以前に&lt;strong&gt;HTTPリクエストを減らすためにシリーズ&lt;/strong&gt;で記事を書いたので参照してほしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg&#34; alt=&#34;ハイパフォーマンス ブラウザネットワーキング―ネットワークアプリケーションのためのパフォーマンス最適化&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハイパフォーマンス ブラウザネットワーキング&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Ilya Grigorik,和田 祐一郎,株式会社プログラミングシステム社&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 130931&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;または、&lt;a href=&#34;https://www.igvita.com/&#34;&gt;Ilya Grigorik&lt;/a&gt;大先生の本を読んでおいた方がいい。&lt;/p&gt;
+
+&lt;p&gt;だもんで、必要なCSSだけインライン化しましょうよってことになる。それ（&lt;a href=&#34;http://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/&#34;&gt;Above the Fold&lt;/a&gt;）に必要なCSS、つまりCritical CSSを検出するのがnpmモジュールの&lt;a href=&#34;https://github.com/filamentgroup/criticalcss&#34;&gt;CriticalCSS&lt;/a&gt;だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.filamentgroup.com/lab/performance-rwd.html&#34;&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig05.jpg&#34; alt=&#34;ATFの例&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;簡単に説明すれば上図のようにファーストビュー（Above the Fold）だけに使うCSSを抽出してくれる。&lt;/p&gt;
+
+&lt;p&gt;ちなみにGruntプラグインで利用できるので、これを使って僕のプロフィールページ：t32k.meを改善してみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/filamentgroup/grunt-criticalcss&#34;&gt;filamentgroup/grunt-criticalcss&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;grunt.initConfig({
+  criticalcss: {
+    custom_options: {
+      options: {
+        url: &amp;quot;http://localhost:8000&amp;quot;,
+        width: 1024,
+        height: 768,
+        outputfile: &amp;quot;_templates/includes/critical.css&amp;quot;,
+        filename: &amp;quot;skeleton.min.css&amp;quot;
+      }
+    }
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じでGruntfileの方は記述する。重要なのはwidht/heightで、ここで自分の好きなAbove the Foldを定義する。で出力したCSSをテンプレート側で読み込む。&lt;/p&gt;
+
+&lt;p&gt;今回は、1.) CriticalCSSでクリティカルCSSを生成、2.) CSSOでミニファイ、3.) Jadeでコンパイル読み込むという流れ。詳しくはGitHubにあげてあるので参照してね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/t32k.github.io/blob/master/Gruntfile.js&#34;&gt;t32k.github.io/Gruntfile.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、Full CSSの方は、後から非同期で読み込む。こうしないとレンダリングをブロックするので。あ、ちなみにほぼ&lt;a href=&#34;http://getskeleton.com/&#34;&gt;Skeleton.css&lt;/a&gt;をそのまま使ってる(^_^;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+/*!
+  loadCSS: load a CSS file asynchronously.
+  [c]2014 @scottjehl, Filament Group, Inc.
+  Licensed MIT
+*/
+function loadCSS(href, before, media) {
+  var ss = window.document.createElement(&#39;link&#39;);
+  var ref = before || window.document.getElementsByTagName(&#39;script&#39;)[0];
+  var sheets = window.document.styleSheets;
+  ss.rel = &#39;stylesheet&#39;;
+  ss.href = href;
+  ss.media = &#39;only x&#39;;
+  ref.parentNode.insertBefore(ss, ref);
+  return ss;
+}
+loadCSS(&#39;/skeleton.min.css&#39;);
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/skeleton.min.css&amp;quot;&amp;gt;
+&amp;lt;/noscript&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、Critical CSSに対応した結果をPageSpeedにかけてみると、&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig04.png&#34; alt=&#34;PageSpeed Insights：After&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;めでたく、先ほどの指摘はクリアできました。わーい、97点٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;p&gt;ちなみに『ブラウザのキャッシュを活用する』はGitHub Pagesなので僕からHTTP Headerを変更できないのでほっとく。&lt;/p&gt;
+
+&lt;h2 id=&#34;speed-index-1000:6a3d5e7bca1f2497d73d6b9fafc5cac0&#34;&gt;Speed Index &amp;lt;= 1000&lt;/h2&gt;
+
+&lt;p&gt;なにをもって速いとするのか？というのは重要な問題だ。PageSpeed Insightのスコアも一種の指標となるだろうが、もう少し細かく検証したい。（事実、PageSpeedのスコアは90点くらいまでなら簡単に取れる）&lt;/p&gt;
+
+&lt;p&gt;最近は読み込み時間が体感速度を表しているように思えない。各種SNSボタンのJSが大量に読み込まれるが、それらは非同期で読み込まれるために実際の読み込み時間と体感速度には大きな乖離が見られるし、何千pxという長大なページで2,3スクロールしないと見えないような画像が読み込み時間にカウントされるのはどうだろう。はたまたdomContentLoadedだったらどうだろうか、うーん、あんましフロント関係なくね？&lt;/p&gt;
+
+&lt;p&gt;そんなこんなで現時点で一番有用な指標と個人的に考えているのが、WebPagetestで計測できる&lt;a href=&#34;https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md&#34;&gt;Speed Index&lt;/a&gt;だ。Speed Indexに関しても以前記事を書いた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/webpagetest-5-minutes/&#34;&gt;WebPagetest in 5 minutes — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;So how fast is fast enough? A Speed Index of under 1000. And for professionals that get there, they should shoot for delivering the critical-path view (above the fold) in the first 14Kb of the page. — Paul Irish&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、&lt;a href=&#34;https://twitter.com/snookca/status/543210094431723520&#34;&gt;Web業界のベネディクト・カンバーバッチ&lt;/a&gt;である&lt;a href=&#34;https://twitter.com/paul_irish&#34;&gt;Paul Irish&lt;/a&gt;氏が言及していたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineでは&lt;a href=&#34;https://github.com/tkadlec/grunt-perfbudget&#34;&gt;grunt-perfbudget&lt;/a&gt;を使って、定期的にWebPagetestを回していたらしい（CLIからWPTを動かすにはAPI Keyが必要なので個別に作者に連絡しなければならない）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-24-fig06.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/video/compare.php?tests=141223_RD_GJJ%2C141223_RX_G9D&amp;amp;thumbSize=200&amp;amp;ival=100&amp;amp;end=visual&#34;&gt;WebPagetest - Visual Comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回の改善によるSpeed Indexの変化だけど、GitHub Pagesでカスタムドメインしているため、どうしても最初にリダイレクトが入ってしまうせいで、改善前後のSpeed Indexは微減（2097 -&amp;gt; 1940）だが、Start Renderは1.8秒から1.6秒と確実に速くなっている。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineのケースでも一連の改善の結果、1000近くにまで削減することができたそうだ。その結果、『&lt;strong&gt;SmashingMagはサンパウロからEDGE回線で読むことができるただ一つのサイトだ&lt;/strong&gt;』と講演の最後にブラジルの読者からのツイートを誇らしげに紹介していたVitaly Friedman氏の笑顔が忘れられない。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:6a3d5e7bca1f2497d73d6b9fafc5cac0&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模かつ複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。&lt;/p&gt;
+
+&lt;p&gt;結局、山ほどあるパフォーマンス改善策に優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか、対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineにはスーパーマンがいたけど、個人的にはもっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、&lt;a href=&#34;http://httparchive.org/trends.php?s=Top1000&amp;amp;minlabel=Dec+15+2013&amp;amp;maxlabel=Dec+1+2014#bytesImg&amp;amp;reqImg&#34;&gt;テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし&lt;/a&gt;、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://havelog.ayumusato.com/develop/performance/e637-web_performance_2014.html&#34;&gt;2014年のWebパフォーマンスふりかえり - 来年以降の期待etc ::ハブろぐ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;僕の来年の目標はやっぱり、Speed Indexの知名度が低いのも&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest.org&lt;/a&gt;の見た目がうさくさいのが原因だと思っているので、リニューアルデザインをプルリクしてあげたいと思う。たぶん。知らんけど。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GoアプリをHerokuにデプロイする</title>
+      <link>http://localhost:1313/mol/log/go-on-heroku/</link>
+      <pubDate>Tue, 23 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/go-on-heroku/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/heroku&#34;&gt;Heroku Advent Calendar 2014 - Qiita&lt;/a&gt; の23日目です、たぶん。&lt;/p&gt;
+
+&lt;p&gt;最近、僕の周りの人らがGO!GO!うるさいので、ついつい僕もそそのかされてGo言語やりたいなーと思ったのです。&lt;a href=&#34;https://golang.org/doc/go1.4&#34;&gt;Go 1.4&lt;/a&gt;も出たしね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://go-tour-jp.appspot.com/#1&#34;&gt;A Tour of Go | Hello, 世界&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ひととおりチュートリアルはやってみたんですけど、やっぱりWeb上で動かしたいわけですよ。そうゆうわけで、Heroku上でGoアプリを動かしてみようと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;go-on-heroku:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;Go on Heroku&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://mmcgrana.github.io/2012/09/getting-started-with-go-on-heroku.html&#34;&gt;Getting Started with Go on Heroku&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ、上記の記事を参考にしたらちゃんとGoアプリをHerokuで稼働させることができます。以下は自分の備忘録代わりということで。&lt;/p&gt;
+
+&lt;h3 id=&#34;install-go:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;Install Go&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bitbucket.org/ymotongpoo/goenv&#34;&gt;goenv&lt;/a&gt;というGoのバージョン管理ツールもあるみたいだけど、初心者なので&lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;で入れることにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install go
+$ go version
+go version go1.3.3 darwin/amd64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;わーい、かんたん٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;h3 id=&#34;go-environment:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;Go Environment&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;$GOPATH&lt;/code&gt;等を設定する。ここで指定したパス以下がGoのワークスペースとなる。お好きなシェルプロファイルに記述。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ echo &#39;export GOPATH=$HOME&#39; &amp;gt;&amp;gt; $HOME/.bash_profile
+$ echo &#39;export PATH=$PATH:$GOPATH/bin&#39;  &amp;gt;&amp;gt; $HOME/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のようなディレクトリ構成で管理される。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$GOPATH
+├── bin（コンパイルしたバイナリファイル）
+├── pkg（パッケージオブジェクトファイル）
+└── src（Goの作業ソースファイル）
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;GitHub上に置かれているソースファイルは、 &lt;code&gt;~/src/github.com/{USER_NAME}/{REPOSITORY_NAME}&lt;/code&gt; みたいに管理される。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://weblog.bulknews.net/post/89635306479/ghq-peco-percol&#34;&gt;ghq + peco/percol - Tatsuhiko Miyagawa&amp;rsquo;s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webtech-walker.com/archive/2014/06/peco-ghq-gh-open.html&#34;&gt;peco、ghq、gh-openの組み合わせが捗る - Webtech Walker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だもんでghqの方もそっち合わせてpecoとか使うと捗るらしいよ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git config --global ghq.root ~/src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ghqでgetしてきたリポジトリの保存先の設定。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/motemen/ghq&#34;&gt;motemen/ghq&lt;/a&gt;（Go言語製、リポジトリ管理ツール）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/peco/peco&#34;&gt;peco/peco&lt;/a&gt;（Go言語製、フィルタリングツール）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/typester/gh-open&#34;&gt;typester/gh-open&lt;/a&gt;（Go言語製、GitHubのレポジトリURLを開くツール）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まとめると、上みたいな感じ。世の中便利ですな。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、Intellij IDEAでGolangのプラグイン（0.9.15）を入れると、ちゃんと指定しているのにもかかわらず、$GOROOTと$GOPATH設定しろや、(ﾟДﾟ)ｺﾞﾙｧ!!って言われるけど、0.9.16-alpha入れると治った٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases&#34;&gt;Releases · go-lang-plugin-org/go-lang-idea-plugin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;んで、$GOROOTは設定しなくてもいいらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kwmt27.net/index.php/2013/06/14/you-dont-need-to-set-goroot-really/&#34;&gt;あなたがGOROOTを本当に設定しなくていい理由 | Androg&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;go-web-app:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;Go Web App&lt;/h3&gt;
+
+&lt;p&gt;話が逸れたので戻すと&lt;code&gt;~/src/demoapp&lt;/code&gt;のディレクトリを作ってそこで作業する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mkdir $GOPATH/src/demoapp
+$ cd $GOPATH/src/demoapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;web.go&lt;/code&gt;のファイルを作成する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// web.go
+package main
+
+import (
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;net/http&amp;quot;
+    &amp;quot;os&amp;quot;
+)
+
+func main() {
+    http.HandleFunc(&amp;quot;/&amp;quot;, hello)
+    fmt.Println(&amp;quot;listening...&amp;quot;)
+    err := http.ListenAndServe(&amp;quot;:&amp;quot;+os.Getenv(&amp;quot;PORT&amp;quot;), nil)
+    if err != nil {
+      panic(err)
+    }
+}
+
+func hello(res http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(res, &amp;quot;hello, world&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;んで、&lt;code&gt;go get&lt;/code&gt;（コンパイル、インストール）して、demoappをバイナリで動かすようにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ PORT=5000 demoapp
+$ open http://localhost:5000/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ローカル環境で動いてることを確認する。&lt;/p&gt;
+
+&lt;h3 id=&#34;heroku-setup:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;Heroku Setup&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;heroku login&lt;/code&gt;とかしとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ echo &#39;web: demoapp&#39; &amp;gt; Procfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Procfileを作る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go get github.com/kr/godep
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Godepという依存性の管理ツールをインスコ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ godep save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;依存性を保存。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ heroku create --buildpack https://github.com/kr/heroku-buildpack-go.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/heroku-buildpack-go&#34;&gt;kr/heroku-buildpack-go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GoのHeroku Buildpackを使ってHerokuアプリを作成する。ちなみに、BuildpackとはHeroku上でアプリをコンパイルするためのスクリプトで、Goなどのデフォルトで対応していない言語は&lt;a href=&#34;https://devcenter.heroku.com/articles/third-party-buildpacks&#34;&gt;Third-PartyのBuildpack&lt;/a&gt;を使ってデプロイすることになる。だもんで、Go言語以外も動かせる。&lt;/p&gt;
+
+&lt;p&gt;Buildpackを使ってアプリで来たら、&lt;code&gt;git push heroku master&lt;/code&gt;してデプロイして完了！&lt;/p&gt;
+
+&lt;p&gt;わーい、できたー٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;h2 id=&#34;a-fast-heroku-cli-client:6ed9a283e28d0a5f21113841e2c66222&#34;&gt;A fast Heroku CLI client&lt;/h2&gt;
+
+&lt;p&gt;ちなみに、Go言語製のCLIツールが多いのにお気づきだろうか。なんか速いらしいね。ってことで、&lt;code&gt;heroku&lt;/code&gt;コマンドも&lt;code&gt;hk&lt;/code&gt;というGoで作らたコマンドがある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/heroku/hk&#34;&gt;heroku/hk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まだBeta版でherokuにあってhkに無いコマンドもありますが。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ L=/usr/local/bin/hk &amp;amp;&amp;amp; curl -sL -A &amp;quot;`uname -sp`&amp;quot; https://hk.heroku.com/hk.gz | zcat &amp;gt;$L &amp;amp;&amp;amp; chmod +x $L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;インスコ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;t32k at MBP in ~
+$ time heroku apps &amp;gt;/dev/null
+real	0m1.980s
+user	0m0.711s
+sys	0m0.064s
+
+t32k at MBP in ~
+$ time hk apps &amp;gt;/dev/null
+real	0m0.724s
+user	0m0.076s
+sys	0m0.019s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;おぉー、桁が違うぜ！ってことで、速いもの好きなあなたはインストールしてみてはどうでしょうか。&lt;/p&gt;
+
+&lt;p&gt;僕もGoで作ったCLIツール作りたい٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Heroku Dropbox Syncで実現するWeb開発の未来</title>
+      <link>http://localhost:1313/mol/log/heroku-dropbox-sync/</link>
+      <pubDate>Sat, 13 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/heroku-dropbox-sync/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/heroku&#34;&gt;Heroku Advent Calendar 2014&lt;/a&gt;の13日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;2014年11月に&lt;a href=&#34;https://blog.heroku.com/archives/2014/11/19/announcing_beta_dropbox_sync&#34;&gt;HerokuからDropbox Sync機能のアナウンス（Beta版）&lt;/a&gt;がありました。今日はこれを使ってみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;この記事はBeta機能について解説しています。機能に関しては変更の可能性があります。&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;デザイナーとデプロイ:b7480bac813dd1dc3bd7cb37aec5cb78&#34;&gt;デザイナーとデプロイ&lt;/h2&gt;
+
+&lt;p&gt;まず先に私とHerokuと言えば、&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats&lt;/a&gt;というCSS解析ツールをHeroku上で動かしています。私は元はWebデザイナーでしたので、つい最近まで『デプロイ？なにそれ？おいしいの？』って感じでしたが、&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイできるHerokuさんのおかげで、こんな私でもWebアプリを稼働・運用していけています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;配備する、配置する、展開する、配置につく、などの意味を持つ英単語。
+ソフトウェアの分野で、開発したソフトウェアを利用できるように実際の運用環境に展開することをデプロイということがある。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://e-words.jp/w/E38387E38397E383ADE382A4.html&#34;&gt;デプロイとは 【 deploy 】： IT用語辞典&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とはいえ、純粋なるWebデザイナーさんがGitコマンドを使いこなし黒い画面から&lt;code&gt;git push heroku master&lt;/code&gt;とタッターンッ！！と軽快にデプロイする姿を見れるのはまだ先かもしれません。&lt;/p&gt;
+
+&lt;p&gt;Herokuにデプロイすることに関して言えば、Gitコマンドを使いこなす必要はなく最低限のコマンドを覚えるだけですし、黒い画面も使わなくてもGUIアプリを使えばよいわけですが、やっぱりGitを使うということには見えない大きな壁があるように個人的には考えています。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、Gitを使わないユーザーにもデプロイの手段を提供するのが、今回のDropbox Sync機能です。その名の通り、Dropboxを通して、Web上からデプロイできる機能です。&lt;/p&gt;
+
+&lt;h2 id=&#34;heroku-dropbox-syncの使い方:b7480bac813dd1dc3bd7cb37aec5cb78&#34;&gt;Heroku Dropbox Syncの使い方&lt;/h2&gt;
+
+&lt;p&gt;Dropboxであれば、デザイナーさんもよく使ってますよね、デザインマテリアルの保存とか、それこそDropboxでバージョン管理してたりとか、デザイナーさんにとってDropboxがGitみたいな位置づけかもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig01.jpg&#34; alt=&#34;Heroku Dashboard&#34; /&gt;
+&lt;br /&gt;
+使い方はすごく簡単です。Herokuアカウントとか基本的なセッティングは終わってる前提で話します。まず、&lt;a href=&#34;https://dashboard.heroku.com/apps&#34;&gt;Heroku Dashboard&lt;/a&gt;で新規Appを作成して（ここではt32k-drop-sync）、Codeタブを選択してその下部に[Connect to Dropbox]のボタンがありますので、そこをクリックします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig02.jpg&#34; alt=&#34;Authorize&#34; /&gt;
+&lt;br /&gt;
+Dropboxから確認を求められる画面になるので許可しましょう(Dropboxにログインしてなかったらまずログイン画面がでてきます)。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig03.jpg&#34; alt=&#34;Finder&#34; /&gt;
+&lt;br /&gt;
+許可するとローカルマシンの中に&lt;code&gt;Dropbox/アプリ/Heoku/t32k-drop-sync/&lt;/code&gt;というフォルダが作成されているのが確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;アプリ&lt;/code&gt;はローカライズ部分なので、人によっては&lt;code&gt;Dropbox/Apps/Heroku/{APP-NAME}&lt;/code&gt;って感じのディレクトリになってるかと思います。&lt;/p&gt;
+
+&lt;p&gt;あとはここのディレクトリにアプリを作成していくだけです。試しにRailsアプリを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig05.png&#34; alt=&#34;Deploy&#34; /&gt;
+&lt;br /&gt;
+ひととおりの作業が終わったら、またHeroku Dashboardのt32k-drop-syncアプリのCodeタブの下部にデプロイボタンがあります。コミットメッセージを記入します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig04.png&#34; alt=&#34;Deploy&#34; /&gt;
+&lt;br /&gt;
+うまくいけばこのようにチェックされます。というわけで、Dropbox Syncって名前だけど、Dropboxがファイルを同期するたびにデプロイが実行されるわけじゃないです。ちゃんとWeb UI上からデプロイボタンを押さないといけません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig06.png&#34; alt=&#34;Rails new&#34; /&gt;
+&lt;br /&gt;
+とりま、できました。&lt;/p&gt;
+
+&lt;h2 id=&#34;heroku-dropbox-syncの使いドコロ:b7480bac813dd1dc3bd7cb37aec5cb78&#34;&gt;Heroku Dropbox Syncの使いドコロ&lt;/h2&gt;
+
+&lt;p&gt;HerokuアプリをGitを使わずにDropbox Syncで作成できましたが、実際のところ、Herokuに新規アプリをデプロイするときにはアプリケーション側でいろいろ設定しなきゃいけないことが多いので、デザイナーがひとりで完遂できるかというと疑問ですが、Dropbox Syncはなにも新規アプリでDropbox Syncを有効にしたアプリだけに適用されるわけではないです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-13-fig07.png&#34; alt=&#34;2Ways&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Gitで管理している既存アプリでもDropbox Sync機能を有効にすることができます。使い方は上記と同じです。また、デザイナーが修正したファイルをDropbox Syncからデプロイした場合、Git管理しているエンジニアは次にデプロイしたいときは&lt;code&gt;git pull heroku master&lt;/code&gt;をしてデザイナーが行った修正の差分をマージしておかなければなりません。その逆にエンジニアが&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイした場合は自動的にデザイナー側のDropboxが同期します。&lt;/p&gt;
+
+&lt;p&gt;極端な話、文言修正だけだったら、iPadにDropboxアプリ入れて、Dropbox連携のテキストエディタで編集して、Safariからデプロイボタン押せばiPadだけでデブロイが可能となります。&lt;/p&gt;
+
+&lt;p&gt;まぁそれ自体には意味は無いですけど、デプロイの敷居はだいぶ下がったのではないかなと思います。ちょっとデザイナーさんにバナー差し替えを依頼したいときなど、編集してaddしてcommitしてpushしてもらうより、Dropbox内のファイルいじってもらって、終わったらエンジニア側でデプロイボタン押せば圧倒的に説明コストが低くて済みます。&lt;/p&gt;
+
+&lt;p&gt;しかしコミットの粒度を考えると、こまめにGitでコミットしておいたほうがなにかと良いので、Dropbox Sync機能はその点まだクリアできていない問題だけど、非エンジニアのデプロイの敷居を下げるという意味ではすごく良いアプローチだと思うし、それで興味をもった人が今度はGitからデプロイ！って段階が踏めるようになったのは良い流れじゃないかなと個人的には感じます。&lt;/p&gt;
+
+&lt;p&gt;そういうわけで、エンジニアとデザイナー仲良くデプロイしていきましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://devcenter.heroku.com/articles/dropbox-sync&#34;&gt;Dropbox Sync | Heroku Dev Center&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>オンラインCSS解析 StyleStats.org</title>
+      <link>http://localhost:1313/mol/log/stylestats.org/</link>
+      <pubDate>Thu, 10 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/stylestats.org/</guid>
+      <description>&lt;p&gt;前回&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;スタイルシートの統計情報を出力するNode Package&lt;/a&gt;を作ったわけだけど、やっぱりオンライン上で簡単に試せれたらいいよねーってことで、オンラインツールを作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats.org&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使い方は、URLを入力するか、ローカルのファイルをアップロードするか、直接入力するか3種類選ぶことができる。&lt;/p&gt;
+
+&lt;p&gt;URLを入力するのが一番簡単なのでオススメ。自分の作ったサイトとか入力してみるといい。基本コマンドラインツールとしていることは同じなんだけど、&lt;code&gt;Unique Color&lt;/code&gt;のプレビューが見れるので『色使い過ぎだなー』とか実感出来る仕様になっている。&lt;/p&gt;
+
+&lt;p&gt;1px毎にフォントサイズが本当に必要なのか、この色と色はほとんど同じだけどマージできないのか、といったことを、結果を見ながらデザイナーと話し合うのに便利じゃないかな。やはり共通言語は数字だと思う。&lt;/p&gt;
+
+&lt;p&gt;あとはある程度validなCSSじゃないとパースエラーになって解析できない。たぶんCSSハックとか使ってるとエラーになると思う。&lt;/p&gt;
+
+&lt;p&gt;将来的にはDBに結果を貯めて期間で結果の変遷とか確認できるようにできたらいいなと思う（リファクタリングがどれだけできたのかとか確認できる）。&lt;/p&gt;
+
+&lt;p&gt;CSSとは関係ないけど&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats.org&lt;/a&gt;は、Node.js(Express) on Herokuで運用していて、いろいろ初めてで戸惑うこともあったけど、&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイできるのはとっても簡単だなと思った。&lt;/p&gt;
+
+&lt;p&gt;もっといろんなアプリケーション作ってみたいなぁと思いました、まる。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>バッジ駆動開発（2014:Node.js）</title>
+      <link>http://localhost:1313/mol/log/badge-driven-development/</link>
+      <pubDate>Mon, 24 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/badge-driven-development/</guid>
+      <description>
+
+&lt;p&gt;こんちわ！@t32kだよ。みんなバッジ好き？(　ﾟ∀ﾟ)o彡ﾟバッジ！バッジ！バッジ！&lt;/p&gt;
+
+&lt;p&gt;小学生の頃、自由勉強ノートってのがあって、勉強したページ分、先生からシールをもらってはそのノートに貼り付けていたのは良い思い出です。あのノスタルジーを再び！&lt;/p&gt;
+
+&lt;p&gt;ということで、大人の自由勉強ノートといえばGitHubレポジトリじゃないですか。OSSがんばります！私、気になります！そしたらシール欲しいじゃないですか？&lt;/p&gt;
+
+&lt;p&gt;あるよ、シールあるよ、シールってかバッジだけど。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig01.png&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上記は最近作ってる&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;のReadmeだけど、なんか緑のバッジいっぱいですよね。それを説明していく！&lt;/p&gt;
+
+&lt;h2 id=&#34;travis-ci-status-images:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;Travis-CI Status Images&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig02.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/status-images/&#34;&gt;Travis CI: Status Images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まずは、この中のバッジの中では一番メジャーじゃないだろうか、Travisの Status Images。昔、@kyo_agoさんが『テストもしてないプラグインなんて怖くて使えませんよね！』と言ってたのを聞いて、その日のうちにとりあえずテスト書いて、テストしてるよって意味で載っけといた思い出深いバッジです。&lt;/p&gt;
+
+&lt;p&gt;Travis-CIでビルドがコケてるかどうか、要はテストが失敗してるかどうか、このバッジが赤いままだと、恥ずかしくて御天道様の下を歩くこともできません。&lt;/p&gt;
+
+&lt;h2 id=&#34;version-badge:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;Version Badge&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig03.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://badge.fury.io/for/js/stylestats&#34;&gt;Version Badge for your RubyGems, PyPI packages, and NPM modules&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;次によく見かける、バージョンバッジ。gem, PyPI, NPMに登録してあるモジュールなら、サイトから検索してスニペット取得するだけ。&lt;/p&gt;
+
+&lt;p&gt;よく使っているモジュールの最新バージョンはいくつだろう？と思ってpackage.jsonとか見たりするけど、このバッジがReadmeに貼ってあると分かりやすくてよい。あと、NPMに登録してある＝野良モジュールじゃない、ってことでそれなりに、信用度があがる（なんでもNPMに登録できるからあんまり意味ない）、かもしれない。&lt;/p&gt;
+
+&lt;h2 id=&#34;david:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;David&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig04.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://david-dm.org/&#34;&gt;David, a dependency management tool for Node.js projects&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これもバージョン関係だけど、依存しているモジュールのバージョンが最新かどうかチェックしてくれるサービス。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://david-dm.org/t32k/stylestats#info=dependencies&amp;amp;view=table&#34;&gt;Dependency status for t32k - stylestats 2.3.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こんな感じで&lt;code&gt;dependencies&lt;/code&gt;と&lt;code&gt;devDependencies&lt;/code&gt;が最新かどうかチェックしてくれる。Nodeのモジュールは開発が盛んだから、いつのまにかマイナー・メジャーバージョンが上がってたなんてことを気づかせてくれます。&lt;/p&gt;
+
+&lt;p&gt;まぁ安定して動いてくれてるならそのバージョンが古くても問題ないけど、やっぱり最新がいいよね！僕は新しいもの好きです！！私、気になります！！！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://teppeis.hatenablog.com/entry/2013/12/node-github&#34;&gt;Node.jsの開発を超速化するGitHub連携 三種の神器 - teppeis blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;code-climate:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;Code Climate&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig05.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeclimate.com/&#34;&gt;Code Climate. Hosted static analysis for Ruby and JavaScript source code.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;元は、Ruby専用のコード品質チェックサービスだったけど、最近JavaScriptにも対応したみたいだから導入してみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/GPA&#34;&gt;GPA&lt;/a&gt;(Grade Point Average)って指標で、4ポイントが一番最高。オープンリポジトリなら無料で利用できるからみんなも見てみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeclimate.com/github/t32k/stylestats&#34;&gt;Feed - Code Climate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最初にやってみたら0.何ポイントとかで、マジ焦って改善したのは良い思い出です。コードの冗長性とか複雑度とかいろいろ指摘してくれる、おもしろいサービスなので個人的にこれはおすすめ。あと、最近使っている&lt;a href=&#34;https://slack.com/&#34;&gt;Slack&lt;/a&gt;(チャットサービス)と連携できてGPAが上がった下がったの通知もしてくれるのもナイス♪&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://blog.ruedap.com/2013/09/02/travis-ci-coveralls-code-climate-github-badge&#34;&gt;Travis CIとCoverallsとCode Climateを使ってGitHubリポジトリにバッジを付ける - アインシュタインの電話番号&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;coveralls:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;Coveralls&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/03-24-fig06.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://coveralls.io/&#34;&gt;Your Repositories | Coveralls - Test Coverage History &amp;amp; Statistics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;テストのカバレッジ（網羅率）を表示してくれるサービス。Travis-CI Status Imagesでpassedが出てても、極端な話、どんなテストでいいので、公開してるコードと関係ない単純なテストでも通ってれば、緑色のバッジを表示させることが出来る。&lt;/p&gt;
+
+&lt;p&gt;それじゃあんましなので、ちゃんとすべてのコードを網羅してるかどうかカバレッジを確認する必要がある。カバレッジ自体はローカルでもカバレッジを測定するツールを使えば確認できるけど(僕はMocha + Istanbulで取ってる)、それを公開するためのプラットフォームであるCoverallsがあることで、テストの信用性をほかのユーザーも簡単に確認できるのは良い。&lt;/p&gt;
+
+&lt;p&gt;最初にカバレッジを確認すると90%くらいで、もうちょっと上げたないなと思い、その過程でやっぱりテスト通ってないところでバグを発見したのでカバレッジ取っててよかったε-(´∀｀*)ﾎｯ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://boycook.wordpress.com/2013/09/17/javascript-coverage-with-istanbul-and-coveralls-via-travis-ci/&#34;&gt;JavaScript coverage with Istanbul and Coveralls via Travis CI | Craig Cook&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ:92f5a66373d0bcecf6b35c042fc54b08&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;そんなわけでグリーンだよ！(・∀・)ｲｲ!!んだよってことで、やっぱり赤色のバッジをReadmeに貼ったままはカッコ悪い。そこで緑にしよう！もっといいポイントにしよう！ってモチベーションが湧いてくるのはよりよい開発を続けるためにはよいことだと思う。&lt;/p&gt;
+
+&lt;p&gt;また、Readmeとかで懇切丁寧な英語で解説できない分、緑色のBadgeを貼ってあるだけでも信用性をアピールできるのかなと思って最近、頑張ってたって話。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>StyleStats</title>
+      <link>http://localhost:1313/mol/log/stylestats/</link>
+      <pubDate>Fri, 07 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/stylestats/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;&lt;img src=&#34;https://github-camo.global.ssl.fastly.net/84b33de130aae5ae27d571c5aa7e4970fc426be8/687474703a2f2f692e696d6775722e636f6d2f38316b4b6e78482e706e67&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;
+スタイルシートの統計情報を出力するNode Packageを作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;t32k/stylestats&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g stylestats
+$ stylestats path/to/stylesheet.css
+StyleStats!
+┌──────────────────────────┬───────────────┐
+│ Size                     │ 498.0B        │
+├──────────────────────────┼───────────────┤
+│ Rules                    │ 7             │
+├──────────────────────────┼───────────────┤
+│ Selectors                │ 11            │
+├──────────────────────────┼───────────────┤
+│ Simplicity               │ 63.64%        │
+├──────────────────────────┼───────────────┤
+│ Lowest Cohesion          │ 6             │
+├──────────────────────────┼───────────────┤
+│ Lowest Cohesion Selector │ hr            │
+├──────────────────────────┼───────────────┤
+│ Total Unique Font Sizes  │ 3             │
+├──────────────────────────┼───────────────┤
+│ Unique Font Size         │ 10px          │
+│                          │ 12px          │
+│                          │ 18px          │
+├──────────────────────────┼───────────────┤
+│ Total Unique Colors      │ 1             │
+├──────────────────────────┼───────────────┤
+│ Unique Color             │ #333          │
+├──────────────────────────┼───────────────┤
+│ Id Selectors             │ 1             │
+├──────────────────────────┼───────────────┤
+│ Universal Selectors      │ 0             │
+├──────────────────────────┼───────────────┤
+│ Important Keywords       │ 1             │
+├──────────────────────────┼───────────────┤
+│ Media Queries            │ 1             │
+├──────────────────────────┼───────────────┤
+│ Properties Count         │ font-size: 5  │
+│                          │ margin: 4     │
+│                          │ padding: 3    │
+│                          │ color: 2      │
+│                          │ display: 1    │
+└──────────────────────────┴───────────────┘
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;なんで作ったの:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;なんで作ったの？&lt;/h2&gt;
+
+&lt;p&gt;そもそも論の話、HTML/CSSを書く人って私のようにデザイナー上がりだったり、私のようにプログラミング的バックグラウンドが無かったりする人が多い。そんもんだから、Sassなどのような多少なりともプログラミング的知識の必要となるCSSプリプロセッサを使うと、お盆の帰省ラッシュのようなCSSが吐出されて大変な結果になるってことを何度も経験してきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;/mol/log/sprite-image-vs-inline-image/&#34;&gt;CSSはレンダリングをブロックする&lt;/a&gt;ので、CSSファイルってゆうのは1Byteでも軽くしなければならないと感じている。もっと言えば、バックエンドの人がAkamaiとかに大金を払って得たスピード分をフロントエンドのHTMLのマークアップの仕方1つで消し飛ばすことも造作も無い。&lt;/p&gt;
+
+&lt;p&gt;なわけで、フロントエンド、特にHTML/CSSコーディングってのはパフォーマンス的にとても重要だと思っているが、前述のとおり、この分野には優秀な人材が少ない(&lt;a href=&#34;https://speakerdeck.com/jonrohan/githubs-css-performance&#34;&gt;GitHub&lt;/a&gt;なんかはコンピューター・サイエンス専攻したCSSデベロッパーがいるとか)。デキる人はみんなJavaScriptとかバックエンドとかネイティブアプリ書くほうに行っちゃう。だもんで、そうゆう分野にはテスト系のツールであったりコード解析のツールが一杯あって、みんなそうゆうのを使ってちゃんとしたプログラミングを書いている（はず）。&lt;/p&gt;
+
+&lt;p&gt;だもんで我々もCSSをちゃんとプログラミングするために下記の資料を読んどくと良いと思われる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/css-architecture.html&#34;&gt;CSS Architecture | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/code-smells-in-css.html&#34;&gt;Code smells in CSS | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/solidcss.html&#34;&gt;SOLID CSS | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/about-html-semantics-and-front-end-architecture.html&#34;&gt;About HTML semantics and front-end architecture | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stubbornella/csslint/wiki/Rules&#34;&gt;Rules · stubbornella/csslint Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また最近、&lt;a href=&#34;http://csste.st/&#34;&gt;CSSのテスト&lt;/a&gt;も増えてきたけどまだまだ足りないというか成熟していないと思う。というわけでなんかそうゆう方向でコントリビュートできないかと思い作った。てかCLIのツール作りたかったんだけどね！&lt;/p&gt;
+
+&lt;h2 id=&#34;指標の意味:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;指標の意味&lt;/h2&gt;
+
+&lt;p&gt;単純にファイルサイズだけを見ていても、そのCSSが良いCSSなのか悪いCSSなのかよくわからないし、そのほかのもスタイル情報も追加した。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/DlCfWNw.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;基本的な単語の定義は上記。&lt;/p&gt;
+
+&lt;h3 id=&#34;simplicity:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;Simplicity&lt;/h3&gt;
+
+&lt;p&gt;個人的に気に入ってるのがこの指標。単純に&lt;code&gt;Rules/Selectors&lt;/code&gt;で割ったものをパーセンテージにしたものを僕が勝手に&lt;strong&gt;Simplicity&lt;/strong&gt;と言っている。要は1つのルールに1つのセレクタが対応していたほうが良いって意味。想定としているのはSassの&lt;code&gt;@extend&lt;/code&gt;とかで継承しまくってたら、この数値は低くくなる傾向がある。個人的には何度も言ってるけど、Webアプリのような複雑大規模なものをコーディングするのであれば。HTML側で責任をもって&lt;code&gt;&amp;lt;div class=&amp;quot;button button-alpha&amp;quot;&amp;gt;&lt;/code&gt;のようにマルチクラスでやれば良いと思う。じゃないと際限なくCSSファイルは膨れ上がる。あと、&lt;a href=&#34;http://meyerweb.com/eric/tools/css/reset/&#34;&gt;reset.css&lt;/a&gt;とかでもSimplicityは低くなるけど、そこは仕方がないかなと思ってるけども、&lt;code&gt;tt&lt;/code&gt;とか明らかに使わねーだろってタグはの定義は外しておいてもいいんじゃないか。&lt;/p&gt;
+
+&lt;h3 id=&#34;lowest-cohesion:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;Lowest Cohesion&lt;/h3&gt;
+
+&lt;p&gt;Lowest Cohesionは、SOLID CSSのSingle Responsibility Principle / 単一責任の原則に由来してて、一つのルールセットにあまりいろいろなスタイルを詰め過ぎないほうがいい。各ルール内で一番宣言数が多いルールのセレクタと宣言数を返す。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;凝集度（ぎょうしゅうど、コヒージョン、cohesion）とは、情報工学においてモジュール内のソースコードが特定の機能を提供すべく如何に協調しているかを表す度合いである。IPAが実施する情報処理技術者試験では、強度(きょうど、ストレングス、strength)という言葉が使われる。凝集度は順序尺度の一種であり、「凝集度が高い」とか「凝集度が低い」といった言い方で使われる。凝集度の高いモジュールは、堅牢性、信頼性、再利用性、読みやすさなどの点で好ましく、凝集度の低いモジュールは保守/評価/再利用/読解が難しいため好ましくないとされる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6&#34;&gt;凝集度 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;properties-count:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;Properties Count&lt;/h3&gt;
+
+&lt;p&gt;どのプロパティがどれだけ宣言されているのか、デフォルトではTop10まで出力してくれる。これの意図は、何回も呼ばれるプロパティなら、それまとめてClassにして使えよ、何回も同じこと書くなよ、とのこと。全部見たかったら、&lt;code&gt;{&amp;quot;propertiesCount&amp;quot;: 1000}&lt;/code&gt;といった設定JSONファイルを一緒に読み込ませればよい。個人的にこれが欲しかったので作ったところもある。&lt;/p&gt;
+
+&lt;h2 id=&#34;jenkinsとの統合:d7ffd02f3a40c18a2dfb66850c89baa2&#34;&gt;Jenkinsとの統合&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-Jenkins&#34;&gt;Plot with Jenkins · t32k/stylestats Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あとCLIだと、CSVで結果を出力できるので、それをJenkinsの&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin&#34;&gt;Plot Plugin&lt;/a&gt;を使ってプロットさせることができる。なので、@extendとか失敗してセレクタとか爆発的に増えたとかあったら、このグラフを見ればよいと思う（グラフがダサいの何とかしたい&amp;hellip;）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/1c0cwgo.png&#34; alt=&#34;1c0cwgo.png (750×450)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;File Sizeの変遷&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/kF0CLWt.png&#34; alt=&#34;kF0CLWt.png (750×450)&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Style Infoの変遷&lt;/p&gt;
+
+&lt;p&gt;あと、GitHubへのPushをトリガにビルドを実行させればいちいちビルドボタン押さなくていいよね。たいしてビルドに時間かからないし、&lt;a href=&#34;http://www.cloudbees.com/&#34;&gt;CloudBees&lt;/a&gt;を使えば無料の範囲で記録できるよね。&lt;/p&gt;
+
+&lt;p&gt;ちゃんと記録しとけば、リファクタリングの成果もちゃんと報告できるよね！&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、&lt;strong&gt;You can&amp;rsquo;t improve what you can&amp;rsquo;t measure!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>フロントエンドエンジニア（仮）</title>
+      <link>http://localhost:1313/mol/log/i-wanna-be-a-front-end-engineer/</link>
+      <pubDate>Fri, 14 Feb 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/i-wanna-be-a-front-end-engineer/</guid>
+      <description>
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/31162704&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://event.shoeisha.jp/devsumi/20140213/session/389&#34;&gt;Developers Summit 2014：【13-D-3】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/i-wanna-bea-frontendengineer&#34;&gt;フロントエンドエンジニア（仮） 〜え、ちょっとフロントやること多すぎじゃない！？〜 // SlideShare &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2年前でWebデザイナーだった私がどのようにフロントエンドエンジニアなっていったのか。デザイナーにもなれず、エンジニアにもなれないどっちつかずな職種で自分のアイデンティティを模索し、日々の膨大なタスクに追われながら、フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。&lt;/p&gt;
+
+&lt;p&gt;『（仮）が取れた時、運命の技術者に出会える・・・』&lt;/p&gt;
+
+&lt;h2 id=&#34;自己紹介:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;自己紹介&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/&#34;&gt;Koji Ishimoto - t32k.me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Web Performance
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/high-performance-web-design&#34;&gt;High Performance Web Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/coding-web-performance&#34;&gt;Coding Web Performance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/long-life-web-performance-optimization&#34;&gt;Long Life Web Performance Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Web Analytics
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/using-google-analytics-with-jquery-mobile&#34;&gt;Using Google Analytics with jQuery Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/lp19-ishimoto&#34;&gt;大規模サイトにおけるGoogleアナリティクス導入から成果まで&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Sass/Compass
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/web-15218538&#34;&gt;スマートフォンWebアプリ最適化”３つの極意”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/sasscompass-20689960&#34;&gt;パフォーマンスから考えるSass/Compassの導入・運用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/ss-15915114&#34;&gt;モバイル制作におけるパフォーマンス最適化について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.manning.com/netherland/&#34;&gt;Manning: Sass and Compass in Action&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;フロントエンドエンジニアとは:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;フロントエンドエンジニアとは？&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/&#34;&gt;A Baseline for Front-End Developers - Adventures in JavaScript Development&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;JavaScript&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Git(and a GitHub account)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modularity, dependency management, and production builds&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In-Browser Developer Tools&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The command line&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Client-side templating&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;CSS preprocessors&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Testing&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Process automation (rake/make/grunt/etc.)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Code quality&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The fine manual&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://uptodate.frontendrescue.org/&#34;&gt;How to keep up to date on Front-End Technologies - The Recipe&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ツールを管理する:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;ツールを管理する&lt;/h2&gt;
+
+&lt;h3 id=&#34;front-end-tooling-landscape:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;Front-end Tooling Landscape&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://slid.es/passy/yeoman/fullscreen#/1/1&#34;&gt;&lt;img src=&#34;http://i.imgur.com/043Yanf.png&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Boilerplate&lt;/strong&gt; : HTML5 Boilerplate, Twitter Bootstrap, Backbone Boilerplate, Angular seed, Ember starter, Zurb Foundation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Abstractions&lt;/strong&gt; : CoffeeScript, Sass, Less, Compass, Jade, Haml, Zen coding, Markdown, Handlebars, Iced Coffee, TypeScript, Traceur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frameworks&lt;/strong&gt; : Backbone, Angular, Ember, YUI, Agility, CanJS, Dojo, Meteor, Derby, Spine, Batman, Cujo, Knockout, Knockback, jQuery Mobile, jQuery UI, Closure, ExtJS, Montage&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Workflow&lt;/strong&gt; : Chrome DevTools, LiveReload, Codekit, Brunch, WebStorm IDE, watch, Testing, Tincr, JSHint, BrowserStack, Selenium, WebGL Inpector&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt; : JavaScript, CSS and Heap profiling, GPU, memory, tracing, PageSpeed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt; : Grunt, Rake, Marven, Concat, r.js, Miification, Image optimization, Compression, Module loading, mod_pagespeed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GUI Apps&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass: Syntactically Awesome Style Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mhs.github.io/scout-app/&#34;&gt;Scout - Compass and Sass without all the hassle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://livereload.com/&#34;&gt;LiveReload&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://incident57.com/codekit/&#34;&gt;CodeKit — THE Mac App For Web Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Grunt&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Package.json&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sane defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install &amp;lt;pkg&amp;gt; --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt --save-dev
+$ npm install grunt-csso --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Gruntfile.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ grunt-init gruntfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Gruntfile.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module.exports = function(grunt) {
+  // プロジェクト設定
+  grunt.initConfig({
+    // タスク設定
+    csso: {
+      files: {
+        &#39;output.css&#39;: [&#39;input.css&#39;]
+      }
+    }
+  });
+  // タスクに必要なプラグインを読み込む
+  grunt.loadNpmTasks(&#39;grunt-csso&#39;);
+  // カスタムタスクを設定
+  grunt.registerTask(&#39;default&#39;, [&#39;csso&#39;]);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/plugins&#34;&gt;Plugins - Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;grunt-contrib-connect-watch:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;grunt-contrib-connect/watch&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/MnhmDAPjwT8?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-sass:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;grunt-sass&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/ZVXgibjJDwE?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-contrib-csslint:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;grunt-contrib-csslint&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;360&#34; src=&#34;//www.youtube.com/embed/CjCpRjAX-HE?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-kss:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;grunt-kss&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/WbZeB7hih_M?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yeoman.io/&#34;&gt;Yeoman - Modern workflows for modern webapps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install yo -g
+$ npm install generator-maple -g
+$ mkdir your_proj &amp;amp;&amp;amp; cd $_
+$ yo maple
+$ grunt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/GIMmipDkU2M?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&#34;スピードを追跡する:ac0472790173b2bfde3014b2e3f209ee&#34;&gt;スピードを追跡する&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.smashingmagazine.com/2013/06/11/front-end-ops/&#34;&gt;Front-End Ops | Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It doesn’t matter how many features you have or how sexy your features are if they aren’t delivered to the user quickly, with ease, and then heavily monitored. ― Alex Sexton&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596529307.do&#34;&gt;High Performance Web Sites - O&amp;rsquo;Reilly Media&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.webpagetest.org/&#34;&gt;WebPagetest - Website Performance and Optimization Test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/webpagetest-5-minutes/&#34;&gt;WebPagetest in 5 minutes — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcelduran/webpagetest-api&#34;&gt;marcelduran/webpagetest-api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin&#34;&gt;TAP Plugin - Jenkins - Jenkins Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ameblo.jp/principia-ca/entry-11561132297.html&#34;&gt;Velocity 2013 レポート｜サイバーエージェント 公式エンジニアブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install webpagetest -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thank you!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>peerDependency</title>
+      <link>http://localhost:1313/mol/log/peerdependency/</link>
+      <pubDate>Thu, 28 Nov 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/peerdependency/</guid>
+      <description>&lt;p&gt;grunt@0.4くらいから、package.jsonに&lt;code&gt;peerDependency&lt;/code&gt;というキーを見かけるようになった。&lt;a href=&#34;http://gruntjs.com/plugins&#34;&gt;Plugins - Grunt&lt;/a&gt;でも
+peerDependencyが指定されているプラグインに関しては、Grunt Version ~0.4.0のように出るので意味分かんないけど、とりあえず指定してた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.nodejs.org/2013/02/07/peer-dependencies/&#34;&gt;Peer Dependencies&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、コレ読んだら理解した。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;├── request@2.12.0
+└─┬ some-other-library@1.2.3
+  └── request@1.9.9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;例えば、こうゆう依存関係の状態があったとき、some-other-libraryのパッケージはrequestパッケージの2.x系で動作しなくても、自身が内包しているrequest@1.9.9を参照するので特に問題ない。これは現状の&lt;code&gt;dependency&lt;/code&gt;で表現できる。&lt;/p&gt;
+
+&lt;p&gt;しかし、パッケージの中にはhostパッケージと呼ばれるものが登場してきた。例えてゆうなら、jQueryとjQueryプラグインのようなもので、あるjQueryプラグインがjQuey@1.xでしか動作しなければ、当然のごとくjQuey@2.xをhost側で読み込んでいたらこのプラグインは動かない。&lt;/p&gt;
+
+&lt;p&gt;これはクライアントサイドの話だが、これと同様のことがGruntとそのプラグインの関係にも当てはまる。あるgruntプラグインはgrunt@0.3.xで動かないけど、grunt@0.4.xでhostされていたら動くって場合は、こう表現する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;grunt-hoge&amp;quot;,
+  &amp;quot;peerDependencies&amp;quot;: {
+    &amp;quot;grunt&amp;quot;: &amp;quot;0.4.x&amp;quot;
+    // &amp;quot;grunt&amp;quot;: &amp;quot;~0.4.0&amp;quot;でも同義
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2013/11-28-fig.png&#34; alt=&#34;dependenciespeerとDependencies&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;今は0.4.xで落ち着いてるからとくに必要のない感じだけど、たぶんこれから0.5.xとかリリースされて0.4.xと混在した時に、peerDependenciesを指定しておくと以下の様なエラー表示してくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm ERR! peerinvalid The package flatiron does not satisfy its siblings&#39; peerDependencies requirements!
+npm ERR! peerinvalid Peer flatiron-cli-config@0.1.3 wants flatiron@~0.1.9
+npm ERR! peerinvalid Peer flatiron-cli-users@0.1.4 wants flatiron@~0.3.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ちなみに、peerDependenciesが指定されたgruntプラグインを&lt;code&gt;npm install&lt;/code&gt;するとpeerDependenciesに指定したgrunt（パッケージ）も一緒に落ちてくる。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;あ、そうそう、Gruntについては今週土曜の&lt;a href=&#34;http://events.html5j.org/conference/2013/11/sessions&#34;&gt;HTML5カンファレンス&lt;/a&gt;でも喋るよ。セッションはデザイナーさんとか、はじめてGruntを触るような人向けに喋るからpeerDependenciesとか気になる人は来なくていいよ！魔鎖狩投げたい人はahomuの方に行ってください。でも、人が来ないと寂しいので来てください。でも魔鎖狩こわいので来ないでください。でも来て（ry。。。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>部屋とYシャツと私</title>
+      <link>http://localhost:1313/mol/log/good-bye-compass-good-bye-ruby/</link>
+      <pubDate>Fri, 08 Nov 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/good-bye-compass-good-bye-ruby/</guid>
+      <description>
+
+&lt;p&gt;部屋とYシャツと私、AutoprefixerとSpritesmithとLibsassの話。&lt;/p&gt;
+
+&lt;p&gt;愛しの&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;Maple&lt;/a&gt;は、フレームワークというかGrunt詰め合わせセットなのですが、Grunt自体はNode.js依存で、使っているCSSプリプロセッサはSassでRuby依存なので、なんだかキメラみたいで気持ち悪い。いっそのこと、プリプロセッサはStylusにしてNode.jsで統一しようか、むしろ&lt;a href=&#34;http://middlemanapp.com/&#34;&gt;Middleman&lt;/a&gt;みたいにRubyで統一するか、考えものだ。とりあえずはCompassを辞めてみようという結論に至ったので代替案を探る。&lt;/p&gt;
+
+&lt;p&gt;MapleでCompassを使っている理由は2つ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ベンダープレフィックスを付ける手間をなくしたい&lt;/li&gt;
+&lt;li&gt;CSSスプライトを自動化したい&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これらをGruntプラグインでなんとか置き換えれないものか。&lt;/p&gt;
+
+&lt;h2 id=&#34;grunt-autoprefixer:d4c5f42d9bc6b1daea658a9891b46d71&#34;&gt;grunt-autoprefixer&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nDmitry/grunt-autoprefixer&#34;&gt;nDmitry/grunt-autoprefixer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ちょうど、&lt;a href=&#34;http://myakura.hatenablog.com/entry/2013/09/30/035244&#34;&gt;myakura氏のブログで取り上げられていたAutoprefixer&lt;/a&gt;が便利そうなので、これのGruntプラグインがないか探したらもちろんあった。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;autoprefixer: {
+  options: {
+    browsers: [&#39;ios &amp;gt;= 5&#39;, &#39;android &amp;gt;= 2.3&#39;]
+  },
+  dist: {
+    src: &#39;../files/css/maple.css&#39;
+  },
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Gruntの設定も至極簡単だ。対象のCSSファイルとと対応するバージョンを指定するだけだ。
+あとは正規のプロパティ書いておくだけ、Autoprefixerがバージョンに応じてベンダープレフィックス付きのプロパティを追加・削除してくれる。&lt;/p&gt;
+
+&lt;p&gt;Compassのミックスインによる書き方よりも、真っ当というか、なんかこっちの実装のほうが素敵だと素直に思った。あと対応するバージョンの指定方法も、CompassみたいにベンダーごとにON/OFFするんじゃなくて、&lt;code&gt;last 2 versions&lt;/code&gt;といった書き方もできたり、&lt;a href=&#34;https://twitter.com/tacamy/status/398400127259262977&#34;&gt;蟹ｳｾﾞ&lt;/a&gt;のデータを元にしてあったりと柔軟に指定できるのも魅力かな。&lt;/p&gt;
+
+&lt;h2 id=&#34;grunt-spritesmith:d4c5f42d9bc6b1daea658a9891b46d71&#34;&gt;grunt-spritesmith&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Ensighten/grunt-spritesmith&#34;&gt;Ensighten/grunt-spritesmith&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;CSSスプライトを自動化するためにCompassを使用しはじめたのもあって、移行しんどかった。使い勝手的には&lt;a href=&#34;https://gist.github.com/t32k/e65534b5a8bb124e1cbe&#34;&gt;Compass Sprite&lt;/a&gt;のほうが今のところは良いと思う。&lt;/p&gt;
+
+&lt;p&gt;しかし、Spritesmithに変更することでCSSプリプロセッサに依存せずにCSSスプライトの自動化を手に入れることができる。MapleではSass用にコードを吐き出してるけど、Stylus用にも吐き出せるし、生のCSSでもできる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;$_bird1: 0px 149px 0px -149px 60px 49px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;;
+$_bird2: 0px 0px 0px 0px 180px 147px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;;
+$_bird3: 182px 0px -182px 0px 120px 98px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;;
+$_bird4: 62px 149px -62px -149px 60px 49px 302px 198px &amp;quot;/files/img/sprite/tabs.1383826639213.png&amp;quot;;
+
+// $list: &amp;lt;X&amp;gt; &amp;lt;Y&amp;gt; &amp;lt;Offset X&amp;gt; &amp;lt;Offset Y&amp;gt; &amp;lt;Width&amp;gt; &amp;lt;Height&amp;gt; &amp;lt;Total Width&amp;gt; &amp;lt;Total Height&amp;gt; &amp;lt;Image Path&amp;gt;
+
+@mixin sprite($isParent, $sprite) {
+  @if $isParent == &amp;quot;parent&amp;quot; {
+    $imagePath: nth($sprite, 9);
+    background-image: url(&amp;quot;#{$imagePath}&amp;quot;);
+    background-repeat: no-repeat;
+    background-size: round( nth($sprite, 7) / 2 ) round( nth($sprite, 8) / 2 );
+  } @else {
+    width: round( nth($sprite, 5) / 2 );
+    height: round( nth($sprite, 6) / 2 );
+    background-position: round( nth($sprite, 3) / 2 ) round( nth($sprite, 4) / 2 );
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Spritesmithはタスクを実行すると、任意の画像をスプライト画像にまとめて、上記のようなコードを吐き出してくれる。要は、&lt;code&gt;$_bird1&lt;/code&gt;のようなスプライト画像のWidth/Heightやオフセット値をまとめたリスト型の変数を提供してくれるので、あとはそのデータを使って自分で独自のミックスイン（Retina対応している）を作成すればよい。このデータさえあればCompassの関数を使わなくて良くなる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;sprite: {
+  dist: {
+    dt: &#39;&amp;lt;%= Date.now() %&amp;gt;&#39;,
+    src: &#39;../files/img/sprite/tabs/*.png&#39;,
+    destImg: &#39;../files/img/sprite/tabs.&amp;lt;%= sprite.dist.dt %&amp;gt;.png&#39;,
+    imgPath: &#39;/files/img/sprite/tabs.&amp;lt;%= sprite.dist.dt %&amp;gt;.png&#39;,
+    destCSS: &#39;../files/css/sass/libs/_sprite.scss&#39;,
+    algorithm: &#39;binary-tree&#39;,
+    padding: 2,
+    cssTemplate: &#39;spritesmith.mustache&#39;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;各画像のオフセット値が分かるので&lt;code&gt;binary-tree&lt;/code&gt;という、単純に縦並べ、横並べじゃなくてCompassの&lt;code&gt;Smart&lt;/code&gt;みたいな、詰め込んだ並べ方ができるのも良さげ。&lt;/p&gt;
+
+&lt;p&gt;Gruntでの設定がややめんどいし、キャッシュバスターのために&lt;code&gt;Date.now()&lt;/code&gt;の値をファイル名に入れてるけど、タスクが実行される度に画像に変更がなくても新たにスプライト画像を生成してしまうし、以前のスプライト画像もCompassみたいに勝手に削除されない。この辺もうちょっと頑張ってみる必要性がある。&lt;/p&gt;
+
+&lt;h2 id=&#34;libsass:d4c5f42d9bc6b1daea658a9891b46d71&#34;&gt;Libsass&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/sindresorhus/grunt-sass&#34;&gt;sindresorhus/grunt-sass&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ということで、Compassの呪縛からはとりあえず解放されたのでSassもC実装の&lt;a href=&#34;http://libsass.org/&#34;&gt;Libsass&lt;/a&gt;にしてみた。LibsassはRubyで書かれていたSassのコンパイラをCで書きなおしたもの。それをNode.jsから利用できるようにしたのが&lt;a href=&#34;https://github.com/andrew/node-sass&#34;&gt;node-sass&lt;/a&gt;で、それのGruntプラグインが&lt;a href=&#34;https://github.com/sindresorhus/grunt-sass&#34;&gt;grunt-sass&lt;/a&gt;。ややこいけど要はSassだけどRubyがいらないシロモノ。&lt;/p&gt;
+
+&lt;p&gt;しかもCで書かれているので、&lt;a href=&#34;http://www.damln.com/log/sassc-and-bourbon-it-works/&#34;&gt;爆速でコンパイルされるらしい&lt;/a&gt;よ（まだ大きいファイルで試してないけど）とりあえず今んとこ絶賛開発中でSCSSファイルしかコンパイルできてないし、RubySassでうまくコンパイルされるけど、Libsassではコンパイルできないってバグもあるし、ご利用は慎重にって感じ。個人的にはそんなにSassっぽいというかCSSプリプロセッサ全開！な書き方してないし、変数使えたらいいなぁ程度なので、そこまで困らないはず。。。&lt;/p&gt;
+
+&lt;p&gt;というわけで、Sass使いながらでも、&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/maple/commit/fb621dbda3634b25575618b16a49560a4000a5d2&#34;&gt;Good-bye Compass, Good-bye Ruby.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;できました。おしまい(・ω&amp;lt;)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CharlesでBandwidth Throttlingやりーの、Chrome for AndroidでRemote Debugしーの。</title>
+      <link>http://localhost:1313/mol/log/charles-bandwidth-throttling/</link>
+      <pubDate>Tue, 06 Aug 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/charles-bandwidth-throttling/</guid>
+      <description>&lt;p&gt;とりあえず表題のようなことがしたい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://t32k.me/mol/log/remote-debugging-with-chrome-for-android/&#34;&gt;Chrome for AndroidでRemote Debuggingは以前の記事&lt;/a&gt;でも紹介したとおりだ。&lt;/p&gt;
+
+&lt;p&gt;僕のAndroid端末は3G回線契約していない、いわゆる白ロムなので、WiFiしか使えない。これだと、3G回線の低速さが体感できない、低帯域でどうアプリケーションが振る舞うのかわからないので不便だ。ということで、CharlesでBandwidth Throttlingできたよねと思い、組み合わせて使ってみる。
+&lt;h2&gt;ADBPlugin&lt;/h2&gt;
+まず、おさらい的なことで、Chrome for AndroidでRemote DebugをするためにはADB（Android Debug Bridge ）が必要だ。これは通常、Android SDKの中に入っていて、SDKまるごと落としてこなきゃいけなかったけど、最近じゃ、ADBを内包したChrome Extensionで提供されているらしく、これをインストールするだけだお。面倒なpathも通さなくても簡単に使えるようになってる。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/GoogleChrome/ADBPlugin/&#34;&gt;GoogleChrome/ADBPlugin &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/adb/dpngiggdglpdnjdoaefidgiigpemgage&#34;&gt;Chrome ウェブストア - ADB &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+あとは前回紹介したようにChromeで調べるだけ。便利な世の中になったもんだ。&lt;/p&gt;
+
+&lt;p&gt;詳細は下記リンク参照。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://developers.google.com/chrome-developer-tools/docs/remote-debugging?hl=ja#remote-debugging-beta&#34;&gt;Remote Debugging on Android - Chrome DevTools — Google Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Bandwidth Throttling - Charles &lt;span style=&#34;font-size: 13px;&#34;&gt; &lt;/span&gt;&lt;/h2&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;img class=&#34;alignnone size-full wp-image-5086&#34; title=&#34;Bandwidth Throttling - Charles  &#34; src=&#34;/static/blog/2013/08/bs1.png&#34; alt=&#34;&#34; width=&#34;550&#34; height=&#34;570&#34; /&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;Charlesはよく使うツール。といっても、デスクトップでこの機能使うくらいなんだけど。&lt;/div&gt;
+&lt;div&gt;詳しい使い方はこもりさんの記事がわかりやすい。&lt;/div&gt;
+&lt;div&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://blog.gaspanik.com/how-to-setup-charles-web-debugging-proxy&#34;&gt;Charles Web Debugging Proxy の使い方 | gaspanik weblog &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;とりあえず、実機の端末はこのCharlesを通してインターネッツに羽ばたけば良いわけです。重要なのはCharelsが入ってるMacのIPアドレスと、ポート番号（ここではとりあえず8888にしときましょう）です。&lt;/div&gt;
+&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt; &lt;img class=&#34;alignnone size-full wp-image-5090&#34; title=&#34;network&#34; src=&#34;/static/blog/2013/08/network.png&#34; alt=&#34;&#34; width=&#34;660&#34; height=&#34;570&#34; /&gt;&lt;/div&gt;
+&lt;div&gt;ちなみに、MacでIPアドレスを確認したい場合は、&lt;strong&gt;システム環境設定 ＞ ネットワーク ＞ 詳細 ＞ TCP/IP&lt;/strong&gt;でみれます。&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;で、このIPをAndroidの端末に設定してあげれば行けるわけですね。けど、記事にはiOSの設定しか書いてない！ということでググったらネットワークの部分長押しでプロキシ設定項目がでてくるらしい。。。&lt;/div&gt;
+&lt;div&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://ameblo.jp/yongmars/entry-11339671898.html&#34;&gt;忘れないように 『プロキシ設定』｜スイーツ＠インデックス リバース &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;a href=&#34;/static/blog/2013/08/ss.png&#34;&gt;&lt;img class=&#34;alignnone size-full wp-image-5087&#34; title=&#34;&#34; src=&#34;/static/blog/2013/08/ss.png&#34; alt=&#34;&#34; width=&#34;338&#34; height=&#34;600&#34; /&gt;&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+どうでもいいけど、&lt;a href=&#34;http://juggly.cn/archives/75086.html&#34;&gt;Android 4.2で「開発者向けオプション」を表示する方法&lt;/a&gt; とかも分かりにくいよね。。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、できました。ありがとうございました。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chrome CanaryとAndroid Debug BridgeとChrome for Android betaでReverse Port Forwarding</title>
+      <link>http://localhost:1313/mol/log/reverse-port-forwarding/</link>
+      <pubDate>Tue, 06 Aug 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/reverse-port-forwarding/</guid>
+      <description>&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-5100&#34; title=&#34;debug&#34; src=&#34;/static/blog/2013/08/debug.png&#34; alt=&#34;&#34; width=&#34;900&#34; height=&#34;200&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;最近、横文字タイトルがマイブームです、@t32kです。要はReverse Port Forwardingしたいのです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://t32k.me/mol/log/charles-bandwidth-throttling/&#34;&gt;前回の記事で&lt;/a&gt;久しぶりに、&lt;a href=&#34;https://developers.google.com/chrome-developer-tools/docs/remote-debugging?hl=ja#reverse-port-forwarding&#34;&gt;Remote Debugging on Androidの記事を読んでたらReverse Port Forwarding&lt;/a&gt;って新しい項目ができてるのを見つけたじゃないですかー、気になるじゃないですかー、ためしてみるじゃないですかー。
+&lt;blockquote&gt;Commonly you have a web server running on your local development machine, and you want to connect to that site from your device. If the mobile device and the development machine are on the same network, this is straightforward.&lt;/blockquote&gt;
+Reverse Port Forwardingってのがなんなのかはよくわかってないですが、よくローカルに静的なサーバーたちあげてマークアップして、iOSシミュレータとかで確認してるんですけど、これ実機で確認できればなーと思ってたんですよね。Chromeだとできるってよ、これ。
+&lt;ul&gt;
+    &lt;li&gt;デスクトップにChrome Canary&lt;/li&gt;
+    &lt;li&gt;Android Debug Bridge (ADBPlugin or full Android SDK)&lt;/li&gt;
+    &lt;li&gt;検証端末にChrome for Android beta&lt;/li&gt;
+&lt;/ul&gt;
+必要な物は上記です、Canaryとbetaが必要なんですね。ADBPluginって書いてあるけど、拡張機能からだとうまくいかなかったので、おとなしくコマンド叩いた。とりあえずADBを起動させておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-5102&#34; title=&#34;flag&#34; src=&#34;/static/blog/2013/08/flag.png&#34; alt=&#34;&#34; width=&#34;850&#34; height=&#34;134&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まず、Canaryで&lt;strong&gt; chrome://flags&lt;/strong&gt; を開いて、『&lt;strong&gt;デベロッパー ツールのテストを有効にする&lt;/strong&gt;』にします。&lt;strong&gt;#enable-devtools-experiments&lt;/strong&gt; で検索すればいいよ。再起動もしておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-5103&#34; title=&#34;port&#34; src=&#34;/static/blog/2013/08/port.png&#34; alt=&#34;&#34; width=&#34;768&#34; height=&#34;423&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;chrome://inspect&lt;/strong&gt; を開くと、USBで繋いだChrome for Android betaで開いているサイトが出てくるので、そこの上の『&lt;strong&gt;Enable port forwarding&lt;/strong&gt;』にチェック！（記事にはDevToolsのSettings Panelって書いてあってフェイントくらった）Configure port forwardingで、port:8080, IP adrress andport: 127.0.0.1:8080をにする。&lt;/p&gt;
+
+&lt;p&gt;あとは、開発環境で&lt;strong&gt;python -m SimpleHTTPServer 8080&lt;/strong&gt;とかでサーバー立てたり、&lt;a href=&#34;https://github.com/t32k/maple#-grunt-tasks&#34;&gt;Maple使ってる人はgrunt developす&lt;/a&gt;るだけで立っちゃう！で、あとは端末で、&lt;a href=&#34;http://localhost:8080/にアクセスすれば、実機で開発マシンのファイルを検証することができるよ！！！！&#34;&gt;http://localhost:8080/にアクセスすれば、実機で開発マシンのファイルを検証することができるよ！！！！&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-5105&#34; title=&#34;xperia&#34; src=&#34;/static/blog/2013/08/xperia.jpg&#34; alt=&#34;&#34; width=&#34;800&#34; height=&#34;450&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nvmでnode.jsを管理する</title>
+      <link>http://localhost:1313/mol/log/using-node-version-manager/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/using-node-version-manager/</guid>
+      <description>&lt;p&gt;こんちわ！&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;だ！&lt;/p&gt;
+
+&lt;p&gt;私はしがないHTMLコーダーですが、そんな私でも最近はgruntなどのnode.js環境を必要とするツールなど使っています。ということで、node.jsをインストールしなきゃあかんのですよ。
+&lt;h2&gt;Mac OS X Installer (.pkg)&lt;/h2&gt;
+幸い、私のような最下級サイヤ戦士でも簡単にnode.jsをインストールできるように公式サイトではインストーラーが用意されています。やったね、たえちゃん！ということで、人生になんの疑問もなく私はこれを使ってました。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;&lt;strong&gt;node.js&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+しかし、node.jsの進化は凄まじいものがありまして、月単位？週単位？で新しいバージョンがアップデートされていたなんてのはザラです。プラス、私は出来る限り（stableで）最新のバージョンにしておきたいという性格なので、node.jsのバージョンが新しく出るたびに、公式サイト行って、インストーラーDLして、インストール画面をクリック！クリック！クリック！なんて作業はもうやなんだよ！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;/static/blog/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png&#34;&gt;&lt;img class=&#34;aligncenter size-full wp-image-4988&#34; title=&#34;node.js&#34; src=&#34;/static/blog/2013/07/537090ed538f9d4ad7649e9ba5cb040b.png&#34; alt=&#34;&#34; width=&#34;734&#34; height=&#34;576&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ということで、インストーラーによる管理は辞めたい！&lt;/p&gt;
+
+&lt;p&gt;思い立ったら吉日DAY！インストーラーでインストールしたnode.jsをアンインストールしましょう。インストーラがあるのならアンインストーラあるのかなと思ったらなかった／(^o^)＼けど、スクリプトあったよ。
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://gist.github.com/nicerobot/2697848&#34;&gt;&lt;strong&gt;Mac OS X uninstall script for packaged install of node.js &lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ curl -ksO &lt;a href=&#34;https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh&#34;&gt;https://gist.github.com/nicerobot/2697848/raw/uninstall-node.sh&lt;/a&gt;
+$ chmod +x ./uninstall-node.sh
+$ ./uninstall-node.sh
+$ rm uninstall-node.sh&lt;/code&gt;&lt;/pre&gt;
+上から順番に実行してくだけだよ。
+&lt;h2&gt;Homebrew&lt;/h2&gt;
+以前からbrew doctorをするとnodeがlinkしてねーよ！と注意されていたのだが、インストーラでインストールしたnode.jsが優先されていたのだろうと思う。ってことで、今はアンインストールしたから大丈夫ってことで、Homebrewでnode.jsを管理してみる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ brew install node&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;入ったー！簡単！&lt;/p&gt;
+
+&lt;p&gt;あれ、npm使えなくね？とおもったら、npm install -g したnpmは以下に、/usr/local/share/npm/bin 保存されるらしい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;# npm
+export PATH=&#34;/usr/local/share/npm/bin:$PATH&#34;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、bash_profileとかにpathを通しておく。&lt;/p&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://bulblub.com/2013/04/20/install_nodejs_with_homebrew/&#34;&gt;Homebrewでnode.jsとnpmをインストール | bulblub &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これで、完璧だね、やったね、たえちゃん！&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt; nvmかnodebrewかnaveのどれか絶対使った方がいいです！&lt;/p&gt;
+
+&lt;p&gt;— CO2クリエイター79 (@79yuuki) &lt;a href=&#34;https://twitter.com/79yuuki/statuses/352104822507442179&#34;&gt;July 2, 2013&lt;/a&gt;&lt;/blockquote&gt;
+と思ったら、同僚のエンジニアさんから親切なツイートが！
+&lt;h2&gt;nvm&lt;/h2&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/creationix/nvm&#34;&gt;nvm&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/isaacs/nave&#34;&gt;nave&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/hokaccha/nodebrew&#34;&gt;nodebrew&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+Node.jsのバージョン管理には上記のようなものあるらしいけど、どれ使ったらいいんだろう。。&lt;/p&gt;
+
+&lt;p&gt;Rubyはrvm使ってるし、名前似てるし、nvm使ってみる！
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ curl &lt;a href=&#34;https://raw.github.com/creationix/nvm/master/install.sh&#34;&gt;https://raw.github.com/creationix/nvm/master/install.sh&lt;/a&gt; | sh&lt;/code&gt;&lt;/pre&gt;
+でインストール！&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;source ~/.nvm/nvm.sh&lt;/code&gt;&lt;/pre&gt;
+を、bash_profileとかに書いておく。&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ nvm install 0.10&lt;/code&gt;&lt;/pre&gt;
+で、0.10.x系の最新がインストールされる。&lt;/p&gt;
+
+&lt;p&gt;&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ nvm alias default 0.10&lt;/code&gt;&lt;/pre&gt;
+で、デフォルトで使用されるnode.js のバージョンが0.10.x系の最新になる。&lt;/p&gt;
+
+&lt;p&gt;ほらね、簡単でしょ？&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VagrantでCentOSを入れてJenkinsを導入してみる</title>
+      <link>http://localhost:1313/mol/log/vagrant1-2-centos6-4-jenkins1-5/</link>
+      <pubDate>Fri, 28 Jun 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/vagrant1-2-centos6-4-jenkins1-5/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;/static/blog/2013/06/vj.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;我も&lt;a href=&#34;http://jenkins-ci.org/&#34;&gt;Jenkins&lt;/a&gt;触ってみたかったんや&amp;hellip;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Jenkinsで我もジョブ書きたい&lt;/li&gt;
+&lt;li&gt;とりあえずローカル環境で動かしたい&lt;/li&gt;
+&lt;li&gt;Macのインストーラーで一発やん！&lt;/li&gt;
+&lt;li&gt;でもいろいろインスコしたら危なそう&lt;/li&gt;
+&lt;li&gt;んじゃ、VM上でJenkins動すか &amp;lt;-イマココ&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;ってことで、&lt;a href=&#34;http://www.vagrantup.com/&#34;&gt;Vagrant&lt;/a&gt;使ってみることにする。&lt;/p&gt;
+
+&lt;h2 id=&#34;各種インストール:f155bc48375835a4d57c5b707ef39b9e&#34;&gt;各種インストール&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.virtualbox.org/wiki/Downloads&#34;&gt;VirtualBox をインストール&lt;/a&gt;しましょう。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;最新の4.2.14でvagrant upすると&amp;rdquo;Progress object failure: NS_ERROR_CALL_FAILED&amp;rdquo;ってエラーでるので、4.2.12をインストールしませう。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://downloads.vagrantup.com/&#34;&gt;Vagrantをインストール&lt;/a&gt;しましょう。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;以前に、gem installでvagrantをインスコした人はuninstallしておきませう。古いのがあるとうまく動きません。&lt;/p&gt;
+
+&lt;p&gt;vagrantで利用できるBoxファイルはここに一覧がありますんで、好きなやつ選びましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.vagrantbox.es/&#34;&gt;A list of base boxes for Vagrant - Vagrantbox.es&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;僕はCentOSをいれたかったので、&lt;em&gt;”CentOS 6.4 x86_64 Minimal (VirtualBox Guest Additions 4.2.12, Chef 11.4.4, Puppet 3.1.1)”&lt;/em&gt;を選びました。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant box add centos-6.4 http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これで、ローカルの~/.vagrant.d/boxes/にcentos-6.4って名前でBoxファイルが保存されます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant init
+centos-6.4 A `Vagrantfile` has been placed in this directory. You are now ready to `vagrant up` your first virtual environment! Please read the comments in the Vagrantfile as well as documentation on `vagrantup.com` for more information on using Vagrant.
+$ vagrant up 
+Bringing machine &#39;default&#39; up with &#39;virtualbox&#39; provider... [default] Importing base box &#39;centos-6.4&#39;... ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;あとは、initで初期化して、upで起動させる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant ssh
+Welcome to your Vagrant-built virtual machine. 
+[vagrant@localhost ~]$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshでVMの中に入れます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum install java-1.7.0-openjdk.x86_64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Jenkinsで必要なためcentOSにJavaをインストールします。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key 
+$ sudo yum install jenkins
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://pkg.jenkins-ci.org/redhat/&#34;&gt;RedHat Linux RPM packages for Jenkins&lt;/a&gt;のページ見ながら、Jenkinsをインストールします。
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;$ sudo service jenkins start&lt;/code&gt;&lt;/pre&gt;
+Jenkinsを起動させます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;でJenkinsのホーム画面が表示されれば成功です。&lt;/p&gt;
+
+&lt;p&gt;が、表示されない。&lt;/p&gt;
+
+&lt;h2 id=&#34;各種設定:f155bc48375835a4d57c5b707ef39b9e&#34;&gt;各種設定&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /etc/sysconfig/iptables
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# 下記一行追加
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;8080のポートを空けます。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ /etc/init.d/iptables restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再起動します。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:8080/&#34;&gt;http://localhost:8080/&lt;/a&gt;でJenkinsのホーム画面が表示されれば成功です。
+が、表示されない。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Vagrantfile
+
+# Create a forwarded port mapping which allows access to a specific port 
+# within the machine from a port on the host machine. In the example below, 
+# accessing &amp;quot;localhost:8080&amp;quot; will access port 80 on the guest machine. 
+config.vm.network :forwarded_port, guest: 8080, host: 8001 
+
+# Create a private network, which allows host-only access to the machine 
+# using a specific IP. 
+config.vm.network :private_network, ip: &amp;quot;192.168.33.10&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Vagrantfileの設定で、&lt;a href=&#34;http://e-words.jp/w/E3839DE383BCE38388E38395E382A9E383AFE383BCE38387E382A3E383B3E382B0.html&#34;&gt;ポートフォワーディング&lt;/a&gt;を設定します。
+（ゲストOS上の8080への接続をホストOSの8001からアクセスするみたいな感じ？）
+config.vm.network :private_networkのコメントアウトを外します(外さなくてもいいかもしんない)。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ vagrant reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再起動して、&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://localhost:8001/&#34;&gt;http://localhost:8001/&lt;/a&gt;でJenkinsのホーム画面が表示されれば成功です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/static/blog/2013/06/232fb3827d5a5421172fdd16db1ad854.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ほらね、簡単でしょ？&lt;/p&gt;
+
+&lt;h2 id=&#34;参考:f155bc48375835a4d57c5b707ef39b9e&#34;&gt;参考&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/TCP%E3%82%84UDP%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%9D%E3%83%BC%E3%83%88%E7%95%AA%E5%8F%B7%E3%81%AE%E4%B8%80%E8%A6%A7&#34;&gt;TCPやUDPにおけるポート番号の一覧 - Wikipedia &lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Chrome for Androidでリモートデバッグ</title>
+      <link>http://localhost:1313/mol/log/remote-debugging-with-chrome-for-android/</link>
+      <pubDate>Wed, 26 Sep 2012 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/remote-debugging-with-chrome-for-android/</guid>
+      <description>&lt;p&gt;さて、&lt;a href=&#34;http://html.adobe.com/jp/edge/&#34;&gt;Adobe Edgeツール&amp;amp;サービス&lt;/a&gt;が発表されましたね。リモートデバッグではAdobe Shadowが&lt;a href=&#34;http://html.adobe.com/jp/edge/inspect/&#34;&gt;Edge Inspect&lt;/a&gt;に名をかえて正式にリリースされたようです。まぁ特に変わったことはないんですけど、ダウンロードするのに、Adobeのアカウントが必要になったとかでちょいめんどくさくなりました。Shadowの使い方は&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e476-try_adobe_shadow.html&#34;&gt;こことか参照&lt;/a&gt;するとよい。&lt;/p&gt;
+
+&lt;p&gt;ここではあえて、時代の流れを読まずに&lt;a href=&#34;https://play.google.com/store/apps/details?id=com.android.chrome&amp;amp;hl=ja&#34;&gt;Chrome for Android&lt;/a&gt;でリモートデバッグに挑戦したいと思います。ChromeはAndroid4.0以降対応なんですね、必死こいて2.3の端末機にインスコしようとググってました。あと、4.1からデフォルトのブラウザーになるとかで今後のメインストリーム確実な感じです。
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://developers.google.com/chrome/mobile/docs/debugging&#34;&gt;Remote Debugging - Google Chrome Mobile — Google Developers&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;h2&gt;各種インストール&lt;/h2&gt;
+まぁ、インストールの仕方などは上記リンクに、ほぼ書いてあるんですけどメモ代わりに残しておきます。あ、自分Macっす！
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://developer.android.com/sdk/&#34;&gt;Android SDK&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://www.google.com/intl/ja/chrome/browser/&#34;&gt;Chrome &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+SDKとChromeをインストール。SDKはどっか任意の場所に保存して、/Applications/android-sdk/tools/android（僕の場合はアプリケーションディレクトリにandroid-sdkという名前で置いた）を実行すると、Android SDK Managerが起動するので、Android SDK Platform-toolsをインストール。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter wp-image-4297&#34; title=&#34;Android SDK Platform-tools&#34; src=&#34;/static/blog/2012/09/Android-SDK-Platform-tools.png&#34; alt=&#34;&#34; width=&#34;520&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;/Applications/android-sdk/platform-toolsのAndroid Debug Bridge (adb)コマンドが必要になってくるので、PATHを通しておく。.bash_profileとかに下記のように記述する。
+&lt;pre&gt;&lt;code&gt;#.bash_profile
+PATH=$PATH:/Applications/android-sdk/platform-tools&lt;/code&gt;&lt;/pre&gt;
+んで、読み込ませておく。
+&lt;pre&gt;&lt;code&gt;$ source .bash_profile&lt;/code&gt;&lt;/pre&gt;
+PATHが通ったので、次回からは下記コマンドだけOK。
+&lt;pre&gt;&lt;code&gt;$ adb forward tcp:9222 localabstract:chrome_devtools_remote&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;各種設定&lt;/h2&gt;
+んで、Androidの方の設定で、【本体設定】&amp;gt;【開発者向けオプション】&amp;gt;【USBデバッグ】にチェキラーぁぁぁっｌ！！&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter wp-image-4300&#34; title=&#34;Setting-for-Android&#34; src=&#34;/static/blog/2012/09/Setting-for-Android.png&#34; alt=&#34;&#34; width=&#34;380&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;んで、Chrome for Androidの方の設定で、【設定】&amp;gt;【デベロッパーツール】&amp;gt;【USBウェブデバッグを有効化】にチェキラーぁぁぁっｌ！！&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter wp-image-4301&#34; title=&#34;Setting-for-Chrome&#34; src=&#34;/static/blog/2012/09/Setting-for-Chrome.png&#34; alt=&#34;&#34; width=&#34;380&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;これらも一回設定しておけばOK.
+&lt;h2&gt;使ってみる&lt;/h2&gt;
+前述のadb forwardなんちゃらってコマンド打ち込んで。localhost:9222をPC Chromeで開いてみましょう。
+&lt;pre&gt;&lt;code&gt;&lt;a href=&#34;http://localhost:9222/&#34;&gt;http://localhost:9222/&lt;/a&gt;&lt;/code&gt;&lt;/pre&gt;
+このとき、USBでAndroid実機をつなげて、Chrome for Androidでデバッグしたいページを開いておきましょう。そうするとAndroidで開いてるページがPCから確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter wp-image-4304&#34; title=&#34;Inspectable Pages&#34; src=&#34;/static/blog/2012/09/Inspectable-Pages.png&#34; alt=&#34;&#34; width=&#34;520&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;デバッグしたいページをクリックするとデベロッパーツールが立ち上がります。
+&lt;p style=&#34;text-align: center;&#34;&gt;&lt;img class=&#34;aligncenter&#34; title=&#34;DevTools&#34; src=&#34;/static/blog/2012/09/DevTools.png&#34; alt=&#34;&#34; width=&#34;520&#34; height=&#34;326&#34; /&gt;&lt;/p&gt;
+見てもらえるとわかるように、PCのデベロッパーツールとほぼ同等の機能が使えます。比較検討のためにEdge Inspect（weinre）で開いたデベロッパーツールのキャプチャを置いときますね ↓&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;aligncenter wp-image-4306&#34; title=&#34;weinre&#34; src=&#34;/static/blog/2012/09/weinre.png&#34; alt=&#34;&#34; width=&#34;520&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;weinreでもNetworkとかTimeline使えるけど、Chrome for Androidでのリモートデバッグのほうがより細かいとこまで見れたり全体的に高機能かつサクサク動きますです、はい。個人的に一番バビったのが拡張機能のPageSpeedが普通に動いてて、なおかつ評価設定がちゃんと&lt;strong&gt;【モバイル】&lt;/strong&gt;として評価されていたの感動しました。&lt;/p&gt;
+
+&lt;p&gt;これまでも、デベロッパーツールの設定でUAをスマホにしたりしてスマホサイトをPageSpeedで評価できたのですが、これはあくまでデスクトップ基準での評価でして、例えばオンラインのPageSpeedで&lt;a href=&#34;http://t32k.me/&#34;&gt;t32k.me&lt;/a&gt;を評価してみると、&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;amp;mobile=false&#34;&gt;デスクトップ版92点&lt;/a&gt;なのに対して、&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights#url=http_3A_2F_2Ft32k.me_2F&amp;amp;mobile=true&#34;&gt;モバイル版は88点&lt;/a&gt;と厳しめの評価です。改善策のサジェスチョンも微妙に違ったり（違いに関しては&lt;a href=&#34;https://developers.google.com/speed/docs/insights/faq#howonlinemobilediff&#34;&gt;ここ参照&lt;/a&gt;）しますので、Chrome for Androidのリモートデバッグ調べてたら思わぬ収穫を得たなという感じですね。&lt;/p&gt;
+
+&lt;p&gt;そんな感じで、こんな機能もあるぜってのあったら教えて下さい。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 2にしてみた</title>
+      <link>http://localhost:1313/mol/log/sublime-text-2/</link>
+      <pubDate>Mon, 09 Jul 2012 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/sublime-text-2/</guid>
+      <description>&lt;p&gt;こんちわこんちわ！ちょっと落ち着いてきたのでブログとか書いてみるの巻。&lt;/p&gt;
+
+&lt;p&gt;心機一転、HTMLコーダーとしてがんばるのでまずは形から入る男t32kとしては、テキストエディタを決めたいところです。Dreamweaverなんぞは論外でして、Codaもなんかシンタックスハイライト重いし（2になってどーなったかわんないけど）、TextMateは相変わらず日本語入力に難があるし…と思ってたら世の中はSublime Textが流行らしいです。乗るっきゃないこのビッグウェーブに！
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.sublimetext.com/&#34;&gt;Sublime Text: The text editor you&amp;rsquo;ll fall in love with &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;基本的には以下の御三方のブログを見れば、特徴と概要なんかわかるでしょう。大まかな流れとしては&lt;a href=&#34;http://wbond.net/sublime_packages/package_control&#34; target=&#34;_blank&#34;&gt;Sublime Package Control&lt;/a&gt;を入れから、各種自分の好みのプラグイン入れてく感じですかね。個人的には、&lt;a href=&#34;https://github.com/robcowie/SublimeTODO&#34;&gt;SublimeTODO&lt;/a&gt;と&lt;a href=&#34;https://github.com/BoundInCode/AutoFileName&#34;&gt;AutoFileName&lt;/a&gt;に感動しました。&lt;/div&gt;
+&lt;div&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;http://blog.agektmr.com/2012/05/sublime-text-2.html&#34;&gt;Tender Surrender: Sublime Text 2 のススメ &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://publicdraft.studiomohawk.com/research/2012/04/14/01-02-sublimetext2/&#34;&gt;Sublime Text 2 | Just writing down what I&amp;rsquo;ve found and collected &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;http://havelog.ayumusato.com/computer/software/e491-sublime_text_2.html&#34;&gt;Sublime Text 2を使ってみたら思ったより良い ::ハブろぐ &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+1ヶ月間、使ってみて全然使いこなしてはいませんが、良さ気な感じです。こんなのあったらいいなーってのが大抵プラグインであります。みんな大好きなんですねw。若干日本語入力が不安な時がありますが、開発スピードがパないのでいずれ解消するんじゃないでしょうか。&lt;/p&gt;
+
+&lt;p&gt;あ、あとこのアプリアイコンダサいよね。何のスイッチだよ！って思って自分で作ってみたけど僕も人のこと言えるほど格好いいもの作れなかったごめんなさい。一応公開しときます。よかったらつこてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon&#34;&gt;&lt;img title=&#34;Sublime Text 2 Replacement Icon&#34; src=&#34;https://github.com/t32k/Sublime-Text-2-Icon/raw/master/st2_icon_preview.png&#34; alt=&#34;Sublime Text 2 Replacement Icon&#34; width=&#34;540&#34; /&gt;&lt;/a&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon &#34;&gt;t32k/Sublime-Text-2-Icon · GitHub &lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon/tree/moreskine&#34;&gt;t32k/Sublime-Text-2-Icon at moreskine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

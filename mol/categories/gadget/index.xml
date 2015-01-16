@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gadget on MOL</title>
+    <link>http://localhost:1313/mol/categories/gadget/</link>
+    <description>Recent content in Gadget on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Tue, 11 Nov 2014 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/mol/categories/gadget/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MacBook Pro 15&#34; のみという選択</title>
+      <link>http://localhost:1313/mol/log/macbookpro-retina-15/</link>
+      <pubDate>Tue, 11 Nov 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/macbookpro-retina-15/</guid>
+      <description>
+
+&lt;p&gt;最近、数年に一度来る『断捨離』のブームで、要らないものはヤフオクり、より良いもの、よりコンパクトなものに置き換えたりしている。&lt;a href=&#34;/mol/log/cyber-shot-rx100/&#34;&gt;前回のRX100のカメラ&lt;/a&gt;も然り。&lt;/p&gt;
+
+&lt;p&gt;我々デベロッパーの仕事環境こそ、物がたまる諸悪の根源である！ってことでMacBookProだけにしてみたよ。&lt;/p&gt;
+
+&lt;h4 id=&#34;beforeの環境:457198550411102ddf0aa1ee9c1d454a&#34;&gt;Beforeの環境&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MacBook Pro 13&amp;rdquo; (2012 Mid)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.co.jp/dp/B00FEZD878?tag=warikiru-22&#34;&gt;Dell U2713HM 27インチ&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Apple Magic Mouse&lt;/li&gt;
+&lt;li&gt;Apple Wireless Keyboard (US)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.co.jp/dp/B006NTPLJW?tag=warikiru-22&#34;&gt;LOGICOOL HDプロ ウェブカム C920&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.co.jp/dp/B00D89H1NO?tag=warikiru-22&#34;&gt;BOSE SoundLink Mini Bluetooth speaker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.amazon.co.jp/dp/B00D12RQPG?tag=warikiru-22&#34;&gt;LaCie USB3.0/2.0対応3.5インチ 1TB&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;afterの環境:457198550411102ddf0aa1ee9c1d454a&#34;&gt;Afterの環境&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MacBook Pro Retina 15&amp;rdquo; (2013 Late)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00G55EJWO/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51ZQGx%2BAsRL._SL160_.jpg&#34; alt=&#34;APPLE MacBook Pro Retina Display(15.4/2.3GHz Quad Core i7/16GB/512GB/Iris Pro/GeForce) ME294J/A&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00G55EJWO/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;APPLE MacBook Pro Retina Display&lt;br&gt;(15.4/2.3GHz Quad Core i7/16GB/512GB)&lt;br&gt;ME294J/A&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;アップル&lt;br /&gt;売り上げランキング: 14325&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00G55EJWO/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;以上である。&lt;/p&gt;
+
+&lt;p&gt;今年も引き続き海外とか行きたいし、長期滞在もしようかと思ってるので、できるだけいつもと同じ環境で作業したい。ご覧のとおり以前の環境を持ち運ぶのはポータビリティに欠ける。&lt;/p&gt;
+
+&lt;p&gt;というか、気づいた。いろんな付属品あるけど、全部MBPで事足りるじゃん！大きいディスプレイなくてもMacBookProの画面を見ればいい。外部ディスプレイを見なければキーボードもラップトップを使えばいい。ウェブカムも付いてるし、音楽も15インチなら（ある程度）ちゃんとしたスピーカー付いてるし（少なくとも13インチよりも良いと感じている）。全部事足りるじゃん！&lt;/p&gt;
+
+&lt;p&gt;ってことでここ2ヶ月間いろいろ売り払ってきた。&lt;/p&gt;
+
+&lt;h2 id=&#34;解像度:457198550411102ddf0aa1ee9c1d454a&#34;&gt;解像度&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11872510793/&#34; title=&#34;DSC00008 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7378/11872510793_70bba7ecc9_b.jpg&#34; alt=&#34;DSC00008&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;新しい環境に移行するにあたってMBPを何インチ買うのか、やはり迷った。当然13インチでもスペック的には十分だし、しかし解像度低いし、むしろMacBook Air 13のほうがいいんじゃないかと思ったけど、やはりメインマシンで使っていくし（動画もちょっと編集するし）って思って15インチ買った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;MacBook Pro 13&amp;rdquo; - 1280 x 800 -2.06kg&lt;/li&gt;
+&lt;li&gt;MacBook Air 13&amp;rdquo; - 1440 x 900 - 1.35kg&lt;/li&gt;
+&lt;li&gt;MacBook Pro Retina15&amp;rdquo; 2880 x 1800 - 2.03kg&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;画面の広さ的にAdobe Creative Suiteを使うのは少々キツイけど、最近はもっぱらフロントエンドな感じで黒い画面ばかりなので、特に問題はない。重さ的にも前の光学ディスクドライブがついたMBP13よりもドライブ無しのMBP15は対して変わらない重量である。この辺りは頻繁にこまめに海外行くのならMBA13だろうなと思ったけど、許容範囲である。&lt;/p&gt;
+
+&lt;h2 id=&#34;ハードディスク:457198550411102ddf0aa1ee9c1d454a&#34;&gt;ハードディスク&lt;/h2&gt;
+
+&lt;p&gt;問題はハードディスクの容量だ。MBPのSSDを512GBにしたかったけど+3万を渋ってしまったので、256GBでなんとかしなければならない。（この機種はメモリは後から増設できないので16GBにした）&lt;/p&gt;
+
+&lt;p&gt;今まで外付けHDDに入っていたデータはiTunesの音楽80GBとiPhotoの写真40GBだ。これを何とかするしかない。しかし2TBもあったけど全然使ってなかったな。&lt;/p&gt;
+
+&lt;h3 id=&#34;itunes:457198550411102ddf0aa1ee9c1d454a&#34;&gt;iTunes&lt;/h3&gt;
+
+&lt;p&gt;僕のiTunesには1.6万曲入ってるけど、そんなに聞いていないし聞けない。なぜなら最近は&lt;a href=&#34;https://soundcloud.com/&#34;&gt;SoundCloud&lt;/a&gt;や&lt;a href=&#34;http://www.thefuture.fm/&#34;&gt;Thefuture.fm&lt;/a&gt;のLifetime Subscriptionがあるので、もっぱらそっちで聞いている。最近の曲もほとんどiTunes Storeで購入しているので、一回全部バックアップで置いて、新規に『購入した項目』を落としてくればいいかなと思った。ので、iTunesのデータはほとんど諦めることにした。&lt;/p&gt;
+
+&lt;h3 id=&#34;iphoto:457198550411102ddf0aa1ee9c1d454a&#34;&gt;iPhoto&lt;/h3&gt;
+
+&lt;p&gt;写真と過去にそこまでこだわりはないので、これも諦めよう（捨てようか）と思ったけど、さすがに心苦しいので、&lt;a href=&#34;http://www.flickr.com/&#34;&gt;Flickr&lt;/a&gt;に全部アップロードしようと思う。なんか知らんあいだに無料で1TBまでUPできるようになってる。パネェ！！！ってことで、以下のスクリプトでこれまた1.6万枚くらい全部UPした。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/jawj/iphoto-flickr&#34;&gt;jawj/iphoto-flickr&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;実質60時間くらいかかった。長かった。アップロードするときはデフォルトの公開設定を気をつけておこう。基本的にプライバシー設定が全員に公開（？）になってるかもしんないので、学生時代にやんちゃした写真とか全世界に公開かつ僕の場合CCライセンスになってたときは焦ったｗ&lt;/p&gt;
+
+&lt;h3 id=&#34;movie:457198550411102ddf0aa1ee9c1d454a&#34;&gt;Movie&lt;/h3&gt;
+
+&lt;p&gt;あとはですね、ムフフな動画は&lt;a href=&#34;http://www.dmm.com/&#34;&gt;DMM.com&lt;/a&gt;で買っておきましょう。デジタル商品ならスマホ・タブレット・PCどのデバイスからクラウド上でストリーミングできます！！あと誤解を招くといけないのですが、DMMはですね、ツチノコで3Dプリントで艦これなイノベーションカンパニーですからね！！そうゆうんじゃねーから！&lt;/p&gt;
+
+&lt;h3 id=&#34;jetdrive-lite:457198550411102ddf0aa1ee9c1d454a&#34;&gt;JetDrive Lite&lt;/h3&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00K73NWK0/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41zkuW4DuYL._SL160_.jpg&#34; alt=&#34;Transcend Macbook Pro専用 カードスロット対応拡張メモリーカード JetDrive Lite 360 128GB for Macbook Pro with Retina display 15&amp;quot; (Late 2013) TS128GJDL360&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00K73NWK0/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;JetDrive Lite 360 128GB for Macbook Pro with Retina&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;トランセンド・ジャパン&lt;br /&gt;売り上げランキング: 9421&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00K73NWK0/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;やっぱり、HDDの容量増やしたかったので、&lt;a href=&#34;http://jp.transcend-info.com/apple/jetdrivelite/&#34;&gt;JetDrive™ Lite&lt;/a&gt;を購入してみた。&lt;/p&gt;
+
+&lt;p&gt;この手のやつは、mini SDカードを買ってMackBookにピッタリサイズのSDアダプターを購入するタイプのもあるけど何故か僕の持っているMacBook Pro Retina &amp;lsquo;15に対応するものがなかったので購入は控えていた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/01-11-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;完全にSDスロットの中に入るタイプじゃなくて少し出っ張る。でもほんの少しなので上記のカバーとかつけたらカバー目線ではフラットになるｗ&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/01-11-fig02.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ので問題ない。書き込み速度はSSDに比べたら遅いけど、まぁ動画とか保存して見る分にはなんら問題なくて個人的には満足している。&lt;/p&gt;
+
+&lt;h2 id=&#34;バックアップ:457198550411102ddf0aa1ee9c1d454a&#34;&gt;バックアップ&lt;/h2&gt;
+
+&lt;p&gt;バックアップとか気にする方はTime Capsuleですればいいんじゃないかな。無線でいけるし。基本、クラウドというかWeb上に上がってるもんだしまた落としてくればいいかなと思ってる。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DCM3W26/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/31PWp3-pIgL._SL160_.jpg&#34; alt=&#34;APPLE AirMac Time Capsule - 2TB ME177J/A&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DCM3W26/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;APPLE AirMac Time Capsule - 2TB ME177J/A&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;アップル&lt;br /&gt;売り上げランキング: 9491&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DCM3W26/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&#34;防御的なもの:457198550411102ddf0aa1ee9c1d454a&#34;&gt;防御的なもの&lt;/h2&gt;
+
+&lt;p&gt;あと、旅に出るといろいろ傷つきそう、汚れそうなので防御的なアクセサリーをちょっと紹介。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg&#34; alt=&#34;MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒）&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;MacBook Pro Retina 15” マットハードケース ブラック&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;MS factory&lt;br /&gt;売り上げランキング: 10056&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B009A4YKXA/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これで気兼ねなく、ステッカー貼れるね！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11872510353/&#34; title=&#34;DSC00011 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm3.staticflickr.com/2844/11872510353_e81f5f1222_b.jpg&#34; alt=&#34;DSC00011&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11872509443/&#34; title=&#34;DSC00016 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm3.staticflickr.com/2888/11872509443_9ff0cf8980_b.jpg&#34; alt=&#34;DSC00016&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008RTRZJA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41l2EeOa%2B6L._SL160_.jpg&#34; alt=&#34;アンチグレアフィルム for MacBook Pro 15”(Retina Display)(PEF-65)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008RTRZJA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;アンチグレアフィルム MacBook Pro 15”&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;売り上げランキング: 19484&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008RTRZJA/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;画面を守るというかテカリを抑えたいので購入。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008TQTIEQ/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/413Wd3NgfaL._SL160_.jpg&#34; alt=&#34;マイクロソリューション Micro Solution Inc. フルフラットキーボードカバー・PURE WRAP KEY #05 for Apple 13/15 MacBook Pro with Retina display 半透明 PWK05&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008TQTIEQ/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Micro Solution Inc. フルフラットキーボードカバー&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;マイクロソリューション Micro Solution Inc.&lt;br /&gt;売り上げランキング: 1699&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B008TQTIEQ/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;このキーボードカバーは気に入っている。一枚のフラットシートをかぶせてあるだけなんだけど、薄いので打撃感があんまりかわらない。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11872676654/&#34; title=&#34;DSC00012 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm4.staticflickr.com/3779/11872676654_80658ecfd1_b.jpg&#34; alt=&#34;DSC00012&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001MD0HK2/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41Xg%2BvG4azL._SL160_.jpg&#34; alt=&#34;パワーサポート トラックパッドフィルム for MacBook 13inch/MacBook Pro 15inch PTF-50&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001MD0HK2/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;パワーサポート トラックパッドフィルム for MacBook&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Not Machine Specific&lt;br /&gt;パワーサポート&lt;br /&gt;売り上げランキング: 356&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001MD0HK2/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これ全然つけてるのかわかんなくなるほど馴染んでる！いいね！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11873080476/&#34; title=&#34;DSC00009 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm6.staticflickr.com/5491/11873080476_094ef3cfbe_b.jpg&#34; alt=&#34;DSC00009&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;簡易的な冷却台&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11873080646/&#34; title=&#34;DSC00010 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7333/11873080646_96cf9f7d03_b.jpg&#34; alt=&#34;DSC00010&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;オマケ:457198550411102ddf0aa1ee9c1d454a&#34;&gt;オマケ&lt;/h2&gt;
+
+&lt;p&gt;あと最近流行ってるので、自分のパソコンリュックは &lt;strong&gt;THE NORTH FACE &amp;ldquo;BITE 20&amp;rdquo;&lt;/strong&gt; っての。TNFは山系のブランドですがAppleとコラボしてPCリュックとして企画したものとか。もう売ってないかな？&lt;/p&gt;
+
+&lt;p&gt;後継シリーズっぽいのが多分これ。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00PU5T05G/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/214AeQMmT-L._SL160_.jpg&#34; alt=&#34;(ザノースフェイス) THE NORTH FACE リュックサック [URBAN EXPLORATION][Shuttle Daypack] nm81212 1.ブラック&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00PU5T05G/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;THE NORTH FACE [Shuttle Daypack]ブラック&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00PU5T05G/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://goldwinwebstore.jp/ec/pro/disp/2/NM81212&#34;&gt;シャトルデイパック　|　GOLDWIN WEB STORE&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11873078736/&#34; title=&#34;DSC00017 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm4.staticflickr.com/3809/11873078736_0cc9c8221e_b.jpg&#34; alt=&#34;DSC00017&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11873077606/&#34; title=&#34;DSC00019 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7320/11873077606_0d2352457c_b.jpg&#34; alt=&#34;DSC00019&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.flickr.com/photos/t32k/11872233275/&#34; title=&#34;DSC00018 by t32k, on Flickr&#34;&gt;&lt;img src=&#34;http://farm3.staticflickr.com/2847/11872233275_d883f8340f_b.jpg&#34; alt=&#34;DSC00018&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>サイバーショットRX100買った</title>
+      <link>http://localhost:1313/mol/log/cyber-shot-rx100/</link>
+      <pubDate>Fri, 10 Jan 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/cyber-shot-rx100/</guid>
+      <description>&lt;p&gt;タイトル通り。今までは同じSONYでミラーレス一眼のNEX-5を使ってたが、売り払ってコンデジに戻ってきた。&lt;/p&gt;
+
+&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41%2ByZvTCsJL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;SONY Cyber-shot RX100 2020万/光学x3.6/ブラック&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E&#34; target=&#34;_blank&#34;&gt;SONY Cyber-shot RX100 2020万/光学x3.6/ブラック&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&lt;br /&gt;ソニー  2012-06-15&lt;br /&gt;売り上げランキング : 1841&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/SONY-Cyber-shot-RX100-2020%E4%B8%87-%E5%85%89%E5%AD%A6x3-6/dp/B00898JY8E%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00898JY8E&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;NEX-5もミラーレス一眼なので普通の一眼に比べればコンパクトなほうだが、やっぱデカイなと3年経ってようやく理解した。特にズームレンズとか装着したり、持ち歩いたりしてるとほんと場所をとる。しかも、たいして写真がうまくないのにレンズをいろいろ買い足していってしまう悪循環に陥るのもこわい。&lt;/p&gt;
+
+&lt;p&gt;決定的だったのは、&lt;a href=&#34;http://t32k.me/mol/log/velocity2013/&#34;&gt;海外カンファレンスに参加&lt;/a&gt;してきたときに、極力荷物を減らしたかったので&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-Cyber-shot-DSC-WX300-B-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF/dp/B00BQ6VHQI%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00BQ6VHQI&#34;&gt;DSC-WX300&lt;/a&gt;を購入したのだけど、これがコンパクトで写真もいい感じに撮れたので気に入ってた。けどもNYで失くした(´Д⊂ヽ&lt;/p&gt;
+
+&lt;p&gt;のでRX100を買った。ネット上の評判も良いので。&lt;/p&gt;
+
+&lt;p&gt;FlickrでRX100で撮った写真は以下のリンクで見れるよ。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.flickr.com/cameras/sony/dsc-rx100/&#34;&gt;Flickr: Camera Finder: Sony: DSC-RX100&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7399/11863544146_9e50f81e6c_b.jpg&#34; alt=&#34;箱&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm3.staticflickr.com/2823/11863544166_3ed4397329_b.jpg&#34; alt=&#34;開封&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm6.staticflickr.com/5535/11863141734_5565b15c34_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;COOL!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm6.staticflickr.com/5502/11862702745_7e745a7ef9_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;びよーん！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm3.staticflickr.com/2880/11863141424_86dee0bd77_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm6.staticflickr.com/5503/11863141094_72b5dbaa61_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41J1PossUTL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;SONY アタッチメントグリップ AG-R1 B&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S&#34; target=&#34;_blank&#34;&gt;SONY アタッチメントグリップ AG-R1 B&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&lt;br /&gt;ソニー  &lt;br /&gt;売り上げランキング : 1232&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%BD%E3%83%8B%E3%83%BC-AGR1B-SYH-SONY-%E3%82%A2%E3%82%BF%E3%83%83%E3%83%81%E3%83%A1%E3%83%B3%E3%83%88%E3%82%B0%E3%83%AA%E3%83%83%E3%83%97-AG-R1/dp/B00DRYVF2S%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00DRYVF2S&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;そのままでもシンプルで好きだけど、持ち手が不安だったので純正のグリップシールを買った。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7355/11862997863_8538d64998_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm8.staticflickr.com/7392/11863140694_ddaa9b5ebe_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;レンズの曲面にあわせて貼るだけなので簡単に貼れたよ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://farm4.staticflickr.com/3699/11863542226_4aece0371e_b.jpg&#34; alt=&#34;&#34; /&gt;
+
+&lt;img src=&#34;http://farm8.staticflickr.com/7403/11863541916_9529e8ea95_b.jpg&#34; alt=&#34;&#34; /&gt;
+
+&lt;img src=&#34;http://farm8.staticflickr.com/7352/11862997273_e6d24ea0d1_b.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;んなわけで、ぼちぼち良い写真も撮れてコンパクトでかさばらなくてそれでいて重厚な面持ちのRX100はイケてると思いました。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sony.jp/cyber-shot/products/DSC-RX100/spec.html&#34;&gt;主な仕様 | DSC-RX100 | Cyber-shot“サイバーショット” | ソニー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+&lt;tr&gt;&lt;th&gt;有効画素数&lt;/th&gt;&lt;td&gt;約2020万画素&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;撮像素子&lt;/th&gt;&lt;td&gt;1.0型(13.2×8.8mm)&#34;Exmor&#34;CMOSセンサー アスペクト比 3:2&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;画面サイズ&lt;/th&gt;&lt;td&gt;3インチ&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;ズーム倍率 (光学)&lt;/th&gt;&lt;td&gt;3.6&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;レンズタイプ&lt;/th&gt;&lt;td&gt;カールツァイス「バリオ・ゾナーT*」レンズ&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th&gt;ASIN&lt;/th&gt;&lt;td&gt;B00898JY8E&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MacBook Pro’13 Mid 2012 のメモリ交換して16GBにした</title>
+      <link>http://localhost:1313/mol/log/macbook-pro-how-to-remove-and-install-memory/</link>
+      <pubDate>Sat, 13 Apr 2013 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/macbook-pro-how-to-remove-and-install-memory/</guid>
+      <description>&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8644568837/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;今日は表題のとおり、MBP13の2012Midのメモリ交換したよ。BTOのとき、16GBが選択できなくててっきり認識しないのかと思ってたけど普通に認識するみたいだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/static/blog/2013/04/s1.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;交換前のMyBookのスペック。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/static/blog/2013/04/s2.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;4GB×2の8GB. まぁそこまでメモリ不足に悩んでないけどAdobe CSとかVMを一緒に立ち上げてるとなかなか重い気がするのと、1万未満で16GBが買えるということなので買ってみた（やつ↓）
+&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;2&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK&#34; target=&#34;_top&#34;&gt;シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22&lt;/a&gt;&lt;img style=&#34;border: none;&#34; src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;amp;l=ur2&amp;amp;o=9&#34; alt=&#34;&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK&#34; target=&#34;_top&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51ghxIR7QoL._SL160_.jpg&#34; alt=&#34;シリコンパワー メモリモジュール 204Pin SO-DIMM DDR3-1600(PC3-12800) 8GB×2枚組 SP016GBSTU160N22&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;span&gt;
+シリコンパワー
+売り上げランキング : 398&lt;/span&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%91%E3%83%AF%E3%83%BC-%E3%83%A1%E3%83%A2%E3%83%AA%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-DDR3-1600-PC3-12800-SP016GBSTU160N22/dp/B0094P98FK%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB0094P98FK&#34; target=&#34;_top&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;span&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34;&gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+メモリの交換の仕方は公式サポートに書いてあるので、取り掛かる前に一読を。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;メモリカードの仕様&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;DDR3 (Double Data Rate Small Outline Dual Inline Memory Module) 方式&lt;/li&gt;
+&lt;li&gt;67.6mm x 30mm (1.18 インチ)&lt;/li&gt;
+&lt;li&gt;2 GB または 4 GB&lt;/li&gt;
+&lt;li&gt;204 ピン&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;PC3-12800 DDR3 1600 MHz タイプの RAM&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;http://support.apple.com/kb/HT1270?viewlocale=ja_JP&#34;&gt;MacBook Pro：メモリの取り外し方法と取り付け方法&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと、メモリ交換する際にMBPを開かなきゃいけないんだけど、これて保証の対象外になるんだよなーと思ってたけど、保証の対象外になるのはそのメモリ交換に起因する故障の場合で、例えば電源タップがなんか知らんが壊れたとかなら期間内であれば保証してもらえるって感じかな。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://discussionsjapan.apple.com/thread/10116307?start=0&amp;amp;tstart=0&#34;&gt;SSDやメモリを換装するとサポート対象外&amp;hellip;？: Apple サポートコミュニティ &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;確かに公式サポートでメモリの取り外し方書いてあるし、いいのかな。とはいえ、買ってもう1年するし保証期間も終わるってるしな、どうでもいいやということで、交換してみる。&lt;/p&gt;
+
+&lt;p&gt;まずは静電気対策のためにとりあえず全裸になりましょう。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8645666878/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;裏面をみてみると、10本のネジがありますんで外しましょう。家にある100均の精密ドライバーセット使ってみたけど、サイズが合わなかった。00番のプラスドライバーが必要ということが分かったので、下記を注文した。とりあえず全裸になったけどドライバー届くまで服を着ようと思う。
+&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B002SQLEIG/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;&lt;img class=&#34;fig&#34; src=&#34;http://ecx.images-amazon.com/images/I/41-2usJbNaL._SL160_.jpg&#34; alt=&#34;アネックス(ANEX) 精密ドライバー プラス00×50 No.3450&#34; width=&#34;160&#34; height=&#34;160&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;span&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9-ANEX-%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E3%83%97%E3%83%A9%E3%82%B900%C3%9750-No-3450/dp/B002SQLEIG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002SQLEIG&#34; target=&#34;_blank&#34;&gt;アネックス(ANEX) 精密ドライバー プラス00×50 No.3450&lt;/a&gt;&lt;img style=&#34;border: none;&#34; src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;amp;l=ur2&amp;amp;o=9&#34; alt=&#34;&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;&lt;/span&gt;兼古製作所
+売り上げランキング : 32&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9-ANEX-%E7%B2%BE%E5%AF%86%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC-%E3%83%97%E3%83%A9%E3%82%B900%C3%9750-No-3450/dp/B002SQLEIG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB002SQLEIG&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt; &lt;span&gt;by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34;&gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+無事にプラスドライバーがきたので全裸になる。右上右から3本までは長いネジであとは短いネジの計10本をはずす。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8644568759/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;外すと、こんな感じで右中央にメモリ部分を確認できる。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8644568711/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;全裸になってるけど、メモリ部分を外す前に金属っぽいとこ触って放電しておきましょう。取り外し方はメモリがハマってる両端のレバーみたいなものを外側に開くとパカっと上にメモリが開くような感じになる。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8644568671/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;慎重に外してみた感じ。下段のメモリを取り外すのがてこづった。&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8645666616/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;ほんで、買ったメモリ取り付けて完了！&lt;/p&gt;
+
+&lt;iframe src=&#34;https://www.flickr.com/photos/t32k/8644568509/player/&#34; width=&#34;640&#34; height=&#34;358&#34; frameborder=&#34;0&#34; allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Yeah!!!!!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/static/blog/2013/04/fd79ce5dba48706f16fc11179000825b.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ちゃんと認識してるみたい！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://support.apple.com/kb/HT1379?viewlocale=ja_JP&#34;&gt;NVRAM と PRAM について &lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと念の為にNVRAMのリセットもしておいたほうがよいとおもう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mac mini (Mid 2010) メモリ増設（8GB）</title>
+      <link>http://localhost:1313/mol/log/mac-mini-mid-2010-8gb-memory/</link>
+      <pubDate>Mon, 06 Dec 2010 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/mac-mini-mid-2010-8gb-memory/</guid>
+      <description>&lt;p&gt;&lt;a title=&#34;DSC02379 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230613004/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5170/5230613004_7e976f8b9a.jpg&#34; alt=&#34;DSC02379&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Macbook Air が発売されたころ、Mac mini を買いました。字面どおりの意味です(Airも買いましたが)。さて、この &lt;strong&gt;&lt;a href=&#34;http://support.apple.com/kb/SP585?viewlocale=ja_JP&#34;&gt;Mac mini (Mid 2010) &lt;/a&gt;&lt;/strong&gt;はメモリを8GBまで搭載できるそうなので、4GBメモリ×2を購入してメモリ交換してみたいと思います。&lt;/p&gt;
+
+&lt;p&gt;さすがに、2GBだとアプリを立ち上げすぎるとやっぱりモッサリしますもんね。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02369 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230609910/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5206/5230609910_e52d793cdc.jpg&#34; alt=&#34;DSC02369&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;てことで、Mac mini 裏返しドーン！&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02370 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230610238/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5201/5230610238_bd28f22a0c.jpg&#34; alt=&#34;DSC02370&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ターンテーブルをクルッと回しーの♪&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02371 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230017781/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5124/5230017781_e4220283ae.jpg&#34; alt=&#34;DSC02371&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;出てきたぜ、メモリ！俺の愛のメモリ〜♪&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02376 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230019339/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5084/5230019339_cbd4d14e09.jpg&#34; alt=&#34;DSC02376&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;ノリノリで開けてみたものの、これどーやってぶっこ抜くの？と思ったら、どーやらサイドに銀色のフックみたいなものがあるので、両側のフックを外側に開いてやると&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02373 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230611220/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5209/5230611220_b54eb15103.jpg&#34; alt=&#34;DSC02373&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;カパッと！フックから外れてムクリと起き上がりますんでぶっこ抜いてください。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02374 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230611598/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5085/5230611598_4a671600a1.jpg&#34; alt=&#34;DSC02374&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;で、左が今回購入した4GBメモリ、右がぶっこ抜いた1GBメモリ。なんか黒いのが多いと強そうですな。
+&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B003SKADOM/warikiru-22/ref=nosim/&#34; target=&#34;_top&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/515Ofvx5QML._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;高品質サムスン純正 4GB DDR3 1066MHz PC3-8500 SO-DIMM 204Pin ノートPC用メモリ&#34; /&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E9%AB%98%E5%93%81%E8%B3%AA%E3%82%B5%E3%83%A0%E3%82%B9%E3%83%B3%E7%B4%94%E6%AD%A3-1066MHz-PC3-8500-SO-DIMM-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA/dp/B003SKADOM%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003SKADOM&#34; target=&#34;_top&#34;&gt;高品質サムスン純正 4GB DDR3 1066MHz
+PC3-8500 SO-DIMM 204Pin ノートPC用メモリ&lt;/a&gt;&lt;img style=&#34;border: none;&#34; src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;amp;l=ur2&amp;amp;o=9&#34; alt=&#34;&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;サムスン
+売り上げランキング : 9989&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E9%AB%98%E5%93%81%E8%B3%AA%E3%82%B5%E3%83%A0%E3%82%B9%E3%83%B3%E7%B4%94%E6%AD%A3-1066MHz-PC3-8500-SO-DIMM-%E3%83%8E%E3%83%BC%E3%83%88PC%E7%94%A8%E3%83%A1%E3%83%A2%E3%83%AA/dp/B003SKADOM%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003SKADOM&#34; target=&#34;_top&#34;&gt;Amazonで詳しく見る&lt;/a&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34;&gt;G-Tools&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;2GB (1GB SO-DIMM×2)、1,066MHz DDR3 SDRAM、SO-DIMM 2スロットで最大8GBをサポート&lt;a href=&#34;http://support.apple.com/kb/SP585?viewlocale=ja_JP&#34;&gt;
+Mac mini (Mid 2010) - 技術仕様&lt;/a&gt;&lt;/blockquote&gt;
+Apple Online Storeで8GB増設すると5万円くらいかかっちゃいますけど、上記のメモリなら1.4万でOKでしたぜ！&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02375 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230019077/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5008/5230019077_53542464d1.jpg&#34; alt=&#34;DSC02375&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;挿し込むときは側面からスライドさせることはできないので、図にも描いてあるように斜め上から挿し込む感じですね。ほんと自分が思っているより30%上から挿し込む感じ。刺さった感触があったらそのまま寝かせてフックにかけて固定するといった流れです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a title=&#34;DSC02377 by t32k, on Flickr&#34; href=&#34;http://www.flickr.com/photos/t32k/5230612494/&#34;&gt;&lt;img src=&#34;http://farm6.static.flickr.com/5007/5230612494_acfe452482.jpg&#34; alt=&#34;DSC02377&#34; width=&#34;500&#34; height=&#34;280&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;4GBメモリ×2装着完了！&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-2085&#34; title=&#34;memory&#34; src=&#34;/static/blog/2010/12/memory.png&#34; alt=&#34;&#34; width=&#34;470&#34; height=&#34;81&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mac 起動！　システムプロファイラで確認OK!&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&#34;alignnone size-full wp-image-2084&#34; title=&#34;mac&#34; src=&#34;/static/blog/2010/12/mac.png&#34; alt=&#34;&#34; width=&#34;309&#34; height=&#34;381&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;8GBドーン！&lt;/p&gt;
+
+&lt;p&gt;複数アプリ立ち上げても以前のようなモッサリ感もなくなったように思いますし、iMovieも速くなったような気がします。みなさんも良ければどうぞ。
+&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B003S9VOH8/warikiru-22/ref=nosim/&#34; target=&#34;_top&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/31pU62j3lSL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;Apple Mac mini/2.4GHz Core 2 Duo/2GB/320GB/SuperDrive DL MC270J/A&#34; /&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td valign=&#34;top&#34;&gt;&lt;span&gt;&lt;a href=&#34;http://www.amazon.co.jp/Apple-2-4GHz-320GB-SuperDrive-MC270J/dp/B003S9VOH8%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003S9VOH8&#34; target=&#34;_top&#34;&gt;Apple Mac mini/2.4GHz Core 2 Duo/2GB/320GB/SuperDrive DL MC270J/A&lt;/a&gt;&lt;img style=&#34;border: none;&#34; src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;amp;l=ur2&amp;amp;o=9&#34; alt=&#34;&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;アップル  2010-06-16
+売り上げランキング : 1876&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;&lt;a href=&#34;http://www.amazon.co.jp/Apple-2-4GHz-320GB-SuperDrive-MC270J/dp/B003S9VOH8%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB003S9VOH8&#34; target=&#34;_top&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/span&gt; &lt;span&gt;by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34;&gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MacBook Late 2006 メモリ増設 (3GB編)</title>
+      <link>http://localhost:1313/mol/log/2009-11-03-macbook-late-2006-memory-3gb/</link>
+      <pubDate>Tue, 03 Nov 2009 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/2009-11-03-macbook-late-2006-memory-3gb/</guid>
+      <description>&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000Y9KLTW/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51hPn7Rx6qL._SL160_.jpg&#34; alt=&#34;Transcend JetRam ノートPC用増設メモリ PC2-5300(DDR2-667) 2GB 永久保証 JM667QSU-2G&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000Y9KLTW/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Transcend JetRam ノートPC用増設メモリ&lt;br&gt; PC2-5300(DDR2-667) 2GB 永久保証 JM667QSU-2G&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Not Machine Specific&lt;br /&gt;トランセンド・ジャパン&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Twitterをぼーっと眺めてたらどうやらうちのMacBook Late 2006（白いやつ）のメモリ搭載が2GBまでではなく、3GBまでいけることが判明した。マックメムさんのサイト見てもそう書いてあるので早速載っけてみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.macmem.com/mb.html&#34;&gt;Macに超詳しいメモリー屋マックメム！：MacBookのメモリー&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2GB + 2GBにしても結局は3GBまでしか認識しないので、現状(1GB + 1GB)に2GBのメモリを1つ買うことにした。1GBの方もトランセンドだったので統一するためにも同じメーカーを買うことにした。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://lh5.ggpht.com/_1drnogi3vdg/Su1zZOGbCVI/AAAAAAAAAps/9OXqjQbn1P0/1.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;2GBで3500円くらいですか、安いですね！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://lh3.ggpht.com/_1drnogi3vdg/Su1zZUccEsI/AAAAAAAAApw/CeKMSh_Y_gQ/2.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;MacBookを裏返しにして、バッテリーを外せばメモリはすぐそこです。iBookの頃に比べれば本当に簡単になった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://lh5.ggpht.com/_1drnogi3vdg/Su1zZV-eMSI/AAAAAAAAAp0/oSjpQzmoRfo/3.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;精密ドライバーでL字型のパーツを外してレバーを引っ張れば出てくるので、しっかり根本まで差し込みましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://lh6.ggpht.com/_1drnogi3vdg/Su2PkgLio2I/AAAAAAAAAp4/zGzXS-IFnF4/4.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;3GBちゃんと認識されていますね。なんか速くなったような気がしますｗ&lt;/p&gt;
+
+&lt;p&gt;しかし、このMacBook買ってもう2年半経ちますがまだまだ現役でいけますね。あと2年くらいはスペック的に余裕な気がしてきたぞ。物欲的には今すぐでも新モデルが欲しいです！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MacBook Late 2006 ハードディスク交換・換装</title>
+      <link>http://localhost:1313/mol/log/macbook-late-2006-hdd/</link>
+      <pubDate>Sun, 11 Jan 2009 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/macbook-late-2006-hdd/</guid>
+      <description>
+
+&lt;p&gt;最近、心もハードディスクもいっぱいイッパイ＞＜なので、せめて&lt;a href=&#34;http://kakaku.com/item/00209015296/spec/&#34;&gt;MacBook Late 2006 (MA700J/A)&lt;/a&gt;の方だけでもゆとりを持たせようとハードディスクを換装してみたよ。&lt;/p&gt;
+
+&lt;p&gt;まずはHDDを用意しなければならないんだけど、どうやらMacBookのHDDは&lt;strong&gt;Serial-ATAの2.5インチ&lt;/strong&gt;で、&lt;strong&gt;厚さが9.5mm以下&lt;/strong&gt;のものでないとだめらしい。 いろいろな記事を参考にして、価格.comでも上位にあったので、 Western Digitalの500GB HDDを購入することにした。ノートブックで500GBも入るなんて素晴らしい！&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3186741493/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-01.jpg&#34; alt=&#34;WESTERN DIGITAL 2.5インチ内蔵HDD Serial-ATA 5400rpm 500GB 8MB WD5000BEVT&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51cIDm-g0mL._SL160_.jpg&#34; alt=&#34;WESTERN DIGITAL 2.5インチ内蔵HDD Serial-ATA 5400rpm 500GB 8MB WD5000BEVT&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;WESTERN DIGITAL 2.5インチ内蔵HDD&lt;br&gt;Serial-ATA 5400rpm 500GB 8MB WD5000BEVT&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;WESTERNDIGITAL&lt;br /&gt;売り上げランキング: 7553&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B001JSSDGU/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;もうひとつ用意しておかなければならないのが、&lt;strong&gt;T8のトルクスドライバー&lt;/strong&gt;。一家に一本トルクスドライバーなんてあるわけないので、ホームセンターに行ったのだけれども、なんかメーカーによってはヘクスローブドライバーとも呼ぶらしく（商標？）トルクスドライバーなんてものが見つからなくてちょっと焦った。 結局、ヘクスローブドライバーもなくてヘクスローブレンチ（315円）を買った。Amazonなら以下の商品を購入すれば良い。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3186741197/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-02.jpg&#34; alt=&#34;ヘクスローブレンチ&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/21lazgYOL6L._SL160_.jpg&#34; alt=&#34;サンワサプライ TK-002 ドライバーセット&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;サンワサプライ TK-002 ドライバーセット&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://sakuratan.biz/azlink/dp/%E3%82%B5%E3%83%B3%E3%83%AF%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4%20TK-002%20%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88/B00008BB14/warikiru-22&#34; target=&#34;_blank&#34;&gt;AZlink&lt;/a&gt;  at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Not Machine Specific&lt;br /&gt;サンワサプライ&lt;br /&gt;売り上げランキング: 8261&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00008BB14/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3187581102/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-03.jpg&#34; alt=&#34;MacBook&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;とりあえずバッテリーを外すと側面に3本のネジが見えるので、それを精密ドライバーで外しましょう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3187581328/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-04.jpg&#34; alt=&#34;L字型の金具&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;そうするとL字型の金具がとれますので、短辺の方にHDDが眠ってます。（ちなみに長辺の方はメモリが2本並んでます）白いベロを引っ張ると、いとも簡単に出てきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3187581380/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-05.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;取り出したHDDにはカバーがついてますので、側面の4つの（星形の）ネジを 今回購入したヘクスローブレンチで取り外します。やっぱりレンチなので、ちょっと回しにくかったけど、まぁこのような機会しか使うことわないので全然おｋ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.flickr.com/photos/t32k/3187581262/sizes/o/&#34;&gt;&lt;img src=&#34;/mol/images/2009/01-11-06.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;で、取り外したら新しいHDDにカバーをつけ直して、 元の場所に戻してあげましょう。HDD換装自体はこれで終了です。なんとまぁ簡単なことか。&lt;/p&gt;
+
+&lt;p&gt;以前iBook G4のHDDを換装したときは、かなりの大手術で結局、換装したHDDも認識されずヤフオク行きという悲劇を起こした自分としては、今回はちゃんと予習をしたものの簡単すぎてあっけにとられました。便利な世の中っす＞＜&lt;/p&gt;
+
+&lt;p&gt;あ、とりあえずHDDを換装したらOSのインストールDVDを入れてHDDをフォーマットしてからインスコしちゃってください。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41HIGx2mb3L._SL160_.jpg&#34; alt=&#34;Mac OS X 10.6 Snow Leopard&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Mac OS X 10.6 Snow Leopard&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://sakuratan.biz/azlink/dp/Mac%20OS%20X%2010.6%20Snow%20Leopard/B002MRTR1M/warikiru-22&#34; target=&#34;_blank&#34;&gt;AZlink&lt;/a&gt;  at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Macintosh&lt;br /&gt;アップル&lt;br /&gt;売り上げランキング: 630&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B002MRTR1M/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Snow Leopard以降のの人はTime Machine機能使ってバックアップしておくと、3~4時間くらいで換装前の設定に戻ります。 一つ一つアプリインスコしなくてもいいんすよ、Leopardテラ便利＞＜&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41rTBzpI0uL._SL160_.jpg&#34; alt=&#34;玄人志向 2.5型HDDケース SATA接続 USB2.0対応 クロムシルバー GW2.5AI-SU2&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;玄人志向 2.5型HDDケース SATA接続 USB2.0対応&lt;br&gt;クロムシルバー GW2.5AI-SU2&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;玄人志向&lt;br /&gt;売り上げランキング: 5991&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000P46LVS/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;取り外した内蔵HDDはケース買って外付けHDDで第二の人生を。&lt;/p&gt;
+
+&lt;h2 id=&#34;参考記事:340c6ccfe95c6b18ab0aa96f0c9bc57e&#34;&gt;参考記事&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://hyper-text.org/archives/2008/09/macbook_hdd_change.shtml&#34;&gt;MacBook の HDD を交換 | WWW WATCH&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.sukechan.net/archives/76/&#34;&gt;MacBook HDD 交換と Time Machine バックアップからの復元&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MacBook Late 2006 メモリ増設 (2GB編)</title>
+      <link>http://localhost:1313/mol/log/macbook-late-2006-memory-2gb/</link>
+      <pubDate>Wed, 12 Sep 2007 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/macbook-late-2006-memory-2gb/</guid>
+      <description>&lt;p&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Rufq0oCtSRI/AAAAAAAAAAc/hH_-EXGIjJ4/s1600-h/DSC00602.JPG&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;&#34; src=&#34;http://1.bp.blogspot.com/_1drnogi3vdg/Rufq0oCtSRI/AAAAAAAAAAc/hH_-EXGIjJ4/s200/DSC00602.JPG&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5109310492097988882&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;br /&gt;自分は&lt;a style=&#34;font-weight: bold;&#34; href=&#34;http://kakaku.com/spec/00209015296/&#34;&gt;MacBook Late 2006&lt;/a&gt;を所有しています。以前はiBookを持っていたのですが、HD換装に失敗し壊れて、このMacBookを購入したのです。&lt;br /&gt;&lt;br /&gt;だもんで、今回のメモリ増設は絶対に失敗できません。&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;a onblur=&#34;try {parent.deselectBloggerImageGracefully();} catch(e) {}&#34; href=&#34;http://3.bp.blogspot.com/_1drnogi3vdg/RufsdICtSSI/AAAAAAAAAAk/fjturdH35TQ/s1600-h/DSC00601.JPG&#34;&gt;&lt;img style=&#34;margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;&#34; src=&#34;http://3.bp.blogspot.com/_1drnogi3vdg/RufsdICtSSI/AAAAAAAAAAk/fjturdH35TQ/s200/DSC00601.JPG&#34; alt=&#34;&#34; id=&#34;BLOGGER_PHOTO_ID_5109312287394318626&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;br /&gt;しかし、案外簡単でした。精密ドライバーで側面のネジを３つ外して、L字型の金属片を外して、レバーを手前に引いたら、あらコンニチハ！って感じでした。&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;ただ、気をつけなければならないのは、&lt;br /&gt;メモリをはめ込む際、カチッとかそういった感触がないので、&lt;br /&gt;最初に入ってたメモリがどのくらいまで差し込んであったか記憶しておくことです。&lt;br /&gt;じゃないと、ちゃんと接続できているかどうか分かんないです。&lt;br /&gt;結構、強くプッシュしなきゃダメです。&lt;br /&gt;&lt;br /&gt;幸いなことに自分は1回で成功し、2GHzの2GBになりました。&lt;br /&gt;動作もかなり軽くなり大満足です。&lt;br /&gt;&lt;br /&gt;ちなみに増設したのはこれだと思う↓&lt;br /&gt;&lt;br /&gt;&lt;table border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000QRRNVG/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ec1.images-amazon.com/images/I/11zGW1jj6CL.jpg&#34; alt=&#34;トランセンドジャパン 1GB JETRAM 200pin DDR2 667 SO-DIMM ノートブック用 JM667QSJ-1G&#34; border=&#34;0&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;span style=&#34;&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000QRRNVG/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;トランセンドジャパン 1GB JETRAM 200pin DDR2 667 SO-DIMM ノートブック用 JM667QSJ-1G&lt;/a&gt;&lt;br /&gt;トランセンド・ジャパン&lt;br /&gt;売り上げランキング :&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B000QRRNVG/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/span&gt;&lt;span style=&#34;&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34;&gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br /&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;関連エントリー&lt;span style=&#34;font-family:monospace;&#34;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/span&gt;&lt;ul&gt;&lt;li&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;&lt;a href=&#34;http://warikiru.blogspot.com/2009/01/macbook-hdd-exchange.html&#34;&gt;MacBook Late 2006 ハードディスク交換（換装）&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;&lt;a href=&#34;http://warikiru.blogspot.com/2009/11/macbook-late-2006-3gb-memory.html&#34;&gt;MacBook Late 2006 メモリ増設 (3GB編) &lt;/a&gt;&lt;br /&gt;&lt;/span&gt;&lt;/li&gt;&lt;li&gt;&lt;span style=&#34;font-size:85%;&#34;&gt;&lt;a href=&#34;http://warikiru.blogspot.com/2009/05/apple-ipod-touch-2g-8gb.html&#34;&gt;iPod Touchと過ごした半年 (アクセサリ編)&lt;/a&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

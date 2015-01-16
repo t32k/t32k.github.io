@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on MOL</title>
+    <link>http://localhost:1313/mol/categories/blog/</link>
+    <description>Recent content in Blog on MOL</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <lastBuildDate>Thu, 15 Jan 2015 00:00:00 UTC</lastBuildDate>
+    <atom:link href="http://localhost:1313/mol/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>JS Girlsのステッカー発注仕様</title>
+      <link>http://localhost:1313/mol/log/sticker/</link>
+      <pubDate>Thu, 15 Jan 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/sticker/</guid>
+      <description>
+
+&lt;p&gt;たまに聞かれるので、シェアしとく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://nanapi.co.jp/blog/2014/01/22/nanapi-sticker/&#34;&gt;これから作りたい方必見！nanapiステッカーで使った印刷会社や見積りを公開します | nanapi TechBlog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://d.hatena.ne.jp/a_kimura/20111019/1319041245&#34;&gt;Crowyシールを作ったので、どこでどんな風に頼んでいくらだったかを公開します - Startup Reality&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ステッカー印刷するにあたっていろいろググってみると、IT系会社御用達っぽいデジタさんにキメた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.digitaprint.jp/&#34;&gt;シール印刷｜印刷通販【デジタ】&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.digitaprint.jp/contact/sample.php&#34;&gt;無料サンプル&lt;/a&gt;を頼めるので、発注する前に仕様を確認しとこう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://jsgirls.org/&#34;&gt;JS Girls&lt;/a&gt;のステッカーに関しては妥協したくなかったので、良いオプションを選択した結果、ちょっと割高になったけど、単純な四角形にするとか非耐水にするとかにすればもうちょっと単価抑えられると思うよ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;======================================================
+《ご注文の印刷物》
+======================================================
+
+［注文No］38823_S001
+［納　期］ 7営業日
+［支払い方法］クレジットカード
+［名　称］ステッカー印刷（自由形）／フィルム素材ステッカー(耐水)／白塩ビ
+［色　数］フルカラー
+［サイズ］36平方センチ以内
+［オプション加工］強粘着/ マットラミネート加工/ 40パス以内/ 台紙ごとカット
+［枚　数］1000枚
+［複数割引］ -0円（-0%）
+----------------------------------------------------------------
+●単品計　　　　　49,701 円
+----------------------------------------------------------------
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2015/0114-00.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;多っ！て思ったけど全国のコミュニティに配ったら瞬殺だった。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2015/0114-01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;角丸がお気に入り。&lt;/p&gt;
+
+&lt;h2 id=&#34;その他関連:3e11c1368c410d4bf0ad8b2f6e8dc8dd&#34;&gt;その他関連&lt;/h2&gt;
+
+&lt;p&gt;教えてもらったのでメモ。フライヤーとネックストラップとか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.graphic.jp/&#34;&gt;印刷通販のグラフィック&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.straps.jp/&#34;&gt;携帯ストラップ・ネックストラップ作成STRAPS.JP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Farewell Frontrend</title>
+      <link>http://localhost:1313/mol/log/farewell-frontrend/</link>
+      <pubDate>Thu, 08 Jan 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/farewell-frontrend/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://frontrend.github.io/&#34;&gt;Frontrend&lt;/a&gt;というコミュニティがある。緑の会社が運営するこのコミュニティは&lt;a href=&#34;https://atnd.org/events/29000&#34;&gt;2012年の6月2日に始まった&lt;/a&gt;。私が入社したのは2012年の6月1日だったので、Frontrendとは同期のようなものだ。転職して右も左もわからない状態だったが、&lt;a href=&#34;https://twitter.com/cssradar&#34;&gt;@cssradar&lt;/a&gt;がスピーカーだったので見学しておいた。つまり、誕生の瞬間に立ち会っていた。&lt;/p&gt;
+
+&lt;p&gt;石川県にいた頃から、社内外で&lt;a href=&#34;http://kanazawajs.tumblr.com/&#34;&gt;勉強会を開催してた自分&lt;/a&gt;にとって、例えそれが採用活動的な側面を持ったものだとしても、自社に自由に使える100名以上収容できるセミナールーム所有し、なおかつ懇親会の費用もバックアップしてくれる、東京のこの会社に素直に感心したものだ。&lt;/p&gt;
+
+&lt;p&gt;地方でこのような勉強会を開くとなると、お金はない、場所はない、講演してくれる人もいない、来てくれる人もいないの、ないない尽くしを散々経験し苦汁をなめてきた自分にとって、&lt;strong&gt;ここ&lt;/strong&gt;にはすべてがあった。同時にこの勉強会・コミュニティを日本トップレベルのものにしたいと思い、自分からFrontrend運営に参加し始めた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://frontrend.github.io/events/03/&#34;&gt;Vol.3&lt;/a&gt;からは、自分も講演したり、スピーカーのアサインからサイトの運用など全部受け持った。最初は&lt;a href=&#34;http://aho.mu/&#34;&gt;自分の知ってる人&lt;/a&gt;（最初は無茶ぶりばかりした、すまん）にスピーカーを頼んでたけど、探せばこの会社には優秀な人材がたくさんいたし、いろんな人とめぐりあえた。1年続けていると、&lt;a href=&#34;https://www.cyberagent.co.jp/news/press/detail/id=7972&#34;&gt;全国行脚させてくれるようになった&lt;/a&gt;。もちろん、これは&lt;a href=&#34;http://webridge-kagawa.com/meeting/sp/121110/&#34;&gt;香川&lt;/a&gt;、&lt;a href=&#34;http://talknote.me/vol8/event/&#34;&gt;静岡&lt;/a&gt;、&lt;a href=&#34;http://recreators.doorkeeper.jp/events/5240&#34;&gt;大阪&lt;/a&gt;、&lt;a href=&#34;http://sacss.net/special04/&#34;&gt;札幌&lt;/a&gt;、&lt;a href=&#34;http://frontendfrogs.org/frontrend/&#34;&gt;福岡&lt;/a&gt;、&lt;a href=&#34;http://html5nagoya.jp/frontrend/&#34;&gt;名古屋&lt;/a&gt;、&lt;a href=&#34;http://labo.dmm.com/frontrend/&#34;&gt;金沢&lt;/a&gt;、各地元のコミュニティの協力があったからこそだ。Frontrendはどこに行っても皆に暖かく歓迎された。&lt;a href=&#34;http://frontrend.github.io/events/chrome/&#34;&gt;外タレも来たんだからね&lt;/a&gt;。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51K%2BQlzoQlL._SL160_.jpg&#34; alt=&#34;フロントエンドエンジニア養成読本［HTML ，CSS，JavaScriptの基本から現場で役立つ技術まで満載！］ Software Design Plus&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;フロントエンドエンジニア養成読本&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.1.7&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;養成読本編集部&lt;br /&gt;技術評論社&lt;br /&gt;売り上げランキング: 2402&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00ME9TTMA/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;そんな活動もあってか、Frontrendメンバーで書籍も刊行することができた。普通フロントエンド全般についての書籍を執筆するには膨大な知識を必要とされるが、各Frontrendメンバーの得意な分野で割り振れば造作もないことだった。それでいて気心の知れたメンツ（執筆時は全員緑の社員だった）なので、まとまりのある良い書籍になったと思う。&lt;/p&gt;
+
+&lt;p&gt;また2年も続けていると『Frontrendに憧れてこの会社にしました！！』と嬉しいことを言ってくれる内定者エンジニアも現れるようになった。私はFrontrendに良い思い出しかない。&lt;/p&gt;
+
+&lt;p&gt;そんなFrontrendだが、2015年2月21日の&lt;a href=&#34;http://frontrend.github.io/conference/&#34;&gt;Frontrend Conference&lt;/a&gt;を最後に、その活動を終えるそうだ。私はすでにあの会社を去ってるが、ありがたいことに今回のカンファレンスで講演する機会を頂いており、なおかつスピーカーのアサインも任せれた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://frontrend.github.io/conference/&#34;&gt;Frontrend Conference（2015年2月21日開催）&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Frontrendを通じてお世話になった人、与えられたリソースで考える、最高のスピーカー陣を今回揃えたつもりだ。言わば、ぼくのかんがえたさいきょうのかんふぁれんすだ。（個人的にはJS Conf.jp/CSS Conf.jpを名乗ってもいいんじゃないかと思えるほどの布陣だけど、フランチャイズルールあるので勝手に名乗れない）とにかく、絶対に良いものにしたいと思っている。&lt;/p&gt;
+
+&lt;p&gt;私はFrontrendのおかげで多くの人と知り合うことができたし、成長させてもらったし、本当にこのコミュニティには感謝している。Frontrendは終わるが、&lt;a href=&#34;http://takoratta.hatenablog.com/entry/2015/01/08/014826&#34;&gt;別にFront-end（Web）が終わるわけではない&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;今後の最新のフロントエンドの流れは、&lt;strong&gt;&lt;a href=&#34;http://t32k.me/mol/log/frontend-weekly/&#34;&gt;Frontend Weeklyを購読&lt;/a&gt;&lt;/strong&gt;していれば把握できるだろう。Frontend Weeklyはただのニュースレターでは終わらずに、フロントエンドデベロッパーの新たなHubとなれるよう、これから整備していくつもりだ。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、2/21、皆さんに会えることを楽しみにしております。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>”今の”フロントエンド開発を知るためのメルマガ：Frontend Weekly</title>
+      <link>http://localhost:1313/mol/log/frontend-weekly/</link>
+      <pubDate>Tue, 06 Jan 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/frontend-weekly/</guid>
+      <description>&lt;p&gt;斉藤 祐也という男がいる。彼を最初に認識したのは、彼の記事である&lt;a href=&#34;http://css.studiomohawk.com/ruby/2011/05/14/ruby_for_designer_frontend_dev/&#34;&gt;ウェブデザイナのためのRuby&lt;/a&gt;を読んだ時だ。当時の僕はHTML/CSSだけでなく、なにかプログラミング言語を学びたくてRubyについて調べていた。そんな時にたまたま検索に引っかかったのである（ちなみに4年経った今でもRubyは書けるようになってない）。&lt;/p&gt;
+
+&lt;p&gt;記事を読むと、なかなかいいことを書いてある。その他の記事もいいことを書いてある。プロフィールを確認してみると『2〜3年は遅れているという日本のウェブをアップデートしたい』と書いていた。なかなか大したことゆう奴だと思った。&lt;/p&gt;
+
+&lt;p&gt;それよりもハンドルネームが&lt;a href=&#34;https://twitter.com/cssradar&#34;&gt;@cssradar&lt;/a&gt;で、CSSほげほげなんて名前のアカウント使ってるのは&lt;a href=&#34;https://twitter.com/cssnite&#34;&gt;@cssnite&lt;/a&gt;か&lt;a href=&#34;https://twitter.com/csswizardry&#34;&gt;@csswizardry&lt;/a&gt;くらいしか知らない。この男に興味が湧いてきた。&lt;/p&gt;
+
+&lt;p&gt;それから月日が経ち、日々の忙しさに追われていた僕は@cssradarという名前を忘れかけていた。当時の僕は、ほぼ毎週石川から東京に出張しており、隙間を見つけては東京にいる有名なWeb界隈の人に会いに行ったり、勉強会に参加していた。そんなとき&lt;a href=&#34;https://twitter.com/hiloki&#34;&gt;@hiloki&lt;/a&gt;から@cssradarと飲むけど来る？との誘いを受けた。彼も大阪から東京に上京してフリーランスとして活躍していた時期だ。&lt;/p&gt;
+
+&lt;p&gt;@cssradarの方は某大手メディアサイトから某緑の会社に転職していた。彼とはそれまで会ったことがなかったが某緑の会社のチャラいイメージと彼の実直な文章とはどうもイメージが重なりあってないように思え、なぜその会社に転職したのか素直に疑問だった。&lt;/p&gt;
+
+&lt;p&gt;同時に、当時の僕はアクセス解析業務に追われコーディング業務から遠ざかっていたが、勤務していた某ECサイトのコーディング的な汚さに辟易していた。いっそのこと某メディアサイトで何千ページも管理していた彼の力を利用できないか考えていた。あわよくばヘッドハンティングできないかと。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2015/0106-02.png&#34; alt=&#34;CSSers&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;渋谷の居酒屋で@hiloki、@cssradar、@t32k、勤めてる会社が違う3人のデベロッパーが集まった。彼の第一印象はよく喋る男だと思った。それよりも米国の大学を出て、ジャーナリズムを専攻して今はWebデベロッパーとして働いてる彼のキャリアが興味深かった。どうりで、英語圏の情報もキャッチアップして、いつもいい記事を書いていたのかと納得したものだ。&lt;/p&gt;
+
+&lt;p&gt;彼からドラスティックにスマホシフトしている緑の会社の近況やデベロッパーを募集していると聞き、ミイラ取りがミイラになる形で僕も緑の会社に転職した。結局、会社の環境や給料の高さではなく、この人と一緒になら僕は成長できると思ったから転職したのだ。3年前の話である。&lt;/p&gt;
+
+&lt;p&gt;それから数カ月後、彼と同じ職場になった。プロジェクトとは違ったが、グループチャットで先に緑の会社に転職していた@hilokiと3人であれやこれやWebについて語り合っていた。&lt;/p&gt;
+
+&lt;p&gt;語り合っていたというよりかは、@cssradarという自然言語検索APIの優秀さに舌を巻いたというのが実態だ。例えば、『ほげほげフレームワーク使いたいんだけどイケてないし、もっと違うナウいイケてるフレームワークないっすかねー』とチャット上でつぶやくと、@cssradarが関連した英語のリソースを無言で投げてくれた。&lt;/p&gt;
+
+&lt;p&gt;今思えば、この時に徹底的に一次リソースである英語の記事を読まされたので（読むしかなかったので）、リーディングに関しての英語アレルギーを克服出来たように思える。難しかったけど、なにもかも新しい情報でとても楽しかった。何よりも昨日できなかったことが今日できるような急激な成長速度を感じられた。&lt;/p&gt;
+
+&lt;p&gt;僕のように皆が彼にあいまい検索クエリを投げることはできないが、メールとして今話題のリソースをゲットすることができるようになる。彼主導で始まった&lt;strong&gt;Frontend Weekly&lt;/strong&gt;のことだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2015/0106-01.png&#34; alt=&#34;Frontend Weekly&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;以前に、&lt;a href=&#34;http://newsletter.studiomohawk.com/&#34;&gt;CSS Radar Newsletter&lt;/a&gt;という同じニュースレターを52週に渡って運営してきた実績もある。HTML5 Expert.jpでも&lt;a href=&#34;http://html5experts.jp/series/web-tech/&#34;&gt;海外WEBテク最新動向&lt;/a&gt;での連載を見てもらえば、こういったものが毎週メールとして届くのが実感できるかと思う。Frontend Weeklyは彼の集大成となるだろう。&lt;/p&gt;
+
+&lt;p&gt;海外では&lt;a href=&#34;http://javascriptweekly.com/&#34;&gt;JavaScript Weekly&lt;/a&gt;や&lt;a href=&#34;http://html5weekly.com/&#34;&gt;HTML5 Weekly&lt;/a&gt;などのニュースレターが有名だ。そもそもインターネットのおかげで世界中の情報にアクセスできるようになったが、基本的に皆、英語のリソースは読もうとしない。苦労して読むには玉石混交すぎるからだ。僕もそうだった。&lt;/p&gt;
+
+&lt;p&gt;僕の場合は、@cssradarという船頭がいたからこそ、フロントエンドという移り変わりの早い環境で必要な知識を手に入れ、生き抜いて来れたんだと思う。なにごとも事を始めるには良き船頭が必要であり、Frontend Weeklyはその役割を担ってくれるだろう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ニュースレターはフローでもストックでも読める。
+まず定期購読して流し読むフロー路線。熱心ではないけど眺めてはおきたい、そんな距離にある要素技術のニュースレターを購読する。
+（・・・中略・・・）
+定期購読だけでなく、バックナンバーををまとめ読む楽しみもある。たとえば Go をさわろうと決めたとする。一通りの入門をこなすと同時にニュースレターのバックナンバーを眺める。 何に使われているのか、何が流行っているのか、何に困り、どう解決しようとしているのか。技術をとりまく空気がわかる。 ― &lt;a href=&#34;http://steps.dodgson.org/b/2014/11/12/newsletters/&#34;&gt;Newsletters - steps to phantasien&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあるように、やっぱりストックできるのはメールの利点である。さらにGmailでGoogleの検索精度の恩恵を受ければ、とりあえず購読しておき、あとで&lt;code&gt;label:frontend hogehoge&lt;/code&gt;と検索すれば、簡易版@cssradarAPIの出来上がりだ。&lt;/p&gt;
+
+&lt;p&gt;なお、今回のプロジェクトでは、@hiloki、私@t32kも一緒にキュレーターとして運営に参加する予定だ。初めて会ってから3年、それぞれ会社は違うようになったけど（俺無職だけど）、また彼らと一緒に仕事できるのは楽しみに思う。今じゃ僕もまた、日本のウェブをアップデートしたいと思っている。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://studiomohawk.us2.list-manage.com/subscribe?u=0c8604ec46b9f779a3f5b6a1c&amp;amp;id=9af01549dd&#34;&gt;Frontend Weeklyの購読&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;!-- Begin MailChimp Signup Form --&gt;
+
+&lt;p&gt;&lt;link href=&#34;//cdn-images.mailchimp.com/embedcode/classic-081711.css&#34; rel=&#34;stylesheet&#34; type=&#34;text/css&#34;&gt;
+&lt;style type=&#34;text/css&#34;&gt;
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. &lt;em&gt;/
+&lt;/style&gt;
+&lt;div id=&#34;mc_embed_signup&#34;&gt;
+&lt;form action=&#34;//studiomohawk.us2.list-manage.com/subscribe/post?u=0c8604ec46b9f779a3f5b6a1c&amp;amp;id=9af01549dd&#34; method=&#34;post&#34; id=&#34;mc-embedded-subscribe-form&#34; name=&#34;mc-embedded-subscribe-form&#34; class=&#34;validate&#34; target=&#34;_blank&#34; novalidate&gt;
+    &lt;div id=&#34;mc_embed_signup_scroll&#34;&gt;
+    &lt;h2&gt;Frontend Weekly&lt;/h2&gt;
+    &lt;p&gt;Frontend Weeklyは、毎週フロントエンド開発に関連する記事、チュートリアル、動画/スライドなどを、斉藤 祐也、谷 拓樹、そして石本 光司の3名で世界中からキュレーションしてメールでお届けします。&lt;/p&gt;
+&lt;div class=&#34;mc-field-group&#34;&gt;
+    &lt;label for=&#34;mce-EMAIL&#34;&gt;メールアドレス  &lt;span class=&#34;asterisk&#34;&gt;&lt;/em&gt;&lt;/span&gt;
+&lt;/label&gt;
+    &lt;input type=&#34;email&#34; value=&#34;&#34; name=&#34;EMAIL&#34; class=&#34;required email&#34; id=&#34;mce-EMAIL&#34;&gt;
+&lt;/div&gt;
+&lt;div class=&#34;mc-field-group&#34;&gt;
+    &lt;label for=&#34;mce-NAME&#34;&gt;名前 &lt;/label&gt;
+    &lt;input type=&#34;text&#34; value=&#34;&#34; name=&#34;NAME&#34; class=&#34;&#34; id=&#34;mce-NAME&#34;&gt;
+&lt;/div&gt;
+    &lt;div id=&#34;mce-responses&#34; class=&#34;clear&#34;&gt;
+        &lt;div class=&#34;response&#34; id=&#34;mce-error-response&#34; style=&#34;display:none&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;response&#34; id=&#34;mce-success-response&#34; style=&#34;display:none&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;br /&gt;
+    &lt;div style=&#34;position: absolute; left: -5000px;&#34;&gt;&lt;input type=&#34;text&#34; name=&#34;b_0c8604ec46b9f779a3f5b6a1c_9af01549dd&#34; tabindex=&#34;-1&#34; value=&#34;&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;clear&#34;&gt;&lt;input type=&#34;submit&#34; value=&#34;購読する&#34; name=&#34;subscribe&#34; id=&#34;mc-embedded-subscribe&#34; class=&#34;button&#34; style=&#34;background-color: #1B84B4 !important;&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;!--End mc_embed_signup--&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;ここからでも購読登録できます。よろしくお願いします。&lt;br /&gt;
+&lt;strong&gt;プロトタイプ版の発行は1月14日（水）予定です。&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2015年の抱負</title>
+      <link>http://localhost:1313/mol/log/new-years-resolutions-2015/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/new-years-resolutions-2015/</guid>
+      <description>&lt;p&gt;書かないよりマシということで書いとく。&lt;br /&gt;
+&lt;strong&gt;就職&lt;/strong&gt;ね。もうね。いいかげんどうにかしますわ。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DVDWZ0Q/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/61ok3myhoGL._SL160_.jpg&#34; alt=&#34;セカ就！　世界で就職するという選択肢&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DVDWZ0Q/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;セカ就！　世界で就職するという選択肢&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://sakuratan.biz/azlink/dp/%E3%82%BB%E3%82%AB%E5%B0%B1%EF%BC%81%E3%80%80%E4%B8%96%E7%95%8C%E3%81%A7%E5%B0%B1%E8%81%B7%E3%81%99%E3%82%8B%E3%81%A8%E3%81%84%E3%81%86%E9%81%B8%E6%8A%9E%E8%82%A2/B00DVDWZ0Q/warikiru-22&#34; target=&#34;_blank&#34;&gt;AZlink&lt;/a&gt;  at 2014.12.31&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;森山 たつを&lt;br /&gt;朝日出版社&lt;br /&gt;売り上げランキング: 34608&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00DVDWZ0Q/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2014年に読んだ技術書とか</title>
+      <link>http://localhost:1313/mol/log/books-2014/</link>
+      <pubDate>Thu, 25 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/books-2014/</guid>
+      <description>&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4863541171/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51ZzoXpsmqL._SL160_.jpg&#34; alt=&#34;基礎からわかる Go言語&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4863541171/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;基礎からわかる Go言語&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;古川 昇&lt;br /&gt;シーアンドアール研究所&lt;br /&gt;売り上げランキング: 38151&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4863541171/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Goがんばるぞい！先日買った。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774164100/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51lycs3O%2BrL._SL160_.jpg&#34; alt=&#34;Ruby on Rails 4 アプリケーションプログラミング&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774164100/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Ruby on Rails 4 アプリケーションプログラミング&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;山田 祥寛&lt;br /&gt;技術評論社&lt;br /&gt;売り上げランキング: 42239&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774164100/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Railsがんばるぞい！これも先日買ったけど、今見たらKindle版35%OFFやんけ！！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NXMTLHK/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51nW5yO0fVL._SL160_.jpg&#34; alt=&#34;プロフェッショナルのための　実践Heroku入門　プラットフォーム・クラウドを利用したアプリケーション開発と運用 (アスキー書籍)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NXMTLHK/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;プロフェッショナルのための　実践Heroku入門&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;相澤 歩,ａｒｔｏｎ,鳥井 雪,織田 敬子&lt;br /&gt;KADOKAWA / アスキー・メディアワークス&lt;br /&gt;売り上げランキング: 5808&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NXMTLHK/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Herokuがんばるぞい！わかりやすい。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774165786/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51A%2B-kjo8gL._SL160_.jpg&#34; alt=&#34;フロントエンドエンジニア養成読本 [HTML、CSS、JavaScriptの基本から現場で役立つ技術まで満載! ] (Software Design plus)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774165786/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;フロントエンドエンジニア養成読本&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;斉藤 祐也,石本 光司 他&lt;br /&gt;技術評論社&lt;br /&gt;売り上げランキング: 7892&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774165786/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;フロントがんばるぞい！ってか、がんばって書いた。これもKindle版35%OFF！！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00J8DSQ6K/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/517HFB9SweL._SL160_.jpg&#34; alt=&#34;Sass＆Compass 徹底入門　CSSのベストプラクティスを効率よく実現するために&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00J8DSQ6K/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Sass＆Compass 徹底入門&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Wynn Netherland&lt;br /&gt;翔泳社&lt;br /&gt;売り上げランキング: 4192&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00J8DSQ6K/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;監訳という新境地に目覚めてない。これはKindle版44%OFF！！&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51nSEOKWSrL._SL160_.jpg&#34; alt=&#34;Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Web制作者のためのCSS設計の教科書&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;谷 拓樹&lt;br /&gt;インプレス&lt;br /&gt;売り上げランキング: 128&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00M0ESXUI/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;谷あれば山あり。今年ボクのブログで一番売れた書籍。これにいたってはKindle版60%OFF！！なっ！？、、、っだと。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4822249468/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41u9RLdwuIL._SL160_.jpg&#34; alt=&#34;Yコンビネーター シリコンバレー最強のスタートアップ養成スクール&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4822249468/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;Yコンビネーター&lt;br&gt;シリコンバレー最強のスタートアップ養成スクール&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted with &lt;a href=&#34;http://sakuratan.biz/azlink/dp/Y%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8D%E3%83%BC%E3%82%BF%E3%83%BC%20%E3%82%B7%E3%83%AA%E3%82%B3%E3%83%B3%E3%83%90%E3%83%AC%E3%83%BC%E6%9C%80%E5%BC%B7%E3%81%AE%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E9%A4%8A%E6%88%90%E3%82%B9%E3%82%AF%E3%83%BC%E3%83%AB/4822249468/warikiru-22&#34; target=&#34;_blank&#34;&gt;AZlink&lt;/a&gt;  at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ランダル・ストロス&lt;br /&gt;日経BP社&lt;br /&gt;売り上げランキング: 12244&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4822249468/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;基本的にこれを読むまでスタートアップよりも大企業大好き♡だったけど、心揺さぶられるものがあった。『ゴールドラッシュでつるはしを売れ』は今後の僕の行動指針となるだろう。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4140816589/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41aXtS8PLML._SL160_.jpg&#34; alt=&#34;ゼロ・トゥ・ワン―君はゼロから何を生み出せるか&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4140816589/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ゼロ・トゥ・ワン―君はゼロから何を生み出せるか&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ピーター・ティール,ブレイク・マスターズ,瀧本 哲史,関 美和&lt;br /&gt;NHK出版&lt;br /&gt;売り上げランキング: 120&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4140816589/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yコンビネーターで触発されてこれもスタートアップもの。おもしろい。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34; style=&#34;margin-bottom:0px&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00OJVMK5O/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51lusOSU33L._SL160_.jpg&#34; alt=&#34;How Google Works&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00OJVMK5O/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;How Google Works&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.25&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;エリック・シュミット 他&lt;br /&gt;日本経済新聞出版社&lt;br /&gt;売り上げランキング: 41&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00OJVMK5O/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;そんで今これ読んでる。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;2014年は英語があれだったので技術書よりも英語の参考書を多く読んだ・買った。積ん読がひどい状況なので年末年始は読みたいと思う。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>炙り寿司 Miku</title>
+      <link>http://localhost:1313/mol/log/sushi-in-vancouver/</link>
+      <pubDate>Wed, 17 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/sushi-in-vancouver/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/514&#34;&gt;寿司 Advent Calendar 2014 - Adventar&lt;/a&gt; 17日目です。&lt;/p&gt;
+
+&lt;p&gt;今日は寿司を食いに行くがてらバンクーバーの街並みも少し紹介。『バンクーバー　寿司』でググってよさげなものを見つくろった結果、Mikuという炙り寿司のお店に行ってきた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://mikurestaurant.com/&#34;&gt;Miku Waterfront | Vancouver BC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あとで知ったが、このお店は&lt;a href=&#34;http://vancouver.keizai.biz/headline/404/&#34;&gt;日本資本のちゃんとしたJapanese Restraunt&lt;/a&gt;ということで、味も期待できそうだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;miku:1af5b5efeabf0793f6ca06337f52d19b&#34;&gt;Miku&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi00.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+お店自体はカナディアンティストな感じだけど、ハイエンドなお店構え。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi-menu.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ランチセットのメニュー。お値段もハイエンドやで。。今日は寿司アドベントなのでふんぴゃつする。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+Premium Sushi Lunch、$28（カナダドル）を注文した。炙り寿司のお店だけあって、おおかた炙ってある。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi02.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+このお店の看板メニューの炙りサーモン。うまい（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi03.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+よくわからん巻物。うまい（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi04.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+よこからの絵。うまそう（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi05.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+エビ。うまい（小並感）。&lt;/p&gt;
+
+&lt;p&gt;おいしいっちゃ美味しいんだけど、炙り寿司だから仕方ないけど全体的に味がうるさい。もっと緩急が欲しかった、贅沢を言えば。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi06.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+店内はいい感じに日本っぽくない、というか普通のレストランっぽい。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/sushi07.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+客層もお金持ちそうな人が多かったです。あと余談だけどカナディアンが説明するお寿司の説明が可愛かったです（ディス・イズ・カンバチィ(・∀・)！）。てか店員のおねーさんが可愛かったです。&lt;/p&gt;
+
+&lt;h2 id=&#34;downtown:1af5b5efeabf0793f6ca06337f52d19b&#34;&gt;Downtown&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/waterfront.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+今回のお店はWaterfront駅という近くです。交通の要所です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/skytrain.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ちなみにバンクーバーを走るSkyTrainの切符販売機。ゾーン制で1ゾーン内なら$2.75で90分間乗り放題です。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/taxi.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ちなみにバンクーバーのタクシー。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/gas01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+またWaterfront駅のすぐ近くにガスタウンってレンガ造りのキレイな町並みがあります。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/gas02.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+基本的にこの季節のバンクーバーは雨が多い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/gas03.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ガスタウンを作った人の銅像。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/rev03.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ガスタウン近くの&lt;a href=&#34;http://revolvercoffee.ca/home/&#34;&gt;Revolver Coffee&lt;/a&gt;。おされ（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/rev02.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ガラスのコップにラテいれるのか。おされ（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/rev04.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+繁盛してる。おされ（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/rev01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+コーヒー器具がいっぱい。おされ（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/vpl.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+ガスタウンからちょっと南に下ったら&lt;a href=&#34;http://www.vpl.ca/&#34;&gt;バンクーバー図書館&lt;/a&gt;がある。でかい（小並感）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/sushi/vpl2.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;br /&gt;
+7階建で自習机的なものいっぱいある。もちろんWi-Fiも利用できるよ。いい（小並感）。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、バンクーバーは海も山もあって食べ物もたぶん美味しいと思います。天気も夏は最高らしいので、みなさんも一度は来てみなはれ( ˘ω˘)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Material Design Color Paletteプラグインつくった</title>
+      <link>http://localhost:1313/mol/log/my-sketch-plugin/</link>
+      <pubDate>Tue, 16 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/my-sketch-plugin/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.adventar.org/calendars/347&#34;&gt;Sketch 3 Advent Calendar 2014 - Adventar&lt;/a&gt; 16日目です。&lt;/p&gt;
+
+&lt;p&gt;表題の通りなんですけど、Sketch.appのプラグインとか作ってみたいなーて思ってて作ったわけです。&lt;/p&gt;
+
+&lt;iframe src=&#34;//player.vimeo.com/video/114320997?title=0&amp;amp;byline=0&amp;amp;portrait=0&#34; width=&#34;640&#34; height=&#34;360&#34; frameborder=&#34;0&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/material-design-color-palette-sketch-plugin&#34;&gt;t32k/material-design-color-palette-sketch-plugin&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GoogleのMaterial Designってありますよね？あれの色見本的なものを生成してくれるやつです。公式サイトみたらIllustrator/Photoshop用のSwatchesファイルがあったんですけど、Sketch用のなかったわけですよ！（そもそもそんなファイルSketchにはないのか？）よくわかりませんが、なかったら自分で作りなはれ精神で作りました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.google.com/design/spec/style/color.html&#34;&gt;Color - Style - Google design guidelines&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;個人的に明度ごとに各色のパレット作り出すやつが欲しかったやつなのでお気に入りです。なんか不具合とかあったら&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt;まで、ご連絡くださいませ。&lt;/p&gt;
+
+&lt;h2 id=&#34;sketch-pluginの作り方:c39ef779f913309606ace128c8a25132&#34;&gt;Sketch Pluginの作り方&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemiancoding.com/sketch/support/developer/&#34;&gt;Bohemian Coding - Sketch Developer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;上記の公式リファレンスを見れば作れる。。。なんてことはない！！CocoaScriptという、JavaScriptの文法でCocoaフレームワークにアクセスできる代物。てか、Cocoaフレームワークが分からんし！なんかカッコ多くてよくわからんし！！リファレンス不親切だし！！！って感じで、作りたいものに似たプラグインを探して真似するのが最善の策かと思われる。&lt;/p&gt;
+
+&lt;p&gt;みんなCocoaに精通しているのか、それともググりながらがんばってるのか、いずれにせよ、Sketchプラグインのエコシステムはデベロッパーの皆様の多大なる努力の賜物であることを身にしみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-16-fig01.png&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;あと、知ってる方がいたら教えて欲しいんですけど、上図みたいにデフォルトで選択フォームにフォーカスがあたってるせいか、青い枠（Graphite設定している人は灰色の枠）が付いてるの消したいんですけど、どうしたらいいんでしょうかね？よくわからんす。。&lt;/p&gt;
+
+&lt;h2 id=&#34;sketch-pluginを作ったら:c39ef779f913309606ace128c8a25132&#34;&gt;Sketch Pluginを作ったら…&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://sketchtoolbox.com/&#34;&gt;Sketch Toolbox&lt;/a&gt;という、Sketchプラグインを管理するアプリがあるのですけど、せっかくなのでここに登録したいと思いまして、どうしたら登録できるのだろうと探していたら、どうやら&lt;a href=&#34;https://github.com/sketchplugins/plugin-directory&#34;&gt;sketchplugins/plugin-directory&lt;/a&gt;ここにプルリクを送ればいいっぽい（マージされない。。。）&lt;/p&gt;
+
+&lt;p&gt;なんとまぁアナログな！Bohemian Codingさんはプラグインサーバー立てて、そこにアップロードできるようにすればいいのになー（儲かってないのかな）。&lt;/p&gt;
+
+&lt;p&gt;あとは、Sketchのリソース関連で有名なSketch App Sourcesに載せるため&lt;a href=&#34;http://www.sketchappsources.com/submit-free-resource.html&#34;&gt;Submit free resources&lt;/a&gt;に申請しておきましょう。&lt;/p&gt;
+
+&lt;blockquote class=&#34;twitter-tweet&#34; lang=&#34;en&#34;&gt;&lt;p&gt;Sketch App plugin for displaying Google Material Design Color Palette by &lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt; &lt;a href=&#34;http://t.co/E7inQyFGVs&#34;&gt;http://t.co/E7inQyFGVs&lt;/a&gt; &lt;a href=&#34;http://t.co/n2w5hxQeXi&#34;&gt;pic.twitter.com/n2w5hxQeXi&lt;/a&gt;&lt;/p&gt;&amp;mdash; Sketch App Sources (@sketchsources) &lt;a href=&#34;https://twitter.com/sketchsources/status/544039316067209216&#34;&gt;December 14, 2014&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;こんな感じでツイートしてくれます！いっぱいFavorite付いてるけど、GitHubのスターが欲しいんだボクは！&lt;/p&gt;
+
+&lt;p&gt;とまぁ作ってみたけど、もっと環境がよかったらなーもっと作ってみたいと思うけど、満足したので、もうプラグイン作るのはお休み(´･ωゞ)。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2014年の振り返りと人気記事まとめ</title>
+      <link>http://localhost:1313/mol/log/matome-2014/</link>
+      <pubDate>Mon, 15 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/matome-2014/</guid>
+      <description>
+
+&lt;p&gt;もうこんな時期ですかね、年末ですね、というわけで恒例の振り返りと2014年のMOL人気記事まとめをしたいと思います。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;書かないよりマシということで書いとく。 英語ね。もうね。いいかげんどうにかしますわ。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/new-years-resolutions-2014/&#34;&gt;2014年の抱負&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;英語の件ですが、抱負のとおり、どうにかしました。てか、この時点でフィリピン語学留学するって決めてたんで、抱負もなにもないのですがね。&lt;/p&gt;
+
+&lt;p&gt;フィリピンでマンツーマンみっちりやったので、カナダではそれなりに生きていけてます。まぁボクの英語力は全然まだまだなんですけど、最初からカナダ来てグループレッスンに高い学費払って成長の速度も遅い（ここは自分次第ですが）ことを考えると、やっぱり最初にフィリピン行ってよかったなーと感じています。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで人記事ランキング。&lt;/p&gt;
+
+&lt;h2 id=&#34;2014年人気記事まとめとよく売れたものとか:4df9a9883a966d86487739ef926c0f0e&#34;&gt;2014年人気記事まとめとよく売れたものとか&lt;/h2&gt;
+
+&lt;h4 id=&#34;第1位-macbook-pro-15-のみという選択-http-t32k-me-mol-log-macbookpro-retina-15:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第1位 &lt;a href=&#34;http://t32k.me/mol/log/macbookpro-retina-15/&#34;&gt;MacBook Pro 15&amp;rdquo; のみという選択&lt;/a&gt;&lt;/h4&gt;
+
+&lt;table  class=&#34;g-tools_table&#34;&gt;&lt;tr&gt;&lt;td colspan=&#34;2&#34;&gt;&lt;span class=&#34;g-tools_title&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA&#34; target=&#34;_blank&#34;&gt;MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース ブラック&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;span class=&#34;g-tools_img&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/21ghGdXBnuL._SL160_.jpg&#34;  alt=&#34;MacBook Pro Retina ディスプレイ 15.4インチ用 マット ハードケース 《全12色》 ブラック（黒） [MOBILE STUDIO]&#34; /&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;span class=&#34;g-tools_body&#34;&gt;&lt;br /&gt;MOBILE STUDIO  &lt;br /&gt;売り上げランキング : 5640&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/MacBook-15-4%E3%82%A4%E3%83%B3%E3%83%81%E7%94%A8-%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%EF%BC%88%E9%BB%92%EF%BC%89-MOBILE-STUDIO/dp/B009A4YKXA%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB009A4YKXA&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/span&gt;&lt;span class=&#34;g-tools_by&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;table  class=&#34;g-tools_table&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;span class=&#34;g-tools_img&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%95%E3%83%AB%E3%83%95%E3%83%A9%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%BC%E3%83%BBPURE-MacBook-Retina-display-PWK05/dp/B008TQTIEQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008TQTIEQ&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/413Wd3NgfaL._SL160_.jpg&#34;  alt=&#34;フルフラットキーボードカバー・PURE WRAP KEY #05 for Apple 13/15 MacBook Pro with Retina display 半透明 PWK05&#34; /&gt;&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;span class=&#34;g-tools_body&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%95%E3%83%AB%E3%83%95%E3%83%A9%E3%83%83%E3%83%88%E3%82%AD%E3%83%BC%E3%83%9C%E3%83%BC%E3%83%89%E3%82%AB%E3%83%90%E3%83%BC%E3%83%BBPURE-MacBook-Retina-display-PWK05/dp/B008TQTIEQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB008TQTIEQ&#34; target=&#34;_blank&#34;&gt;フルフラットキーボードカバー・PURE WRAP KEY&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&lt;br /&gt;マイクロソリューション Micro Solution Inc.  &lt;br /&gt;&lt;/span&gt;&lt;span class=&#34;g-tools_by&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;やっぱガジェット系の記事は読者層が広いので読まれる回数が多いみたいですね。これもフィリピン留学に備えて身辺整理した結果です。おかげさまで、マニラでMacBook Proは壊れることもなかったので防御大事です。命大事に（文字通り）！&lt;/p&gt;
+
+&lt;h4 id=&#34;第2位-webエンジニアからみたフィリピン語学留学-http-t32k-me-mol-log-p32k:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第2位 &lt;a href=&#34;http://t32k.me/mol/log/p32k/&#34;&gt;Webエンジニアからみたフィリピン語学留学&lt;/a&gt;&lt;/h4&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51nhHy3ORFL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;アジア人がアジア留学？「フィリピン留学記」&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;アジア人がアジア留学？「フィリピン留学記」&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;中野渡純平 &lt;br /&gt;&lt;br /&gt;中野渡 純平  2013-10-22&lt;br /&gt;売り上げランキング : 47343&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+エンジニアどうこうじゃなくて、完全にフィリピン旅行記みたいだけど、初めて海外で長期滞在して、外国人の友達とかできて、なんかその国の文化に触れたのは普通によかったなーと思います。僕の場合は会社辞めて5ヶ月間まるまる同じ学校で、まじでやるしかない状況を作って行きましたが、たいていの語学学校は1週間から週単位で留学期間設定できるので、2週間とかお試しで行ってみるのもありなんじゃないでしょうかね（セブ行きたかったなー。。。）。
+
+
+#### 第3位 [修正しやすいCSSとは](http://t32k.me/mol/log/architecture-for-css/)
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECSS%E8%A8%AD%E8%A8%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%A2%E3%83%80%E3%83%B3Web%E9%96%8B%E7%99%BA%E3%81%AB%E6%AC%A0%E3%81%8B%E3%81%9B%E3%81%AA%E3%81%84%E3%80%8C%E4%BF%AE%E6%AD%A3%E3%81%97%E3%82%84%E3%81%99%E3%81%84CSS%E3%80%8D%E3%81%AE%E8%A8%AD%E8%A8%88%E6%89%8B%E6%B3%95-%E8%B0%B7-%E6%8B%93%E6%A8%B9/dp/4844336355%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844336355&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51rsbQOrZ0L._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;Web制作者のためのCSS設計の教科書 モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECSS%E8%A8%AD%E8%A8%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%A2%E3%83%80%E3%83%B3Web%E9%96%8B%E7%99%BA%E3%81%AB%E6%AC%A0%E3%81%8B%E3%81%9B%E3%81%AA%E3%81%84%E3%80%8C%E4%BF%AE%E6%AD%A3%E3%81%97%E3%82%84%E3%81%99%E3%81%84CSS%E3%80%8D%E3%81%AE%E8%A8%AD%E8%A8%88%E6%89%8B%E6%B3%95-%E8%B0%B7-%E6%8B%93%E6%A8%B9/dp/4844336355%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844336355&#34; target=&#34;_blank&#34;&gt;Web制作者のためのCSS設計の教科書&lt;br&gt;モダンWeb開発に欠かせない「修正しやすいCSS」の設計手法&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;谷 拓樹 &lt;br /&gt;&lt;br /&gt;インプレスジャパン  2014-07-24&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AECSS%E8%A8%AD%E8%A8%88%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%A2%E3%83%80%E3%83%B3Web%E9%96%8B%E7%99%BA%E3%81%AB%E6%AC%A0%E3%81%8B%E3%81%9B%E3%81%AA%E3%81%84%E3%80%8C%E4%BF%AE%E6%AD%A3%E3%81%97%E3%82%84%E3%81%99%E3%81%84CSS%E3%80%8D%E3%81%AE%E8%A8%AD%E8%A8%88%E6%89%8B%E6%B3%95-%E8%B0%B7-%E6%8B%93%E6%A8%B9/dp/4844336355%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844336355&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;なんだか書評というより、著者の@hilokiさんとの馴れ初めを綴った記事。肝心の書籍も、どこ行っても良い評判しか聞かないのでやっぱ良い本だと思います。CSS設計で書籍化されているのは海外書籍でもないんじゃないかなー。&lt;/p&gt;
+
+&lt;h4 id=&#34;第4位-sketch3ハジメマシタ-http-t32k-me-mol-log-sketch3:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第4位 &lt;a href=&#34;http://t32k.me/mol/log/sketch3/&#34;&gt;Sketch3ハジメマシタ&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;会社辞めてAdobe Creative Suiteが使えなくなったので、とりあえず代替ソフト探したらこれでしたわーって感じですな。最近また使い始めていますが、やっぱりSketchのエコシステムは非常にいい感じでいいっす！&lt;/p&gt;
+
+&lt;p&gt;こんな感じでSketch以外もAdobeがなくてもやっていけてます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.pixelmator.com/&#34;&gt;Pixelmator&lt;/a&gt; （フォトショ代わりに）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://bohemiancoding.com/sketch/&#34;&gt;Sketch 3&lt;/a&gt; （花火代わりに）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://affinity.serif.com/&#34;&gt;Affinity Designer&lt;/a&gt; （イラレ代わりに。.aiファイル編集できる！）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;第5位-6月16日晴れ-http-t32k-me-mol-log-available-for-hire:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第5位 &lt;a href=&#34;http://t32k.me/mol/log/available-for-hire/&#34;&gt;6月16日晴れ&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;いわゆる退職記事。自分でもいいこと書いてると思う。&lt;/p&gt;
+
+&lt;h4 id=&#34;第6位-sass-compass徹底入門を監修しました-http-t32k-me-mol-log-sass-and-compass-in-action:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第6位 &lt;a href=&#34;http://t32k.me/mol/log/sass-and-compass-in-action/&#34;&gt;Sass/Compass徹底入門を監修しました&lt;/a&gt;&lt;/h4&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51aeeQBbfhL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;Sass&amp;Compass徹底入門 CSSのベストプラクティスを効率よく実現するために&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;Sass&amp;Compass徹底入門&lt;br /&gt;CSSのベストプラクティスを効率よく実現するために&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;Wynn Netherland, Nathan Weizenbaum,&lt;br /&gt;Chris Eppstein, Brandon Mathis, &lt;br /&gt;石本 光司 (株式会社サイバーエージェント) &lt;br /&gt;翔泳社  2014-03-18&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;はじめて執筆じゃなくて監修した本。しかもそれがSassやCompassの開発者の書いた本で、すごく貴重な経験ができました。難しいけど良い本だと思います。&lt;/p&gt;
+
+&lt;h4 id=&#34;第7位-stylestats-http-t32k-me-mol-log-stylestats:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第7位 &lt;a href=&#34;http://t32k.me/mol/log/stylestats/&#34;&gt;StyleStats&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;@1000chと頑張って作ったnpmモジュールが結構ヒットした。世界はそんな遠くくないと思った。&lt;/p&gt;
+
+&lt;h4 id=&#34;第8位-若人へ-http-t32k-me-mol-log-choice:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第8位 &lt;a href=&#34;http://t32k.me/mol/log/choice/&#34;&gt;若人へ&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;いわゆるエイプリルフール記事というのは嘘で、自分でもいいこと書いてると思う。&lt;/p&gt;
+
+&lt;h4 id=&#34;第9位-フロントエンドエンジニアのための書籍2本立て-http-t32k-me-mol-log-books-for-frontend-engineer:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第9位 &lt;a href=&#34;http://t32k.me/mol/log/books-for-frontend-engineer/&#34;&gt;フロントエンドエンジニアのための書籍2本立て&lt;/a&gt;&lt;/h4&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E9%A4%8A%E6%88%90%E8%AA%AD%E6%9C%AC-HTML%E3%80%81CSS%E3%80%81JavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%8B%E3%82%89%E7%8F%BE%E5%A0%B4%E3%81%A7%E5%BD%B9%E7%AB%8B%E3%81%A4%E6%8A%80%E8%A1%93%E3%81%BE%E3%81%A7%E6%BA%80%E8%BC%89-Software-Design-plus/dp/4774165786%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774165786&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51XYWUokftL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;フロントエンドエンジニア養成読本 [HTML、CSS、JavaScriptの基本から現場で役立つ技術まで満載! ] (Software Design plus)&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E9%A4%8A%E6%88%90%E8%AA%AD%E6%9C%AC-HTML%E3%80%81CSS%E3%80%81JavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%8B%E3%82%89%E7%8F%BE%E5%A0%B4%E3%81%A7%E5%BD%B9%E7%AB%8B%E3%81%A4%E6%8A%80%E8%A1%93%E3%81%BE%E3%81%A7%E6%BA%80%E8%BC%89-Software-Design-plus/dp/4774165786%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774165786&#34; target=&#34;_blank&#34;&gt;フロントエンドエンジニア養成読本 [HTML、CSS、JavaScriptの基本から現場で役立つ技術まで満載! ] (Software Design plus)&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;斉藤 祐也 石本 光司 加藤 賢一 水野 隼登 谷 拓樹 泉水 翔吾 原 一成 平木 聡 佐藤 歩 杉本吉章 &lt;br /&gt;&lt;br /&gt;技術評論社  2014-07-02&lt;br /&gt;売り上げランキング : 515&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E9%A4%8A%E6%88%90%E8%AA%AD%E6%9C%AC-HTML%E3%80%81CSS%E3%80%81JavaScript%E3%81%AE%E5%9F%BA%E6%9C%AC%E3%81%8B%E3%82%89%E7%8F%BE%E5%A0%B4%E3%81%A7%E5%BD%B9%E7%AB%8B%E3%81%A4%E6%8A%80%E8%A1%93%E3%81%BE%E3%81%A7%E6%BA%80%E8%BC%89-Software-Design-plus/dp/4774165786%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4774165786&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;いわゆるアフィリエイト記事。自分でもゲスいと思う。おかげさまで売れております！&lt;/p&gt;
+
+&lt;h4 id=&#34;第10位-バッジ駆動開発-2014-node-js-http-t32k-me-mol-log-badge-driven-development:4df9a9883a966d86487739ef926c0f0e&#34;&gt;第10位 &lt;a href=&#34;http://t32k.me/mol/log/badge-driven-development/&#34;&gt;バッジ駆動開発（2014:Node.js）&lt;/a&gt;&lt;/h4&gt;
+
+&lt;p&gt;バッジ好きですなー。うん。自分でもバッジサービス運用したい。&lt;/p&gt;
+
+&lt;h2 id=&#34;そんなわけで:4df9a9883a966d86487739ef926c0f0e&#34;&gt;そんなわけで&lt;/h2&gt;
+
+&lt;p&gt;2014年はあんまりブログ書けなかったなーと反省。来年はもっと書いていこうと思う。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>FROG HOUSEにジョインしました</title>
+      <link>http://localhost:1313/mol/log/froghouse/</link>
+      <pubDate>Mon, 01 Dec 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/froghouse/</guid>
+      <description>&lt;p&gt;2週間の日本でのニート生活を終え、バンクーバーに来た。ここでの拠点に&lt;a href=&#34;http://webya.opdsgn.com/&#34;&gt;バンクーバーのうぇぶ屋&lt;/a&gt;でも有名なセナさんが運営しているシェアハウスに11月中旬から入居した。職はまだない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://vancouverch.com/&#34;&gt;FROG HOUSE | バンクーバーから世界を目指すクリエイター専用シェアハウス&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そんなわけで、このシェアハウスではWeb developmentを勉強している学生さんとかと一緒に生活している。『クリエイター向け』ということだけあって、制作に必要な物があればFROG HOUSE名義で購入してくれたりもするので、さしずめコワーキングスペースに住んでるような感じでよい環境だと思う。もちろん、Webでわからないことあったら他の住人に聞けたりもするので遠い異国の地でも寂しくない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/12-01-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;FROG HOUSEでは毎週日曜Meetupを開催して、現地の日本人クリエイター系な人と交流できたりする。&lt;/p&gt;
+
+&lt;p&gt;2014年12月現在、このシェアハウスは満室だが、セナさんが運営しているFrogでは海外で働きたいクリエイターの留学相談もやってるそうなので海外志望なクリエイターは相談してみると良い。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://frogagent.com/&#34;&gt;Frog - バンクーバーを拠点とするクリエイター留学サポート企業&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;バンクーバー来て2週間くらい経つけど、天気の悪い東京の冬みたいな感じで、カナダのイメージで思っていたほど寒くないし、各種インフラもちゃんとしているので（フィリピン比較）過ごしやすいと思う。&lt;/p&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%82%AF%E3%83%BC%E3%83%90%E3%83%BC%E7%99%BA-4%E3%82%B3%E3%83%9E%E6%BC%AB%E7%94%BB%E3%81%A7%E4%BD%93%E6%84%9F%E3%81%99%E3%82%8B%E3%81%8B%E3%82%89%E8%BA%AB%E3%81%AB%E3%81%A4%E3%81%8F-%E3%81%BB%E3%82%93%E3%81%A8%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA-%E3%82%A2%E3%82%B9%E3%82%AB%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC-%E7%B1%B3%E7%94%B0/dp/4756916708%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4756916708&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51s4neRMsnL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;バンクーバー発!  4コマ漫画で体感するから身につく ほんとに使えるリアルな英語フレーズ (アスカカルチャー)&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%82%AF%E3%83%BC%E3%83%90%E3%83%BC%E7%99%BA-4%E3%82%B3%E3%83%9E%E6%BC%AB%E7%94%BB%E3%81%A7%E4%BD%93%E6%84%9F%E3%81%99%E3%82%8B%E3%81%8B%E3%82%89%E8%BA%AB%E3%81%AB%E3%81%A4%E3%81%8F-%E3%81%BB%E3%82%93%E3%81%A8%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA-%E3%82%A2%E3%82%B9%E3%82%AB%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC-%E7%B1%B3%E7%94%B0/dp/4756916708%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4756916708&#34; target=&#34;_blank&#34;&gt;バンクーバー発!  4コマ漫画で体感するから身につく ほんとに使えるリアルな英語フレーズ (アスカカルチャー)&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;米田 貴之 &lt;br /&gt;&lt;br /&gt;明日香出版社  2014-01-24&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%90%E3%83%B3%E3%82%AF%E3%83%BC%E3%83%90%E3%83%BC%E7%99%BA-4%E3%82%B3%E3%83%9E%E6%BC%AB%E7%94%BB%E3%81%A7%E4%BD%93%E6%84%9F%E3%81%99%E3%82%8B%E3%81%8B%E3%82%89%E8%BA%AB%E3%81%AB%E3%81%A4%E3%81%8F-%E3%81%BB%E3%82%93%E3%81%A8%E3%81%AB%E4%BD%BF%E3%81%88%E3%82%8B%E3%83%AA%E3%82%A2%E3%83%AB%E3%81%AA%E8%8B%B1%E8%AA%9E%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA-%E3%82%A2%E3%82%B9%E3%82%AB%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC-%E7%B1%B3%E7%94%B0/dp/4756916708%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4756916708&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;この本書いた人もいる！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WebデザイナーはまずGitHubから触ってみればいいんじゃないかな</title>
+      <link>http://localhost:1313/mol/log/978-4-8443-3700-3/</link>
+      <pubDate>Wed, 12 Nov 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/978-4-8443-3700-3/</guid>
+      <description>&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEGitHub%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E5%8A%B9%E7%8E%87%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%99%E3%82%8B%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E3%83%84%E3%83%BC%E3%83%AB-%E5%A1%A9%E8%B0%B7-%E5%95%93/dp/4844337009%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844337009&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51J4wCkhnCL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;Web制作者のためのGitHubの教科書 チームの効率を最大化する共同開発ツール&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEGitHub%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E5%8A%B9%E7%8E%87%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%99%E3%82%8B%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E3%83%84%E3%83%BC%E3%83%AB-%E5%A1%A9%E8%B0%B7-%E5%95%93/dp/4844337009%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844337009&#34; target=&#34;_blank&#34;&gt;Web制作者のためのGitHubの教科書 チームの効率を最大化する共同開発ツール&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;塩谷 啓 紫竹 佑騎 原 一成 平木 聡 &lt;br /&gt;&lt;br /&gt;インプレス  2014-10-24&lt;br /&gt;売り上げランキング : 3723&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Web%E5%88%B6%E4%BD%9C%E8%80%85%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AEGitHub%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E3%83%81%E3%83%BC%E3%83%A0%E3%81%AE%E5%8A%B9%E7%8E%87%E3%82%92%E6%9C%80%E5%A4%A7%E5%8C%96%E3%81%99%E3%82%8B%E5%85%B1%E5%90%8C%E9%96%8B%E7%99%BA%E3%83%84%E3%83%BC%E3%83%AB-%E5%A1%A9%E8%B0%B7-%E5%95%93/dp/4844337009%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4844337009&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Gitってのが便利！とよく聞くけど、実際問題、会社で導入しているわけでもない限り、個人で導入するのは気が引けるというか、よっぽどのリターンがあるのを分かってないと、あんなよくわからない黒い画面をWebデザイナーが使うわけないと思うのです。&lt;/p&gt;
+
+&lt;p&gt;かくゆう、私もそうでした。Gitはよく分かんないけども、GitHubってのはカッコ良さそうだったから使ってみたい！んで、しょうがなしにGitHubを利用するためにGitコマンドをチョロチョロっと使い始めた（覚え始めた）って感じです。&lt;/p&gt;
+
+&lt;p&gt;GitHubを使うって言っても僕の場合、最初は単純にファイルのホスティングだったり、Gistにメモ残したり、ちょっと慣れてきたらGitHub Pages使ってみたりとか、そうゆうふうに徐々に慣れてきたらこそ、会社のほうで&lt;a href=&#34;https://about.gitlab.com/&#34;&gt;GitLab&lt;/a&gt;や&lt;a href=&#34;https://enterprise.github.com/&#34;&gt;GitHub Enterprise&lt;/a&gt;などが導入された時も難なく対応できた経緯があるます。&lt;/p&gt;
+
+&lt;p&gt;正直、コードのバージョン管理しなくてもいいからデザイナーはGitHubは使ったほうがいいと思う。例えば、&lt;a href=&#34;https://github.com/dbmzzo/Sublime-Text-2-Icon&#34;&gt;こういったSublime Textのアイコン&lt;/a&gt;のようなデザインマテリアルもGitHub上には上がっている。なのでForkして&lt;a href=&#34;https://github.com/t32k/Sublime-Text-2-Icon&#34;&gt;自分のデザインを再度GitHubに上げることができる&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;デザインのポートフォリオサイトとしては&lt;a href=&#34;https://dribbble.com/&#34;&gt;Dribbble&lt;/a&gt;などが有名だろうが、GitHubではForkなどの機能によってもっと簡単にコラボーレーションできるようになっていて、単なるショーケースではなく、すぐさまWebアプリなどに実装出来る点は魅力的だろう。&lt;/p&gt;
+
+&lt;p&gt;GitHubに上がっているのは当たり前だけどほとんどがコードで、エンジニア中心の世界だ。そこにデザイナーがコードは書けなくてもエンジニアさんが作っているフレームワークのロゴとか作ってプルリクすると大変喜ばれると思う。そうでなくてもやっぱりGitHubの機能（Issues管理とか）知ってるだけでも、エンジニアとしてはやりやすいパートナーと認識されるので、デザイナーのみんなも使った方がいいと思うんだ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/11-13-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、そんなときに必要なのが本書なわけだが、新米デザイナーが複数ビジュアルデザインの提示から簡単なプルリクエストまでワークフローにそって説明してあり、イメージが付きやすい解説本となっている。オールカラーで見やすいのはもちろん、GitHubの便利な機能もひと通り解説してあるのでGitHubからGitを学びたいデザイナーさんにとってはうってつけの書籍であろう。&lt;/p&gt;
+
+&lt;p&gt;この本で知ったのだけど&lt;a href=&#34;https://chrome.google.com/webstore/detail/lttm/jdidcgkdggndpodjbipodfefnpgjooeh?hl=ja&#34;&gt;LTTM&lt;/a&gt;ってChrome拡張機能インストールすれば簡単に寿司ゆきが表示できていいね、知らなかった。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Webエンジニアからみたフィリピン語学留学</title>
+      <link>http://localhost:1313/mol/log/p32k/</link>
+      <pubDate>Tue, 04 Nov 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/p32k/</guid>
+      <description>
+
+&lt;p&gt;こんちわ、無職の&lt;a href=&#34;https://twitter.com/t32k&#34;&gt;@t32k&lt;/a&gt; だよ。6月初めから10月末まで、まるまる5ヶ月間(22週間)フィリピンに語学留学してきたので、今回は思いの丈を綴ってみるよ。&lt;/p&gt;
+
+&lt;p&gt;書いてみて思ったけど、特にエンジニア関係なかったわー。&lt;/p&gt;
+
+&lt;p&gt;※ 2014年6月から2014年10月までのマニラでの出来事である。1ペソ＝2.4円で計算してある。&lt;/p&gt;
+
+&lt;p&gt;ぼくがなぜフィリピンに行ったのかは、&lt;a href=&#34;/mol/log/available-for-hire/&#34;&gt;こちらの記事&lt;/a&gt;を参照してね。簡単に言えば、エンジニアとして英語にちゃんと向きあおうって思ったんだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;なんでフィリピンなのかとか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;なんでフィリピンなのかとか&lt;/h2&gt;
+
+&lt;p&gt;大学を卒業してWebデザイナーになって以来、より多くの情報を早く得るには、&lt;a href=&#34;http://layzie.hatenablog.com/entry/20141104/1415076724&#34;&gt;Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん&lt;/a&gt;も曰く、英語が不可欠だと感じていた。ただ普通にアメリカに語学留学したら学費だけで200万くらい飛びそうな感じだったので、ワーキングプアだった僕にとっては取れない選択肢だった。&lt;/p&gt;
+
+&lt;p&gt;そんな時、とある勉強会で出会ったエンジニアと飲んでたら、彼は英語ペラペラのイケメンだった。どこで英語学んだのですか、と聞いたらニュージーランドにワーキングホリデーに行ってたらしい。ワーキングホリデーならあっちで学業だけでなくバイトもすることができるし、なんやかんや90万くらいでなんとかなった、といってた。90万円なら、がんばったらなんとかなるかなと思いここで初めてワーキングホリデーを考え始める。28歳の夏のことだった。&lt;/p&gt;
+
+&lt;p&gt;それ以来いろいろワーホリについて調べてみると、ワーホリに行ったからといって英語が喋れる保証はどこにもないことが分かった。例えば、日本人留学生同士でかたまったり、農作業アルバイト（オーストラリア）とか、あまり人と話さなくてもいい環境にいたり等。そんなわけでワーホリに対して不安要素が出てきた。&lt;/p&gt;
+
+&lt;p&gt;そこでもうちょっと調べてみると、スーパー学歴社会のおとなり韓国さんでは、まず安価な授業料のフィリピン（公用語はタガログ語と英語）に語学留学して、そのあと欧米などの英語ネイティブの国で勉強してブラッシュアップする2カ国留学ってのメジャーらしい。そのほうが最初から欧米に行くよりも断然にコストパフォーマンスに優れてるとのこと。&lt;/p&gt;
+
+&lt;p&gt;というわけで、素直なt32kはフィリピンに行こうと思ったのです。あとから知ったけど、フィジー留学ってのもあるのね、ただ同じ学校にいた友達でフィジー留学経験がある子に聞いても良い評判は聞かなかったので、やっぱフィリピンなのだろう。&lt;/p&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51nhHy3ORFL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;アジア人がアジア留学？「フィリピン留学記」&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;アジア人がアジア留学？「フィリピン留学記」&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;中野渡純平 &lt;br /&gt;&lt;br /&gt;中野渡 純平  2013-10-22&lt;br /&gt;売り上げランキング : 47343&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E3%82%A2%E3%82%B8%E3%82%A2%E4%BA%BA%E3%81%8C%E3%82%A2%E3%82%B8%E3%82%A2%E7%95%99%E5%AD%A6%EF%BC%9F%E3%80%8C%E3%83%95%E3%82%A3%E3%83%AA%E3%83%94%E3%83%B3%E7%95%99%E5%AD%A6%E8%A8%98%E3%80%8D-%E4%B8%AD%E9%87%8E%E6%B8%A1%E7%B4%94%E5%B9%B3-ebook/dp/B00G3I8OAG%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00G3I8OAG&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;この本はセブの学校について書かれているけど、僕の通っていたマニラの学校とも共通点が多く、なおかつすごく詳しく書いてあるので、渡航前にイメージがつきやすかった。オヌヌメ！&lt;/p&gt;
+
+&lt;h2 id=&#34;エンジニア的なアレとか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;エンジニア的なアレとか&lt;/h2&gt;
+
+&lt;p&gt;フィリピンって言っても広い。大小合わせて7000近くの島が存在する。その中でもフィリピン英会話で有名なのはセブだろうか。「平日は英語学習、週末はビーチで遊んじゃお♪」的な売り文句をよく耳にする（謎）。ただ僕は白いビーチなんて特に興味はなかった、それよりも地元フィリピンのWebエンジニアのMeetupに参加してみたかったので、より多くのIT企業が集まるマニラに留学先を決めた（ちなみにヘッダーの画像はマニラからバス2時間、ボート2時間にあるプエルトガレラのビーチ、なのでマニラからでも白いビーチには行ける！）。&lt;/p&gt;
+
+&lt;p&gt;2013年の初の&lt;a href=&#34;http://2013.jsconf.asia/#about&#34;&gt;JSConf.Asia&lt;/a&gt;はマニラで開催されていた（2014年は&lt;a href=&#34;http://2014.jsconf.asia/&#34;&gt;シンガポール&lt;/a&gt;）のを知っていたし、そのような国際カンファレンスに旅費なし・チケット価格のみで気軽に参加できるのはメリットだなと。ただ、僕がいた期間中は残念ながらそのような大きなカンファレンスはなかった（&lt;a href=&#34;http://www.pwdo.org/ffc-2014/&#34;&gt;Form Function &amp;amp; Class 5&lt;/a&gt;に参加したかったけどニアミスだった。。）が、Manila.jsの定期MeetUpと&lt;a href=&#34;http://webgeek.ph/devcup-2014/&#34;&gt;WebDev GeekCup 2014&lt;/a&gt;というハッカソンに参加できたのは良かったと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/manilajs.jpg&#34; alt=&#34;Manila.js 009&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://manilajs.com/&#34;&gt;Manila.js&lt;/a&gt;は月1ペースでやってくよーって言ってたのに、この1回キリしか参加できなかった。それぞれのスピーカーのお題は、&lt;a href=&#34;http://ionicframework.com/&#34;&gt;Ionic&lt;/a&gt;と、&lt;a href=&#34;http://goratchet.com/&#34;&gt;Ratchet&lt;/a&gt;と、CORSの3本立てだった。肝心のトークよりも、オーガナイザーが、かの&lt;a href=&#34;https://github.com/rstacruz&#34;&gt;Rico Sta. Cruz&lt;/a&gt;で、挨拶しとけばよかったなと今更ながら後悔している（次回しようと思ったら次回開催されなかったんだ。。）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/devcup.jpg&#34; alt=&#34;WebGeek DevCup 2014&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;DevCupのほうはチーム対抗のハッカソンだったけど、とりあえず個人でモクモクしてた。開始時間が1時間遅れだったり、お前ら昼休憩し過ぎだ！っていうくらいゆったりした感じのハッカソンだった。席ごと審査員が出向きプレゼンする発表会だったので、ほかのエンジニアが何作ってるかよく分かんなかったけど、毎日英語ばかりの勉強で、プログラミングに集中できたのは、よい気分転換になった。&lt;/p&gt;
+
+&lt;p&gt;フロント系だけどイベントに関しては、ここをチェックしてた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://webgeek.ph/c/events&#34;&gt;Latest Events topics - WebGeek&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;あと友達繋がりで幸運にもフィリピンにも同業種エンジニアがいた。彼らからいろいろ教えてもらったのは大きい。&lt;a href=&#34;https://twitter.com/deeeki&#34;&gt;@deeeki&lt;/a&gt; は、セブに語学留学してその後にマニラでフィリピン人と仕事してた人で、彼とは一度しか会ってないが彼が帰国したあともマニラの先輩として、いろいろ教えてくれたのは本当に感謝している。また彼繋がりで、某教育プラットフォームで働いてる&lt;a href=&#34;https://twitter.com/banyan&#34;&gt;@banyan&lt;/a&gt;がマニラ支社に出張中で、会う機会を持てた。彼とはもっといろいろ絡みたかったけど、なにぶん本業の語学学校のほうが忙しくて後半はずっと英語漬けで叶わなかった（JS Girl in Manila開催したかったなー）。&lt;/p&gt;
+
+&lt;p&gt;んなわけで、英語を勉強するんなら英語勉強するで集中したほうがいいかなと思った、僕の場合。もちろん海外エンジニアの講演動画を見たり、ブログを読んだりするのも良いと思うけど、僕の英語レベルはほんと低かったので基本的な勉強に日々を費やしていた。裏を返せば、日本で出来ることはちゃんと日本でやっとけ！って話である。&lt;/p&gt;
+
+&lt;h2 id=&#34;環境とか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;環境とか&lt;/h2&gt;
+
+&lt;p&gt;フィリピンに持っていったガジェット関係のまとめはこちらを参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://t32k.me/mol/log/macbookpro-retina-15/&#34;&gt;MacBook Pro 15&amp;rdquo; のみという選択 — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;インターネッツ環境:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;インターネッツ環境&lt;/h3&gt;
+
+&lt;p&gt;ぼくらエンジニアからインターネッツを奪ったら、ただのおっさんである。語学学校の生徒には寮が用意されていて、そこにみんな住むのだけど、そこのWiFiがめちゃくそ遅かった。YouTubeすらまともに見れないので自前で用意するしかなかった。&lt;/p&gt;
+
+&lt;p&gt;フィリピンにはメジャーな携帯電話会社として、SMARTとGlobeとSUNがある。日本に例えたら、NTT DoCoMo、AU、Softbankみたいな感じかな。ただプリペイドプランでLTEネットワークを利用できるのはSMART社しかないはず。それ以外の会社はLTEネットワークを使いたかったら窓口で契約手続きがいるので敷居が高い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/prepaid.jpg&#34; alt=&#34;SIMカードとプリペイドカード&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;基本的な使い方は、あらかじめNexus5などのSIMフリー端末買っておいて、現地で&lt;a href=&#34;http://www1.smart.com.ph/corporate&#34;&gt;SMART社&lt;/a&gt;のSIMカード買って、SMART社プリペイドカードをチャージして使うパターン。&lt;/p&gt;
+
+&lt;p&gt;チャージは裏面をスクラッチして、2200 + [出てきた番号] に電話する感じでチャージする。チャージカードは100ペソ、300ペソ、500ペソの3種類がある。SMARTのLTE995プランなら、30日間LTEネットワーク使い放題で995ペソで済むので月額だいたい2400円で高速回線を持てるのは魅力的だ。&lt;/p&gt;
+
+&lt;p&gt;メトロマニラなら大体のとこで繋がるのでチェックしてみると良い。これのおかげで最低限のネットワーク確保できた。大抵の学生さんはSIMロックのiPhoneを持ってきてて、かわいそうだった。&lt;/p&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/nexus5-Google-LGD821-EM01L-sim%E3%83%95%E3%83%AA%E3%83%BC/dp/B00IANISMQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IANISMQ&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/41ka1l5QPRL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;nexus5 16GB ブラック Google 　LGD821 (EM01L)　simフリー&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/nexus5-Google-LGD821-EM01L-sim%E3%83%95%E3%83%AA%E3%83%BC/dp/B00IANISMQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IANISMQ&#34; target=&#34;_blank&#34;&gt;nexus5 16GB ブラック Google 　LGD821 (EM01L)　simフリー&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&lt;br /&gt;Nexus 5  &lt;br /&gt;売り上げランキング : 599&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/nexus5-Google-LGD821-EM01L-sim%E3%83%95%E3%83%AA%E3%83%BC/dp/B00IANISMQ%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB00IANISMQ&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Nexus5ならSIMフリーでLTEも使えて、3〜4万で買えるのは良いと思う。&lt;/p&gt;
+
+&lt;h3 id=&#34;食環境:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;食環境&lt;/h3&gt;
+
+&lt;p&gt;寮生活なので3食出る。僕の通ってた学校は韓国資本だったので食事は韓国食だった（大抵どこもそうだと思う）。ご飯と汁物と4種類のおかずって構成で、そのうち1品が必ずキムチで、すげー酸っぱくて食べれない・食べたくないので自ずとおかずが3品になる。おかずのレベルって言ってもちりめんじゃこみたいなやつも小皿に盛られてて、「それも一品カウントするのか！？」みたいなこともあった。何が言いたいかというと、まずい。韓国人の友達もあれは韓国料理じゃないと言ってたのが印象的だ。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、フィリピン生活が慣れてきた頃には外食を多くするようになった。週末は完全に自由なので、寮生はどっか旅行したりして寮にいないことが多いためか、週末の寮の食事は更にひどい事になる。インスタントラーメン＋白飯（私は貧乏大学生か！）や、おかゆONLY（私は病人か！）などのパターンが多いので、やっぱり健康の面でも外で野菜とかフルーツを摂取したほうが良い。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/food.jpg&#34; alt=&#34;フィリピン料理ビュッフェにて&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;基本的にフィリピン人は白ご飯を良く食べる。そのため、おかずとなるものはどれも味が濃く、どれも茶色だ（ブラウン・イズ・ジャスティス！）。まぁおいしいっちゃ、おいしいんだけど、たまには日本的なあっさりしたものが食べたくなる。蕎麦とか持ってけばよかったかもしれないと今は思う。ふりかけはマスト！&lt;/p&gt;
+
+&lt;p&gt;あと、ローカルなお店とかで出される水とかでお腹を下す件があるので、&lt;a href=&#34;http://www.amazon.co.jp/%E3%83%93%E3%82%AA%E3%83%95%E3%82%A7%E3%83%AB%E3%83%9F%E3%83%B3-4987123135177-%E6%96%B0%E3%83%93%E3%82%AA%E3%83%95%E3%82%A7%E3%83%AB%E3%83%9F%E3%83%B3S%E9%8C%A0-130%E9%8C%A0/dp/B000FQU2J8%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3DB000FQU2J8&#34;&gt;ビオフェルミン&lt;/a&gt;などの整腸剤もマスト！&lt;/p&gt;
+
+&lt;h2 id=&#34;移動手段とか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;移動手段とか&lt;/h2&gt;
+
+&lt;h3 id=&#34;ライトレール:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;ライトレール&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/lrt.jpg&#34; alt=&#34;LRTの駅&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;マニラ市内を移動するには便利な電車（LRT, MRT）がある。LRTは新しい電車で車内スペースも大きく快適なんだけど、MRTというマニラの大動脈を走るラインは非常に混む且つ小さい電車なので、常に満員電車状態だった。&lt;/p&gt;
+
+&lt;p&gt;余談ですが人混みが多いところで、携帯電話などの貴重品をポケットに入れておくのは危険だ。かならずジッパーの付いたカバン等に入れて、リュックも前に担ぐなど死守してください。僕も来て2週間でMRT内でNexus5をスられたのは良い思い出です。&lt;/p&gt;
+
+&lt;p&gt;夕方や朝のラッシュ時は駅から人があふれるほど行列ができるので気長に待つしかない。だいたい12ペソくらいで乗れるのでよく利用していた。&lt;/p&gt;
+
+&lt;h3 id=&#34;タクシー:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;タクシー&lt;/h3&gt;
+
+&lt;p&gt;タクシーについては、ほぼ良い思い出はない。マニラ空港に到着して、市内に行くためにタクシーを乗ろうとしたら、ぼったくりタクシーで2000ペソ（約4800円）って言われた時はここはハードモードの国だなと思った。結局、空港からはクーポンタクシーと呼ばれる割高だが、行きたい場所によって料金が一定のタクシーに乗った。そのほかに黄色のタクシーは空港公認の安心メータータクシー（割高）なので、これに乗っても良いかと思われる。&lt;/p&gt;
+
+&lt;p&gt;学校が始まってからはタクシーはたまに利用していた。ぼったくられなければ、だいたい100〜200ペソくらいでどこでも行けるし、ぼったくられたとしてもそれが倍になるくらいである（雨の日とかタクシーが捕まりにくい時は倍額を要求してくる）が、それでも日本に比べれば安いし、友達とかと乗り合えば全然払える価格である。まぁ外人価格と思って割り切るしかない。とはいえ、ムカつくけど数百円のために言い争って危険な目に会うのも馬鹿らしいことだと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/taxi.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;そんな交渉が面倒な人には、&lt;a href=&#34;http://www.easytaxi.com/&#34;&gt;Easy Taxi&lt;/a&gt;や&lt;a href=&#34;http://grabtaxi.com/&#34;&gt;GrabTaxi&lt;/a&gt;というフィリピンのタクシー配車アプリを使うと良い。これらはタクシードライバーの評価が出来るため、ボッタクリとかないと思われる。ただ配車手数料でメーター＋40〜100ペソくらい支払わなければならない。ちなみに、携帯のSMART社とEasy Taxiは提携してるためか、SMARTのSIMカード入れてる携帯からEasy Taxiを呼ぶと配車手数料が通常70ペソくらいだが40ペソでよいからお得。その他にもキャンペーン中とかで配車手数料無料とかあるので、インストールしといたほうが良いだろう。&lt;/p&gt;
+
+&lt;h3 id=&#34;ジプニーとトライシクルとか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;ジプニーとトライシクルとか&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/jeepny.jpg&#34; alt=&#34;ジプニー&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;ジプニーというフィリピンでのバスみたいなものがある。これは完全にローカル人向けで8ペソくらい最安の移動手段であるが、僕は先生と一緒にいるときしか乗ったことないので安全の意味でも無理して乗る必要はないかと思う。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/tricycle.jpg&#34; alt=&#34;トライシクル&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;トライシクルはサイドカーみたいな乗り物で、歩ける距離ではあるけども、やっぱしんどいなーって感じで少距離移動に使う庶民の足。これはちょっと近場のスタバで勉強しようときなど利用していた。料金は人数や距離によるが、だいたい1回20ペソくらいで払ってた。&lt;/p&gt;
+
+&lt;p&gt;フィリピンにもバスはあるけど概ね長距離バスがメインだろうか。マニラから3,4時間離れた所でもだいたい200〜300ペソくらいで行ける。スタバのカフェラテが140ペソくらいなんで、物価の値段というのはよく分からんですな。&lt;/p&gt;
+
+&lt;h2 id=&#34;フィリピン人先生とか:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;フィリピン人先生とか&lt;/h2&gt;
+
+&lt;p&gt;フィリピン留学で心配の種の一つであろう訛りについて。確かにタガログ語訛りの英語を話す先生がいたが、少数だし、正直、今の時代、カンファレンスの動画とか見ててもインド訛りの英語でプレゼンしてる人がいたり、いろんな国の人のプレゼンを見る機会があるので、特に気にする必要がないというか、むしろ、いろんな国の人が話す英語を聞いたほうが良いと思う。&lt;/p&gt;
+
+&lt;p&gt;ただまったく聞き取れないのなら、生徒は先生を変える権利があると思うのでチェンジすればよいと思う。ピークシーズンでなければ、他にスケジュールが空いてる先生がいるので可能だ。それにともなって、人気の先生というか教え方のうまい先生の情報をほかの学生と交換しておくのも吉だと思う。どんどん良い先生に生徒が集まって、教え方の悪い先生に生徒が集まらなければ、悪い先生は辞めざるを得なくなるので（給料が歩合制なので）、結果的に学校側にとってもメリットがあるから遠慮は禁物だとおもう。&lt;/p&gt;
+
+&lt;p&gt;僕自身、一回だけ自分から先生を変えてもらった。その先生はなんかもう生理的合わない人で、陰気な人だった。当たり前だけどフィリピン人がみんな明るいわけでもない。ただ先生という職業上、教えるのが好き、喋るのが好きな人が集まった結果で、シャイな先生もいたけど、すぐに慣れずに辞めていくのを何回かみた。結局僕が嫌だった先生も生徒から人気無いためか辞めていった。&lt;/p&gt;
+
+&lt;p&gt;お金払ってるんだから我慢する必要はないし、学校側が気を使って先生を変えるとかもないので、自己主張はちゃんとすべきだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;で-実際英語どーなの:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;で、実際英語どーなの？&lt;/h2&gt;
+
+&lt;p&gt;って帰ってからよく聞かれる。。&lt;/p&gt;
+
+&lt;p&gt;僕の取っていたコースはパワースピーキングコースというもので会話重視のものだ。だから他のTOEICコースのように点数の変遷とか分かればいいのだけど、明確な指標というものがない。ぶっちゃけ、TOEICで高得点取ってる人でも、まったく話せない学生さんもいて、そんなに会話力とTOEICって関係ないんだなと思った。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/ph/school.jpg&#34; alt=&#34;証明書&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;正直、フィリピンに発つ前は24週間（途中切り上げて22週間にした）も英語漬けになってくるんだから、それなりに喋れるだろうと安易な期待をしていた。「それなり」の定義ってなんだかよくわからんけど、ネイティブスピーカー並に喋れるんじゃね？と浅はかなを期待をしていた。しかし、たかが5,6ヶ月英語勉強してみんなネイティブスピーカーに成れるんなら、みんなフィリピンに行ってる。&lt;/p&gt;
+
+&lt;p&gt;ましてや僕は31歳から英語をちゃんと勉強し始めたので、僕の脳みそはビショビショに濡れたスポンジのように何も吸い込まない。一緒に学校にいた若い子（大学生）とか見てると、やっぱり吸収は早いというか、リスニングとか伸びが速いなと感じてた。あと個人の性格に起因するところも多い。基本僕は無口である。英語は使ってなんぼ！喋ってなんぼ！なので、やっぱりおしゃべりな女の子とか文法とかめちゃくちゃでもスピーキングの伸びが速いなと感じた。&lt;/p&gt;
+
+&lt;p&gt;とはいえ5ヶ月前と比べれば、確実にレベルアップはしてる。5段階評価で分けるのであれば、最初は1だったけど最後の方はどのクラスも4レベル相当にはいた感じ（まぁでもすごい大雑把だが）。ちなみにホゲホゲ外国語大学生とかで海外旅行とかよくする人は来た初日からレベル5のクラスだった。まぁそんなわけでコツコツとこれからもやってかなきゃいけないなーと感じてる。&lt;/p&gt;
+
+&lt;p&gt;自分の英語力には満足してないけど、フィリピンで英語を学んだことに関しては満足している。費用に関しては、大体24週間プランでコミコミで100万くらいで収まった。もし最初からカナダやアメリカで学んで今の英語力を得るには、それ以上の金銭的コストと時間的コストを必要になったと思うから。&lt;/p&gt;
+
+&lt;h2 id=&#34;ピリオドの向こうへ:7d24d753c2a74f3406eb4d9d8fa9e573&#34;&gt;ピリオドの向こうへ&lt;/h2&gt;
+
+&lt;p&gt;最初にも言ったけど、別にフィリピン語学留学がゴールではない。このあと英語圏でエンジニアとして職を得ることが僕の目下のマイルストーンだ。そうゆうわけで、僕はこの後、カナダにワーキングホリデーで行く予定だ。&lt;/p&gt;
+
+&lt;p&gt;英語はあいかわらず表現は稚拙だし日本語訛りだけど、一旦脇に置いといて、カナダに行ってからはフィリピンでほぼできなかった、というか日々の勉強で精一杯だったので、技術系の英語ブログ読みながら情報のキャッチアップとポートフォリオがてら何個かWebサービスを開発／運用する方向に重きを置こうと思ってる。&lt;/p&gt;
+
+&lt;p&gt;当たり前だけど、英語がネイティブ並に喋れる事自体はアドバンテージにならない、もしそうゆう人材がほしければ、雇用者はカナダ人を雇えばいいわけだから。カナダでは僕ら日本人は外国人であり、カナダ人から仕事を奪わなければいけない。だから戦うところを間違えてはいけない。もちろん最低限の英語力は必要だが、エンジニアとして働くのであればプログラミングで勝負すべきであり、いかに最短で目標を達成すべき考えるべきだ。&lt;/p&gt;
+
+&lt;p&gt;まぁ、そんなこと言っても今俺無職だけどなっ！&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、皆様のフィリピン語学留学の参考になれば幸いです！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>6月16日晴れ</title>
+      <link>http://localhost:1313/mol/log/available-for-hire/</link>
+      <pubDate>Mon, 16 Jun 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/available-for-hire/</guid>
+      <description>
+
+&lt;h3 id=&#34;6月14日晴れ:400a0a2dfc0a8a929ed7c86465dff40d&#34;&gt;6月14日晴れ&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/06-16-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;t32k、31歳になった。t32kまであと1年（謎&lt;/p&gt;
+
+&lt;h3 id=&#34;6月15日晴れ:400a0a2dfc0a8a929ed7c86465dff40d&#34;&gt;6月15日晴れ&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/06-16-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;有給消化が終わって正式に退職になった。これで僕も東証一部上場企業社員から住所不定無職31歳男性だ。まじLike A Rolling Stone!&lt;/p&gt;
+
+&lt;h3 id=&#34;6月16日晴れ:400a0a2dfc0a8a929ed7c86465dff40d&#34;&gt;6月16日晴れ&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;/mol/images/2014/06-16-fig01.jpg&#34; alt=&#34;&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;半年間（24週間）の語学留学でマニラにいる。てか5/30からフィリピンに来ている。んで、それが終わったらカナダにワーキングホリデーで1年行く予定。&lt;/p&gt;
+
+&lt;h2 id=&#34;英語について:400a0a2dfc0a8a929ed7c86465dff40d&#34;&gt;英語について&lt;/h2&gt;
+
+&lt;p&gt;Webに携わる者であれば英語の重要性を説くまでもない。重要とは理解しつつも何も身についていない私の英語力。&lt;/p&gt;
+
+&lt;p&gt;結局、英語ができなくても生活していけるのが問題だ。仕事上、必要な英語力なんてものは、Webフレームワークのドキュメントを読むくらいで、それさえもGoogle翻訳してサンプルコード見ればだいたい理解できるし、&lt;a href=&#34;https://news.ycombinator.com/&#34;&gt;Hacker News&lt;/a&gt;とかチェックして話題になりそうなものを翻訳したり、日本語で紹介しつづけていたら業界である程度のプレゼンスも発揮できる（タイムマシン経営みたいなものだ）と思う、実際、僕がそれで、なんとか食っていけてたから。&lt;/p&gt;
+
+&lt;p&gt;でも、それだけじゃ嫌なんだ。もっと海外カンファレンスに行って内容をちゃんと聞けるようにしたいし、終わった後のパーティでもおしゃべりしたいし、なによりも登壇したいし、日本に海外スピーカー招いてみたいし、自分の作ったサービスやツールを英語圏にもっと正確にアピールしたい。&lt;/p&gt;
+
+&lt;p&gt;んなわけで、無職になることで自分を追い詰めてみる。つまり現在の状況だ。&lt;/p&gt;
+
+&lt;h2 id=&#34;自分が想像できないことはできない:400a0a2dfc0a8a929ed7c86465dff40d&#34;&gt;自分が想像できないことはできない&lt;/h2&gt;
+
+&lt;p&gt;今回の決断にあたり、すごい行動力ですねとか言われたけど、自分ではそんな風には思っていない（実際怖かったけど）。&lt;/p&gt;
+
+&lt;p&gt;例えば、僕が高校生の頃に考えていた人生プランなんて、大学はつぶしがきくであろう経済学部に入って、卒業して、入れる会社に入って、ずっとその会社で生きていくんだろうなぁと漠然と考えていた。ましてや転職なんてするはずもないと。&lt;/p&gt;
+
+&lt;p&gt;でも実際どうだろうか、Web業界は人材が他の業界と比べて流動的だ。事実、自分の周りの人が転職するのを何度も見ている。そうゆうのを見たり聞いたりしていると、だんだん自分もできるんじゃないだろうかと良い意味で勘違いしてくる。僕も転職を経験した。&lt;/p&gt;
+
+&lt;p&gt;結局そういったモデルケースや事例を見て自分に当てはめることで初めて人は想像できるんだと思う。反対に想像できないことはできない。だって自分ができないと思っていたら誰が自分のことを信じてあげれるのだろうか。&lt;/p&gt;
+
+&lt;p&gt;だから、なにか挑戦したいこと、やってみたいことがあったら、それをやっている人たちの輪の中に入っていくことを勧める。そしたら勘違いして行動を起こすようになるからｗ&lt;/p&gt;
+
+&lt;p&gt;僕の周りでフィリピンへ語学留学している人はいなかったが、ワーホリ経験者であったり、よく海外カンファレンスに参加してる人がいたり、それこそアメリカのシリコンバレーでバリバリ、エンジニアとして働いてる人がいる。やっぱりそうゆうのを見てきたりしたからこそ今回の決断ができたんだと思う。だから僕と関わってくれたすべての人に感謝したい。すごいのは彼・彼女らであって、僕は勘違いしただけだ。&lt;/p&gt;
+
+&lt;p&gt;ここ最近の好きな言葉は &lt;strong&gt;Fake it till you make it&lt;/strong&gt; だ。それが現実になるまで自分を騙し続けろとかそんな感じだと思う。ほんとに騙されてなんもできませんでしたー！ってならないように、やるんなら徹底的に！&lt;/p&gt;
+
+&lt;p&gt;てか、いろいろ偉そうに語ってるけど、まだ何も成し遂げていないし、普通に日本でもコツコツと毎日勉強してたらこんなリスクのある選択をしなくても済むし、フィリピンの電車でNexus5をスられることもないし、あんまり参考しなくても良いと思う住所不定無職の綴りでした。&lt;/p&gt;
+
+&lt;p&gt;フィリピンの留学生活についてはまた今度ね！2週間たったけどなんとかならないこともないよ！&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>開発効率をUPする Git逆引き入門</title>
+      <link>http://localhost:1313/mol/log/git-intro/</link>
+      <pubDate>Mon, 07 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/git-intro/</guid>
+      <description>&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4863541465/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51RtoUsheVL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;開発効率をUPする Git逆引き入門&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465&#34; target=&#34;_blank&#34;&gt;開発効率をUPする Git逆引き入門&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;松下 雅和 船ヶ山 慶 平木 聡 土橋 林太郎 三上 丈晴 &lt;br /&gt;&lt;br /&gt;シーアンドアール研究所  2014-04-09&lt;br /&gt;売り上げランキング : 306&lt;br /&gt;&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/%E9%96%8B%E7%99%BA%E5%8A%B9%E7%8E%87%E3%82%92UP%E3%81%99%E3%82%8B-Git%E9%80%86%E5%BC%95%E3%81%8D%E5%85%A5%E9%96%80-%E6%9D%BE%E4%B8%8B-%E9%9B%85%E5%92%8C/dp/4863541465%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4863541465&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt; &lt;font size=&#34;-2&#34;&gt;by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://layzie.hatenablog.com/entry/20140403/1396509428&#34;&gt;id:Layzie&lt;/a&gt;さんより本頂いた。なお著者は全員緑の会社の人である。この本はデザイナー・エンジニア両方をターゲットとしているみたいなので、僕からはどちらからと言えば、デザイナー側からのレビューをしたいと思う。&lt;/p&gt;
+
+&lt;p&gt;そもそも弊社某緑の会社ですが2年前くらいまではどのプロジェクトもSVNを使用していたが、1年前くらいに&lt;a href=&#34;https://enterprise.github.com/&#34;&gt;GitHub Enterprise&lt;/a&gt;を全社的に導入する（CAに入るとGHE使えるんだよヽ(=´▽`=)ﾉ）にあたって、SVNからGitへバージョン管理システムを移行しなければならない状況になった。その時、今回の著者の方々が移行のための勉強会を何回も開催してくれたのだった。&lt;/p&gt;
+
+&lt;p&gt;全社的に導入するにあたって、当然デザイナーや、HTMLコーダーのような非エンジニアに対してもフォローしなければならない。そうゆう理由もあってかこの本にはGUIクライアントである&lt;a href=&#34;http://www.sourcetreeapp.com/&#34;&gt;SourceTree&lt;/a&gt;の説明も多い。数多くGUIクライアントはあるが、無料でありWin/Macで問題なく動作するという意味ではSourceTreeが妥当な選択だったと思う。&lt;/p&gt;
+
+&lt;p&gt;また、僕のような非エンジニアが初めてGitを触った時はとりあえずはエンジニアさんから言われたとおり、AddしてCommitしてPushして、たまにブランチを切るくらいで、なんかよく分かんなくなったら、ローカルレポジトリ全部消してもう一回リモートレポジトリをPullしてくるのが精一杯だった（今でも似たようなもんだが…）。そのようなGit初心者に対して、最初から裏ワザ的なオプションとかいろいろ教えられてもキャパオーバーである。&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/28304397&#34; width=&#34;597&#34; height=&#34;486&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;div style=&#34;margin-bottom:5px&#34;&gt; &lt;strong&gt; &lt;a href=&#34;https://www.slideshare.net/matsukaz/git-28304397&#34; title=&#34;いつやるの？Git入門 v1.1.0&#34; target=&#34;_blank&#34;&gt;いつやるの？Git入門 v1.1.0&lt;/a&gt; &lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;http://www.slideshare.net/matsukaz&#34; target=&#34;_blank&#34;&gt;Masakazu Matsushita&lt;/a&gt;&lt;/strong&gt; &lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;その点、本書に関しては図解も抱負でシンプルに解説されており非エンジニアにも優しい（SourceTreeの操作画面もふんだんにある）。本書のメイン著者である&lt;a href=&#34;https://twitter.com/matsukaz&#34;&gt;@matsukaz&lt;/a&gt;のスライドを見れば、その分かりやすさが理解できると思う。&lt;/p&gt;
+
+&lt;p&gt;この辺りに関しては、『いや、Gitのすべてを知りたいんだ！』って人もいれば、『最低限、使えればいーや』って人もいると思うので、自分にあった本を選択すれば良いと思うが、本書は少なくとも前者ではない。&lt;/p&gt;
+
+&lt;p&gt;弊社のように全社導入的な事例では、つまり全体のボトムアップという意味では業務で必要なことを必要な分だけ勉強できる本書のようなタイプが適切なんだろうと思う。まさしく、緑社のGit導入マニュアルと言っても過言ではないだろう。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>若人へ</title>
+      <link>http://localhost:1313/mol/log/choice/</link>
+      <pubDate>Tue, 01 Apr 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/choice/</guid>
+      <description>
+
+&lt;p&gt;もう僕も30だ。ここで老害っぽくこれから新しい一歩を踏み出すニューカマーのために気の利いたことを言いたい衝動に駆られている。&lt;/p&gt;
+
+&lt;p&gt;これから社会に入って、いろいろうまく行かないことや八方塞がりな状態にもなるかと思う。しかし、そうゆうものは自分をうまくコントロールできれば大抵のことは解決できる（と思っている）。そんなことを話したいと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;選択:42e8b9b8a2762890c061f1d3c99f645b&#34;&gt;選択&lt;/h2&gt;
+
+&lt;p&gt;人間誰もが、毎日『選択』という行為をしている。選択という行為は、今日は何を食べようか？といったルーチン的な選択もあれば、どの会社に入社・転職しようか？といった重大な選択まで様々である。そして、その選択してきた結果が『今の自分』である。&lt;/p&gt;
+
+&lt;p&gt;どの大学に入るか、どの会社に入るかといった重大な選択は『選択』として皆が意識している（せざるを得ない）ことだろう。しかし、僕が重要だと思っているのは、毎日の比較的重要ではない選択の方だ。例えば、今僕が英語を喋れないのは、30年という人生の中で毎日10分でも英語の勉強をするという選択をしていれば、今より多少マシになっていたはずだ。僕がプログラミングできないのも〜・・・など、結局『〜したい』と言いながらも僕はそれを実現するための選択をしてこなかったのである。&lt;/p&gt;
+
+&lt;p&gt;問題は、毎日『〜しない』という選択をしているにもかかわらず、それに対して無自覚なところである。例えば、毎日の英語を勉強する・しないといった選択も、毎日『今日は英語を勉強しない！』と思って過ごしているわけではない。ただ会社から帰ってきて疲れてそのままベッドの中で寝ちゃったとか、なし崩し的に選択しているのである。&lt;/p&gt;
+
+&lt;p&gt;要は、自分の責任であるということをまず認識しなければならない。しかし、良い選択を毎日できるような意思の強い人、つまり自分をコントロールできる人はそうそういない。僕もそうだ。だから、どうやったらコントロールできるのか考える必要がある。&lt;/p&gt;
+
+&lt;h2 id=&#34;環境:42e8b9b8a2762890c061f1d3c99f645b&#34;&gt;環境&lt;/h2&gt;
+
+&lt;p&gt;毎日良い選択をし続けるというのは非常に難しいことである。厳しい方と楽な方が選択可能であれば人間は楽な方を選択する。であれば、楽な方を選択不可能にすれば良いのである。&lt;/p&gt;
+
+&lt;p&gt;そこで環境の力を利用する。環境というのはすごく重要だ。例えば、アメリカ人が英語を話せるのはアメリカという環境（国）に住んでいるからであり、日本語を話す（さなければならない）という選択肢が、当たり前だが、ないからである。&lt;/p&gt;
+
+&lt;p&gt;僕はアメリカ人ではないので、生まれた時からこの環境を利用することは出来ないけれども、留学や海外就職といった手段でこの環境を手に入れることができる。そうすれば、英語を勉強しないとは言ってられない、やらざるを得ない状況である。もちろん日本人留学生同士で固まってたら意味ないけども、少なくとも日本にいるよりかは楽な方を選択しづらい、追い込まれている状況である。&lt;/p&gt;
+
+&lt;p&gt;留学や海外就職というのは金銭的にも時間的にもコストが高い環境なので、もう少しカジュアルに環境を利用することを考えてみよう。&lt;/p&gt;
+
+&lt;p&gt;例えば、ぼくはWebデベロッパーとして何か新しい技術を学びたいと思ったら、その技術について発表する機会を設ける。そうすれば、皆の前で間違ったことを喋ってはいけないのでちゃんと調べるし、その勉強会の日程も決まっているので、否が応でもやんなきゃいけない。ここでのコスト自体は、社内勉強会なら時間とってやれるだろうし、リスク的にも下手なことを喋って皆の信用を失くす程度である。&lt;/p&gt;
+
+&lt;p&gt;ここで重要なのはある程度のリスクやコストがなければ、『ごめん、寝てた(&lt;em&gt;ﾉω・&lt;/em&gt;)ﾃﾍﾍﾟﾛ』という楽な方に流れてしまうので、リスクやコストは高ければ高い方が追い込まれていい（心配症な人もいるかと思うので言っておくが、リスクというのは自分でリカバーできる程度のリスクしか取れない、なので失敗しても問題ない、また頑張ればいい）。&lt;/p&gt;
+
+&lt;p&gt;そのような活動を続けていると、今度は社外勉強会で喋れる機会が巡ってきたり、有料セミナーへの登壇、数千人規模のカンファレンスで登壇などより高いリスク・コストの環境を利用することができる。&lt;/p&gt;
+
+&lt;p&gt;つまり、今までは選択したくてもできなかった、より良い環境を選択することが可能になってくる。環境自体も固定されたものではなくステップアップして選択していけばよいのである。&lt;/p&gt;
+
+&lt;h2 id=&#34;危機感:42e8b9b8a2762890c061f1d3c99f645b&#34;&gt;危機感&lt;/h2&gt;
+
+&lt;p&gt;毎日良い選択を続けるというのは難しいので、良い選択をしなければならない環境を作る（設定する）ことで、ある程度のスパンは自分を強制的にコントロールすることが出来る。その環境がなくなれば（効力がなくなれば）より良い環境をまた選択すればよい。&lt;/p&gt;
+
+&lt;p&gt;環境を利用することで毎日の選択を考えなくても良くなるので、ある程度はコントロールできるようになると思うが、環境もまた選択しなければならない。このモチベーションはどうすべきかという問題がある。&lt;/p&gt;
+
+&lt;p&gt;モチベーションに関しては万人に共通することが言えないので、あくまで自分の場合を考えると、ただの危機感である。思い起こせば、友人は大学を卒業して銀行員や教師になったりして、安定した（実際はどうかわからないけど）職を得ていた。かたや僕は地方のWebデザイナーだった。&lt;/p&gt;
+
+&lt;p&gt;この先、50・60歳になってもこの職を続けらていられるのだろうか、その前に30・40歳で若い優秀な人に取って変わられるのではないだろか、はたまた技術革新でそもそもWebを作る人がいなくなるじゃないのかとか、いろいろ不安だ。その不安は今でもある。むしろその危機感は増大している。たぶん、一生働かなくてもいいくらいのお金を得るまでこの不安は続くのだろう。だから僕はより良い選択をしていかなければならない。&lt;/p&gt;
+
+&lt;p&gt;とまぁ夢も希望もない話だけど、今日はエイプリルフールだから、あんま気にすんな(&lt;em&gt;ﾉω・&lt;/em&gt;)ﾃﾍﾍﾟﾛ&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sass/Compass徹底入門を監修しました</title>
+      <link>http://localhost:1313/mol/log/sass-and-compass-in-action/</link>
+      <pubDate>Tue, 11 Mar 2014 00:00:00 UTC</pubDate>
+      
+      <guid>http://localhost:1313/mol/log/sass-and-compass-in-action/</guid>
+      <description>&lt;p&gt;2014年3月18日に発売される、&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass-Action-Wynn-Netherland/dp/1617290149%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1617290149&#34;&gt;Sass and Compass in Action&lt;/a&gt;の邦訳版である『&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34;&gt;Sass&amp;amp;Compass徹底入門 CSSのベストプラクティスを効率よく実現するために&lt;/a&gt;』を監修した。&lt;/p&gt;
+
+&lt;table  border=&#34;0&#34; cellpadding=&#34;5&#34;&gt;&lt;tr&gt;&lt;td valign=&#34;top&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;http://ecx.images-amazon.com/images/I/51aeeQBbfhL._SL160_.jpg&#34; border=&#34;0&#34; alt=&#34;Sass&amp;Compass徹底入門 CSSのベストプラクティスを効率よく実現するために&#34; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;td valign=&#34;top&#34;&gt;&lt;font size=&#34;-1&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;Sass&amp;Compass徹底入門&lt;br /&gt;CSSのベストプラクティスを効率よく実現するために&lt;/a&gt;&lt;img src=&#34;http://www.assoc-amazon.jp/e/ir?t=warikiru-22&amp;l=ur2&amp;o=9&#34; width=&#34;1&#34; height=&#34;1&#34; style=&#34;border: none;&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;Wynn Netherland, Nathan Weizenbaum,&lt;br /&gt;Chris Eppstein, Brandon Mathis, &lt;br /&gt;石本 光司 (株式会社サイバーエージェント) &lt;br /&gt;翔泳社  2014-03-18&lt;br /&gt;&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass%E5%BE%B9%E5%BA%95%E5%85%A5%E9%96%80-CSS%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9%E3%82%92%E5%8A%B9%E7%8E%87%E3%82%88%E3%81%8F%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB-Wynn-Netherland/dp/4798132446%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D4798132446&#34; target=&#34;_blank&#34;&gt;Amazonで詳しく見る&lt;/a&gt;&lt;/font&gt;&lt;font size=&#34;-2&#34;&gt; by &lt;a href=&#34;http://www.goodpic.com/mt/aws/index.html&#34; &gt;G-Tools&lt;/a&gt;&lt;/font&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;監修の依頼を受けて音速でハイと答えたのだけど、監修って何するんだろうねって感じだった。いや、原書の『&lt;a href=&#34;http://www.amazon.co.jp/Sass-Compass-Action-Wynn-Netherland/dp/1617290149%3FSubscriptionId%3D15SMZCTB9V8NGR2TW082%26tag%3Dwarikiru-22%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D1617290149&#34;&gt;Sass and Compass in Action&lt;/a&gt;』は以前から購入していて、Sass/Compassの開発者であるNathan WeizenbaumやChris Eppsteinと名を連ねられるのなら、これ以上ない光栄なことだから引き受けたんだけど、いやーしんどかったね。&lt;/p&gt;
+
+&lt;p&gt;監修なんて出来上がった訳をパラーっと見てOKっす！って言えばお金もらえるだろうというゲス極まりない浅はかな考えはすぐぶちのめされた。著者陣にデザイナーとエンジニアがいるので、翻訳するバックグラウンドとして両方の知識が必要とされたし、いつもとは違う脳を使ってる感じでだいぶ疲れた。『HTTPリクエスト』が『HTTP要求』と訳されたのが上がってきてorz&amp;hellip;となったのは今となっても良い思い出にならないほどしんどかった。とはいえ良い経験でした。&lt;/p&gt;
+
+&lt;p&gt;そんなかんなで肝心の内容に関しては、前述のとおり、バーティカリズム（タイポグラフィ）からデプロイまで、多岐に渡る内容で明らかに初心者向けじゃないと思う。やっぱり最初の1冊は&lt;a href=&#34;/mol/log/sass-school/&#34;&gt;ピンク本&lt;/a&gt;を手にとってから次の(次の)1冊として薦めるかな。あとデザイナーさんとエンジニアさんで1冊をシェアすれば良いと思う。もしくはRuby書いてるような（書くことを厭わない）デザイナーとか。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/t32k/items/8609ffe0868da3e485a6&#34;&gt;compassのstatsコマンド&lt;/a&gt;とかもこの本で知ったので、いろいろ発見があって面白い本だと思います。あと付録的な感じで僕の記事も入ってます。よろしくお願いします。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
