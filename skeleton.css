@@ -6,11 +6,30 @@
 * http://www.opensource.org/licenses/mit-license.php
 * 12/15/2014
 */
+
+
+/* Personal
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .profile {
   float:left;
   margin:0 10px 10px;
   border-radius: 60px;
 }
+
+.img-a {
+  margin-right:10px;
+}
+.img-b {
+  margin: 0 15px;
+}
+.u-mbs {
+  margin-bottom: 10px;
+}
+.amazon-desc {
+  line-height: 1.8;
+  margin: 0 0 0 10px;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
