@@ -190,14 +190,14 @@ a:hover .social-links-linkedin {
     margin-bottom: 4rem;
 }
 
-.post-header::after {
-    display: block;
-    margin: 1rem 0;
-    width: 3rem;
-    height: .3rem;
-    background: #ddd;
-    content: " ";
+.post-author {
+    margin: 5px 5px 0;
+    font-size: 14px;
 }
+.post-author a {
+    color: #666;
+}
+
 
 .post-h1 {
     margin: 1rem 0 0 0 !important;
@@ -235,6 +235,11 @@ a:hover .social-links-linkedin {
     max-width: 100%;
     border-radius: .4rem;
 }
+.post-author img {
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
 
 .post .citation {
     background: #fafafa;

@@ -9,6 +9,7 @@
         <p class="u-mute u-mbn"><time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "January 2, 2006" }}</time></p>
         <h1 class="post-h1">{{ .Title }}</h1>
         {{ with .Params.subtitle }} <h3 class="u-mute u-mtn">{{ . }}</h3>{{ end }}
+        <p class="post-author"><a href="//twitter.com/t32k"><img src="/mol/images/people/me.jpg" width="30" height="30">By {{ .Site.Params.author }}</a></p>
     </header>
     <section>
         {{ .Content }}
