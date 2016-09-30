@@ -1,0 +1,27 @@
+{{ partial "head.html" . }}
+{{ partial "header.html" . }}
+
+{{ with .Params.hero }}<div class="hero" style="background-image:url('{{ . }}')"></div>{{ end }}
+
+<div class="container">
+<article role="main" class="post">
+    <header class="post-header">
+        <p class="u-mute u-mbn"><time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "January 2, 2006" }}</time></p>
+        <h1 class="post-h1">{{ .Title }}</h1>
+        {{ with .Params.subtitle }} <h3 class="u-mute u-mtn">{{ . }}</h3>{{ end }}
+    </header>
+    <section>
+        {{ .Content }}
+    </section>
+</article>
+
+    {{ with .Params.categories }}
+      <div class="post-tags">{{ range . }}<a href="/mol/categories/{{ . }}/">{{ . }}</a> {{ end }}</div>
+    {{ end }}
+
+    {{ partial "social.html" .}}
+<hr>
+{{ partial "ad.html" . }}
+{{ partial "pager.html" .}}
+{{ partial "footer.html" . }}
+{{ partial "tail.html" . }}

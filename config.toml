@@ -1,0 +1,8 @@
+baseurl = "https://t32k.me/mol/"
+languageCode = "ja"
+title = "MOL"
+publishdir = "mol/"
+MetaDataFormat = "yaml"
+[params]
+  description = "Designing for a Mobile World."
+  author = "Koji Ishimoto"
