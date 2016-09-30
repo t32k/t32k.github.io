@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/development/</link>
+        <language>ja</language>
+        
+        
+        <updated>Thu, 22 Sep 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>カスタムドメインのGitHub PagesをSSL対応する</title>
+            <link>https://t32k.me/mol/log/secure-and-fast-github-pages/</link>
+            <pubDate>Thu, 22 Sep 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/secure-and-fast-github-pages/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このブログは、&lt;a href=&#34;https://t32k.me/mol/mol/log/hugo/&#34;&gt;Hugo + GitHub Pagesで運用&lt;/a&gt;している。&lt;code&gt;*.github.io&lt;/code&gt;みたいなGitHubが提供しているドメインなら既にHTTPSの恩恵を受けられるが&lt;code&gt;t32k.me&lt;/code&gt;のカスタムドメインを使用している場合はその限りではない。そうゆうわけで、21世紀だし&lt;code&gt;https://t32k.me&lt;/code&gt;を目指す。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blog/2186-https-for-github-pages&#34;&gt;HTTPS for GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以前にrudolph君さんパイセンが、Kloudsecを使えばチョー楽っすよ！って言ってたのを思い出して、それを使ってみようとしてみたが既に&lt;a href=&#34;https://www.reddit.com/r/webdev/comments/4s3kmf/got_an_email_saying_that_kloudsec_will_be/&#34;&gt;サービスが終了&lt;/a&gt;していた／(^o^)＼&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.rudolph-miller.com/2016/03/11/kloudsec-for-ssl-with-custom-domain-on-gh-pages/&#34;&gt;Kloundsec for SSL with Custom Domain on GitHub Pages - (rudolph-miller)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というわけで、1000ch君さんパイセンの記事にあるように、CloudFlareを使用してSSL対応する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://1000ch.net/posts/2015/github-pages-custom-domain-in-https.html&#34;&gt;GitHub Pagesに設定しているカスタムドメインをHTTPS対応させる - 1000ch.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cloudflareでの登録&#34;&gt;CloudFlareでの登録&lt;/h2&gt;
+
+&lt;p&gt;まずは、CloudFlareのアカウントを登録しよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/&#34;&gt;CloudFlare - The web performance &amp;amp; security company&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;んで、自分のサイトを追加する(Add Site)。次にCloudFlare Planを選べといわれるが、Free Planでも問題ない。&lt;code&gt;xxx.ns.cloudflare.com&lt;/code&gt;みたいなネームサーバーが2つ、もらえるので、それに変更する。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自分の場合、ドメインはお名前.comで取得したので、そこでネームサーバーを変更する。変更が反映されると、自分の追加したサイトのステータスがPendingからActiveに変わる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは、Page Rulesのページに行き、自分のドメインのHTTPページのすべてのアクセスをHTTPSに変更する処理を設定すれば完璧だ。&lt;/p&gt;
+
+&lt;h2 id=&#34;後処理&#34;&gt;後処理&lt;/h2&gt;
+
+&lt;p&gt;しばらくするとHTTPSにリダイレクトされるようになるので、寝て待とう（最大で24時間かかるとか）。自分のサイトでHTTPからのリソース読み込みがあるとちゃんと緑の鍵アイコンにならないので、調べておこう。基本的に自分のドメイン配下のリソースはルートからの相対パスで書いているので、特に問題はなかった。ただ、Amazonのアフィリエイト画像がHTTPからの読み込みだったので&lt;a href=&#34;http://d.hatena.ne.jp/takeR/20141026/1414356669&#34;&gt;全置換して対応&lt;/a&gt;した。&lt;/p&gt;
+
+&lt;p&gt;やっぱり、ドメイン系は反映に時間がかかるのでやきもきしたが、終わってみれば簡単だった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/&#34;&gt;Secure and fast GitHub Pages with CloudFlare&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>StyleStatsのChrome拡張機能を作った</title>
+            <link>https://t32k.me/mol/log/stylestats-crx/</link>
+            <pubDate>Mon, 01 Feb 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/stylestats-crx/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.gif&#34; alt=&#34;StyleStats Chrome拡張機能&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;StyleStatsのChrome拡張を作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/stylestats/lgbcioahebkgkdiljpgcdaghejijioki&#34;&gt;StyleStats - Chrome ウェブストア&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;はCSSを解析してスタイルの各種指標を表示してくれるnpmだ。それを簡単にChrome拡張から利用できるようにした。調べたいページで右上のボタンを押すと新規タブで結果が出る。実に簡単だ。&lt;/p&gt;
+
+&lt;h2 id=&#34;これまでの流れ&#34;&gt;これまでの流れ&lt;/h2&gt;
+
+&lt;h3 id=&#34;cli&#34;&gt;CLI&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-00.png&#34; alt=&#34;Commandline&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g stylestats
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.npmjs.com/package/stylestats&#34;&gt;npm&lt;/a&gt;からインストールしてコマンドラインで使うのが一番やれることが多い。ローカルのファイルも解析できるし、それこそProgrammaticallyに自分でハックして、独自のレポートとかもできる。まぁ黒い画面に不慣れ人はちょっとあれかもしれない。&lt;/p&gt;
+
+&lt;h3 id=&#34;web&#34;&gt;Web&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-01.png&#34; alt=&#34;StyleStats.org&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、もっとライトに使ってもらおうとWeb版も作った。CLIと違って、&lt;code&gt;Unique Font Families&lt;/code&gt;、　&lt;code&gt;Unique Colors&lt;/code&gt; がプレビューできたり、円グラフやタイムラインチャートなどグラフ機能を充実している。一つ一つのテスト結果にパーマリンクができるので、CSSといえどデータを残したくないって人はアレかもしれない。&lt;/p&gt;
+
+&lt;p&gt;あとParse.comがサービスを終了するということで、StyleStatsのWebもがっつりテスト結果保存に使用していたので、寝耳に水だった。まぁ1年あることだし、BaaS自体やめて普通にMongoDBとか使ってみるのも良いかもしれない。Herokuでやってることだし。&lt;/p&gt;
+
+&lt;h3 id=&#34;crx&#34;&gt;CRX&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0120-02.png&#34; alt=&#34;Chrome Extension&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、ライトに使えつつサーバーにデータを預けたくないって人向けにChrome拡張を今回作った。&lt;code&gt;Unique Font Sizes&lt;/code&gt;もプレビュー可能になった。&lt;/p&gt;
+
+&lt;h2 id=&#34;使った技術とか&#34;&gt;使った技術とか&lt;/h2&gt;
+
+&lt;h3 id=&#34;es2015&#34;&gt;ES2015&lt;/h3&gt;
+
+&lt;p&gt;当たり前だけど、Chrome拡張なのでクロスブラウザ対応は気にしなくてよいし、現時点でChromeが対応しているESの機能ならBabelしなくてもそのまま使える。バベる環境作るのめんどいし、楽だよね。&lt;/p&gt;
+
+&lt;h3 id=&#34;promise-fetch-api-arrow-functions&#34;&gt;Promise + Fetch API + Arrow functions&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;Promise.all(links.map(link =&amp;gt;
+  fetch(link.href, {mode: &#39;cors&#39;}).then(response =&amp;gt; response.text())
+))
+.then(texts =&amp;gt; {});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ということで、&lt;code&gt;&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/stylesheet.css&amp;quot;&amp;gt;&lt;/code&gt;要素を見つけてきてリモートのスタイルシートをGETするような処理も、Promiseできるのでコールバック地獄にならない。Fetch API使えるので&lt;code&gt;XMLHttpRequest&lt;/code&gt;みたいな煩雑な記述もしなくてもいい。そもそもアロー関数でタイプ数自体も少なくて済む。この処理をES3/5で普通に書けば20~30行くらいなるんじゃないかな。&lt;/p&gt;
+
+&lt;h3 id=&#34;let-const&#34;&gt;Let + Const&lt;/h3&gt;
+
+&lt;p&gt;あとまぁ特にそこまで便利になるわけでもないけど、一応&lt;code&gt;let&lt;/code&gt;とか&lt;code&gt;const&lt;/code&gt;とかも使っといた。&lt;/p&gt;
+
+&lt;h2 id=&#34;css3&#34;&gt;CSS3&lt;/h2&gt;
+
+&lt;h3 id=&#34;object-fit&#34;&gt;object-fit&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.screenshot img {
+  object-fit: cover;
+  object-position: top;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;background-size&lt;/code&gt;的なことを&lt;code&gt;img&lt;/code&gt;要素に対して直接指定できるようなもの。解析したページのキャプチャ画像が今回追加されたが、ページ自体があんまり縦長になるもいやなので、最初は背景画像にして&lt;code&gt;background-size:cover&lt;/code&gt;的なことをしたが、これだと印刷したときに表示されないので、そういえば&lt;code&gt;object-fit&lt;/code&gt;があったのを思い出した。今のところIEではサポートされていない。&lt;/p&gt;
+
+&lt;h3 id=&#34;currentcolor&#34;&gt;currentColor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-hbs&#34;&gt;&amp;lt;ul&amp;gt;
+  {{#each body.uniqueColors}}
+  &amp;lt;li style=&amp;quot;color:{{this}}&amp;quot;&amp;gt;
+    &amp;lt;span class=&amp;quot;circle&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;{{this}}
+  &amp;lt;/li&amp;gt;
+  {{/each}}
+&amp;lt;/ul&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Unique Colors&lt;/code&gt;の色丸の部分は&lt;code&gt;span&lt;/code&gt;の&lt;code&gt;background-color&lt;/code&gt;で指定してあるのだけど、&lt;code&gt;.circle { background-color:　currentColor; }&lt;/code&gt;で、現在のその要素のcolorプロパティを指定できる。&lt;code&gt;currentColor&lt;/code&gt;キーワードが使えないと、&lt;code&gt;&amp;lt;span style=&amp;quot;background-color:{{this}}&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&lt;/code&gt;みたいな感じで&lt;code&gt;span&lt;/code&gt;の方にも指定しなきゃいけないというダルいことになる。&lt;code&gt;currentColor&lt;/code&gt;自体は、IE9以上で使えるので、そこまで最新技術ってことでもないけど良い使い道が見つかって嬉しかったのだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;chrome-extension-api&#34;&gt;Chrome Extension API&lt;/h2&gt;
+
+&lt;h3 id=&#34;chrome-tabs&#34;&gt;chrome.tabs&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;chrome.tabs.captureVisibleTab(screenshotUrl =&amp;gt; {})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;これでキャプチャ取れる！簡単！Phantom.jsなんて使わなくてもいい！&lt;/p&gt;
+
+&lt;h3 id=&#34;chrome-runtime&#34;&gt;chrome.runtime&lt;/h3&gt;
+
+&lt;p&gt;アイコンをクリックしたらcontent scriptを動かすとか。そんでcontent scriptの結果をbackground.jsに返すとか。&lt;a href=&#34;https://developer.chrome.com/extensions/messaging&#34;&gt;Message Passing&lt;/a&gt;というやつだ。いつも忘れるのでメモっとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-background.js&#34;&gt;// これでcontent.jsに送信
+chrome.browserAction.onClicked.addListener(tab =&amp;gt; {
+    chrome.tabs.query({active: true, currentWindow: true}, tabs =&amp;gt; {
+        let activeTab = tabs[0];
+        chrome.tabs.sendMessage(activeTab.id, {&#39;message&#39;: &#39;clicked&#39;});
+    });
+});
+// これで受ける
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) =&amp;gt; {})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-content.js&#34;&gt;// これで受けて
+chrome.runtime.onMessage.addListener(analyzeCSS);
+// これでbackground.jsに送信
+chrome.runtime.sendMessage({error: false, meta: meta, body: result});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;material-design-lite&#34;&gt;Material Design Lite&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.getmdl.io/&#34;&gt;Material Design Lite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使ったと言えないほど、ほぼ既存のテンプレートをいじっただけだ。基本BEMっぽいかんじでクラス属性を付与していくのだけど、&lt;code&gt;mdl-color-text--grey-500&lt;/code&gt;こうゆう長いユーティリティのクラス属性とかもバンバンつけていく感じで、クラス属性値の見通しがあんまりだなと思った。まぁ、独自の接頭辞とかつけて名前空間区切ったりして汎用性を考慮しなければならないCSSライブラリの宿命か。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>StyleStatsにタイムラインチャートを追加した</title>
+            <link>https://t32k.me/mol/log/stylestats-charts/</link>
+            <pubDate>Sun, 09 Aug 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/stylestats-charts/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.stylestats.org/dashboard?q=https://www.facebook.com&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0810-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;待望の期間グラフを&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats Web版&lt;/a&gt;に追加した。StyleStatsはCSSを解析ツールで、一回だけ使って、へぇー私の・僕の書いたCSSはこんな感じなんだぁーと理解してもらうのも結構だが、やはり継続的に解析してもらって、どのくらい改善したのか理解して欲しいと思っている。&lt;/p&gt;
+
+&lt;script async class=&#34;speakerdeck-embed&#34; data-slide=&#34;125&#34; data-id=&#34;50ae30301fb9013041ed22000a9d04af&#34; data-ratio=&#34;1.77777777777778&#34; src=&#34;//speakerdeck.com/assets/embed.js&#34;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/jonrohan/githubs-css-performance&#34;&gt;GitHub&amp;rsquo;s CSS Performance // Speaker Deck&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こう思うようになったのもJon Rohan氏のGitHub&amp;rsquo;s CSS Performanceのスライドを見てからだ。CSSだからといって、彼らは手を抜くこともなく最高のエンジニアリングを持って問題を解決しようとしていた。さすがGitHub!おれたちにできない事を平然とやってのけるッ！そこにシビれる!あこがれるゥ!と思って、そうゆうことを僕もしたくてここまで頑張ってきた。&lt;/p&gt;
+
+&lt;p&gt;そんな感じで感傷に浸っているが、実装自体は&lt;a href=&#34;http://www.highcharts.com/&#34;&gt;HIGHCHARTS&lt;/a&gt;を使っていて、難なくできている。&lt;a href=&#34;http://d3js.org/&#34;&gt;D3.js&lt;/a&gt;も考えたが、あれはビジュアリゼーションツールであって、グラフツールではない。&lt;a href=&#34;http://c3js.org/&#34;&gt;C3.js&lt;/a&gt;を使えば、グラフ機能を簡単に使えるが、D3.js + C3.js、2つのスクリプト読み込むのダルいと思って、HIGHCHARTSにした。そのほうが軽いしね。商用利用するとお金がかかるが、まぁしないし、いいかと思った。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0810-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、みなさん定期的に使ってみてください。当然、1回しかテストが実行されてないと、ただの点のグラフになるで、とりあえず2回以上テストお願いします。あとは、Web UIからじゃなくて、リモートから実行できたらいいなぁと思いつつ、おいおい頑張っていこうと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;web-db-press総集編&#34;&gt;WEB+DB PRESS総集編&lt;/h2&gt;
+
+&lt;p&gt;そういえば、WEB+DB PRESS総集編に記事を寄稿しましたので、皆さんよければ買ってください。買ってください！&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;WEB+DB PRESS総集編第5弾です。Vol.1~84まで14年分のバックナンバーと、過去4回の総集編の書き下ろし記事をDVDに一挙収録します。もちろん、特別書き下ろしとして豪華執筆陣による「Web技術の過去と現在、そしてこれから」も掲載。DVD収録データを含めた本誌電子版のダウンロード用パスコードも付録しているため、DVDが読めない環境の方も安心です!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/512VlPFhc%2BL._SL160_.jpg&#34; alt=&#34;WEB+DB PRESS総集編[Vol.1~84]&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;WEB+DB PRESS総集編[Vol.1~84]&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;WEB+DB PRESS編集部&lt;br /&gt;技術評論社 (2015-08-11)&lt;br /&gt;売り上げランキング: 2370&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4774175382/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>そんなに目新しくもない技術でWebアプリをリニューアルした2015年春</title>
+            <link>https://t32k.me/mol/log/renewal-stylestats/</link>
+            <pubDate>Mon, 27 Apr 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/renewal-stylestats/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0427-00.png&#34; alt=&#34;StyleStats&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://reactjs-meetup.connpass.com/event/11232/&#34;&gt;世間はReactの話題で持ちきり&lt;/a&gt;のようだけど、&lt;a href=&#34;http://backbonejs.org/&#34;&gt;Backbone.js&lt;/a&gt;でStyleStatsのWebアプリをリニューアルした。以上で伝えることは終わったが、リニューアルするにあたってつらかったことをつらつらかきとめておく。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats - An evaluating tool for writing better CSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;そもそもBackbone使うほど複雑なアプリでもないんだけど、勉強がてら使ってみた。てかParse.comを使いたくて、それが&lt;a href=&#34;https://parse.com/docs/js_guide&#34;&gt;BackboneベースのSDK&lt;/a&gt;だったからというのもある。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://parse.com/&#34;&gt;Parse.com&lt;/a&gt;はmBaaS(mobile Backend as a Service)の類で、データを簡単にストアしてくれるもの。僕のようなフロント側の人間でバックエンドがからっきしな人も、こうゆうのを使うとWebアプリケーションを簡単に作れるそうだ。StyleStatsで、テスト結果をデータに貯めときたかったので使ってみた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.stylestats.org/results/nBEUw1oi7k&#34;&gt;StyleStats Test Result | http://www.google.com/ - Sun Apr 26 2015 04:32:59 GMT-0700 (PDT)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;リニューアル後はテスト結果ひとつひとつにパーマリンクができるようになったので、定期的にテストかけといて、あとから比較（目視）とかできる。まぁデータ自体は溜まっていくので、今後はグラフ生成機能とか提供できるかもしれない（やらないかもしれない。&lt;a href=&#34;http://d3js.org/&#34;&gt;D3.js&lt;/a&gt;か&amp;hellip;）。&lt;/p&gt;
+
+&lt;h2 id=&#34;javascriptとか&#34;&gt;JavaScriptとか&lt;/h2&gt;
+
+&lt;p&gt;個人的にJavaScriptはCrome拡張だったりNode.jsでCLIツール作ったするときに書くくらいで、今回はじめてWebアプリケーションとしてのJavaScriptをBackbone.jsで書いた。うん、難しいよね。なんかうまく動かなかったら、それBackboneの問題なのかParse SDKの問題なのか、どっちかわからんと思ってたら、結局、自分のJS基礎力のなさから来る問題だったりして苦労した。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51oknTylWUL._SL160_.jpg&#34; alt=&#34;入門Backbone.js&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;入門Backbone.js&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.4.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;James Sugrue,クイープ&lt;br /&gt;翔泳社&lt;br /&gt;売り上げランキング: 27475&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00NBHLZIA/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;世間がReact!React!React!って言ってる中、せっせと2012年くらいの記事を貪っていてちょっと辛かった。いや今までサボっていた自分が悪いんだ。置いてけぼり感つらい。資料に関しては、上記の本ですべて事足りると思う。&lt;/p&gt;
+
+&lt;p&gt;あと、&lt;a href=&#34;http://browserify.org/&#34;&gt;Browserify&lt;/a&gt;を使ってみた。個人的にどちらかというとNode.jsの文化に親しみを感じているのでモジュール管理としてはこれがいいのではと思ったけど、うまいこと使いこなせている自信はない。&lt;a href=&#34;http://havelog.ayumusato.com/develop/others/e613-concat_build_pattern_examples.html&#34;&gt;Concatでいいんじゃないか&lt;/a&gt;と思うこともあるが、&lt;code&gt;require()&lt;/code&gt;したかったんや。&lt;/p&gt;
+
+&lt;p&gt;でも、最近じゃ&lt;a href=&#34;http://www.2ality.com/2014/09/es6-modules-final.html&#34;&gt;ES6のimport&lt;/a&gt;ってのもあるのね、どうしよう。まぁいいや。&lt;a href=&#34;http://thlorenz.com/es6ify/&#34;&gt;es6ify&lt;/a&gt;や&lt;a href=&#34;https://github.com/babel/babelify&#34;&gt;babelify&lt;/a&gt;というのもある。なんだこれ？まぁいいや。あ、そうそう。BrowserifyでHandlebarsのtemplateをプリコンパイルしたかったら&lt;a href=&#34;https://github.com/epeli/node-hbsfy&#34;&gt;hbsfy&lt;/a&gt;っての使うらしいい。ファイファイやかましいわ。とにかく最近のES6,7事情ついていけてない、つらい。&lt;/p&gt;
+
+&lt;p&gt;あと&lt;a href=&#34;https://t32k.me/mol/log/npm-run-script/&#34;&gt;Grunt/Gulpで憔悴した話&lt;/a&gt;したけど、やっぱなんやかんやでGulp使った。起動させるインターフェイスとしては&lt;code&gt;npm run script&lt;/code&gt;使っているので許して欲しい（誰）。&lt;/p&gt;
+
+&lt;h2 id=&#34;cssとか&#34;&gt;CSSとか&lt;/h2&gt;
+
+&lt;p&gt;UIは&lt;a href=&#34;http://www.google.com/design/spec/material-design/introduction.html&#34;&gt;Material Design&lt;/a&gt;をやってみたかったので、ここは王道な感じで、&lt;a href=&#34;https://www.polymer-project.org/0.5/&#34;&gt;Polymer&lt;/a&gt;の&lt;a href=&#34;https://www.polymer-project.org/0.5/docs/elements/&#34;&gt;Paper Element&lt;/a&gt;を使ってみようと思った。てか、Material Design以前に、Polymer以前に、&lt;a href=&#34;http://webcomponents.org/&#34;&gt;Web Components&lt;/a&gt;を分かってないなかったので色々読んだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;web-components&#34;&gt;Web Components&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/customelements/&#34;&gt;Custom Elements: HTML に新しい要素を定義する - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/template/&#34;&gt;HTML で利用可能になった Template タグ: クライアントサイドのテンプレートの標準化 - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/imports/&#34;&gt;HTML Imports: ウェブのための #include - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/shadowdom-201/&#34;&gt;Shadow DOM 201: CSS とスタイリング - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.html5rocks.com/ja/tutorials/webcomponents/shadowdom-301/&#34;&gt;Shadow DOM 301: 上級者向けコンセプトと DOM API - HTML5 Rocks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;polymer&#34;&gt;Polymer&lt;/h3&gt;
+
+&lt;div class=&#34;rm&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/jrt7sMq9lO0?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&amp;amp;controls=0&amp;amp;showinfo=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/playlist?list=PLOU2XLYxmsII5c3Mgw6fNYCzaWrsM3sMN&#34;&gt;Polycasts - YouTube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;わー＞＜覚えること多すぎだ。疲れた。Polymerが0.5から0.8で爆速になったとかでAPIも変わったとかで、Paper elementsが0.8対応してないので、ここまできて採用するのやっぱやめた。つらい。&lt;/p&gt;
+
+&lt;p&gt;普通にMaterial DesignのCSSフレームワークを使おうと思ったけど、&lt;a href=&#34;http://callemall.github.io/material-ui/#/&#34;&gt;Material UI&lt;/a&gt;はReactと一緒に使うのをリコメンドしてるし、なんぞ！と思った。ので、&lt;a href=&#34;http://materializecss.com/&#34;&gt;Materialize&lt;/a&gt; 使おうと思ったけど、これ120K近くもあるぞ。ということで、自分で、Mateliaze CSSを参考にしつつ、それっぽく作ってみた。単純に見た目だけでも再現してもなーと思って、動きもつけようと思ってCSS Animationとかよくわからんしなー、てかSVGもよくわからん。というか、UI作るの難しくなってきてるよね？JavaScript使うの前提とか。とにかくつらい。&lt;/p&gt;
+
+&lt;h2 id=&#34;htmlとか&#34;&gt;HTMLとか&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;body
+    header
+        h1
+            a タイトル
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Node.jsのプロジェクトなので、惰性的にView Engineで&lt;a href=&#34;http://jade-lang.com/&#34;&gt;Jade&lt;/a&gt;を使ってたけど、このぶら下がり感がつらい。というか、嫌い。&lt;/p&gt;
+
+&lt;p&gt;Viewつながりで、サーバー上でもBackbone.jsを動かす&lt;a href=&#34;https://github.com/rendrjs/rendr&#34;&gt;Rendr&lt;/a&gt;採用したら、もっと共有できてシンプルになるのかなーと思ったけど、力尽きた。導入は次回で。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51mzyCBKBDL._SL160_.jpg&#34; alt=&#34;コーディングWebアクセシビリティ - WAI-ARIAで実現するマルチデバイス環境のWebアプリケーション&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;コーディングWebアクセシビリティ&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.4.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;伊原力也, 太田良典&lt;br /&gt;ボーンデジタル&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862462669/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.hitachi.co.jp/universaldesign/ria/ajax/wai-aria/index.html&#34;&gt;WAI-ARIA&lt;/a&gt;とかあるよね、とりあえず&lt;code&gt;body role=&amp;quot;application&amp;quot;&lt;/code&gt;しとくので精一杯だ。また本読もう。ということで、つらかった。というか力尽きた。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめとか&#34;&gt;まとめとか&lt;/h2&gt;
+
+&lt;p&gt;まぁ趣味プロジェクトで、とくにしがらみもないので、地道にマイペースでやってくしかない。よそはよそ、うちはうち。&lt;/p&gt;
+
+&lt;p&gt;React資料読んでて気づいたのだけど、&lt;a href=&#34;https://speakerdeck.com/geta6/reacttofluxfalsekoto?slide=5&#34;&gt;ReactはViewライブラリでBackbone + Reactって使い方もあるのね&lt;/a&gt;。&lt;a href=&#34;https://github.com/ParsePlatform/ParseReact&#34;&gt;ParseReact&lt;/a&gt;ってのもあるみたいだし、今度はReactがんばろう。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;最後にリニューアルにあたって、数多くの助言を与えてくださった&lt;a href=&#34;https://twitter.com/1000ch&#34;&gt;利休1000&lt;/a&gt;と&lt;a href=&#34;https://twitter.com/ginpei_jp&#34;&gt;寿司銀平&lt;/a&gt;さんに多大なる感謝の念を伝えたい。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>コマンドラインからGoogle Analyticsにデータを記録するGAERをつくった</title>
+            <link>https://t32k.me/mol/log/gaer/</link>
+            <pubDate>Mon, 06 Apr 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/gaer/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/gaer&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-00.png&#34; alt=&#34;GAER&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/gaer&#34;&gt;t32k/gaer - GitHub&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;表題の通りのNode.jsのCLIツールを作った。Googleアナリティクスのイベントトラッキングレポートに、下記のように任意のJSONデータを送りつける。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g gaer 
+$ gaer -t UA-xxxxx-xx -r reportName path/to/data.json
+  Sending [||||||||||||||||||||||||] 100%
+  Success: The data is sent to UA-xxxxx-xx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;デベロッパーとgoogleアナリティクス&#34;&gt;デベロッパーとGoogleアナリティクス&lt;/h2&gt;
+
+&lt;p&gt;基本的にイベントトラッキングレポートは、ページ遷移をともわないイベント、例えばPDFのダウンロードリンクをクリックした等を計測するために使われる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// JavaScript
+ga(&#39;send&#39;, &#39;event&#39;, &#39;クリックイベント&#39;, &#39;PDF&#39;, &#39;資料請求&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;クリックしたイベントに上記のような関数を実行するので、いろいろ使い勝手がいい機能だ。別にこれはアクセス解析のためだけに使用するんじゃなくて、以前から&lt;a href=&#34;http://qiita.com/hidek84/items/e42f8632d95b9444aea4&#34;&gt;JavaScriptのエラーが発生したらそのページのURLを記録する&lt;/a&gt;等、デベロッパーライクな使い方をしてる人がいたりする。&lt;/p&gt;
+
+&lt;p&gt;そうでもなくても、Googleアナリティクスは、『&lt;strong&gt;サイトの速度&lt;/strong&gt;』であったり、『&lt;strong&gt;ユーザーの環境&lt;/strong&gt;』等の、デベロッパーも見るべき指標が多い。だから、もっとみんなGoogleアナリティクス使おうぜってことで、GAERを利用して欲しい。&lt;/p&gt;
+
+&lt;p&gt;GAERは&lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide&#34;&gt;Measurement Protocol&lt;/a&gt;を使って、データを記録している。記録するJSONのキー分、ループでPOSTしてるだけだ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;foo&amp;quot; : 12,
+  &amp;quot;bar&amp;quot; : 2.1,
+  &amp;quot;baz&amp;quot; : 9
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じのシンプルなデータ構造のJSONなら送れる。&lt;/p&gt;
+
+&lt;h2 id=&#34;モニタリングツールとして使う&#34;&gt;モニタリングツールとして使う&lt;/h2&gt;
+
+&lt;p&gt;なぜ、GAERを作ったのか。&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;という、CSSのヘルスチェックツールがある。下記のように使うとJSONデータでCSSの状態を確認することができる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ npm install -g stylestats
+$ stylestats -f json -n foo.css
+{
+  &amp;quot;stylesheets&amp;quot;: 2,
+  &amp;quot;size&amp;quot;: 6682,
+  &amp;quot;dataUriSize&amp;quot;: 0,
+  &amp;quot;gzippedSize&amp;quot;: 1992,
+  &amp;quot;rules&amp;quot;: 86,
+  &amp;quot;selectors&amp;quot;: 179,
+  &amp;quot;simplicity&amp;quot;: 0.48044692737430167,
+  &amp;quot;mostIdentifier&amp;quot;: 2,
+  &amp;quot;lowestCohesion&amp;quot;: 17,
+  &amp;quot;totalUniqueFontSizes&amp;quot;: 12,
+  &amp;quot;totalUniqueFontFamilies&amp;quot;: 1,
+  &amp;quot;totalUniqueColors&amp;quot;: 6,
+  &amp;quot;idSelectors&amp;quot;: 0,
+  &amp;quot;universalSelectors&amp;quot;: 0,
+  &amp;quot;unqualifiedAttributeSelectors&amp;quot;: 17,
+  &amp;quot;javascriptSpecificSelectors&amp;quot;: 0,
+  &amp;quot;importantKeywords&amp;quot;: 0,
+  &amp;quot;floatProperties&amp;quot;: 4,
+  &amp;quot;mediaQueries&amp;quot;: 3
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ファイルサイズがどれだけとか、ルール数がどれだけとか、これだけ見ても多少は役に立つかもしれないが、CSSは絶えず変化するものなので、できればこのデータの推移を把握したいものである。そうなると、&lt;strong&gt;データを貯める&lt;/strong&gt;のとそれを&lt;strong&gt;グラフに出力&lt;/strong&gt;する作業が必要となる。&lt;/p&gt;
+
+&lt;p&gt;今まで、&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-Jenkins&#34;&gt;Jenkinsにプロットする&lt;/a&gt;やり方や、&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-moniteur&#34;&gt;moniteurというツールを使うやり方&lt;/a&gt;を試してみたが、グラフがダサかったり、実装方法がやや複雑だったりして、あんまりしっくりきてなかった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://creator.aainc.co.jp/archives/7123&#34;&gt;StyleStats＋αでCSSを継続的にチェックする | アライドアーキテクツのクリエイターブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;この人のように、D3.jsを使って、フルスクラッチで作るのが妥当なんだろうけど、なにぶんめんどくさがり屋なのでめんどくさい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ stylestats -f json -n https://google.com | gaer -t UA-xxxxxxx-x -r Google
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;だもんで、上記のような感じで、JSONで書きだした結果をパイプでGAERに渡しても、Googleアナリティクスにレコードさせればよい。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/images/2015/0406-01.png&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;記録したデータは、Googleアナリティクスの『行動』＞『イベント』のメニューで確認できる。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/images/2015/0406-02.png&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0406-02.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;まだデータ貯まってなくてアレだけど、まぁこんな感じで確認できるようになった。あとはこれを一日一回とか定期実行させればよい（これも若干面倒だけど、&lt;a href=&#34;https://addons.heroku.com/scheduler&#34;&gt;Heroku Scheduler&lt;/a&gt;を使うのがお手軽かも）。ほか、PushしたタイミングでCIサーバーのほうで実行するのもありかな。&lt;/p&gt;
+
+&lt;p&gt;なにせイベントトラッキングレポートなので、デフォルトではイベントの回数がメインになっているので、カスタムレポートで平均値だけを表示にしたりするのが若干面倒だけど、ここは使い方次第だと思う。GAER用のカスタムレポート作ったので、以下からインポートしてね（Solutions Galleryなんてあるんだね、最近のGAは）。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.google.com/analytics/gallery/#posts/search/%3F_.viewId%3Drdf3ytkGQPmTXMiPHErVoA/&#34;&gt;GAER Report | Google Analytics Solutions Gallery&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;僕はStyleStatsのデータを記録するためにGAERを作ったけど、皆さんもグラフ作るの面倒くさいなってデータがあったらGoogleアナリティクスにレポートさせれば良いと思う。なんか他にも良い使い方あったら教えて下さい。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>gFaceeeに最新コミット日時を強調する機能追加した</title>
+            <link>https://t32k.me/mol/log/gfaceee/</link>
+            <pubDate>Tue, 31 Mar 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/gfaceee/</guid>
+            <description>&lt;p&gt;&lt;a href=&#34;http://layzie.hatenablog.com/entry/20141104/1415076724&#34;&gt;Webフロントエンド技術に関して非常に多くの技術情報を日々捌いているLayzieさん&lt;/a&gt;曰く、『&lt;strong&gt;記事の日付は必ず確認&lt;/strong&gt;』しなければならない。つい先日、2年前くらいのはてブ記事をドヤ顔でSlackグループに投げて言われた言葉だ。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51whkjxFOAL._SL160_.jpg&#34; alt=&#34;開発者のためのChromeガイドブック (Google Expert Series)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;開発者のためのChromeガイドブック&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.30&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;吉川 徹,あんどうやすし,田中 洋一郎,小松 健作&lt;br /&gt;インプレスジャパン&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844334220/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;情報の鮮度は非常に重要だということを改めて理解しつつ、二度とこのような失態を犯さないためにどうすればよいか考えた結果、いったん、はてブは置いといて、GitHubの最新コミット日時を強調するChrome拡張機能を作った。&lt;/p&gt;
+
+&lt;p&gt;ご存知の通り、GitHubの時間表記は相対的な3 minutes agoと 3 hours agoとか、May 14, 2012とか、なんか直感的に新しいのか古いのか分かりにくい（というか読み取るのが面倒くさい）。あと最近流行りのReact.jsではなく、今さらBackbone.jsを勉強してるけど、関連リポジトリの更新が普通に2年前で止まってるとかあったので、ちょっと注意しないとと思った次第。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0331-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1週間未満: Bright Green&lt;/li&gt;
+&lt;li&gt;1ヶ月未満: Green&lt;/li&gt;
+&lt;li&gt;6ヶ月未満: Yellow&lt;/li&gt;
+&lt;li&gt;1年未満: Orange&lt;/li&gt;
+&lt;li&gt;1年以上: Red&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というわけで、上記のような基準で各リポジトリトップのlatest commitの日時を色付けするようにした。さりげない感じで強調してくれるので個人的に気に入っている。とりあえず、赤色（1年以上コミット無し）なら注意してみてみようなど色で判断できるようにした。&lt;/p&gt;
+
+&lt;p&gt;もちろん、コミットが止まっているのは枯れていて安定しているって意味かもしれないので、必ずしも悪いことじゃない。しかし、変化の激しいフロントエンド界隈で生きているので、やっぱ定期的にメンテなりしてあるほうがいいかなと思っている。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0331-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://chrome.google.com/webstore/detail/gfaceee/fgkdbhnipaaeokfjgdmpejglfepclgbk&#34;&gt;gFaceee - Chrome ウェブストア&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHubのニュースフィード上でアイコンを表示させるgFaceeeの追加機能としてリリースしましたのでよければ使ってくださいませ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Grunt/Gulpで憔悴したおっさんの話</title>
+            <link>https://t32k.me/mol/log/npm-run-script/</link>
+            <pubDate>Wed, 25 Mar 2015 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/npm-run-script/</guid>
+            <description>
+
+&lt;p&gt;先人たちが1年前に通った道で、いろいろいまさらかよって話なんですが。基本的に以下の記事読んだら分かります。要はGulpとかGruntといったモノ使わずに&lt;code&gt;npm run hogehoge&lt;/code&gt;でビルドしよーぜって話です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://substack.net/task_automation_with_npm_run&#34;&gt;task automation with npm run&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://yosuke-furukawa.hatenablog.com/entry/2014/02/19/112931&#34;&gt;オレ的Gruntに対する最新の気持ち - from scratch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://qiita.com/Jxck_/items/efaff21b977ddc782971&#34;&gt;Node - npm で依存もタスクも一元化する&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/&#34;&gt;How to Use npm as a Build Tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;// package.json
+  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;start&amp;quot;: &amp;quot;npm run start-serve &amp;amp; npm run watch&amp;quot;,
+    &amp;quot;test&amp;quot;: &amp;quot;stylestats public/files/css/maple.css&amp;quot;,
+    &amp;quot;start-serve&amp;quot;: &amp;quot;browser-sync start --server public/ --files public/files/**/*&amp;quot;,
+    &amp;quot;clean&amp;quot;: &amp;quot;rm -rf public/files/css/*&amp;quot;,
+    &amp;quot;js:min&amp;quot;: &amp;quot;uglifyjs public/files/js/app.js &amp;gt; public/files/js/app.min.js&amp;quot;,
+    &amp;quot;build:js&amp;quot;: &amp;quot;browserify assets/scripts/app.js &amp;gt; public/files/js/app.js&amp;quot;,
+    &amp;quot;css:sass&amp;quot;: &amp;quot;node-sass assets/styles/maple.scss public/files/css/maple.css&amp;quot;,
+    &amp;quot;css:prefix&amp;quot;: &amp;quot;autoprefixer -b &#39;last 2 versions&#39; public/files/css/maple.css&amp;quot;,
+    &amp;quot;css:comb&amp;quot;: &amp;quot;csscomb public/files/css/maple.css&amp;quot;,
+    &amp;quot;css:min&amp;quot;: &amp;quot;csso public/files/css/maple.css public/files/css/maple.min.css&amp;quot;,
+    &amp;quot;build:css&amp;quot;: &amp;quot;bin/build-css.sh&amp;quot;,
+    &amp;quot;build&amp;quot;: &amp;quot;npm run build:js &amp;amp;&amp;amp; npm run build:css&amp;quot;,
+    &amp;quot;lint:js&amp;quot;: &amp;quot;jshint assets/scripts/app.js&amp;quot;,
+    &amp;quot;lint:css&amp;quot;: &amp;quot;scss-lint assets/styles/**/*.scss&amp;quot;,
+    &amp;quot;lint&amp;quot;: &amp;quot;npm run lint:js &amp;amp;&amp;amp; npm run lint:css&amp;quot;,
+    &amp;quot;watch:js&amp;quot;: &amp;quot;watch &#39;npm run build:js&#39; assets/scripts/&amp;quot;,
+    &amp;quot;watch:css&amp;quot;: &amp;quot;watch &#39;npm run build:css&#39; assets/styles/&amp;quot;,
+    &amp;quot;watch&amp;quot;: &amp;quot;npm run watch:js &amp;amp; npm run watch:css&amp;quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じで&lt;code&gt;package.json&lt;/code&gt;に記述して、&lt;code&gt;npm run watch&lt;/code&gt;とかコマンド打って使う。&lt;/p&gt;
+
+&lt;h2 id=&#34;npm-run-scriptを使うに至るまでの経緯&#34;&gt;npm run-scriptを使うに至るまでの経緯&lt;/h2&gt;
+
+&lt;p&gt;率直に言って、おっさん疲れたのです。&lt;/p&gt;
+
+&lt;h3 id=&#34;ユーザーとして&#34;&gt;ユーザーとして&lt;/h3&gt;
+
+&lt;p&gt;まぁタスクランナーを使うユーザーとしては、簡単に使いたいよねってのが本音なわけで、&lt;a href=&#34;https://t32k.me/mol/log/modern-development-workflow-with-grunt/&#34;&gt;2年前はGrunt便利だぜー！&lt;/a&gt;ってふれまわったけど、今いざ使ってみようと思うと、あれこれどーするんだっけ？みたいなことが多い。&lt;/p&gt;
+
+&lt;p&gt;ましてや、最近は&lt;a href=&#34;http://gulpjs.com/&#34;&gt;Gulp&lt;/a&gt;のほうが勢いあるみたいじゃないですか、まぁGulpも使うんですけど、開発しているプロジェクトによって採用しているのがGrunt/Gulpでバラバラになって、Gulpのプロジェクトで&lt;code&gt;grunt&lt;/code&gt;ってコマンド叩いたりして、『あーここはGulpかー』なんてこともあったりするわけです。&lt;/p&gt;
+
+&lt;p&gt;またGruntで使ってるこのプラグインのGulpバージョンないかなーって探すとなかったりする。もしくは作る作る詐欺でリポジトリだけがあってションボリしたりするわけです。&lt;/p&gt;
+
+&lt;p&gt;はたまた四天王的に『クククッ、Gruntがやられたようだな、あいつは四天王のなかでも最弱（ｒｙ』とかいって、なんだか&lt;a href=&#34;http://www.solitr.com/blog/2014/02/broccoli-first-release/&#34;&gt;Broccoli&lt;/a&gt;とかゆー人もいるわけじゃないですか。もう頭いっぱいなんです。おっさん疲れたのです。&lt;/p&gt;
+
+&lt;p&gt;普通に元のコマンド叩いたらいいじゃんって思うんです。&lt;/p&gt;
+
+&lt;h3 id=&#34;プラグイン作者として&#34;&gt;プラグイン作者として&lt;/h3&gt;
+
+&lt;p&gt;若気の至りで、おっさんも昔はよく&lt;a href=&#34;https://www.npmjs.com/~t32k&#34;&gt;Gruntプラグインを作った&lt;/a&gt;のです。実際に自分のプロジェクトでGruntを使い、必要だったので、プラグイン開発に対する情熱もあったわけですけど、まぁGulpとか使い出したり、普通にコマンド打ってたら、開発するモチベーションがダダ下がりなわけです。&lt;/p&gt;
+
+&lt;p&gt;で、そんな時に限って、依存しているパッケージが頻繁にアップデートとかするんですよ。いっぱい新機能とか盛り込んできたりするわけですよ、そしたらissuesで対応しろとか言われるわけですよ。APIも変更してきたりするわけですよ、そしたらissuesで対応しろとか言われるわけですよ。もう追いつけないです。おっさん疲れたのです。&lt;/p&gt;
+
+&lt;p&gt;普通に元のコマンド叩けよって思うんです。&lt;/p&gt;
+
+&lt;h3 id=&#34;依存されるパッケージ作者として&#34;&gt;依存されるパッケージ作者として&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;というそこそこ使われるnpmパッケージを作っているのですが、ありがたいことに僕とは別の開発者様が&lt;a href=&#34;https://github.com/tvooo/grunt-stylestats&#34;&gt;Grunt&lt;/a&gt;/&lt;a href=&#34;https://github.com/1000ch/gulp-stylestats&#34;&gt;Gulp&lt;/a&gt;のプラグインを作ってもらっているのです。&lt;/p&gt;
+
+&lt;p&gt;ただですね、StyleStats Grunt Pluginのほうが&lt;a href=&#34;https://github.com/tvooo/grunt-stylestats/commits/master&#34;&gt;完全に開発が止まってまして&lt;/a&gt;、StyleStatsを使いたいGruntプロジェクトのユーザーに人になんて言ったらいいのかなーって、『Gulpの方使ってくださいー』って言うのもなーなんて。&lt;/p&gt;
+
+&lt;p&gt;かといって、Gruntプラグインの人に『ちょっとアップデートしてくれよ！』って言うのもなーって。前述の通り、やる気が無い気持ちは痛いほどわかるしなーって。でも更新止まってから、こちらとしてはいっぱいいろんな機能リリースしてるからみんなに使って欲しいしなーって。&lt;/p&gt;
+
+&lt;p&gt;僕がPR送ればいいのかもしれないけど、俺もGruntのプラグイン開発ってどうするんだっけって感じだし。そもそもPR送ってもマージしてくれるのか。てか飽きたならリポジトリをtransferしてくれないかなーって。そうやって気を使うのダルいんですよ、おっさん疲れたのです。&lt;/p&gt;
+
+&lt;p&gt;普通に元のコマンド叩いてくださいって思うんです。&lt;/p&gt;
+
+&lt;h2 id=&#34;npm-run-scriptの抑えどころ&#34;&gt;npm run-scriptの抑えどころ&lt;/h2&gt;
+
+&lt;p&gt;ということで、npmで元のコマンド叩いたら皆しあわせってことでnpm run-script使おうぜって話。そんな難しいことはないです。基本的には各コマンドをpackage.jsonに記述していくだけです。ざっくりだけどプロジェクトで使う例としてはこんな感じかな。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple/blob/master/package.json&#34;&gt;t32k/maple/package.json&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;（久しぶりのMaple!!一応、&lt;a href=&#34;https://github.com/t32k/maple/tree/grunt-ver&#34;&gt;Gruntバージョン&lt;/a&gt;も残してある）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ファイル監視はどーするの？：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/mikeal/watch&#34;&gt;mikeal/watch&lt;/a&gt; を使ってね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;watch:css&amp;quot;: &amp;quot;watch &#39;npm run build:css&#39; assets/styles/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;複数タスク実行はどーするの？：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;直列に実行するときは&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;でつないでね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;build&amp;quot;: &amp;quot;npm run build:js &amp;amp;&amp;amp; npm run build:css&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;並列に実行したいときは、&lt;code&gt;&amp;amp;&lt;/code&gt;でつなぐか、&lt;a href=&#34;https://github.com/keithamus/parallelshell&#34;&gt;parallelshell&lt;/a&gt;を使ってね。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;watch&amp;quot;: &amp;quot;npm run watch:js &amp;amp; npm run watch:css&amp;quot;
+&amp;quot;watch&amp;quot;: &amp;quot;parallelshell &#39;npm run watch:js&#39; &#39;npm run watch:css&#39;&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;スクリプトが長すぎるよ！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;シェルファイルに分割するといいよ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;#!/bin/bash
+npm run css:sass &amp;amp; npm run css:prefix &amp;amp; npm run css:comb &amp;amp; npm run css:min
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;chmod +x&lt;/code&gt;しとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;build:css&amp;quot;: &amp;quot;bin/build-css.sh&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;または、設定系のオプションは、&lt;code&gt;config&lt;/code&gt;フィールドに記述して、&lt;code&gt;scripts&lt;/code&gt;フィールドで、&lt;code&gt;$npm_package_config_NAME&lt;/code&gt;のようにして使う。が、$npm_package_configって！長い！&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;  &amp;quot;config&amp;quot;: {
+    &amp;quot;stylestats&amp;quot;: &amp;quot;path/to/configuration.json&amp;quot;
+  },
+  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;test&amp;quot;: &amp;quot;stylestats app.css --config $npm_package_config_stylestats&amp;quot;,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;はたまた、npm@2.0以上のユーザーであれば、&lt;a href=&#34;https://github.com/npm/npm/pull/5518&#34;&gt;Passing Arguments&lt;/a&gt;というナウい機能を使う。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
+  &amp;quot;test&amp;quot;: &amp;quot;mocha test/&amp;quot;,
+  &amp;quot;test:xunit&amp;quot;: &amp;quot;npm run test -- --reporter xunit&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上記のように、&lt;code&gt;--&lt;/code&gt;を使うことで&lt;code&gt;npm test&lt;/code&gt;のあとにコマンドをつなげられる。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Windowsユーザーは？&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://win-bash.sourceforge.net/&#34;&gt;win-bash&lt;/a&gt;使ってもらうとか、UNIX系のコマンド系をラップしてるnpmパッケージ使って（例：&lt;code&gt;rm -rf&lt;/code&gt; &amp;gt; &lt;a href=&#34;https://github.com/isaacs/rimraf&#34;&gt;rimraf&lt;/a&gt;）npm scriptを書くよう心がけるとか、とりまがんばってね。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;そうゆうわけで、Gulp/Gruntを通さなければプラグインの依存パッケージの更新追随を待たなくてもいいし、Node.js/npmに関する知識とかUNIXに関する知識は、数ヶ月で変わることもないので、変化に適応できない私みたいなおっさんにも優しいんじゃないんでしょうか。ちょっと複雑なことやろうとすると、Node.jsのコードを書かないとできないかもしれないけど、きっと心の優しい誰かがその素晴らしい見聞を共有してくれると思うのです。おっさんは気長に待つのです。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/518ME653H3L._SL160_.jpg&#34; alt=&#34;UNIXという考え方―その設計思想と哲学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;UNIXという考え方―その設計思想と哲学&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2015.3.26&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Mike Gancarz,芳尾 桂&lt;br /&gt;オーム社&lt;br /&gt;売り上げランキング: 21740&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4274064069/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;てか、Makefileでいいんじゃね？&lt;br /&gt;
+って、思ったそこのでっかいおっさんちょっと出てこいよ！&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;関連エントリ&#34;&gt;関連エントリ&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/make-for-the-web-generation/&#34;&gt;【翻訳】Web世代のデベロッパーのためのmake - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Wisteria：デザインツールとしてのCSS</title>
+            <link>https://t32k.me/mol/log/wisteria/</link>
+            <pubDate>Wed, 28 Jan 2015 18:14:51 -0800</pubDate>
+            
+            <guid>https://t32k.me/mol/log/wisteria/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/wisteria/img/hero.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/wisteria/&#34;&gt;Wisteria.css: A class selectors based harmless CSS library.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/wisteria&#34;&gt;t32k/wisteria&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/wisteria/&#34;&gt;Wisteria&lt;/a&gt;というCSSライブラリ作った。基本的な用途としてはモックアップや後方互換とかそこまで考えなくていい、小規模の個人用のページとかで使われることを想定している。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://getskeleton.com/&#34;&gt;Skeleton&lt;/a&gt;という、すごくシンプルなCSSライブラリがあるのだが、僕はこれが好きで、ちょっとしたものとか作るときによく使用している。このブログもSkeletonをベースにしているくらいだ。&lt;/p&gt;
+
+&lt;p&gt;でも最近使ってて、なにかこう違和感というか、相容れないモノを感じたので、思い立って自分用のCSSライブラリを作ってみたのだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;harmless&#34;&gt;Harmless&lt;/h2&gt;
+
+&lt;p&gt;Wisteriaを作るにあたって、一番気をつけたことは無害であること。つまり要素にスタイリング（&lt;code&gt;h2 { font-size: 24px }&lt;/code&gt;みたいな）しないことを徹底した。ほとんとクラスセレクタ（&lt;code&gt;.h2 { font-size: 24px }&lt;/code&gt;みたいな）でしか定義していない。&lt;/p&gt;
+
+&lt;p&gt;これはなぜかというと、基本的に&lt;code&gt;h2&lt;/code&gt;なんてものは見出しとして大きく扱われるべきだけど、それは&lt;strong&gt;基本的に&lt;/strong&gt;であって小さい文字列の&lt;code&gt;h2&lt;/code&gt;要素だって時としては存在する（重要な文言であったり、余白を使えば必ずしもフォントサイズが大きい必要がない）。そうゆうゆうわけで、Skeletonとか使ってると、&lt;code&gt;h2&lt;/code&gt;要素にスタイルが定義されているので、この文字を小さくするために再定義しなければならない。&lt;/p&gt;
+
+&lt;p&gt;これ、&lt;strong&gt;すごくめんどい&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;いや、本腰入れて開発しようとかだったら再定義なんなりするけど、ちょっとしたページを作ったり、サイズ感を試したいときに思考が妨げられる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt; .h1, .u-fz1 { font-size: 6.4rem; }
+ .h2, .u-fz2 { font-size: 4.8rem; }
+ .h3, .u-fz3 { font-size: 3.6rem; }
+ .h4, .u-fz4 { font-size: 2.4rem; }
+ .h5, .u-fz5 { font-size: 2.0rem; }
+ .h6, .u-fz6 { font-size: 1.8rem; } 
+ .u-fz7 { font-size: 1.6rem; } 
+ .u-fz8 { font-size: 1.4rem; }
+ .small, .u-fz9 { font-size: 1.2rem; }
+ .u-fz10 { font-size: 1rem; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;また、最近のCSSライブラリは&lt;a href=&#34;http://necolas.github.io/normalize.css/&#34;&gt;Normalize.css&lt;/a&gt;で初期化されているのが前提だけど、これもやめてほしい。デフォルトのスタイリングをうまく残して初期化するものだけど、僕はブラウザのデフォルトスタイルを熟知しているわけではない。だから要素ごとのマージンとかも一律ゼロにしたい。そうゆうよくわからないものを覚えるために時間をかけたくない。&lt;/p&gt;
+
+&lt;p&gt;ということで、Wisteriaでは&lt;a href=&#34;https://github.com/murtaugh/HTML5-Reset&#34;&gt;HTML5-Reset&lt;/a&gt;を使ってキレイにリセットしてある。僕は真っ白なキャンバスに描きたいのだ。&lt;/p&gt;
+
+&lt;h2 id=&#34;helper&#34;&gt;Helper&lt;/h2&gt;
+
+&lt;p&gt;Wisteriaには多くのヘルパークラスというか、ユーティリティ系のクラスを保持している。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;/*	#Spacing
+\*------------------------------------*/
+.u-ma { margin: auto; }
+.u-mtn { margin-top: 0; }
+.u-mts { margin-top: .4rem; }
+.u-mtm { margin-top: 1.6rem; }
+.u-mtl { margin-top: 3.2rem; }
+.u-mtx { margin-top: 4.8rem; }
+.u-mbn { margin-bottom: 0; }
+.u-mbs { margin-bottom: .4rem; }
+.u-mbm { margin-bottom: 1.6rem; }
+.u-mbl { margin-bottom: 3.2rem; }
+.u-mbx { margin-bottom: 4.8rem; }
+.u-mn { margin: 0; }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;.u-&lt;/code&gt;から始まるもの。こうゆう単一的な仕事をするクラスを多くもつのは&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;Maple&lt;/a&gt;でもやったことだが、あれはイレギュラーなデザインに対応するためである。&lt;/p&gt;
+
+&lt;p&gt;しかし、Wisteriaでは問題の背景がちがう。先ほどのHTML5-Resetで完全にマージンなどもリセットしてあるので、自分でマージンを設定しなければならない。そのおかげで、自由自在に自分でスペースを調整することが可能だ。&lt;/p&gt;
+
+&lt;p&gt;マージン以外にも多くのヘルパークラスがあるのだが、これはこれで学習コストが高くつくかもしれない。ということで命名規則に関しては&lt;a href=&#34;http://docs.emmet.io/cheat-sheet/&#34;&gt;Emmet&lt;/a&gt;風味な短縮形を採用しているので、ヘルパークラスに理解してなくても、だいたい予想がつくだろう。&lt;/p&gt;
+
+&lt;h2 id=&#34;hi-control&#34;&gt;Hi-Control&lt;/h2&gt;
+
+&lt;p&gt;局所的なレイアウトはスペーシングのヘルパーでなんとかなるけど、全体的なレイアウトにはグリッドシステムが必要だ。それに関してはFlexboxをベースにしたグリッドシステムを採用している。&lt;/p&gt;
+
+&lt;p&gt;これが何が嬉しいかというと、&lt;code&gt;float&lt;/code&gt;とかで頑張ってるグリッドシステムのCSSライブラリはグリッドセルに対して、例えば3分割したかったら &lt;code&gt;class=&amp;quot;cell-1of3&amp;quot;&lt;/code&gt; みたいに書かないけどいけない。これ覚えるの大変だし（そうでもないか）、分割数を変える度にいちいち書き直すのもめんどい。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;  &amp;lt;div class=&amp;quot;g-row&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/6&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;g-row g-row--collapse&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/3&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/3&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;1/3&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;g-row&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col&amp;quot;&amp;gt;auto&amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;g-col u-w80&amp;quot;&amp;gt;80%&amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;てことで、Wisteriaでは&lt;code&gt;.g-row&lt;/code&gt;の列に&lt;code&gt;.g-col&lt;/code&gt;の名前の要素を入れとくだけでうまいこと分割数に応じてやってくれる。Flexbox様々である。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://caniuse.com/#search=flexbox&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0128-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;その分、最新ブラウザにしか対応しなくなるけど、あくまでモックアップや個人用途で使うことを考えれば、十分メリットのほうが大きい。&lt;/p&gt;
+
+&lt;p&gt;結局作ってみて、真っ白なキャンバスを自由に操れるツールがほしかったのだとおもう。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://alistapart.com/article/understandingprogressiveenhancement&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2015/0128-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Wisteriaを使ってモックサイトを作るとなると、HTMLのclass属性にヘルパークラスを書き込みまくることになって、&lt;strong&gt;コンテンツとスタイルの分離&lt;/strong&gt;とは！という状況なんだけど、そもそもPhotoshopやSketchを使ってデザインをするにあたって、それらを分けて考えるかというと、NOだ。&lt;/p&gt;
+
+&lt;p&gt;Sketchに&lt;a href=&#34;https://github.com/timuric/Content-generator-sketch-plugin&#34;&gt;Content generator sketch plugin&lt;/a&gt;というものがあるように、アタリとはいえ、デザイナーはそこにどんなコンテンツが来るのか考えながらデザインしている。&lt;/p&gt;
+
+&lt;h2 id=&#34;designing-in-the-browser&#34;&gt;Designing in the browser&lt;/h2&gt;
+
+&lt;p&gt;話戻って、このブログの静的なページデザインファイルなんてものはない、いわゆる&lt;a href=&#34;http://css.studiomohawk.com/in-browser-design/2011/04/16/designing_in_browser/&#34;&gt;インブラウザデザイン&lt;/a&gt;をして作ったわけだが、この時の違和感というか、やりにくさの原因が分かった。&lt;/p&gt;
+
+&lt;p&gt;結局、ブラウザでデザインするにはHTMLファイル（テンプレートファイル）とスタイルシートを行き来しなければならないのだ。そして下手にマークアップ脳もあるため、メンテナンス性を考えたCSS設計、命名の適当さなど考えると結局デザインしづらくなってしまう（デザインに集中できなくなってしまう）。&lt;/p&gt;
+
+&lt;p&gt;HTMLファイルにだけに集中して、ガシガシ書き込んでいけば、どんどんビジュアルが完成されていく。つまりは、Wisteriaにおける（ユーティリティ）クラス属性はデザインするためのコマンドみたいなものだ。うん、実にやりやすい。トライアンドエラー繰り返すことができる。インブラウザデザインと言って、最初からコンテンツとスタイルの分離を意識するからやりにくいのであって、いったん、それは忘れる必要がある（だからといって、style属性で書くように密結合することもない）。&lt;/p&gt;
+
+&lt;p&gt;Wisteriaを使えば、PhotoshopやSketchでマウスで操作するように（それに近い状態で）、ブラウザ上でデザインしていけるだろう。&lt;/p&gt;
+
+&lt;p&gt;僕はこうゆうのを求めていたんだ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Smashing Magazineのパフォーマンス改善ケースが凄まじい件</title>
+            <link>https://t32k.me/mol/log/style-class-conference/</link>
+            <pubDate>Wed, 24 Dec 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/style-class-conference/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/frontrend&#34;&gt;Frontrend Advent Calendar 2014 - Qiita&lt;/a&gt;の24日目。たぶん。知らんけど。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig01.jpg&#34; alt=&#34;The Style &amp;amp; Class Conference 2014&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ちょっと前になるが12/13にバンクーバーで開催された&lt;a href=&#34;http://www.eventbrite.com/e/the-style-class-conference-tickets-13842235499&#34;&gt;The Style &amp;amp; Class Conference 2014&lt;/a&gt;に参加してきた。前日に&lt;a href=&#34;http://smashingconf.com/&#34;&gt;Smashing Conference&lt;/a&gt;が、ウィスラーというバンクーバーから比較的近い所で開催されていて、本当はそっちに行きたかったんだけど高額なため、地元コミュニティのほうにだけ参加した。ウィスラーの方の記事は&lt;a href=&#34;http://www.ygoto3.com/?p=107&#34;&gt;@ygoto3が書いてたっぽい。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Smashing Conferenceで登壇していた&lt;a href=&#34;https://twitter.com/johnallsopp&#34;&gt;John Allsopp&lt;/a&gt;氏や&lt;a href=&#34;https://twitter.com/vlh&#34;&gt;Val Head&lt;/a&gt;氏もこのカンファレンスで登壇するということで、『なんだ、ウィスラーのついでかよー』と思い全然期待してなかったのだが、行ってみたらカンファレンス全体の構成などすごく考えられていて、とても素晴らしいカンファレンスだった。&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、今回はその中で最も気に入った&lt;a href=&#34;https://twitter.com/smashingmag&#34;&gt;Vitaly Friedman&lt;/a&gt;氏のセッションを紹介したいと思う。&lt;/p&gt;
+
+&lt;h2 id=&#34;improving-smashing-magazine-s-performance&#34;&gt;Improving Smashing Magazine&amp;rsquo;s Performance&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig02.jpg&#34; alt=&#34;Vitaly Friedman&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.smashingmagazine.com/2014/09/08/improving-smashing-magazine-performance-case-study/&#34;&gt;Improving Smashing Magazine&amp;rsquo;s Performance: A Case Study&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;講演内容と同じ内容と思われる記事がすでに9月に上がっているみたい。バックエンドからフロントエンドまでいろいろなことやってみるみたいで、めちゃめちゃ長文なので時間あるときにでも読んでおくとよい。その中でも僕が気に入ったのがCritical CSSの対応をしていたことだ。&lt;/p&gt;
+
+&lt;h3 id=&#34;critical-rendering-path&#34;&gt;Critical Rendering Path&lt;/h3&gt;
+
+&lt;p&gt;Critical Rendering Pathとは、HTML/CSS/JSなどのバイトの取得からピクセルとしてレンダリングする必須処理までの間の段階のことを言い、Critical CSSとはページの最初のレンダリングをブロックする可能性のあるCSSのことを言う。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://docs.google.com/presentation/d/1IRHyU7_crIiCjl0Gvue0WY3eY_eYvFQvSfwQouW9368/present?slide=id.p19&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/static/blog/2013/07/31.png&#34; alt=&#34;Critical Rendering Path&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;なぜCSSがレンダリングをブロックするのかというと、上図の通り、レンダリングを完成するにあたってブラウザはDOMとCSSOM(CSSオブジェクトモデル)が必要なわけでして、スタイルシートがダウンロードされない限りレンダリングが開始されないわけだ。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;HTML マークアップを処理して DOM ツリーを作成&lt;/li&gt;
+&lt;li&gt;CSS マークアップを処理して CSSOM ツリーを作成&lt;/li&gt;
+&lt;li&gt;DOM と CSSOM を組み合わせてレンダーツリーを作成&lt;/li&gt;
+&lt;li&gt;レンダーツリーでレイアウトを実行して各ノードの形状を計算&lt;/li&gt;
+&lt;li&gt;各ノードを画面にペインティング&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=ja&#34;&gt;Render-tree construction, Layout, and Paint — Web Fundamentals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;少なくともブラウザに何かが描画されるまでには上記のような流れをふまないといけない。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、是が非でも速く描画するために、Critical Rendering Pathの最適化をしようとすると以下のことに気をつけなければならない。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;クリティカル リソース数の最小化&lt;/li&gt;
+&lt;li&gt;クリティカル バイト数の最小化&lt;/li&gt;
+&lt;li&gt;クリティカル パス長の最小化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ことCSSだけに関して言えば、リソース数の最小化はスタイルシートを何個も読み込まず、1個にまとめればよいし、バイト数の最小化は&lt;a href=&#34;https://github.com/t32k/grunt-csso&#34;&gt;CSSO&lt;/a&gt;や&lt;a href=&#34;https://github.com/t32k/speed/blob/master/articles/gzip.md&#34;&gt;gzip&lt;/a&gt;をかけてやればよい。&lt;/p&gt;
+
+&lt;p&gt;まぁそれらはそんなに難しいことではないので、すぐにでも対応できると思われる。問題なのはクリティカル パス長（音的にリヴァイ兵長みたいな感じなので以後Critical Path Lengthと表記する）の最適化だ。&lt;/p&gt;
+
+&lt;p&gt;基本的には外部スタイルシートとして読み込むファイルを1個にまとめれば、HTML読み込んで、そのCSSを読み込むのがCritical Path Lengthの最短じゃねーのかと思うが、それではGoogle様が認めてくれない。&lt;/p&gt;
+
+&lt;p&gt;試しに、&lt;a href=&#34;https://developers.google.com/speed/pagespeed/insights/?hl=ja&#34;&gt;PageSpeed Insights&lt;/a&gt;で僕のプロフィール（単純な静的ページで外部CSSファイル1個）ページ：&lt;a href=&#34;https://t32k.me/&#34;&gt;t32k.me&lt;/a&gt;を計測してみると、『&lt;strong&gt;スクロールせずに見えるコンテンツのレンダリングをブロックしている JavaScript/CSS を排除する&lt;/strong&gt;』なことを言われモバイル評価で89点といった結果が返ってきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig03.png&#34; alt=&#34;PageSpeed Insights：Before&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;で、対処法として&lt;a href=&#34;https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery&#34;&gt;CSSの配信を最適化&lt;/a&gt;しなさいと言われる。こっちの説明より&lt;a href=&#34;https://developers.google.com/web/fundamentals/&#34;&gt;Web Fundamentals&lt;/a&gt;の説明のほうが分かりやすいのでこっちを引用。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;インライン レンダリング ブロック CSS&lt;/strong&gt;&lt;br /&gt;
+クリティカル CSS は、HTML ドキュメント内で直接インライン化することをおすすめします。これにより、クリティカル パスの追加ラウンドトリップが削減され、適切に設定できれば、HTML が唯一のブロック リソースの場合に「1 ラウンドトリップ」のクリティカル パス長が実現できます。&lt;br /&gt;
+― &lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations&#34;&gt;PageSpeed Rules and Recommendations&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;つまり、外部スタイルシートを読み込んでいては1.) HTMLを読み込む、2.) 外部CSSファイルを読み込むので、最低でも2ラウンドトリップ（往復）しないといけない。ゆえに描画が遅くなるのでHTML内にインラインで記述しなよっと仰せられておる。&lt;/p&gt;
+
+&lt;p&gt;でも、だからといって全部CSSをインライン化しちゃうとHTMLが膨れ上がっちゃう。TCPスロースタートのせいで1回目のレスポンスで送信できるサイズは14KBなので、オーバーしちゃう。この辺りは以前に&lt;strong&gt;HTTPリクエストを減らすためにシリーズ&lt;/strong&gt;で記事を書いたので参照してほしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/reduce-http-requests-overview/&#34;&gt;【序章】HTTPリクエストは甘え — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/reduce-http-requests-one-second/&#34;&gt;【終章】我々には1000msの猶予しか残されていない — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51x2sA8N%2BTL._SL160_.jpg&#34; alt=&#34;ハイパフォーマンス ブラウザネットワーキング―ネットワークアプリケーションのためのパフォーマンス最適化&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;ハイパフォーマンス ブラウザネットワーキング&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2014.12.24&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Ilya Grigorik,和田 祐一郎,株式会社プログラミングシステム社&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 130931&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116767/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;または、&lt;a href=&#34;https://www.igvita.com/&#34;&gt;Ilya Grigorik&lt;/a&gt;大先生の本を読んでおいた方がいい。&lt;/p&gt;
+
+&lt;p&gt;だもんで、必要なCSSだけインライン化しましょうよってことになる。それ（&lt;a href=&#34;http://www.suzukikenichi.com/blog/above-the-fold%E3%81%A8%E3%81%AF/&#34;&gt;Above the Fold&lt;/a&gt;）に必要なCSS、つまりCritical CSSを検出するのがnpmモジュールの&lt;a href=&#34;https://github.com/filamentgroup/criticalcss&#34;&gt;CriticalCSS&lt;/a&gt;だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.filamentgroup.com/lab/performance-rwd.html&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig05.jpg&#34; alt=&#34;ATFの例&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;簡単に説明すれば上図のようにファーストビュー（Above the Fold）だけに使うCSSを抽出してくれる。&lt;/p&gt;
+
+&lt;p&gt;ちなみにGruntプラグインで利用できるので、これを使って僕のプロフィールページ：t32k.meを改善してみる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/filamentgroup/grunt-criticalcss&#34;&gt;filamentgroup/grunt-criticalcss&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;grunt.initConfig({
+  criticalcss: {
+    custom_options: {
+      options: {
+        url: &amp;quot;http://localhost:8000&amp;quot;,
+        width: 1024,
+        height: 768,
+        outputfile: &amp;quot;_templates/includes/critical.css&amp;quot;,
+        filename: &amp;quot;skeleton.min.css&amp;quot;
+      }
+    }
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんな感じでGruntfileの方は記述する。重要なのはwidht/heightで、ここで自分の好きなAbove the Foldを定義する。で出力したCSSをテンプレート側で読み込む。&lt;/p&gt;
+
+&lt;p&gt;今回は、1.) CriticalCSSでクリティカルCSSを生成、2.) CSSOでミニファイ、3.) Jadeでコンパイル読み込むという流れ。詳しくはGitHubにあげてあるので参照してね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/t32k.github.io/blob/master/Gruntfile.js&#34;&gt;t32k.github.io/Gruntfile.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;で、Full CSSの方は、後から非同期で読み込む。こうしないとレンダリングをブロックするので。あ、ちなみにほぼ&lt;a href=&#34;http://getskeleton.com/&#34;&gt;Skeleton.css&lt;/a&gt;をそのまま使ってる(^_^;)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+/*!
+  loadCSS: load a CSS file asynchronously.
+  [c]2014 @scottjehl, Filament Group, Inc.
+  Licensed MIT
+*/
+function loadCSS(href, before, media) {
+  var ss = window.document.createElement(&#39;link&#39;);
+  var ref = before || window.document.getElementsByTagName(&#39;script&#39;)[0];
+  var sheets = window.document.styleSheets;
+  ss.rel = &#39;stylesheet&#39;;
+  ss.href = href;
+  ss.media = &#39;only x&#39;;
+  ref.parentNode.insertBefore(ss, ref);
+  return ss;
+}
+loadCSS(&#39;/skeleton.min.css&#39;);
+&amp;lt;/script&amp;gt;
+&amp;lt;noscript&amp;gt;
+  &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/skeleton.min.css&amp;quot;&amp;gt;
+&amp;lt;/noscript&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で、Critical CSSに対応した結果をPageSpeedにかけてみると、&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig04.png&#34; alt=&#34;PageSpeed Insights：After&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;めでたく、先ほどの指摘はクリアできました。わーい、97点٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;p&gt;ちなみに『ブラウザのキャッシュを活用する』はGitHub Pagesなので僕からHTTP Headerを変更できないのでほっとく。&lt;/p&gt;
+
+&lt;h2 id=&#34;speed-index-1000&#34;&gt;Speed Index &amp;lt;= 1000&lt;/h2&gt;
+
+&lt;p&gt;なにをもって速いとするのか？というのは重要な問題だ。PageSpeed Insightのスコアも一種の指標となるだろうが、もう少し細かく検証したい。（事実、PageSpeedのスコアは90点くらいまでなら簡単に取れる）&lt;/p&gt;
+
+&lt;p&gt;最近は読み込み時間が体感速度を表しているように思えない。各種SNSボタンのJSが大量に読み込まれるが、それらは非同期で読み込まれるために実際の読み込み時間と体感速度には大きな乖離が見られるし、何千pxという長大なページで2,3スクロールしないと見えないような画像が読み込み時間にカウントされるのはどうだろう。はたまたdomContentLoadedだったらどうだろうか、うーん、あんましフロント関係なくね？&lt;/p&gt;
+
+&lt;p&gt;そんなこんなで現時点で一番有用な指標と個人的に考えているのが、WebPagetestで計測できる&lt;a href=&#34;https://github.com/t32k/webpagetest-doc-ja/blob/master/using-webpagetest/metrics/speed-index/index.md&#34;&gt;Speed Index&lt;/a&gt;だ。Speed Indexに関しても以前記事を書いた。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/webpagetest-5-minutes/&#34;&gt;WebPagetest in 5 minutes — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;So how fast is fast enough? A Speed Index of under 1000. And for professionals that get there, they should shoot for delivering the critical-path view (above the fold) in the first 14Kb of the page. — Paul Irish&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Smashing Magazineの講演でも触れられていたが、やはりどれだけ速ければいいのかという問いに対して、&lt;a href=&#34;https://twitter.com/snookca/status/543210094431723520&#34;&gt;Web業界のベネディクト・カンバーバッチ&lt;/a&gt;である&lt;a href=&#34;https://twitter.com/paul_irish&#34;&gt;Paul Irish&lt;/a&gt;氏が言及していたようにSpeed Indexが1000以下になるのが望ましい。これは去年も来日してた時に言っていたのでGoogle様はそれを目標にしているのだろう。そうゆうわけでのクリティカル・パスの最適化である。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineでは&lt;a href=&#34;https://github.com/tkadlec/grunt-perfbudget&#34;&gt;grunt-perfbudget&lt;/a&gt;を使って、定期的にWebPagetestを回していたらしい（CLIからWPTを動かすにはAPI Keyが必要なので個別に作者に連絡しなければならない）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-24-fig06.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webpagetest.org/video/compare.php?tests=141223_RD_GJJ%2C141223_RX_G9D&amp;amp;thumbSize=200&amp;amp;ival=100&amp;amp;end=visual&#34;&gt;WebPagetest - Visual Comparison&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回の改善によるSpeed Indexの変化だけど、GitHub Pagesでカスタムドメインしているため、どうしても最初にリダイレクトが入ってしまうせいで、改善前後のSpeed Indexは微減（2097 -&amp;gt; 1940）だが、Start Renderは1.8秒から1.6秒と確実に速くなっている。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineのケースでも一連の改善の結果、1000近くにまで削減することができたそうだ。その結果、『&lt;strong&gt;SmashingMagはサンパウロからEDGE回線で読むことができるただ一つのサイトだ&lt;/strong&gt;』と講演の最後にブラジルの読者からのツイートを誇らしげに紹介していたVitaly Friedman氏の笑顔が忘れられない。&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;そうゆうわけで、Smashing Magazineの改善ケースでやってること自体は特に目新しい物はないが、ひとつひとつのことを丁寧にしっかりやってる点が素晴らしいと思う。しかもSmashing Magazineのような長年運用している大規模かつ複雑なサイトでCritical CSSの対応などは相当めんどくさかったに違いない（もっと詳しく聞きたかった）。今回の簡単な静的ページであるプロフィールページの改善もめんどくさかったし。&lt;/p&gt;
+
+&lt;p&gt;結局、山ほどあるパフォーマンス改善策に優先度を決め、ゴールを決め、フロントとバックエンドをまとめ、戦略をもってパフォーマンス改善できる人なんてそうそういないよね？てか、対象となる知識大杉、てか、Vitaly Friedman氏ハンパなくね？って思った。&lt;/p&gt;
+
+&lt;p&gt;Smashing Magazineにはスーパーマンがいたけど、個人的にはもっと他のケースも知りたいというか、泥臭いのに共感したいと思っている。だって世の中そんなうまくいかないし、&lt;a href=&#34;http://httparchive.org/trends.php?s=Top1000&amp;amp;minlabel=Dec+15+2013&amp;amp;maxlabel=Dec+1+2014#bytesImg&amp;amp;reqImg&#34;&gt;テキスト主体で画像少なめのページでこれ速いだろうって言っても意味ねーし&lt;/a&gt;、世の中もっとゴテゴテしてるし複雑だ。この辺は緑の顔の緑の会社の人をチェックしていれば、いつか闇がにじみだしてくるのではと期待している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://havelog.ayumusato.com/develop/performance/e637-web_performance_2014.html&#34;&gt;2014年のWebパフォーマンスふりかえり - 来年以降の期待etc ::ハブろぐ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;僕の来年の目標はやっぱり、Speed Indexの知名度が低いのも&lt;a href=&#34;http://www.webpagetest.org/&#34;&gt;WebPagetest.org&lt;/a&gt;の見た目がうさくさいのが原因だと思っているので、リニューアルデザインをプルリクしてあげたいと思う。たぶん。知らんけど。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>GoアプリをHerokuにデプロイする</title>
+            <link>https://t32k.me/mol/log/go-on-heroku/</link>
+            <pubDate>Tue, 23 Dec 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/go-on-heroku/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/heroku&#34;&gt;Heroku Advent Calendar 2014 - Qiita&lt;/a&gt; の23日目です、たぶん。&lt;/p&gt;
+
+&lt;p&gt;最近、僕の周りの人らがGO!GO!うるさいので、ついつい僕もそそのかされてGo言語やりたいなーと思ったのです。&lt;a href=&#34;https://golang.org/doc/go1.4&#34;&gt;Go 1.4&lt;/a&gt;も出たしね。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://go-tour-jp.appspot.com/#1&#34;&gt;A Tour of Go | Hello, 世界&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ひととおりチュートリアルはやってみたんですけど、やっぱりWeb上で動かしたいわけですよ。そうゆうわけで、Heroku上でGoアプリを動かしてみようと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;go-on-heroku&#34;&gt;Go on Heroku&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://mmcgrana.github.io/2012/09/getting-started-with-go-on-heroku.html&#34;&gt;Getting Started with Go on Heroku&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ、上記の記事を参考にしたらちゃんとGoアプリをHerokuで稼働させることができます。以下は自分の備忘録代わりということで。&lt;/p&gt;
+
+&lt;h3 id=&#34;install-go&#34;&gt;Install Go&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://bitbucket.org/ymotongpoo/goenv&#34;&gt;goenv&lt;/a&gt;というGoのバージョン管理ツールもあるみたいだけど、初心者なので&lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt;で入れることにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install go
+$ go version
+go version go1.3.3 darwin/amd64
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;わーい、かんたん٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;h3 id=&#34;go-environment&#34;&gt;Go Environment&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;$GOPATH&lt;/code&gt;等を設定する。ここで指定したパス以下がGoのワークスペースとなる。お好きなシェルプロファイルに記述。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ echo &#39;export GOPATH=$HOME&#39; &amp;gt;&amp;gt; $HOME/.bash_profile
+$ echo &#39;export PATH=$PATH:$GOPATH/bin&#39;  &amp;gt;&amp;gt; $HOME/.bash_profile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;以下のようなディレクトリ構成で管理される。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$GOPATH
+├── bin（コンパイルしたバイナリファイル）
+├── pkg（パッケージオブジェクトファイル）
+└── src（Goの作業ソースファイル）
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;GitHub上に置かれているソースファイルは、 &lt;code&gt;~/src/github.com/{USER_NAME}/{REPOSITORY_NAME}&lt;/code&gt; みたいに管理される。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://weblog.bulknews.net/post/89635306479/ghq-peco-percol&#34;&gt;ghq + peco/percol - Tatsuhiko Miyagawa&amp;rsquo;s blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://webtech-walker.com/archive/2014/06/peco-ghq-gh-open.html&#34;&gt;peco、ghq、gh-openの組み合わせが捗る - Webtech Walker&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;だもんでghqの方もそっち合わせてpecoとか使うと捗るらしいよ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;git config --global ghq.root ~/src
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ghqでgetしてきたリポジトリの保存先の設定。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/motemen/ghq&#34;&gt;motemen/ghq&lt;/a&gt;（Go言語製、リポジトリ管理ツール）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/peco/peco&#34;&gt;peco/peco&lt;/a&gt;（Go言語製、フィルタリングツール）&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/typester/gh-open&#34;&gt;typester/gh-open&lt;/a&gt;（Go言語製、GitHubのレポジトリURLを開くツール）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まとめると、上みたいな感じ。世の中便利ですな。&lt;/p&gt;
+
+&lt;p&gt;ちなみに、Intellij IDEAでGolangのプラグイン（0.9.15）を入れると、ちゃんと指定しているのにもかかわらず、$GOROOTと$GOPATH設定しろや、(ﾟДﾟ)ｺﾞﾙｧ!!って言われるけど、0.9.16-alpha入れると治った٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/go-lang-plugin-org/go-lang-idea-plugin/releases&#34;&gt;Releases · go-lang-plugin-org/go-lang-idea-plugin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;んで、$GOROOTは設定しなくてもいいらしい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kwmt27.net/index.php/2013/06/14/you-dont-need-to-set-goroot-really/&#34;&gt;あなたがGOROOTを本当に設定しなくていい理由 | Androg&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;go-web-app&#34;&gt;Go Web App&lt;/h3&gt;
+
+&lt;p&gt;話が逸れたので戻すと&lt;code&gt;~/src/demoapp&lt;/code&gt;のディレクトリを作ってそこで作業する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mkdir $GOPATH/src/demoapp
+$ cd $GOPATH/src/demoapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;web.go&lt;/code&gt;のファイルを作成する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// web.go
+package main
+
+import (
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;net/http&amp;quot;
+    &amp;quot;os&amp;quot;
+)
+
+func main() {
+    http.HandleFunc(&amp;quot;/&amp;quot;, hello)
+    fmt.Println(&amp;quot;listening...&amp;quot;)
+    err := http.ListenAndServe(&amp;quot;:&amp;quot;+os.Getenv(&amp;quot;PORT&amp;quot;), nil)
+    if err != nil {
+      panic(err)
+    }
+}
+
+func hello(res http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(res, &amp;quot;hello, world&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;んで、&lt;code&gt;go get&lt;/code&gt;（コンパイル、インストール）して、demoappをバイナリで動かすようにする。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ PORT=5000 demoapp
+$ open http://localhost:5000/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ローカル環境で動いてることを確認する。&lt;/p&gt;
+
+&lt;h3 id=&#34;heroku-setup&#34;&gt;Heroku Setup&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;heroku login&lt;/code&gt;とかしとく。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ echo &#39;web: demoapp&#39; &amp;gt; Procfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Procfileを作る。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ go get github.com/kr/godep
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Godepという依存性の管理ツールをインスコ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ godep save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;依存性を保存。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ heroku create --buildpack https://github.com/kr/heroku-buildpack-go.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kr/heroku-buildpack-go&#34;&gt;kr/heroku-buildpack-go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GoのHeroku Buildpackを使ってHerokuアプリを作成する。ちなみに、BuildpackとはHeroku上でアプリをコンパイルするためのスクリプトで、Goなどのデフォルトで対応していない言語は&lt;a href=&#34;https://devcenter.heroku.com/articles/third-party-buildpacks&#34;&gt;Third-PartyのBuildpack&lt;/a&gt;を使ってデプロイすることになる。だもんで、Go言語以外も動かせる。&lt;/p&gt;
+
+&lt;p&gt;Buildpackを使ってアプリで来たら、&lt;code&gt;git push heroku master&lt;/code&gt;してデプロイして完了！&lt;/p&gt;
+
+&lt;p&gt;わーい、できたー٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+
+&lt;h2 id=&#34;a-fast-heroku-cli-client&#34;&gt;A fast Heroku CLI client&lt;/h2&gt;
+
+&lt;p&gt;ちなみに、Go言語製のCLIツールが多いのにお気づきだろうか。なんか速いらしいね。ってことで、&lt;code&gt;heroku&lt;/code&gt;コマンドも&lt;code&gt;hk&lt;/code&gt;というGoで作らたコマンドがある。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/heroku/hk&#34;&gt;heroku/hk&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まだBeta版でherokuにあってhkに無いコマンドもありますが。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ L=/usr/local/bin/hk &amp;amp;&amp;amp; curl -sL -A &amp;quot;`uname -sp`&amp;quot; https://hk.heroku.com/hk.gz | zcat &amp;gt;$L &amp;amp;&amp;amp; chmod +x $L
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;インスコ。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;t32k at MBP in ~
+$ time heroku apps &amp;gt;/dev/null
+real	0m1.980s
+user	0m0.711s
+sys	0m0.064s
+
+t32k at MBP in ~
+$ time hk apps &amp;gt;/dev/null
+real	0m0.724s
+user	0m0.076s
+sys	0m0.019s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;おぉー、桁が違うぜ！ってことで、速いもの好きなあなたはインストールしてみてはどうでしょうか。&lt;/p&gt;
+
+&lt;p&gt;僕もGoで作ったCLIツール作りたい٩(๑❛ᴗ❛๑)۶&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Heroku Dropbox Syncで実現するWeb開発の未来</title>
+            <link>https://t32k.me/mol/log/heroku-dropbox-sync/</link>
+            <pubDate>Sat, 13 Dec 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/heroku-dropbox-sync/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;http://qiita.com/advent-calendar/2014/heroku&#34;&gt;Heroku Advent Calendar 2014&lt;/a&gt;の13日目の記事です。&lt;/p&gt;
+
+&lt;p&gt;2014年11月に&lt;a href=&#34;https://blog.heroku.com/archives/2014/11/19/announcing_beta_dropbox_sync&#34;&gt;HerokuからDropbox Sync機能のアナウンス（Beta版）&lt;/a&gt;がありました。今日はこれを使ってみようと思います。&lt;/p&gt;
+
+&lt;p&gt;&lt;small&gt;この記事はBeta機能について解説しています。機能に関しては変更の可能性があります。&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;デザイナーとデプロイ&#34;&gt;デザイナーとデプロイ&lt;/h2&gt;
+
+&lt;p&gt;まず先に私とHerokuと言えば、&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats&lt;/a&gt;というCSS解析ツールをHeroku上で動かしています。私は元はWebデザイナーでしたので、つい最近まで『デプロイ？なにそれ？おいしいの？』って感じでしたが、&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイできるHerokuさんのおかげで、こんな私でもWebアプリを稼働・運用していけています。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;配備する、配置する、展開する、配置につく、などの意味を持つ英単語。
+ソフトウェアの分野で、開発したソフトウェアを利用できるように実際の運用環境に展開することをデプロイということがある。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://e-words.jp/w/E38387E38397E383ADE382A4.html&#34;&gt;デプロイとは 【 deploy 】： IT用語辞典&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;とはいえ、純粋なるWebデザイナーさんがGitコマンドを使いこなし黒い画面から&lt;code&gt;git push heroku master&lt;/code&gt;とタッターンッ！！と軽快にデプロイする姿を見れるのはまだ先かもしれません。&lt;/p&gt;
+
+&lt;p&gt;Herokuにデプロイすることに関して言えば、Gitコマンドを使いこなす必要はなく最低限のコマンドを覚えるだけですし、黒い画面も使わなくてもGUIアプリを使えばよいわけですが、やっぱりGitを使うということには見えない大きな壁があるように個人的には考えています。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、Gitを使わないユーザーにもデプロイの手段を提供するのが、今回のDropbox Sync機能です。その名の通り、Dropboxを通して、Web上からデプロイできる機能です。&lt;/p&gt;
+
+&lt;h2 id=&#34;heroku-dropbox-syncの使い方&#34;&gt;Heroku Dropbox Syncの使い方&lt;/h2&gt;
+
+&lt;p&gt;Dropboxであれば、デザイナーさんもよく使ってますよね、デザインマテリアルの保存とか、それこそDropboxでバージョン管理してたりとか、デザイナーさんにとってDropboxがGitみたいな位置づけかもしれません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig01.jpg&#34; alt=&#34;Heroku Dashboard&#34; /&gt;&lt;br /&gt;
+使い方はすごく簡単です。Herokuアカウントとか基本的なセッティングは終わってる前提で話します。まず、&lt;a href=&#34;https://dashboard.heroku.com/apps&#34;&gt;Heroku Dashboard&lt;/a&gt;で新規Appを作成して（ここではt32k-drop-sync）、Codeタブを選択してその下部に[Connect to Dropbox]のボタンがありますので、そこをクリックします。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig02.jpg&#34; alt=&#34;Authorize&#34; /&gt;&lt;br /&gt;
+Dropboxから確認を求められる画面になるので許可しましょう(Dropboxにログインしてなかったらまずログイン画面がでてきます)。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig03.jpg&#34; alt=&#34;Finder&#34; /&gt;&lt;br /&gt;
+許可するとローカルマシンの中に&lt;code&gt;Dropbox/アプリ/Heoku/t32k-drop-sync/&lt;/code&gt;というフォルダが作成されているのが確認できます。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;アプリ&lt;/code&gt;はローカライズ部分なので、人によっては&lt;code&gt;Dropbox/Apps/Heroku/{APP-NAME}&lt;/code&gt;って感じのディレクトリになってるかと思います。&lt;/p&gt;
+
+&lt;p&gt;あとはここのディレクトリにアプリを作成していくだけです。試しにRailsアプリを作ってみました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig05.png&#34; alt=&#34;Deploy&#34; /&gt;&lt;br /&gt;
+ひととおりの作業が終わったら、またHeroku Dashboardのt32k-drop-syncアプリのCodeタブの下部にデプロイボタンがあります。コミットメッセージを記入します。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig04.png&#34; alt=&#34;Deploy&#34; /&gt;&lt;br /&gt;
+うまくいけばこのようにチェックされます。というわけで、Dropbox Syncって名前だけど、Dropboxがファイルを同期するたびにデプロイが実行されるわけじゃないです。ちゃんとWeb UI上からデプロイボタンを押さないといけません。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig06.png&#34; alt=&#34;Rails new&#34; /&gt;&lt;br /&gt;
+とりま、できました。&lt;/p&gt;
+
+&lt;h2 id=&#34;heroku-dropbox-syncの使いドコロ&#34;&gt;Heroku Dropbox Syncの使いドコロ&lt;/h2&gt;
+
+&lt;p&gt;HerokuアプリをGitを使わずにDropbox Syncで作成できましたが、実際のところ、Herokuに新規アプリをデプロイするときにはアプリケーション側でいろいろ設定しなきゃいけないことが多いので、デザイナーがひとりで完遂できるかというと疑問ですが、Dropbox Syncはなにも新規アプリでDropbox Syncを有効にしたアプリだけに適用されるわけではないです。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/12-13-fig07.png&#34; alt=&#34;2Ways&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Gitで管理している既存アプリでもDropbox Sync機能を有効にすることができます。使い方は上記と同じです。また、デザイナーが修正したファイルをDropbox Syncからデプロイした場合、Git管理しているエンジニアは次にデプロイしたいときは&lt;code&gt;git pull heroku master&lt;/code&gt;をしてデザイナーが行った修正の差分をマージしておかなければなりません。その逆にエンジニアが&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイした場合は自動的にデザイナー側のDropboxが同期します。&lt;/p&gt;
+
+&lt;p&gt;極端な話、文言修正だけだったら、iPadにDropboxアプリ入れて、Dropbox連携のテキストエディタで編集して、Safariからデプロイボタン押せばiPadだけでデブロイが可能となります。&lt;/p&gt;
+
+&lt;p&gt;まぁそれ自体には意味は無いですけど、デプロイの敷居はだいぶ下がったのではないかなと思います。ちょっとデザイナーさんにバナー差し替えを依頼したいときなど、編集してaddしてcommitしてpushしてもらうより、Dropbox内のファイルいじってもらって、終わったらエンジニア側でデプロイボタン押せば圧倒的に説明コストが低くて済みます。&lt;/p&gt;
+
+&lt;p&gt;しかしコミットの粒度を考えると、こまめにGitでコミットしておいたほうがなにかと良いので、Dropbox Sync機能はその点まだクリアできていない問題だけど、非エンジニアのデプロイの敷居を下げるという意味ではすごく良いアプローチだと思うし、それで興味をもった人が今度はGitからデプロイ！って段階が踏めるようになったのは良い流れじゃないかなと個人的には感じます。&lt;/p&gt;
+
+&lt;p&gt;そういうわけで、エンジニアとデザイナー仲良くデプロイしていきましょう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://devcenter.heroku.com/articles/dropbox-sync&#34;&gt;Dropbox Sync | Heroku Dev Center&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>オンラインCSS解析 StyleStats.org</title>
+            <link>https://t32k.me/mol/log/stylestats.org/</link>
+            <pubDate>Thu, 10 Apr 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/stylestats.org/</guid>
+            <description>&lt;p&gt;前回&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;スタイルシートの統計情報を出力するNode Package&lt;/a&gt;を作ったわけだけど、やっぱりオンライン上で簡単に試せれたらいいよねーってことで、オンラインツールを作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats.org&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;使い方は、URLを入力するか、ローカルのファイルをアップロードするか、直接入力するか3種類選ぶことができる。&lt;/p&gt;
+
+&lt;p&gt;URLを入力するのが一番簡単なのでオススメ。自分の作ったサイトとか入力してみるといい。基本コマンドラインツールとしていることは同じなんだけど、&lt;code&gt;Unique Color&lt;/code&gt;のプレビューが見れるので『色使い過ぎだなー』とか実感出来る仕様になっている。&lt;/p&gt;
+
+&lt;p&gt;1px毎にフォントサイズが本当に必要なのか、この色と色はほとんど同じだけどマージできないのか、といったことを、結果を見ながらデザイナーと話し合うのに便利じゃないかな。やはり共通言語は数字だと思う。&lt;/p&gt;
+
+&lt;p&gt;あとはある程度validなCSSじゃないとパースエラーになって解析できない。たぶんCSSハックとか使ってるとエラーになると思う。&lt;/p&gt;
+
+&lt;p&gt;将来的にはDBに結果を貯めて期間で結果の変遷とか確認できるようにできたらいいなと思う（リファクタリングがどれだけできたのかとか確認できる）。&lt;/p&gt;
+
+&lt;p&gt;CSSとは関係ないけど&lt;a href=&#34;http://www.stylestats.org/&#34;&gt;StyleStats.org&lt;/a&gt;は、Node.js(Express) on Herokuで運用していて、いろいろ初めてで戸惑うこともあったけど、&lt;code&gt;git push heroku master&lt;/code&gt;でデプロイできるのはとっても簡単だなと思った。&lt;/p&gt;
+
+&lt;p&gt;もっといろんなアプリケーション作ってみたいなぁと思いました、まる。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>バッジ駆動開発（2014:Node.js）</title>
+            <link>https://t32k.me/mol/log/badge-driven-development/</link>
+            <pubDate>Mon, 24 Mar 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/badge-driven-development/</guid>
+            <description>
+
+&lt;p&gt;こんちわ！@t32kだよ。みんなバッジ好き？(　ﾟ∀ﾟ)o彡ﾟバッジ！バッジ！バッジ！&lt;/p&gt;
+
+&lt;p&gt;小学生の頃、自由勉強ノートってのがあって、勉強したページ分、先生からシールをもらってはそのノートに貼り付けていたのは良い思い出です。あのノスタルジーを再び！&lt;/p&gt;
+
+&lt;p&gt;ということで、大人の自由勉強ノートといえばGitHubレポジトリじゃないですか。OSSがんばります！私、気になります！そしたらシール欲しいじゃないですか？&lt;/p&gt;
+
+&lt;p&gt;あるよ、シールあるよ、シールってかバッジだけど。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;上記は最近作ってる&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;StyleStats&lt;/a&gt;のReadmeだけど、なんか緑のバッジいっぱいですよね。それを説明していく！&lt;/p&gt;
+
+&lt;h2 id=&#34;travis-ci-status-images&#34;&gt;Travis-CI Status Images&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://docs.travis-ci.com/user/status-images/&#34;&gt;Travis CI: Status Images&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まずは、この中のバッジの中では一番メジャーじゃないだろうか、Travisの Status Images。昔、@kyo_agoさんが『テストもしてないプラグインなんて怖くて使えませんよね！』と言ってたのを聞いて、その日のうちにとりあえずテスト書いて、テストしてるよって意味で載っけといた思い出深いバッジです。&lt;/p&gt;
+
+&lt;p&gt;Travis-CIでビルドがコケてるかどうか、要はテストが失敗してるかどうか、このバッジが赤いままだと、恥ずかしくて御天道様の下を歩くこともできません。&lt;/p&gt;
+
+&lt;h2 id=&#34;version-badge&#34;&gt;Version Badge&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig03.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://badge.fury.io/for/js/stylestats&#34;&gt;Version Badge for your RubyGems, PyPI packages, and NPM modules&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;次によく見かける、バージョンバッジ。gem, PyPI, NPMに登録してあるモジュールなら、サイトから検索してスニペット取得するだけ。&lt;/p&gt;
+
+&lt;p&gt;よく使っているモジュールの最新バージョンはいくつだろう？と思ってpackage.jsonとか見たりするけど、このバッジがReadmeに貼ってあると分かりやすくてよい。あと、NPMに登録してある＝野良モジュールじゃない、ってことでそれなりに、信用度があがる（なんでもNPMに登録できるからあんまり意味ない）、かもしれない。&lt;/p&gt;
+
+&lt;h2 id=&#34;david&#34;&gt;David&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig04.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://david-dm.org/&#34;&gt;David, a dependency management tool for Node.js projects&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;これもバージョン関係だけど、依存しているモジュールのバージョンが最新かどうかチェックしてくれるサービス。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://david-dm.org/t32k/stylestats#info=dependencies&amp;amp;view=table&#34;&gt;Dependency status for t32k - stylestats 2.3.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;こんな感じで&lt;code&gt;dependencies&lt;/code&gt;と&lt;code&gt;devDependencies&lt;/code&gt;が最新かどうかチェックしてくれる。Nodeのモジュールは開発が盛んだから、いつのまにかマイナー・メジャーバージョンが上がってたなんてことを気づかせてくれます。&lt;/p&gt;
+
+&lt;p&gt;まぁ安定して動いてくれてるならそのバージョンが古くても問題ないけど、やっぱり最新がいいよね！僕は新しいもの好きです！！私、気になります！！！&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://teppeis.hatenablog.com/entry/2013/12/node-github&#34;&gt;Node.jsの開発を超速化するGitHub連携 三種の神器 - teppeis blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;code-climate&#34;&gt;Code Climate&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig05.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeclimate.com/&#34;&gt;Code Climate. Hosted static analysis for Ruby and JavaScript source code.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;元は、Ruby専用のコード品質チェックサービスだったけど、最近JavaScriptにも対応したみたいだから導入してみた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/GPA&#34;&gt;GPA&lt;/a&gt;(Grade Point Average)って指標で、4ポイントが一番最高。オープンリポジトリなら無料で利用できるからみんなも見てみよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://codeclimate.com/github/t32k/stylestats&#34;&gt;Feed - Code Climate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最初にやってみたら0.何ポイントとかで、マジ焦って改善したのは良い思い出です。コードの冗長性とか複雑度とかいろいろ指摘してくれる、おもしろいサービスなので個人的にこれはおすすめ。あと、最近使っている&lt;a href=&#34;https://slack.com/&#34;&gt;Slack&lt;/a&gt;(チャットサービス)と連携できてGPAが上がった下がったの通知もしてくれるのもナイス♪&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://blog.ruedap.com/2013/09/02/travis-ci-coveralls-code-climate-github-badge&#34;&gt;Travis CIとCoverallsとCode Climateを使ってGitHubリポジトリにバッジを付ける - アインシュタインの電話番号&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;coveralls&#34;&gt;Coveralls&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2014/03-24-fig06.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://coveralls.io/&#34;&gt;Your Repositories | Coveralls - Test Coverage History &amp;amp; Statistics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;テストのカバレッジ（網羅率）を表示してくれるサービス。Travis-CI Status Imagesでpassedが出てても、極端な話、どんなテストでいいので、公開してるコードと関係ない単純なテストでも通ってれば、緑色のバッジを表示させることが出来る。&lt;/p&gt;
+
+&lt;p&gt;それじゃあんましなので、ちゃんとすべてのコードを網羅してるかどうかカバレッジを確認する必要がある。カバレッジ自体はローカルでもカバレッジを測定するツールを使えば確認できるけど(僕はMocha + Istanbulで取ってる)、それを公開するためのプラットフォームであるCoverallsがあることで、テストの信用性をほかのユーザーも簡単に確認できるのは良い。&lt;/p&gt;
+
+&lt;p&gt;最初にカバレッジを確認すると90%くらいで、もうちょっと上げたないなと思い、その過程でやっぱりテスト通ってないところでバグを発見したのでカバレッジ取っててよかったε-(´∀｀*)ﾎｯ&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&#34;http://boycook.wordpress.com/2013/09/17/javascript-coverage-with-istanbul-and-coveralls-via-travis-ci/&#34;&gt;JavaScript coverage with Istanbul and Coveralls via Travis CI | Craig Cook&amp;rsquo;s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;そんなわけでグリーンだよ！(・∀・)ｲｲ!!んだよってことで、やっぱり赤色のバッジをReadmeに貼ったままはカッコ悪い。そこで緑にしよう！もっといいポイントにしよう！ってモチベーションが湧いてくるのはよりよい開発を続けるためにはよいことだと思う。&lt;/p&gt;
+
+&lt;p&gt;また、Readmeとかで懇切丁寧な英語で解説できない分、緑色のBadgeを貼ってあるだけでも信用性をアピールできるのかなと思って最近、頑張ってたって話。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>StyleStats</title>
+            <link>https://t32k.me/mol/log/stylestats/</link>
+            <pubDate>Fri, 07 Mar 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/stylestats/</guid>
+            <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;&lt;img src=&#34;https://github-camo.global.ssl.fastly.net/84b33de130aae5ae27d571c5aa7e4970fc426be8/687474703a2f2f692e696d6775722e636f6d2f38316b4b6e78482e706e67&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;
+スタイルシートの統計情報を出力するNode Packageを作った。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/t32k/stylestats&#34;&gt;t32k/stylestats&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Node.js 0.10以上が必要で、CLIだとこんな感じの情報を出力してくれる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g stylestats
+$ stylestats path/to/stylesheet.css
+StyleStats!
+┌──────────────────────────┬───────────────┐
+│ Size                     │ 498.0B        │
+├──────────────────────────┼───────────────┤
+│ Rules                    │ 7             │
+├──────────────────────────┼───────────────┤
+│ Selectors                │ 11            │
+├──────────────────────────┼───────────────┤
+│ Simplicity               │ 63.64%        │
+├──────────────────────────┼───────────────┤
+│ Lowest Cohesion          │ 6             │
+├──────────────────────────┼───────────────┤
+│ Lowest Cohesion Selector │ hr            │
+├──────────────────────────┼───────────────┤
+│ Total Unique Font Sizes  │ 3             │
+├──────────────────────────┼───────────────┤
+│ Unique Font Size         │ 10px          │
+│                          │ 12px          │
+│                          │ 18px          │
+├──────────────────────────┼───────────────┤
+│ Total Unique Colors      │ 1             │
+├──────────────────────────┼───────────────┤
+│ Unique Color             │ #333          │
+├──────────────────────────┼───────────────┤
+│ Id Selectors             │ 1             │
+├──────────────────────────┼───────────────┤
+│ Universal Selectors      │ 0             │
+├──────────────────────────┼───────────────┤
+│ Important Keywords       │ 1             │
+├──────────────────────────┼───────────────┤
+│ Media Queries            │ 1             │
+├──────────────────────────┼───────────────┤
+│ Properties Count         │ font-size: 5  │
+│                          │ margin: 4     │
+│                          │ padding: 3    │
+│                          │ color: 2      │
+│                          │ display: 1    │
+└──────────────────────────┴───────────────┘
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;なんで作ったの&#34;&gt;なんで作ったの？&lt;/h2&gt;
+
+&lt;p&gt;そもそも論の話、HTML/CSSを書く人って私のようにデザイナー上がりだったり、私のようにプログラミング的バックグラウンドが無かったりする人が多い。そんもんだから、Sassなどのような多少なりともプログラミング的知識の必要となるCSSプリプロセッサを使うと、お盆の帰省ラッシュのようなCSSが吐出されて大変な結果になるってことを何度も経験してきた。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/sprite-image-vs-inline-image/&#34;&gt;CSSはレンダリングをブロックする&lt;/a&gt;ので、CSSファイルってゆうのは1Byteでも軽くしなければならないと感じている。もっと言えば、バックエンドの人がAkamaiとかに大金を払って得たスピード分をフロントエンドのHTMLのマークアップの仕方1つで消し飛ばすことも造作も無い。&lt;/p&gt;
+
+&lt;p&gt;なわけで、フロントエンド、特にHTML/CSSコーディングってのはパフォーマンス的にとても重要だと思っているが、前述のとおり、この分野には優秀な人材が少ない(&lt;a href=&#34;https://speakerdeck.com/jonrohan/githubs-css-performance&#34;&gt;GitHub&lt;/a&gt;なんかはコンピューター・サイエンス専攻したCSSデベロッパーがいるとか)。デキる人はみんなJavaScriptとかバックエンドとかネイティブアプリ書くほうに行っちゃう。だもんで、そうゆう分野にはテスト系のツールであったりコード解析のツールが一杯あって、みんなそうゆうのを使ってちゃんとしたプログラミングを書いている（はず）。&lt;/p&gt;
+
+&lt;p&gt;だもんで我々もCSSをちゃんとプログラミングするために下記の資料を読んどくと良いと思われる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/css-architecture.html&#34;&gt;CSS Architecture | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/code-smells-in-css.html&#34;&gt;Code smells in CSS | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/solidcss.html&#34;&gt;SOLID CSS | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://article.enja.io/articles/about-html-semantics-and-front-end-architecture.html&#34;&gt;About HTML semantics and front-end architecture | en.ja Article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stubbornella/csslint/wiki/Rules&#34;&gt;Rules · stubbornella/csslint Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;また最近、&lt;a href=&#34;http://csste.st/&#34;&gt;CSSのテスト&lt;/a&gt;も増えてきたけどまだまだ足りないというか成熟していないと思う。というわけでなんかそうゆう方向でコントリビュートできないかと思い作った。てかCLIのツール作りたかったんだけどね！&lt;/p&gt;
+
+&lt;h2 id=&#34;指標の意味&#34;&gt;指標の意味&lt;/h2&gt;
+
+&lt;p&gt;単純にファイルサイズだけを見ていても、そのCSSが良いCSSなのか悪いCSSなのかよくわからないし、そのほかのもスタイル情報も追加した。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/DlCfWNw.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;基本的な単語の定義は上記。&lt;/p&gt;
+
+&lt;h3 id=&#34;simplicity&#34;&gt;Simplicity&lt;/h3&gt;
+
+&lt;p&gt;個人的に気に入ってるのがこの指標。単純に&lt;code&gt;Rules/Selectors&lt;/code&gt;で割ったものをパーセンテージにしたものを僕が勝手に&lt;strong&gt;Simplicity&lt;/strong&gt;と言っている。要は1つのルールに1つのセレクタが対応していたほうが良いって意味。想定としているのはSassの&lt;code&gt;@extend&lt;/code&gt;とかで継承しまくってたら、この数値は低くくなる傾向がある。個人的には何度も言ってるけど、Webアプリのような複雑大規模なものをコーディングするのであれば。HTML側で責任をもって&lt;code&gt;&amp;lt;div class=&amp;quot;button button-alpha&amp;quot;&amp;gt;&lt;/code&gt;のようにマルチクラスでやれば良いと思う。じゃないと際限なくCSSファイルは膨れ上がる。あと、&lt;a href=&#34;http://meyerweb.com/eric/tools/css/reset/&#34;&gt;reset.css&lt;/a&gt;とかでもSimplicityは低くなるけど、そこは仕方がないかなと思ってるけども、&lt;code&gt;tt&lt;/code&gt;とか明らかに使わねーだろってタグはの定義は外しておいてもいいんじゃないか。&lt;/p&gt;
+
+&lt;h3 id=&#34;lowest-cohesion&#34;&gt;Lowest Cohesion&lt;/h3&gt;
+
+&lt;p&gt;Lowest Cohesionは、SOLID CSSのSingle Responsibility Principle / 単一責任の原則に由来してて、一つのルールセットにあまりいろいろなスタイルを詰め過ぎないほうがいい。各ルール内で一番宣言数が多いルールのセレクタと宣言数を返す。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;凝集度（ぎょうしゅうど、コヒージョン、cohesion）とは、情報工学においてモジュール内のソースコードが特定の機能を提供すべく如何に協調しているかを表す度合いである。IPAが実施する情報処理技術者試験では、強度(きょうど、ストレングス、strength)という言葉が使われる。凝集度は順序尺度の一種であり、「凝集度が高い」とか「凝集度が低い」といった言い方で使われる。凝集度の高いモジュールは、堅牢性、信頼性、再利用性、読みやすさなどの点で好ましく、凝集度の低いモジュールは保守/評価/再利用/読解が難しいため好ましくないとされる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://ja.wikipedia.org/wiki/%E5%87%9D%E9%9B%86%E5%BA%A6&#34;&gt;凝集度 - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;properties-count&#34;&gt;Properties Count&lt;/h3&gt;
+
+&lt;p&gt;どのプロパティがどれだけ宣言されているのか、デフォルトではTop10まで出力してくれる。これの意図は、何回も呼ばれるプロパティなら、それまとめてClassにして使えよ、何回も同じこと書くなよ、とのこと。全部見たかったら、&lt;code&gt;{&amp;quot;propertiesCount&amp;quot;: 1000}&lt;/code&gt;といった設定JSONファイルを一緒に読み込ませればよい。個人的にこれが欲しかったので作ったところもある。&lt;/p&gt;
+
+&lt;h2 id=&#34;jenkinsとの統合&#34;&gt;Jenkinsとの統合&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/t32k/stylestats/wiki/Plot-with-Jenkins&#34;&gt;Plot with Jenkins · t32k/stylestats Wiki&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;あとCLIだと、CSVで結果を出力できるので、それをJenkinsの&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/Plot+Plugin&#34;&gt;Plot Plugin&lt;/a&gt;を使ってプロットさせることができる。なので、@extendとか失敗してセレクタとか爆発的に増えたとかあったら、このグラフを見ればよいと思う（グラフがダサいの何とかしたい&amp;hellip;）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/1c0cwgo.png&#34; alt=&#34;1c0cwgo.png (750×450)&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;File Sizeの変遷&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/kF0CLWt.png&#34; alt=&#34;kF0CLWt.png (750×450)&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Style Infoの変遷&lt;/p&gt;
+
+&lt;p&gt;あと、GitHubへのPushをトリガにビルドを実行させればいちいちビルドボタン押さなくていいよね。たいしてビルドに時間かからないし、&lt;a href=&#34;http://www.cloudbees.com/&#34;&gt;CloudBees&lt;/a&gt;を使えば無料の範囲で記録できるよね。&lt;/p&gt;
+
+&lt;p&gt;ちゃんと記録しとけば、リファクタリングの成果もちゃんと報告できるよね！&lt;/p&gt;
+
+&lt;p&gt;そんなわけで、&lt;strong&gt;You can&amp;rsquo;t improve what you can&amp;rsquo;t measure!&lt;/strong&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>フロントエンドエンジニア（仮）</title>
+            <link>https://t32k.me/mol/log/i-wanna-be-a-front-end-engineer/</link>
+            <pubDate>Fri, 14 Feb 2014 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/i-wanna-be-a-front-end-engineer/</guid>
+            <description>
+
+&lt;iframe src=&#34;http://www.slideshare.net/slideshow/embed_code/31162704&#34; width=&#34;427&#34; height=&#34;356&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://event.shoeisha.jp/devsumi/20140213/session/389&#34;&gt;Developers Summit 2014：【13-D-3】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/i-wanna-bea-frontendengineer&#34;&gt;フロントエンドエンジニア（仮） 〜え、ちょっとフロントやること多すぎじゃない！？〜 // SlideShare &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;2年前でWebデザイナーだった私がどのようにフロントエンドエンジニアなっていったのか。デザイナーにもなれず、エンジニアにもなれないどっちつかずな職種で自分のアイデンティティを模索し、日々の膨大なタスクに追われながら、フロントエンドのワークフロー(Grunt)、最適化（パフォーマンス）について考えたことを紹介します。&lt;/p&gt;
+
+&lt;p&gt;『（仮）が取れた時、運命の技術者に出会える・・・』&lt;/p&gt;
+
+&lt;h2 id=&#34;自己紹介&#34;&gt;自己紹介&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/&#34;&gt;Koji Ishimoto - t32k.me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Web Performance
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/high-performance-web-design&#34;&gt;High Performance Web Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/coding-web-performance&#34;&gt;Coding Web Performance&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/long-life-web-performance-optimization&#34;&gt;Long Life Web Performance Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Web Analytics
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/using-google-analytics-with-jquery-mobile&#34;&gt;Using Google Analytics with jQuery Mobile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/lp19-ishimoto&#34;&gt;大規模サイトにおけるGoogleアナリティクス導入から成果まで&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Sass/Compass
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/web-15218538&#34;&gt;スマートフォンWebアプリ最適化”３つの極意”&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/sasscompass-20689960&#34;&gt;パフォーマンスから考えるSass/Compassの導入・運用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.slideshare.net/t32k/ss-15915114&#34;&gt;モバイル制作におけるパフォーマンス最適化について&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.manning.com/netherland/&#34;&gt;Manning: Sass and Compass in Action&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;フロントエンドエンジニアとは&#34;&gt;フロントエンドエンジニアとは？&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://rmurphey.com/blog/2012/04/12/a-baseline-for-front-end-developers/&#34;&gt;A Baseline for Front-End Developers - Adventures in JavaScript Development&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+&lt;li&gt;JavaScript&lt;/li&gt;
+&lt;li&gt;Git(and a GitHub account)&lt;/li&gt;
+&lt;li&gt;Modularity, dependency management, and production builds&lt;/li&gt;
+&lt;li&gt;In-Browser Developer Tools&lt;/li&gt;
+&lt;li&gt;The command line&lt;/li&gt;
+&lt;li&gt;Client-side templating&lt;/li&gt;
+&lt;li&gt;CSS preprocessors&lt;/li&gt;
+&lt;li&gt;Testing&lt;/li&gt;
+&lt;li&gt;Process automation (rake/make/grunt/etc.)&lt;/li&gt;
+&lt;li&gt;Code quality&lt;/li&gt;
+&lt;li&gt;The fine manual&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://uptodate.frontendrescue.org/&#34;&gt;How to keep up to date on Front-End Technologies - The Recipe&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;ツールを管理する&#34;&gt;ツールを管理する&lt;/h2&gt;
+
+&lt;h3 id=&#34;front-end-tooling-landscape&#34;&gt;Front-end Tooling Landscape&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://slid.es/passy/yeoman/fullscreen#/1/1&#34;&gt;&lt;img src=&#34;http://i.imgur.com/043Yanf.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Boilerplate&lt;/strong&gt; : HTML5 Boilerplate, Twitter Bootstrap, Backbone Boilerplate, Angular seed, Ember starter, Zurb Foundation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Abstractions&lt;/strong&gt; : CoffeeScript, Sass, Less, Compass, Jade, Haml, Zen coding, Markdown, Handlebars, Iced Coffee, TypeScript, Traceur&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Frameworks&lt;/strong&gt; : Backbone, Angular, Ember, YUI, Agility, CanJS, Dojo, Meteor, Derby, Spine, Batman, Cujo, Knockout, Knockback, jQuery Mobile, jQuery UI, Closure, ExtJS, Montage&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Workflow&lt;/strong&gt; : Chrome DevTools, LiveReload, Codekit, Brunch, WebStorm IDE, watch, Testing, Tincr, JSHint, BrowserStack, Selenium, WebGL Inpector&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Performance&lt;/strong&gt; : JavaScript, CSS and Heap profiling, GPU, memory, tracing, PageSpeed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt; : Grunt, Rake, Marven, Concat, r.js, Miification, Image optimization, Compression, Module loading, mod_pagespeed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GUI Apps&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass: Syntactically Awesome Style Sheets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://mhs.github.io/scout-app/&#34;&gt;Scout - Compass and Sass without all the hassle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://livereload.com/&#34;&gt;LiveReload&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://incident57.com/codekit/&#34;&gt;CodeKit — THE Mac App For Web Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Grunt&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/&#34;&gt;Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://nodejs.org/&#34;&gt;node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-cli -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Package.json&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sane defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install &amp;lt;pkg&amp;gt; --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt --save-dev
+$ npm install grunt-csso --save-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Gruntfile.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install grunt-init -g
+$ git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+$ grunt-init gruntfile
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Gruntfile.js&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;module.exports = function(grunt) {
+  // プロジェクト設定
+  grunt.initConfig({
+    // タスク設定
+    csso: {
+      files: {
+        &#39;output.css&#39;: [&#39;input.css&#39;]
+      }
+    }
+  });
+  // タスクに必要なプラグインを読み込む
+  grunt.loadNpmTasks(&#39;grunt-csso&#39;);
+  // カスタムタスクを設定
+  grunt.registerTask(&#39;default&#39;, [&#39;csso&#39;]);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gruntjs.com/plugins&#34;&gt;Plugins - Grunt: The JavaScript Task Runner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/t32k/maple&#34;&gt;t32k/maple&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;grunt-contrib-connect-watch&#34;&gt;grunt-contrib-connect/watch&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/MnhmDAPjwT8?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-sass&#34;&gt;grunt-sass&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/ZVXgibjJDwE?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-contrib-csslint&#34;&gt;grunt-contrib-csslint&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;360&#34; src=&#34;//www.youtube.com/embed/CjCpRjAX-HE?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4 id=&#34;grunt-kss&#34;&gt;grunt-kss&lt;/h4&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/WbZeB7hih_M?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yeoman.io/&#34;&gt;Yeoman - Modern workflows for modern webapps&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install yo -g
+$ npm install generator-maple -g
+$ mkdir your_proj &amp;amp;&amp;amp; cd $_
+$ yo maple
+$ grunt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;iframe width=&#34;640&#34; height=&#34;480&#34; src=&#34;//www.youtube.com/embed/GIMmipDkU2M?rel=0&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&#34;スピードを追跡する&#34;&gt;スピードを追跡する&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.smashingmagazine.com/2013/06/11/front-end-ops/&#34;&gt;Front-End Ops | Smashing Magazine&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It doesn’t matter how many features you have or how sexy your features are if they aren’t delivered to the user quickly, with ease, and then heavily monitored. ― Alex Sexton&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://shop.oreilly.com/product/9780596529307.do&#34;&gt;High Performance Web Sites - O&amp;rsquo;Reilly Media&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.webpagetest.org/&#34;&gt;WebPagetest - Website Performance and Optimization Test&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/webpagetest-5-minutes/&#34;&gt;WebPagetest in 5 minutes — MOL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/marcelduran/webpagetest-api&#34;&gt;marcelduran/webpagetest-api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.jenkins-ci.org/display/JENKINS/TAP+Plugin&#34;&gt;TAP Plugin - Jenkins - Jenkins Wiki&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ameblo.jp/principia-ca/entry-11561132297.html&#34;&gt;Velocity 2013 レポート｜サイバーエージェント 公式エンジニアブログ&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install webpagetest -g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Thank you!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

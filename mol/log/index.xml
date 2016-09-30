@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/log/</link>
+        <language>ja</language>
+        
+        
+        <updated>Thu, 22 Sep 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>カスタムドメインのGitHub PagesをSSL対応する</title>
+            <link>https://t32k.me/mol/log/secure-and-fast-github-pages/</link>
+            <pubDate>Thu, 22 Sep 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/secure-and-fast-github-pages/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-00.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;このブログは、&lt;a href=&#34;https://t32k.me/mol/mol/log/hugo/&#34;&gt;Hugo + GitHub Pagesで運用&lt;/a&gt;している。&lt;code&gt;*.github.io&lt;/code&gt;みたいなGitHubが提供しているドメインなら既にHTTPSの恩恵を受けられるが&lt;code&gt;t32k.me&lt;/code&gt;のカスタムドメインを使用している場合はその限りではない。そうゆうわけで、21世紀だし&lt;code&gt;https://t32k.me&lt;/code&gt;を目指す。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/blog/2186-https-for-github-pages&#34;&gt;HTTPS for GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以前にrudolph君さんパイセンが、Kloudsecを使えばチョー楽っすよ！って言ってたのを思い出して、それを使ってみようとしてみたが既に&lt;a href=&#34;https://www.reddit.com/r/webdev/comments/4s3kmf/got_an_email_saying_that_kloudsec_will_be/&#34;&gt;サービスが終了&lt;/a&gt;していた／(^o^)＼&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.rudolph-miller.com/2016/03/11/kloudsec-for-ssl-with-custom-domain-on-gh-pages/&#34;&gt;Kloundsec for SSL with Custom Domain on GitHub Pages - (rudolph-miller)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;というわけで、1000ch君さんパイセンの記事にあるように、CloudFlareを使用してSSL対応する。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://1000ch.net/posts/2015/github-pages-custom-domain-in-https.html&#34;&gt;GitHub Pagesに設定しているカスタムドメインをHTTPS対応させる - 1000ch.net&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;cloudflareでの登録&#34;&gt;CloudFlareでの登録&lt;/h2&gt;
+
+&lt;p&gt;まずは、CloudFlareのアカウントを登録しよう。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cloudflare.com/&#34;&gt;CloudFlare - The web performance &amp;amp; security company&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;んで、自分のサイトを追加する(Add Site)。次にCloudFlare Planを選べといわれるが、Free Planでも問題ない。&lt;code&gt;xxx.ns.cloudflare.com&lt;/code&gt;みたいなネームサーバーが2つ、もらえるので、それに変更する。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-01.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;自分の場合、ドメインはお名前.comで取得したので、そこでネームサーバーを変更する。変更が反映されると、自分の追加したサイトのステータスがPendingからActiveに変わる。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0922-02.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;あとは、Page Rulesのページに行き、自分のドメインのHTTPページのすべてのアクセスをHTTPSに変更する処理を設定すれば完璧だ。&lt;/p&gt;
+
+&lt;h2 id=&#34;後処理&#34;&gt;後処理&lt;/h2&gt;
+
+&lt;p&gt;しばらくするとHTTPSにリダイレクトされるようになるので、寝て待とう（最大で24時間かかるとか）。自分のサイトでHTTPからのリソース読み込みがあるとちゃんと緑の鍵アイコンにならないので、調べておこう。基本的に自分のドメイン配下のリソースはルートからの相対パスで書いているので、特に問題はなかった。ただ、Amazonのアフィリエイト画像がHTTPからの読み込みだったので&lt;a href=&#34;http://d.hatena.ne.jp/takeR/20141026/1414356669&#34;&gt;全置換して対応&lt;/a&gt;した。&lt;/p&gt;
+
+&lt;p&gt;やっぱり、ドメイン系は反映に時間がかかるのでやきもきしたが、終わってみれば簡単だった。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cloudflare.com/secure-and-fast-github-pages-with-cloudflare/&#34;&gt;Secure and fast GitHub Pages with CloudFlare&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>Google Analytics トラッキング スニペット再考（2016）</title>
+            <link>https://t32k.me/mol/log/use-async-attribute/</link>
+            <pubDate>Tue, 30 Aug 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/use-async-attribute/</guid>
+            <description>
+
+&lt;p&gt;最近、またGoogleアナリティクスの面倒を見ている。で、GAのドキュメントを見ていたら最近のイケてるトラッキングスニペットはこれだぜ！みたいなこと書いてあった。やれやれ、またかと思い、筆をとったのです。&lt;/p&gt;
+
+&lt;p&gt;トラッキングスニペットの移り変わり激しいもので、最近だとこうゆうのが一般的だろう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+(function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
+
+ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;);
+ga(&#39;send&#39;, &#39;pageview&#39;);
+&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;最近のおすすめはこれだとか。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt;&amp;lt;script&amp;gt;
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date
+ga(&#39;create&#39;, &#39;UA-XXXXX-Y&#39;, &#39;auto&#39;);
+ga(&#39;send&#39;, &#39;pageview&#39;);
+&amp;lt;/script&amp;gt;
+&amp;lt;script async src=&#39;//www.google-analytics.com/analytics.js&#39;&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;まぁやってることは、最初のスニペットはインラインJavaScriptでscript要素をインジェクトし、そこでanalytics.jsを読み込んでいる。なぜかそうするのかというと、それは非同期読み込みのためなのだけど、後者のスニペットはその処理をすべて&lt;code&gt;async&lt;/code&gt;属性が担っているので、とってもすっきり。&lt;/p&gt;
+
+&lt;p&gt;非同期読み込みの利点は過去の記事を参照。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/asynchronous-tracking/&#34;&gt;Google Analytics トラッキング スニペット再考（2010）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/defer-parsing-of-google-analytics/&#34;&gt;Google Analytics トラッキング スニペット再考（2012）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://caniuse.com/#search=async&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0830-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;async&lt;/code&gt;属性の対応状況なのだけど、IE9以前とかを気にしなくてよいのなら、このスニペットに置き換えて良いかなと思う。&lt;/p&gt;
+
+&lt;p&gt;個人的に、2つのトラッキングスニペットは記述の仕方が違うだけで。やってることは同じなんだろうと考えていたのだけど、実はそうではないらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;上記の JavaScript トラッキング スニペットにより、すべてのブラウザでスクリプトが確実に読み込まれ、非同期的に実行されますが、最新のブラウザでは、スクリプトをプリロードできないという欠点があります。この問題の対策として、次のような代替の非同期トラッキング スニペットを使用することで、最新ブラウザでのパフォーマンスをわずかに向上させることができます - &lt;a href=&#34;https://developers.google.com/analytics/devguides/collection/analyticsjs/?hl=ja&#34;&gt;サイトに analytics.js を追加する | ウェブ向けアナリティクス&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;『&lt;strong&gt;わずかに向上させる&lt;/strong&gt;』ってどうゆうことだってばよ？、『&lt;strong&gt;プリロード&lt;/strong&gt;』ってなによ？と思い、また筆をとってしまったのです。&lt;/p&gt;
+
+&lt;p&gt;ググったら、myakuraが書いてた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;script async を使えば、非同期で読み込まれるし、プリロードスキャナの恩恵にも預かれるとのこと。- &lt;a href=&#34;http://myakura.hatenablog.com/entry/2014/10/14/061713&#34;&gt;script asyncでJavaScriptの非同期読み込みを - fragmentary&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;preloadscanner&#34;&gt;PreloadScanner&lt;/h2&gt;
+
+&lt;p&gt;『プリロードスキャナ』ってなによ！&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/-GWWQ9jKgxA&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;わかりやすいYouTubeがあった。&lt;/p&gt;
+
+&lt;p&gt;本来、ブラウザはscript要素を見つけるとDOMの構築をやめ、読み込み・実行が終わるまで待つ。JavaScriptでDOMを変更することができるからね。つまり後続のリソースの読み込みは本来ブロックされるはずだ。しかし、現在のブラウザではJavaScript+CSSのように並列に読み込みが可能である。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.browserscope.org/?category=network&amp;amp;v=top&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0830-01.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;これがPreloadScannerの仕事らしい。PreloadScannerは副次的なパーサーみたいなもので、メインのパーサがscript要素を見つけてパースを止めると、PreloadScannerが実行され後続のリソースを見つけ読み込む。こいつのすごいところは、画像よりもCSS/JSを先に読み込みなどの優先度もつけてくれるところ。&lt;/p&gt;
+
+&lt;p&gt;では、普通にscript要素を読みこめばいいじゃないか！と思われるが、DOMの構築はブロックされているので、レンダリングが完了する時間が遅くなるからダメ！&lt;/p&gt;
+
+&lt;p&gt;では、Script要素をインジェクトするやり方でもいいジャマイカ！と思われるが、それだどCSSOM（CSSオブジェクトモデル）の構築をまたなけばならない。なぜならJavaScriptでスタイルの変更を許容しているから、JavaScriptはCSSがどうゆう状態か知らなければならない。これがasync属性だとCSSOMの構築を待たなくても良い。この部分、GAのスニペットで言う『&lt;strong&gt;わずかな向上&lt;/strong&gt;』ということだろう。個人的には最近のWebアプリの見た目はリッチになってきてCSSのファイルサイズも増えてるので、やっておいて損はないと思う。&lt;/p&gt;
+
+&lt;p&gt;またscript要素をインジェクトするやり方だと、リソースのパスはインラインJavaScriptの中にある。これだとPreloadScannerさんが見つけれらない。なので、描画に関係ないJavaScriptなら、&lt;code&gt;async&lt;/code&gt;属性で読みこめば、『&lt;strong&gt;プリロード&lt;/strong&gt;』の恩恵を受けられるということだ。PreloadScannerの実装自体は2008年ごろwebkitで実装されているので、そんなに新しい技術でもない。頭もすっきりした。&lt;/p&gt;
+
+&lt;p&gt;ブラウザさんに敬礼！ブラウザさんに身を委ねよ！&lt;/p&gt;
+
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/&#34;&gt;Script-injected &amp;ldquo;async scripts&amp;rdquo; considered harmful - igvita.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://andydavies.me/blog/2013/10/22/how-the-browser-pre-loader-makes-pages-load-faster/&#34;&gt;How the Browser Pre-loader Makes Pages Load Faster - Andy Davies&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://webkit.org/blog/166/optimizing-page-loading-in-web-browser/&#34;&gt;Optimizing Page Loading in the Web Browser | WebKit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/adding-interactivity-with-javascript?hl=ja&#34;&gt;JavaScript のインタラクティブ機能を追加する | Web Fundamentals&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model?hl=ja&#34;&gt;オブジェクト モデルを構築する | Web Fundamentals&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>オフィスワークに戻って1ヶ月...</title>
+            <link>https://t32k.me/mol/log/office-work/</link>
+            <pubDate>Tue, 16 Aug 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/office-work/</guid>
+            <description>
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0816-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;写真：&lt;a href=&#34;http://mercan.mercari.com/entry/2016/06/24/110000&#34;&gt;メルカリの東京オフィス紹介｜まちコラ #1 - mercan&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;どうも。フロントエンドエンジニアのt32kです。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/mol/mol/log/mercari/&#34;&gt;転職してから&lt;/a&gt;ちょうど1ヶ月が経った。ということは、僕の場合、リモートワークからオフィスワークに変わって1ヶ月経ったという意味でもある。&lt;a href=&#34;https://medium.com/kaizen-product-team/%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AB%E3%83%BC%E3%81%A8%E3%81%97%E3%81%A6%E5%BF%83%E3%81%8C%E3%81%91%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8-9533e12578fa#.h7zcjptxh&#34;&gt;前職はフルリモートもOK&lt;/a&gt;（オフィスに来ても良い）という会社だったので、オフィスから徒歩15分のところでフルリモートしていた。そうゆうわけで、またオフィスワークに戻ったので、1ヶ月を振り返ってみる。&lt;/p&gt;
+
+&lt;h2 id=&#34;通勤&#34;&gt;通勤&lt;/h2&gt;
+
+&lt;p&gt;世の中にはなぜ通勤というタスクがあるのだろうか、しかもこのタスクが仕事の始まる前に待ち構えている。テンションだだ下がりだ。しかも、今は夏だし、なかなか、けっこー、マジ、ダルいよね。&lt;/p&gt;
+
+&lt;p&gt;ただ、弊社は12-17時のコアタイム（基本的にオフィスにいなきゃいけない時間帯）のフレックスだ。僕は11-20時で働くようにしているから朝の通勤ラッシュは幸い避けられる。帰りはちょいちょい混む。定期というものを久しぶりに買う事になって、ICタイプじゃなくて磁気式の定期券買うミスもした。&lt;/p&gt;
+
+&lt;p&gt;大江戸線、深いねん！上昇しろ！&lt;/p&gt;
+
+&lt;h2 id=&#34;オフィス環境&#34;&gt;オフィス環境&lt;/h2&gt;
+
+&lt;p&gt;まぁガヤガヤしてるよね。当たり前だけど。突然始まる井戸端MTG的なものとか、最初は懐かしく感じて、話には加わってないけどなんとなく問題は共有できたりして、これがオフィスで働くメリットかー！って感じていたけど、2回目以降はうるさいからMTGルームでやれよと思っている（そしてドキュメントに残せ）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0816-01.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;写真：&lt;a href=&#34;http://mercan.mercari.com/entry/2016/06/24/110000&#34;&gt;メルカリの東京オフィス紹介｜まちコラ #1 - mercan&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;たまたま、ノイズキャンセリングイヤホンを持ってくるのを忘れた時は集中BOXみたいな個室があるので、そこで騒音からは回避できたのはよかった。新人なのでMTGも入ってないし、気楽だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0816-02.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;写真：&lt;a href=&#34;http://mercan.mercari.com/entry/2016/06/24/110000&#34;&gt;メルカリの東京オフィス紹介｜まちコラ #1 - mercan&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;あとは、スタンディングテーブル的なものや、東京タワーが見える窓際カウンターがあったり、ソファがあったり、畳ブース的なものがあったり、自分の机以外にも気分を変えられるスペースがあるので、まぁいいかと思っている。&lt;/p&gt;
+
+&lt;p&gt;大江戸線、車体大きくしろ！&lt;/p&gt;
+
+&lt;h2 id=&#34;情報共有&#34;&gt;情報共有&lt;/h2&gt;
+
+&lt;p&gt;社内Wikiソフトの移行期間だからなのか、あまりドキュメントを気にしない人たちなのか、古い情報がほったからしアンド散見されるので、新人の僕は何度もハマっている&amp;hellip;まぁ本気でわからなかったら、周りの人捕まえて聞けばいいだけなんだけど、それもダルい。Web上の情報で完結しない。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0816-03.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;写真：&lt;a href=&#34;http://mercan.mercari.com/entry/2016/07/22/193329&#34;&gt;#メルカリな日々 2016/7/22 今日はTGIF開催したよ~ - mercan&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;あとはシャッフルランチとかTGIFの社内飲み会的なものもあたりして、仲がよくなるような機会があるので、Face2Faceでなんかやっぱりコミュニケートしたほうがいいんだろう。あと社外勉強会もイベントスペースで隔週くらいで開催していて、気軽に参加できてよい。&lt;/p&gt;
+
+&lt;p&gt;大江戸線、本数増やせ！&lt;/p&gt;
+
+&lt;h2 id=&#34;生活リズム&#34;&gt;生活リズム&lt;/h2&gt;
+
+&lt;p&gt;前職は完全なる裁量労働制だったので、自己コントロールできない僕はどうしても生活リズムが狂ってきてしまう。だらだら仕事を続けたりとか。&lt;/p&gt;
+
+&lt;p&gt;その点、通勤はやはり良い切り替えになることはなるので良い。また家で仕事をしていると&lt;a href=&#34;https://t32k.me/mol/mol/log/my-drip-brewing-2016/&#34;&gt;コーヒーマシンがある&lt;/a&gt;ので、ついつい飲み過ぎてしまって、夜なかなか寝付けなかったが、オフィスでは缶コーヒー飲めるけど、そんなに飲まないので最近は寝付きが良い。&lt;/p&gt;
+
+&lt;p&gt;大江戸線、六本木ヒルズに直結しろ！&lt;/p&gt;
+
+&lt;h2 id=&#34;オフィスワークの利点&#34;&gt;オフィスワークの利点&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0816-04.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;資料：&lt;a href=&#34;http://www.slideshare.net/takaumada/startup-paradox-thinking/111&#34;&gt;逆説のスタートアップ思考&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;多様性とは少しずれるが、スタートアップのスピードだけが武器というのは禿同で、コミュニケーションロスとなるものは、できるかぎり回避しなければならないと個人的に考えている。その点、オフィスワークはリモートワークより仕事の進み方が早い。このメリットを最大限活かすようにスピード感大事に開発していきたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://www.mercari.com/jp/about/&#34;&gt;All for One – 全ては成功のために&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;まぁ、そうゆうわけで問題なく社会復帰できている（t32kにはリモートワークは早すぎたのよ）。若干、通勤に難はあるが引っ越しすればいいかと思っている。&lt;/p&gt;
+
+&lt;p&gt;もう大江戸線なんて知らないからね！日比谷線に行っちゃうかんね！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>株式会社メルカリに入社しました！</title>
+            <link>https://t32k.me/mol/log/mercari/</link>
+            <pubDate>Sat, 16 Jul 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/mercari/</guid>
+            <description>&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0716-00.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;正確には子会社の&lt;a href=&#34;https://www.souzoh.com/jp/&#34;&gt;ソウゾウ&lt;/a&gt;に出向という形で&lt;a href=&#34;https://www.mercariatte.com/jp/&#34;&gt;アッテ&lt;/a&gt;というサービスを開発します。GolangやGoogle Cloud Platformを使ってるということで、新しい環境にワクワクです。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;渋谷 新宿 六本木 そう思春期も早々に これにぞっこんに&lt;br /&gt;
+キーボードなら置き放っしてきたKAIZENに&lt;br /&gt;
+マジ親に迷惑かけてない本当に だが時は経ち今じゃ雑誌のカヴァー&lt;br /&gt;
+そこらじゅうで幅をきかすDON DADA&lt;br /&gt;
+マイク掴んだらマジでNo.1東京代表トップランカーだ&lt;br /&gt;
+そうこの地この国に生を授かり naoyaに無敵のマイク預かり&lt;br /&gt;
+仲間たち親たちファンたちに 今日も感謝して進む荒れたオフロード&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ってな感じで頑張っていきます。六本木の皆さんは絡まってくださいm(_ _)m&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.wantedly.com/companies/mercariapp-com&#34;&gt;株式会社メルカリの最新情報 - Wantedly&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ネイティブアプリなイメージの強いメルカリですが、今後はWebにも力を入れてくそうで、全方位で採用中っぽいです。よろしくお願いします(｀･ω･´)ゞ&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00002DDAT/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41HCM4SD6JL._SL160_.jpg&#34; alt=&#34;Viva La Revolution&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00002DDAT/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Viva La Revolution&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.16&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Dragon Ash,降谷建志,ACO,ZEEBRA&lt;br /&gt;ビクターエンタテインメント&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00002DDAT/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>マイクロインタラクション事始め以前</title>
+            <link>https://t32k.me/mol/log/microinteractions/</link>
+            <pubDate>Mon, 04 Jul 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/microinteractions/</guid>
+            <description>
+
+&lt;p&gt;&lt;small&gt;（アニGIFあるのでちょっと重いです&amp;hellip;）&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://t32k.me/slides/2016/microinteractions/&#34;&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0704-00.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/slides/2016/microinteractions/&#34;&gt;マイクロインタラクション事始め以前 @Yahoo!Japan 2016.07.04&lt;/a&gt;　　&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;先日、とある社内勉強会にて発表する機会があったので書き残しておく。要は最近のフロントエンド開発の流れに疲れて、もうちょっと違う方向で頑張ろうと思った話。&lt;/p&gt;
+
+&lt;h2 id=&#34;葛藤&#34;&gt;葛藤&lt;/h2&gt;
+
+&lt;p&gt;Kaizen Platform, Inc. フロントエンドデベロッパーのt32kです。皆さん、ご存知かもしれませんが、Kaizen PlatformはA/Bテストツールを提供しています。そのA/Bテストのデザイン案も国内外約2千名のグロースハッカーと呼ばれる方々から、クラウドソーシングで調達することができます。なので、自社内にデザイナー抱えてなくてもA/Bテストが実行可能です。&lt;/p&gt;
+
+&lt;p&gt;グロースハッカーの登録自体は無料ですので、デザイナーの方はぜひ登録してもらうと、コンバージョン率の高いデザインとはどうゆうものなのかとか勉強になってよいかと思います。いろいろな企業からオファーという形でA/Bデザイン案が募集されています。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kaizenplatform.com/ja/about_growth_hacker.html&#34;&gt;グロースハッカー | Kaizen Platform, Inc.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;私はそのKAIZEN DASHBOARDと呼ばれる、A/Bテストのレポート・オファー募集などの画面を作っています。2015年の夏にリニューアルしたので、フロントエンドの開発環境は以下の通り、若干、最新とは言えない状況です。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Angular.js v1.x&lt;/li&gt;
+&lt;li&gt;Jade/Slim&lt;/li&gt;
+&lt;li&gt;SCSS&lt;/li&gt;
+&lt;li&gt;CoffeeScript&lt;/li&gt;
+&lt;li&gt;webpack/Gulp&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このまま未来永劫、同じ開発環境でいくとは限らないので、順次アップデートしていかなければならないのですが、フロントエンドの流れに若干疲れました(´・ω・｀)。疲れることに定評のあるt32kですが、以前にもビルドツールで消耗した記事を書きました。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/log/npm-run-script/&#34;&gt;Grunt/Gulpで憔悴したおっさんの話 - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;今回はSPAのJSフレームワークに関してです。現在Angular v1.xを使っていますが、これをv2.0にするのか、それともReactなのか、それとも他のSPAフレームワークに置き換えることが目下の課題です。&lt;/p&gt;
+
+&lt;p&gt;そもそも、最近ではSPA必要なの？問題が話題となっていました。そのアンサー記事のなかで下記の一文に個人的に同意できました。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;ちゃんとしたWebアプリケーションのUIを考えたらSPAにならざるを得ないということが多い
+ ― &lt;a href=&#34;http://nobkz.hatenadiary.jp/entry/2016/06/02/005114&#34;&gt;SPAである価値 - nobkzのブログ&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;皆がスマホを持ちネイティブアプリが普通に使われている現在、当然ユーザーはその使い心地やルック&amp;amp;フィールをWebアプリにも求めることでしょう。そのような中で、SSR（サーバーサイドレンダリング）でページ単位でリクエストしていると、ページ間遷移時のトランジションエフェクトが適用できなかったりします。&lt;/p&gt;
+
+&lt;p&gt;そういった面から、KAIZEN DASHBOARDを振り返ってみると、toBのビジネスのためか、なにか硬い印象をもつザ・ギョーム・アプリケーションになっています。SPAで作っているので基本的にはAPIのデータのやりとりだけでページを軽快に切り替えることができるはずですが、やはりキャッシュ制御は難しく、理想には程遠いモッサリ感です。さらには複雑なフロントエンド開発で疲労困憊な状態です。&lt;/p&gt;
+
+&lt;p&gt;このような状況でフロントエンドエンジニアとしてユーザーに価値を提供できているのか？と疑問を持つようになりました。両方SPAである、AngularからReactに作り変えて何の意味があるのか。それよりもSPAの良さを引き出す努力をすべきなのではないかという思いが強くなってきました。&lt;/p&gt;
+
+&lt;h2 id=&#34;光明&#34;&gt;光明&lt;/h2&gt;
+
+&lt;p&gt;SPAのメリット、つまりネイティブアプリのような操作感とはどのようなものか？インタラクションデザインの研究者である渡邊恵太氏は、iPhoneの使いやすさに関してこう評しています。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41AgS62PXgL._SL160_.jpg&#34; alt=&#34;融けるデザイン ―ハード×ソフト×ネット時代の新たな設計論&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;融けるデザイン&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;渡邊恵太&lt;br /&gt;ビー・エヌ・エヌ新社&lt;br /&gt;売り上げランキング: 56189&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4861009383/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;指とグラフィックとの高い動きの連動性が道具的存在となり、自己帰属感ををもたらす。そしてその結果、道具としての透明性を得るためだ&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;道具が道具として意識されず、身体の拡張のような状態になっていると言っています。このような状態は、他の言葉でも表せることが可能かと思います。フローとは、完全に集中してのめり込んでいる状態のことをいいます。ユーザーがこのような状態になっているとき、アプリケーションに対する評価は高いものとなっています。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41GrqvZVxsL._SL160_.jpg&#34; alt=&#34;フロー体験入門―楽しみと創造の心理学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;フロー体験入門&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;M.チクセントミハイ,大森 弘&lt;br /&gt;世界思想社&lt;br /&gt;売り上げランキング: 11959&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4790714799/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;では、このようなフローをどのように起こさせるのでしょう。フローを構成する要素としてはいくつかありますが、ここでは2点を挙げます。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;直接的で即座な反応(活動の過程における成功と失敗が明確で、行動が必要に応じて調節される)&lt;/li&gt;
+&lt;li&gt;状況や活動を自分で制御している感覚&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;このことから私は以下のように目標を設定しました。&lt;/p&gt;
+
+&lt;p&gt;『トリガーに対するフィードバックの&lt;strong&gt;プロセス&lt;/strong&gt;を表示することで、ユーザーの理解を促進する。適切で即座なフィードバックを返すことでユーザーをフロー（に近い）状態にさせる』&lt;/p&gt;
+
+&lt;p&gt;この目標に対して、フロントエンドエンジニアとしてモーションやインタラクションをデザインについて考える必要がありました。ただ、一から考えるのは大変なので、GoogleのMaterial Designを参考にしました。&lt;a href=&#34;https://material.google.com/motion/material-motion.html&#34;&gt;Material Designはモーションに関しても詳細なガイドライン&lt;/a&gt;があるので、大変参考になります。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Meaningful transitions&lt;/strong&gt; 意味のあるトランジションを心がけよう&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visual continuity&lt;/strong&gt; ビジュアルの一貫性に気をつけよう&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delightful details&lt;/strong&gt; 遊び心もあればいいよね！&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;実装&#34;&gt;実装&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/animation.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;まずはじめに、汎用アニメーションを定義したCSSをいくつか用意しました。このCSSを動かしたい要素に対して指定するだけで、その要素の状態が変化したときにfadeやzoomといったアニメーションが作動します。これを実現しているのはAngularの&lt;a href=&#34;https://docs.angularjs.org/api/ngAnimate&#34;&gt;ngAnimate&lt;/a&gt;という機能を使っているからです。これは、ng-showやng-hideディレクティブが指定されている要素のモデルに変更があった場合、A
+ngular側で、&lt;code&gt;.ng-enter&lt;/code&gt;や&lt;code&gt;.ng-leave&lt;/code&gt;などのアニメーションのフックとなるCSSクラスを自動的に付与してくれるので事前にアニメーションを定義できるのです。同様な機能はReactやVue.jsにもあるので利用可能です。&lt;/p&gt;
+
+&lt;p&gt;Build In-Outは表示・非表示になるものに対して。Actionはアニメーション後もその場に残るものに対して適用するのがよいでしょう。ちなみに、個人的にアニメーションが定義しているCSSに関しては&lt;code&gt;a-&lt;/code&gt;というプレフィックスをつけてグルーピングしています。&lt;/p&gt;
+
+&lt;p&gt;Durationに関しては、あまり長い時間を指定すると体感速度を遅く感じさせてしまう危険性があります。Material Designではデバイスの解像度にもよりますが150ms~375msくらいが適切だと記述してあります。&lt;/p&gt;
+
+&lt;p&gt;ngAnimateを使ったサンプルをCodePenにあげときましたので、いろいろいじってみるとよいです。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://codepen.io/t32k/pen/obroxj&#34;&gt;ngAnimation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://codepen.io/t32k/pen/KzKLKL&#34;&gt;ngAnimation playground&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;デザイン案いいね-アニメーション&#34;&gt;デザイン案いいね！アニメーション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_like.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;さて、実際の実践例ですが、まずはじめに作ったのが、デザイン案いいね！アニメーションです。
+これは、グロースハッカーさんが作ったデザイン案に対して、他の人がいいね！をつけれる機能です。まぁ作ったと言っても、イージングを少しいじった程度です。アニメーションなどに気にも留めていなかったら、いいね！機能実装タスクなんてものは、この場合、ハートの色をグレーからピンクに変えただけで終わっていたでしょう。これでなにか劇的に変わるといったものではないですが、このようなDelightful detailsの積み重ねが大事だと考えています。&lt;/p&gt;
+
+&lt;h4 id=&#34;同オファー複数デザイン案の展開トランジション&#34;&gt;同オファー複数デザイン案の展開トランジション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_expand.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;いいね！のアニメーションが同僚に好評で、調子に乗ったt32kが、次にやったのが同オファー複数デザイン案の展開トランジションです。これは同じオファーでグロースハッカーさんが複数デザイン案を投稿した場合、たいていそのデザイン案は色違いやキャッチコピーの違いだけであまりビジュアル的差分がないので、一番改善率が高いものだけ表示して他はまとめているといった状態です。これをもし、トランジション無しに他のデザイン案が展開されたら、パッと見、いったいどこまで同じオファーグループのデザイン案か分かりにくい状態だったかと思います。これはMeaningful transitions意識したもので、代表デザイン案のカード（左）から&lt;code&gt;.a-compress-right&lt;/code&gt;で出てくることで同グループであることを理解させたいためでした。&lt;/p&gt;
+
+&lt;h4 id=&#34;ディレクション割り当てインタラクション&#34;&gt;ディレクション割り当てインタラクション&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/slides/2016/microinteractions/img/mm_direction.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;トランジションやアニメーションに慣れてきたので、今度はそれらを組み合わせることで、ちょっとしたマイクロインタラクション的なものを実装できるようになりました。ディレクション割り当てインタラクションはオファーに対してグロースハッカーではなくディレクターをアサインする機能です。従来の方法でこの機能を実装すれば、『ディレクションをアサインする』ボタンを置き、そのボタンを押すとモーダル画面が展開され、ユーザー一覧からアサインさせるといったのが普通です。現にそのような手法はDashboardでも多く使われています。ただそれだと、モードの切替のコストも高いですし、手順も多いです。今回のインタラクションはトリガーとそれのフィードバックも近いところで発生しており、Visual continuityもあり直感的なインタラクションになってるかと思います。&lt;/p&gt;
+
+&lt;h2 id=&#34;共有&#34;&gt;共有&lt;/h2&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51LgvWft-IL._SL160_.jpg&#34; alt=&#34;マイクロインタラクション ―UI/UXデザインの神が宿る細部&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;マイクロインタラクション&lt;br&gt;UI/UXデザインの神が宿る細部&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.7.6&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Dan Saffer,武舎 広幸,武舎 るみ&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 60411&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873116597/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;実装したら他の同僚に共有しましょう。共有するときに、動きやモノに名前が決まっていると説明しやすいです。例えば、先ほどのインタラクションは、&lt;/p&gt;
+
+&lt;p&gt;トリガーをクリックすると絞り込みフォームが&lt;code&gt;.a-compress-right&lt;/code&gt;で出てきて、次にユーザーリストが&lt;code&gt;.a-compress-bottom&lt;/code&gt;で出現。ユーザーをクリックすると&lt;code&gt;.a-move-right&lt;/code&gt;でremoveされ、&lt;code&gt;.a-fade&lt;/code&gt;でディレクションとして出現する。&lt;/p&gt;
+
+&lt;p&gt;といった感じで表現できます。&lt;/p&gt;
+
+&lt;p&gt;私はデザイン畑出身のフロントエンドエンジニアでこのようなインタラクションやモーションに関して疎くないのですが、エンジニア畑出身のフロントエンドエンジニアと一緒に作業するときはこういった取り決めがあるとスムーズに進むことでしょう。またデザイナーも必ずしもコードがかけたりインタラクションに造詣があるといったこともないので、みんなで作っていく姿勢が大事かと思います。&lt;/p&gt;
+
+&lt;p&gt;最後になりましたが、あまり大げさに捉えることなく、できることから、小さなところから手を付けて行くのが良いかと思います。そういった小さな、つまりマイクロインタラクションの集合が使いやすいアプリケーションとなりユーザーに価値を提供できるのではないかと考えています。&lt;/p&gt;
+
+&lt;p&gt;ありがとうございましたm(_ _)m&lt;/p&gt;
+
+&lt;p&gt;あと、弊社ではインタラクションデザインとかもできちゃうフロントエンドエンジニアを募集しております。よろっしゃお願いしすm(_ _)m&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://jobs.lever.co/kaizenplatform/8a4371bd-8a4f-465c-81b1-8a28b9851a48&#34;&gt;Kaizen Platform, Inc. - Frontend Engineer/ フロントエンドエンジニア&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;今回アニメーションGIFを載せたかったので、KeynoteやめてHTMLスライドを使用した。使ったのはTalkie。PDF化まで名古屋人によるもの。あーなごやか。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/ahomu/Talkie&#34;&gt;ahomu/Talkie: Simple slide presentation library.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.wnotes.net/blog/article/talkie-slide-to-pdf-tool&#34;&gt;TalkieのスライドをPDF化するツール作った | ブログ :: Web notes.log&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>パフォーマンス向上のためのデザイン設計</title>
+            <link>https://t32k.me/mol/log/designing-for-performance/</link>
+            <pubDate>Tue, 28 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/designing-for-performance/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51ckdAnKBoL._SL160_.jpg&#34; alt=&#34;パフォーマンス向上のためのデザイン設計&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;パフォーマンス向上のためのデザイン設計&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Lara Callender Hogan,西脇 靖紘,星野 靖子&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 4769&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;small&gt;画像： &lt;a href=&#34;https://en.wikipedia.org/wiki/Tufted_coquette&#34;&gt;Tufted coquette - Wikipedia, the free encyclopedia&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;ハンドメイドマーケットプレイスを運営し、Webパフォーマンスの取り組みが素晴らしいことでも有名な&lt;a href=&#34;https://codeascraft.com/&#34;&gt;Etsy社のエンジニアリング&lt;/a&gt;マネージャーが書いた本。フロントエンドのパフォーマンスと言うと、Steve Souders氏の『&lt;a href=&#34;https://www.amazon.co.jp/dp/487311361X/?tag=warikiru-22&#34;&gt;ハイパフォーマンスWebサイト&lt;/a&gt;』は有名で基本的なことは原則は変わってはいないが、原著が出版されたのが2007年と考えるといささか古い。&lt;/p&gt;
+
+&lt;p&gt;『Googleの検索結果で何秒遅れたら〜』、『Amazonのサイトで何秒遅れたら〜』と言った聞き飽きた事例などが本書ではアップデートされ、新しい事例や、比較的最近のフロントエンド技術が紹介されており、とっつきやすくなっている。ただ原著の出版されたのが2014年12月なので&lt;a href=&#34;https://www.ampproject.org/&#34;&gt;AMP&lt;/a&gt;みたいな最新のものは解説されていないが、監訳者著の付録でHTTP2の話にも触れてあるので、良いと思う。&lt;/p&gt;
+
+&lt;p&gt;まぁ、特に目新しい内容はないが、本書はデザイナーに向けて書かれていることに意味がある。Webデザイナーと呼ばれる職種の人が本書に記載されてる内容を実装まで理解する必要はないと思うが（実装はフロントエンドエンジニアに任せればいい）、Webサイト・アプリケーションをデザインする上で一般教養として知ってほしい内容ばかりだと思う。フロントエンドエンジニアはさらっと読んで知らない・見逃してる技術がないか確認するために読んでもいいと思う。&lt;/p&gt;
+
+&lt;p&gt;目新しかったのは、Webパフォーマンス対策していくにあたって、8章の『&lt;strong&gt;組織の風土を変えていく&lt;/strong&gt;』だ。フロントエンドのパフォーマンスというが、実際のところはフロントエンドエンジニアとして、できることは少ないと感じている。いや、効果のある対策は他の職種と協力しなければならないことが多い。例えば、バナー画像がファイルサイズが重ければ、デザイナーさんに画質の調整や保存形式を変更するようお願いしたり、キャッシュ制御のためexpireやgzip設定をインフラエンジニアさんにお願いしたりと、組織全体の協力が必要だし、実際そうゆうことを何度もしてきた。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、本書では偉い人を巻き込んだりする方法が書かれてたりする。百聞には一見にしかずというが、やっぱり、そうゆう人たちには比較動画やfilmstrip的なものを見せると良い。本書に書かれていることは、たいてい実践してきたつもりなので、自分のブログのPerformanceタグの記事を参考にしてもらいたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/categories/performance/&#34;&gt;Performance - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンパクトに比較的最近のパフォーマンス事情が分かる良い書籍なので、ぜひ組織に一冊、部署ごとに一冊置いておくと良いかと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>この英語、どう違う?</title>
+            <link>https://t32k.me/mol/log/978-4046012142-luke/</link>
+            <pubDate>Thu, 23 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4046012142-luke/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51xu9RmIh%2BL._SL160_.jpg&#34; alt=&#34;この英語、どう違う?&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;この英語、どう違う?&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.23&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ルーク・タニクリフ&lt;br /&gt;KADOKAWA&lt;br /&gt;売り上げランキング: 13957&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;フィリピン語学留学後、英語の勉強らしい勉強はほとんどやっていない。唯一、強いてあげるのなら、YouTubeでお気に入りの洋楽MVを見つけては歌詞を検索して理解するってのを毎日とはいわないけど細々とやっている。そうゆうときに、スラングとかなんか独特の言い回しとかあって？？？ってなるので、そのワードを検索するのだけど、よく本書の著者のサイトにヒットする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.eigowithluke.com/&#34;&gt;英語 with Luke&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本書は &lt;em&gt;look&lt;/em&gt; と &lt;em&gt;see&lt;/em&gt; と &lt;em&gt;watch&lt;/em&gt; の違いみたいに、一見同じような意味の単語の使い分けについていろいろ説明がしてある。あと、著者がアメリカとイギリスで育った経験から両英語の違いについても解説がある。200ページ弱なのでサクッと読めるので、一回通しで読んで、また気になったら目を通すぐらいでいいかと思う。かと言って辞書みたいな情報量でもない。できれば本書の内容も彼のサイトに載せて検索しやすくしてもらえればいいんだけど&amp;hellip;と思った。&lt;/p&gt;
+
+&lt;p&gt;TOEICの受験英語とか難しいのに飽きたら、こうゆう本も読んでみるとよいと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ポール・ランドのデザイン思想</title>
+            <link>https://t32k.me/mol/log/thoughts-on-design/</link>
+            <pubDate>Wed, 22 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/thoughts-on-design/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51R8gdVYJ%2BL._SL160_.jpg&#34; alt=&#34;ポール・ランドのデザイン思想 (SPACE SHOWER BOOKS)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;ポール・ランドのデザイン思想&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.22&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ポール・ランド,海野弘,河村めぐみ&lt;br /&gt;スペースシャワーネットワーク&lt;br /&gt;売り上げランキング: 109290&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;たまにはデザインの本でも読んでみようかと思い購入。&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%A9%E3%83%B3%E3%83%89&#34;&gt;ポール・ランド&lt;/a&gt;というアメリカのグラフィックデザイナーの本。彼の有名な作品にはIBMのロゴやスティーブ・ジョブズが作ったNeXT Computer社のロゴなどが挙げられる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.paul-rand.com/&#34;&gt;Paul Rand, American Modernist (1914-1996)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本の構成は、シンボル、イマジネーション、ユーモア、フォトグラム（カメラを用いずに、印画紙の上に直接物を置いて感光させるなどの方法により制作された作品）、タイポグラフィなどをテーマにポールの考えとそれに関する彼の作品が掲載されている。ほぼ作品の写真が8割で、それもすべてモノクロであるのが少し残念。ページ数も100Pにも満たないからコンパクト。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;デザイナーは通常、先入観を持って作業に取りかかることはない。むしろ、緻密な調査と観察の結果アイディアが生まれ、そのアイディアを元にデザインする。そのため、デザイナーが自分に課せられた命題に対する適切な答えを見つけるためには、どうしてもある種の思考プロセスを経なければならない。デザイナーは分析し、解釈して、考案する。デザイン業界、その関連業界における科学的・技術進歩を常に意識していなければならない。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;少ないながらも、冒頭の『デザイナーの命題』の章にもあるように、背筋がシャンとさせられるようなことが書いてある。デザイナーなら一度は読んでみても良いかもしれない。デザイナー以外の人が読んだら、ただの割高な小冊子と感じると思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>たかが英語!</title>
+            <link>https://t32k.me/mol/log/978-4062177634-englishnization/</link>
+            <pubDate>Sun, 19 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4062177634-englishnization/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41Y4lgpS5SL._SL160_.jpg&#34; alt=&#34;たかが英語!&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;たかが英語!&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.19&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;三木谷 浩史&lt;br /&gt;講談社&lt;br /&gt;売り上げランキング: 56764&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;楽天の英語公用語化のお話。『たかが英語』とあるように、これからのグローバル化に対応するためには英語は不可欠なものであるが、それはただのツールである。ビジネスマンならオフィスのWordやExcelを使いこなせて当たり前のように（使えないのなら勉強するように）、英語もまた、ただのツールで必要だから学ぶというスタンス。&lt;/p&gt;
+
+&lt;p&gt;確かに、楽天の英語公用語化のニュースを見ていると、過度な批判が見受けられる。英語が喋れるだけの人材が幅を利かせるようになるとか、優秀だけど英語が不得意な人材が流出するとか。実際のところは、みなが英語を喋れるようになれば、英語自体はストロングポイントにはならないし、優秀な人であれば（定義にもよるが）、要領が良いので英語の上達もはやいとのこと。&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/Y4OtJeqPiGU&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;エンジニアなら英語は避けて通れない問題であり、実際、優秀なエンジニアといわれるほど、英語ができるような印象がある。また英語の学習には好意的であると思う。個人的には、エンジニアの英語事情は理解できるが、デザイナーが英語事情はどうなってるのか気になるので、デザイナー職の事例なども入ってると良かったかなと思う。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、英語をやらなければならない環境イコール社内というは、純粋に羨ましいなと思った。そうじゃないと、逃げ続けてしまうので。そうゆうわけで、先月から毎月TOEICを受けるようにしたが、勉強はしていない。少しづつでも英語を勉強しなければならない環境づくりを自分でもしていこうと思った。たかが英語であり、サクッと勉強して身につけたいものである。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>廃藩置県</title>
+            <link>https://t32k.me/mol/log/978-4044092153-haihanchiken/</link>
+            <pubDate>Tue, 14 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4044092153-haihanchiken/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51o%2B-PPb2GL._SL160_.jpg&#34; alt=&#34;廃藩置県近代国家誕生の舞台裏 (角川ソフィア文庫)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;廃藩置県近代国家誕生の舞台裏 (角川ソフィア文庫)&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.14&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;勝田 政治&lt;br /&gt;KADOKAWA/角川学芸出版&lt;br /&gt;売り上げランキング: 65259&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;高校生の頃日本史を選択していたのだけど、幕末・明治期はいろいろな改革や事件などあって、ただ用語と年号を覚えるだけだった。そのテストで覚えるための用語の背景には、ものすごいドラマがあるのだろうなぁといつも思っていた。廃藩置県もその１つだ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;明治政府がそれまでの藩を廃止して地方統治を中央管下の府と県に一元化した行政改革である。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;みたいな感じで、さらっと習った憶えがあるが、ウェイウェイ。これってものすごいことじゃない？だって、藩は一つの国みたいなもので、お殿様は絶対的な存在であり、武士がちょっとでも無作法はたらいたら切腹でしょ、時代劇で見たソレ。ゆーてみたら、最高の既得権益みたいなものなわけで、何百もある藩主から、それを取り上げるのはものすごい抵抗があるんじゃない？と思ったけど、実際にその後の反乱などは日本史の授業では習わなかった。これがどうしても不思議だったので、読んでみた。&lt;/p&gt;
+
+&lt;p&gt;まぁ実際のところ、これといった理由はさだかではないが、時代の流れと言えばそうなのかもしれない。廃藩置県の前に版籍奉還を行ったが、これは建前は天皇に土地（版）と人（籍）を返還するものだが、実際の支配は藩主から知藩事に名前が変わっただけのものである。この裏側もおもしろいもので、建前と言えど、自分たちの権力は放棄するわけだからそれなりの覚悟みたいなものが必要なものだけど、実際のところは返還した後に再度天皇から付与されることを見込んでおり、その事実により幕末の動乱のなかで衰えてきた藩主の支配力に天皇のご威光を借りる目論見があったりなかったり。&lt;/p&gt;
+
+&lt;p&gt;結局、版籍奉還はなし崩しな形で終わるので中央集権で強い国家を作る明治政府にとってはなんの解決もしてない。そこで廃藩置県に至るわけだが、構想からたった２週間で実行されたというのも興味深い。また、廃藩置県が実施される前から廃藩の申し出がいくつかあったのも面白い。これは、戊辰戦争の軍事費の財政の圧迫や飢饉によりコメ不足などによるもので藩政が立ちゆかなくなったからとのこと。&lt;/p&gt;
+
+&lt;p&gt;政府も火の車だが、たいていの藩も財政に苦しんでいる状態だった。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;篤と熟考今日のままにして瓦解せんよりは寧ろ大英断に出て瓦解いたしたらん&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;廃藩置県を決めた大久保利通の日記には上のように記述されている。いかに当時の状況が切羽詰まっていたのか分かる一文だ。そしてこの英断は何事も無く実行されるわけだが、その背景には、ひとつに、江戸幕府を倒した薩長土肥の強大な軍事力があり、抵抗すれば負けるのが分かっていたこと。また、版籍奉還でもあったが、もとは天皇から借りているものという大義名分を明治政府が利用したこと、また知藩事はそのまま大名華族になり、ある程度の身分が保証されたこともあげられる。&lt;/p&gt;
+
+&lt;p&gt;廃藩置県後の抵抗を強いて挙げるのであれば、農民の一揆があったのも興味深い。これは役目がなくなり東京に出向しなければならない藩主（知藩事）を引き止めるためであり、どこの素性とも分からない中央の政府に統治される不安から、慣れ親しんだ藩主を求めたためと言われる。藩主は華族という名の身分保障、その家来の武士は天皇の大義名分に納得しており、結局農民が一番不安だったのかもしれない。&lt;/p&gt;
+
+&lt;p&gt;まぁいろいろあるけど、やっぱり根本にあるのは天皇の崇拝は影響力が高いのだなと感じた。現に、廃藩置県実行後から少し時は経つが、琉球藩の明治政府への編入に関しては、天皇の威光をふりかざしても役に立たなかったので、結局実行力をともなった解決をしている（琉球処分）。&lt;/p&gt;
+
+&lt;p&gt;廃藩置県をテーマに2時間ぐらいのドラマを作ってほしいものだ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ロジ旅 ひとりでできる！ 失敗しない海外旅行術</title>
+            <link>https://t32k.me/mol/log/B019PBDZ10-trip/</link>
+            <pubDate>Mon, 13 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/B019PBDZ10-trip/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/5121wIzNHbL._SL160_.jpg&#34; alt=&#34;ロジ旅: ひとりでできる！ 失敗しない海外旅行術&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;ロジ旅: ひとりでできる！ 失敗しない海外旅行術&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;村上アシシ&lt;br /&gt;売り上げランキング: 888&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;今月のKindleオーナーライブラリの1冊。評価が高くて期待したが、そこまでではなかった。というのも、冒頭に日本人のパスポート所有率は24%しかなく、その人らもほとんどは旅行代理店が組んだパッケージツアーで旅行したものと記述があるように、本書はそういった海外旅行をしたことのない人、個人旅行をしたことない人向けの本である。&lt;/p&gt;
+
+&lt;p&gt;基本的にネットで探せば出てくるような情報ばかりだが、なにぶん情報量が多いだけにネットだけで調べるとなるといろいろ大変なのもである。自分も本書に書いてあるように、『これがあると便利だから今度の旅行は持って行こう』とか、『これはネットに書いてあったけど自分はあまり必要なかった』とか、PDCAを回して海外旅行に慣れていったものである。&lt;/p&gt;
+
+&lt;p&gt;ほんとうに、初めての海外旅行はドギマギしたもので、入国カード記入することすら知らなくて、慌てて入国審査の前で書いたりしたのも良い思い出。&lt;/p&gt;
+
+&lt;p&gt;まぁ僕はそうやってトライ＆エラーを繰り返しながら集めた情報を、たった数百円で買えるのは、海外旅行者初心者にとってはとてもお得なのではないかと思う。できることなら、もうちょっと早くこの本を知りたかった。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>インドネシアで快適に滞在するにはコツがある</title>
+            <link>https://t32k.me/mol/log/978-4526071614-indonesia/</link>
+            <pubDate>Tue, 07 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4526071614-indonesia/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51eXU8b5ZXL._SL160_.jpg&#34; alt=&#34;インドネシアで快適に滞在するにはコツがある&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;インドネシアで快適に滞在するにはコツがある&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.7&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;茂木 正朗&lt;br /&gt;日刊工業新聞社&lt;br /&gt;売り上げランキング: 99367&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ここ数年はフィリピン行ったり、シンガポール行ったり、タイ行ったりと、個人的に東南アジアブームなので、次に行くのはどこだろうと考えると、ベトナムとかマレーシアとかは知り合いがよく行ってたりするので、インドネシアが有力候補かなと考えている。&lt;/p&gt;
+
+&lt;p&gt;ただ、インドネシアというとイスラム教・人口多いくらいしかまったく知識がないので、インドネシアの習俗に関する本を読んでみた。&lt;/p&gt;
+
+&lt;p&gt;まぁ、その他の東南アジアの国口とほとんど似てるような感じかなぁ。プライドが高いのか人前であまり叱責しないとかフィリピンでも聞いた話だし、親日はやはり東南アジアだと良い物は日本製品みたいなイメージだし、タイのMRTの広告とかは日本旅行案内が大きく取り扱われてたし、マレー系と中華系の仲違いはマレーシアとかでも聞くような話。とはいえ、前に読んだ『&lt;a href=&#34;https://t32k.me/mol/mol/log/978-4862762085-culture/&#34;&gt;異文化理解力&lt;/a&gt;』でもあるように、ざっくり東南アジア系でくくって考えるのも気をつけたほうがいいのかなとも感じた。&lt;/p&gt;
+
+&lt;p&gt;あと、ビジネス進出に関しても記述があるので、インドネシアだけじゃなくて東南アジアでビジネスしたい人にはいいかもしれない。インドネシアはイスラム教徒が多いので、ラマダンがある。調べてみたら、今月からその時期らしい。何も知らなくてこの時期に観光してたら大変だったかもしれない（明らかに外国人と分かれば特に強要されるものではないがやはり配慮したほうがいいとのこと）。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>異文化理解力</title>
+            <link>https://t32k.me/mol/log/978-4862762085-culture/</link>
+            <pubDate>Wed, 11 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4862762085-culture/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61V2al4UycL._SL160_.jpg&#34; alt=&#34;異文化理解力――相手と自分の真意がわかる ビジネスパーソン必須の教養&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;異文化理解力&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.8&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;エリン・メイヤー,田岡恵,樋口武志&lt;br /&gt;英治出版&lt;br /&gt;売り上げランキング: 5596&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;日本人は行間を読むハイコンテキストな文化で、アメリカ人はざっくばらんにコミュニケーションするローコンテキストな文化であると、ステレオタイプな印象ならたいていの人は持っているはずだ。&lt;/p&gt;
+
+&lt;p&gt;では、同じ東アジアの中国人と日本人ではどう違う？、同じ英語を話す、アメリカ人とイギリス人ではどう違うのか？そこは、「欧米人は〜」、「東洋人は〜」とひとまとまりに考えてもいいのか？はたまた、ハイコンテキストとハイコンテキストの文化の人が仕事したらどうなる？ローコンテキストとローコンテキスト同士ならうまくいくのか？ハイコンテキストとローコンテキストこそ文化の食い違いに悩まされるのないだろうか？といった疑問に、本書では以下の8つの軸から解説している。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;コミュニケーション&lt;/strong&gt; : ローコンテクスト - ハイコンテクスト&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;評価&lt;/strong&gt; : 直接的なネガディブフィードバック - 間接的なネガディブフィードバック&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;説得&lt;/strong&gt; : 原理優先 - 応用優先&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;リード&lt;/strong&gt; : 平等主義 - 階層主義&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;決断&lt;/strong&gt; : 合意思考 - トップダウン式&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信頼&lt;/strong&gt; : タスクベース - 関係ベース&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;見解の相違&lt;/strong&gt; : 対立型 - 対立回避型&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;スケジューリング&lt;/strong&gt; : 直線的な時間 - 柔軟な時間&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;カルチャーマップというこのツールから見れば、同じ東アジア、ヨーロッパの国でも違いがあるのか一目瞭然だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0511-00.png&#34; alt=&#34;The Culture Map&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;全体として、異文化理解というのは想像以上に難しいものだと感じた。けれども、帯の売り文句「残念ながら、日本人の8割にこのビジネス書はいらない」とあるように、今の僕には必要ないというか、実感が持てない。外国人と働くといっても、今はアメリカ人としか働いてないし、職種もオフィスも基本的には違うので関わりないし。3カ国以上の同じ職種の人と一緒に働くことになったらまた読んでみようと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>小さなチーム、大きな仕事</title>
+            <link>https://t32k.me/mol/log/978-4152092670-rework/</link>
+            <pubDate>Tue, 10 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4152092670-rework/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51Uwn-WBcTL._SL160_.jpg&#34; alt=&#34;小さなチーム、大きな仕事〔完全版〕: 37シグナルズ成功の法則&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;小さなチーム、大きな仕事〔完全版〕&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.8&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ジェイソン・フリード&lt;br /&gt;早川書房&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;基本的な資本主義の考えなら、企業は利潤を追い求めるため、会社の規模をどんどん大きくし、社員もどんどん雇おうとするが、ことソフトウェア（Webサービス）業界においては、ITのテコで、数人単位のチームでも数万・数十万人のユーザーへサービスを提供することができるため、そんなに大きくしなくても案外やってけるよというお話だと受け取った。&lt;/p&gt;
+
+&lt;p&gt;少数精鋭の体制なら、どこで働いていてもいいし、優秀な人材を世界中から探せるし、社員数も多くないため管理する手間もない。そうゆうわけで、大きくするだけが会社じゃないよと文字通り、彼らなりの&lt;strong&gt;REWORK&lt;/strong&gt;を提案している。&lt;/p&gt;
+
+&lt;p&gt;おおかた同意はできるが、37シグナルズのBasecampのサービスが売れたからとか、DHHみたいなスターエンジニアがいたからとか、言っていることに生存バイアス感が否めない。たぶん、普通の人が起業して5時に帰宅とかやってたら一生ヒットサービスとか作れねーだろ！とか思ってしまう。だって他が死に物狂いで働いているのだから。どうも勝ち組の意見としか思えないのは僕がひねくれているからか？&lt;/p&gt;
+
+&lt;p&gt;とはいえ起業する際に、えいや！と会社を辞めなくても、帰ってから1時間でも自分のサービス作ればいいじゃない？それ続けたらたいしたものになるし、本当に好きだったらできるよね？ってところが、スモールスタートでいいなと思った。あと簡単に資金調達を当てにしないとか、本当に自分たちでコントロールしようとしているところは、やはり参考にするべきだと思った。&lt;/p&gt;
+
+&lt;p&gt;自分にとって起業してでも成し遂げたいこと、ほんとうにやりたいことって、なんだろうなと思った。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>トヨタの強さの秘密</title>
+            <link>https://t32k.me/mol/log/978-4062883627-toyota/</link>
+            <pubDate>Mon, 09 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4062883627-toyota/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51N2cPsSbiL._SL160_.jpg&#34; alt=&#34;トヨタの強さの秘密 日本人の知らない日本最大のグローバル企業 (講談社現代新書)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;トヨタの強さの秘密&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.4&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;酒井 崇男&lt;br /&gt;講談社&lt;br /&gt;売り上げランキング: 756&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TPS: トヨタ生産方式（Toyota Production System)&lt;/li&gt;
+&lt;li&gt;TPD: トヨタ流製品開発（Toyota Product Development)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;トヨタは、&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3&#34;&gt;カンバン&lt;/a&gt;などの&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A8%E3%82%BF%E7%94%9F%E7%94%A3%E6%96%B9%E5%BC%8F&#34;&gt;トヨタ生産方式&lt;/a&gt;（TPS）と呼ばれる運用スタイルが有名で、それがトヨタの力の源泉であると一般的に思われているが、実際はTPSよって生み出される価値というのは全体ので5％程度で、そのほとんどの95%がトヨタ流製品開発（TPD）によって生み出されているという話。&lt;/p&gt;
+
+&lt;p&gt;TPSは有名すぎて、各社導入しているのが当たり前になっている昨今、そこでは差別化できない。トヨタくらいの生産規模なら別の話かもしれないが、これ以上生産を効率化してもリターンが少ないのだ。&lt;/p&gt;
+
+&lt;p&gt;そもそも&lt;strong&gt;売れるもの&lt;/strong&gt;を作りつづけていかなければ、改善もしようにもできない。そのためのシステムがTPDである。そのTPDの根幹といえるのが、トヨタで採用している&lt;strong&gt;主査制度&lt;/strong&gt;。主査は本書ではチーフエンジニアと訳されているが、我々のソフトウェア業界で言えば、プロダクトマネージャー（PM）のことであろう。そうゆうわけで本書はPMがどうゆうふうになるべきか参考にすべきところが多い。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;主査は製品の社長であり、社長は主査の助っ人である&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあるように、主査は製品（カローラとかプリウスとか）に対して絶対的な権限と責任を持っている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;市場の情報、顧客、非顧客の情報、競合の情報&lt;/li&gt;
+&lt;li&gt;技術の情報（生産技術含）&lt;/li&gt;
+&lt;li&gt;原価の情報&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;主査は上記のことを踏まえて、製品を企画する。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;主査の使命は、自分が実現したい製品を作ることである。ライン組織の各部は専門的な仕事をするが、最終的に決定するのは「製品の社長である主査」なのである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;結局、みんなの意見を等しく聞いて総花的なモノを作るのを回避できるようなシステムになっている。それゆえ、できた車は主査の○○○さんの車と、トヨタでは呼ばれているらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;そのタレントが発揮できる能力の上限が、最終的に実現できる商品価値の上限なのである。つまり「誰が」担当するかが大事になる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあるように、主査がイケてないなら、製品もまたイケてるはずがない。主査はとても重要な存在である。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;たとえば、デザイン重視のソアラの主査は、デザイン部門出身の岡田稔弘氏が務めた。その場合、主査のスタッフである主査付には、シャーシやエンジン、足回りなど各分野の技術に強い人材があてがわれる。主査グループとしてトータルで機能させるためである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;すべての分野において完全無欠な主査なんて、そこかしこにいるわけではないので、主査を支える優秀なスタッフが用意できればの話ではあるが、チームとして機能させるのは妥当な判断だと思われる（でも最終的に判断するのは主査）。&lt;/p&gt;
+
+&lt;p&gt;トヨタぐらいの規模なら何種類も車種を同時並行で開発でき、ある程度の失敗も許される。しかし、すべての会社がトヨタ級の規模ではない。そうなると、都市全体を企業と見立てるならば、都市の社長は各ベンチャーキャピタル（主査の助っ人）であり、主査は各スタートアップの起業家であり、これがうまくワークしているのがシリコンバレーで、富を生み出していることになる。&lt;/p&gt;
+
+&lt;p&gt;主査の要件として、以下のようなことが挙げられる。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;主査は、常に広い知識、見識を学べ。&lt;/li&gt;
+&lt;li&gt;主査は、自分自身の方策を持て。&lt;/li&gt;
+&lt;li&gt;主査は、大きく、かつ良い調査の網を張れ。&lt;/li&gt;
+&lt;li&gt;主査は、良い結果を得るためには全知全能を傾注せよ。&lt;/li&gt;
+&lt;li&gt;主査は、物事を繰り返すことを面倒がってはならぬ。&lt;/li&gt;
+&lt;li&gt;主査は、自分に対して自信（信念）を持つべし。&lt;/li&gt;
+&lt;li&gt;主査は、物事の責任を他人のせいにしてはならぬ。&lt;/li&gt;
+&lt;li&gt;主査と主査付き（補佐役）は、同一人格であらねばならぬ。&lt;/li&gt;
+&lt;li&gt;主査は、要領よく立ちまわってはならない。&lt;/li&gt;
+&lt;li&gt;主査に必要な資質。（中略）要するに総合能力が必要。それは「人格」。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;まぁ、こうゆう心構え的なことはもちろんなわけだが、自動車のような複雑高度な製品を作るためのエンジニアリングも当然身につけなければならない。それも、意匠、ボディ、シャーシーなど各分野の技術をすべて身につけて、ちゃんとした主査になるには15~20年はかかるらしい。&lt;/p&gt;
+
+&lt;p&gt;プログラマー35歳定年説とか言ってたら、優秀なプロダクトマネージャーになれないなと感じた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;重要なことは、製品の価値と実現手段を一人のアタマの中で把握していことである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ここが重要だと個人的に感じていて、アナリシス（分析能力）で集めた圧倒的情報量をインプットしまくってシンセス（統合能力）で、よいプロダクトへ昇華させる。つまり、価値を生み出す富の源泉となるものは、結局、一人の人間なんだとということがよく分かる。&lt;/p&gt;
+
+&lt;p&gt;その後、売れた車の主査が取締役や社長になってるように、責任・役割に見合うリターンもあるのも良いことだと思う。&lt;/p&gt;
+
+&lt;p&gt;Web業界のような新しい業界で『先人から学べ！』が通用できないかと思っていたが、学ぶべきことはたくさんあるなと感じた。願わくば、主査の養成システムや、主査が失敗した時の保険・フォローなども詳しく書いてあるとなお良かった。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

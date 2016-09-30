@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>MOL</title>
+        <generator uri="https://gohugo.io">Hugo</generator>
+        <link>https://t32k.me/mol/categories/books/</link>
+        <language>ja</language>
+        
+        
+        <updated>Tue, 28 Jun 2016 00:00:00 UTC</updated>
+        
+        <item>
+            <title>パフォーマンス向上のためのデザイン設計</title>
+            <link>https://t32k.me/mol/log/designing-for-performance/</link>
+            <pubDate>Tue, 28 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/designing-for-performance/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51ckdAnKBoL._SL160_.jpg&#34; alt=&#34;パフォーマンス向上のためのデザイン設計&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;パフォーマンス向上のためのデザイン設計&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.27&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;Lara Callender Hogan,西脇 靖紘,星野 靖子&lt;br /&gt;オライリージャパン&lt;br /&gt;売り上げランキング: 4769&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4873117550/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;small&gt;画像： &lt;a href=&#34;https://en.wikipedia.org/wiki/Tufted_coquette&#34;&gt;Tufted coquette - Wikipedia, the free encyclopedia&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;ハンドメイドマーケットプレイスを運営し、Webパフォーマンスの取り組みが素晴らしいことでも有名な&lt;a href=&#34;https://codeascraft.com/&#34;&gt;Etsy社のエンジニアリング&lt;/a&gt;マネージャーが書いた本。フロントエンドのパフォーマンスと言うと、Steve Souders氏の『&lt;a href=&#34;https://www.amazon.co.jp/dp/487311361X/?tag=warikiru-22&#34;&gt;ハイパフォーマンスWebサイト&lt;/a&gt;』は有名で基本的なことは原則は変わってはいないが、原著が出版されたのが2007年と考えるといささか古い。&lt;/p&gt;
+
+&lt;p&gt;『Googleの検索結果で何秒遅れたら〜』、『Amazonのサイトで何秒遅れたら〜』と言った聞き飽きた事例などが本書ではアップデートされ、新しい事例や、比較的最近のフロントエンド技術が紹介されており、とっつきやすくなっている。ただ原著の出版されたのが2014年12月なので&lt;a href=&#34;https://www.ampproject.org/&#34;&gt;AMP&lt;/a&gt;みたいな最新のものは解説されていないが、監訳者著の付録でHTTP2の話にも触れてあるので、良いと思う。&lt;/p&gt;
+
+&lt;p&gt;まぁ、特に目新しい内容はないが、本書はデザイナーに向けて書かれていることに意味がある。Webデザイナーと呼ばれる職種の人が本書に記載されてる内容を実装まで理解する必要はないと思うが（実装はフロントエンドエンジニアに任せればいい）、Webサイト・アプリケーションをデザインする上で一般教養として知ってほしい内容ばかりだと思う。フロントエンドエンジニアはさらっと読んで知らない・見逃してる技術がないか確認するために読んでもいいと思う。&lt;/p&gt;
+
+&lt;p&gt;目新しかったのは、Webパフォーマンス対策していくにあたって、8章の『&lt;strong&gt;組織の風土を変えていく&lt;/strong&gt;』だ。フロントエンドのパフォーマンスというが、実際のところはフロントエンドエンジニアとして、できることは少ないと感じている。いや、効果のある対策は他の職種と協力しなければならないことが多い。例えば、バナー画像がファイルサイズが重ければ、デザイナーさんに画質の調整や保存形式を変更するようお願いしたり、キャッシュ制御のためexpireやgzip設定をインフラエンジニアさんにお願いしたりと、組織全体の協力が必要だし、実際そうゆうことを何度もしてきた。&lt;/p&gt;
+
+&lt;p&gt;そうゆうわけで、本書では偉い人を巻き込んだりする方法が書かれてたりする。百聞には一見にしかずというが、やっぱり、そうゆう人たちには比較動画やfilmstrip的なものを見せると良い。本書に書かれていることは、たいてい実践してきたつもりなので、自分のブログのPerformanceタグの記事を参考にしてもらいたい。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://t32k.me/mol/mol/categories/performance/&#34;&gt;Performance - MOL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コンパクトに比較的最近のパフォーマンス事情が分かる良い書籍なので、ぜひ組織に一冊、部署ごとに一冊置いておくと良いかと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>この英語、どう違う?</title>
+            <link>https://t32k.me/mol/log/978-4046012142-luke/</link>
+            <pubDate>Thu, 23 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4046012142-luke/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51xu9RmIh%2BL._SL160_.jpg&#34; alt=&#34;この英語、どう違う?&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;この英語、どう違う?&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.23&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ルーク・タニクリフ&lt;br /&gt;KADOKAWA&lt;br /&gt;売り上げランキング: 13957&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4046012145/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;フィリピン語学留学後、英語の勉強らしい勉強はほとんどやっていない。唯一、強いてあげるのなら、YouTubeでお気に入りの洋楽MVを見つけては歌詞を検索して理解するってのを毎日とはいわないけど細々とやっている。そうゆうときに、スラングとかなんか独特の言い回しとかあって？？？ってなるので、そのワードを検索するのだけど、よく本書の著者のサイトにヒットする。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.eigowithluke.com/&#34;&gt;英語 with Luke&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本書は &lt;em&gt;look&lt;/em&gt; と &lt;em&gt;see&lt;/em&gt; と &lt;em&gt;watch&lt;/em&gt; の違いみたいに、一見同じような意味の単語の使い分けについていろいろ説明がしてある。あと、著者がアメリカとイギリスで育った経験から両英語の違いについても解説がある。200ページ弱なのでサクッと読めるので、一回通しで読んで、また気になったら目を通すぐらいでいいかと思う。かと言って辞書みたいな情報量でもない。できれば本書の内容も彼のサイトに載せて検索しやすくしてもらえればいいんだけど&amp;hellip;と思った。&lt;/p&gt;
+
+&lt;p&gt;TOEICの受験英語とか難しいのに飽きたら、こうゆう本も読んでみるとよいと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ポール・ランドのデザイン思想</title>
+            <link>https://t32k.me/mol/log/thoughts-on-design/</link>
+            <pubDate>Wed, 22 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/thoughts-on-design/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51R8gdVYJ%2BL._SL160_.jpg&#34; alt=&#34;ポール・ランドのデザイン思想 (SPACE SHOWER BOOKS)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;ポール・ランドのデザイン思想&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.22&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ポール・ランド,海野弘,河村めぐみ&lt;br /&gt;スペースシャワーネットワーク&lt;br /&gt;売り上げランキング: 109290&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4907435444/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;たまにはデザインの本でも読んでみようかと思い購入。&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%9D%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%A9%E3%83%B3%E3%83%89&#34;&gt;ポール・ランド&lt;/a&gt;というアメリカのグラフィックデザイナーの本。彼の有名な作品にはIBMのロゴやスティーブ・ジョブズが作ったNeXT Computer社のロゴなどが挙げられる。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.paul-rand.com/&#34;&gt;Paul Rand, American Modernist (1914-1996)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本の構成は、シンボル、イマジネーション、ユーモア、フォトグラム（カメラを用いずに、印画紙の上に直接物を置いて感光させるなどの方法により制作された作品）、タイポグラフィなどをテーマにポールの考えとそれに関する彼の作品が掲載されている。ほぼ作品の写真が8割で、それもすべてモノクロであるのが少し残念。ページ数も100Pにも満たないからコンパクト。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;デザイナーは通常、先入観を持って作業に取りかかることはない。むしろ、緻密な調査と観察の結果アイディアが生まれ、そのアイディアを元にデザインする。そのため、デザイナーが自分に課せられた命題に対する適切な答えを見つけるためには、どうしてもある種の思考プロセスを経なければならない。デザイナーは分析し、解釈して、考案する。デザイン業界、その関連業界における科学的・技術進歩を常に意識していなければならない。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;少ないながらも、冒頭の『デザイナーの命題』の章にもあるように、背筋がシャンとさせられるようなことが書いてある。デザイナーなら一度は読んでみても良いかもしれない。デザイナー以外の人が読んだら、ただの割高な小冊子と感じると思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>たかが英語!</title>
+            <link>https://t32k.me/mol/log/978-4062177634-englishnization/</link>
+            <pubDate>Sun, 19 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4062177634-englishnization/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41Y4lgpS5SL._SL160_.jpg&#34; alt=&#34;たかが英語!&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;たかが英語!&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.19&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;三木谷 浩史&lt;br /&gt;講談社&lt;br /&gt;売り上げランキング: 56764&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062177633/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;楽天の英語公用語化のお話。『たかが英語』とあるように、これからのグローバル化に対応するためには英語は不可欠なものであるが、それはただのツールである。ビジネスマンならオフィスのWordやExcelを使いこなせて当たり前のように（使えないのなら勉強するように）、英語もまた、ただのツールで必要だから学ぶというスタンス。&lt;/p&gt;
+
+&lt;p&gt;確かに、楽天の英語公用語化のニュースを見ていると、過度な批判が見受けられる。英語が喋れるだけの人材が幅を利かせるようになるとか、優秀だけど英語が不得意な人材が流出するとか。実際のところは、みなが英語を喋れるようになれば、英語自体はストロングポイントにはならないし、優秀な人であれば（定義にもよるが）、要領が良いので英語の上達もはやいとのこと。&lt;/p&gt;
+
+&lt;div class=&#34;fluid&#34;&gt;&lt;iframe src=&#34;https://www.youtube.com/embed/Y4OtJeqPiGU&#34; frameborder=&#34;0&#34; allowfullscreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+&lt;p&gt;エンジニアなら英語は避けて通れない問題であり、実際、優秀なエンジニアといわれるほど、英語ができるような印象がある。また英語の学習には好意的であると思う。個人的には、エンジニアの英語事情は理解できるが、デザイナーが英語事情はどうなってるのか気になるので、デザイナー職の事例なども入ってると良かったかなと思う。&lt;/p&gt;
+
+&lt;p&gt;とりあえず、英語をやらなければならない環境イコール社内というは、純粋に羨ましいなと思った。そうじゃないと、逃げ続けてしまうので。そうゆうわけで、先月から毎月TOEICを受けるようにしたが、勉強はしていない。少しづつでも英語を勉強しなければならない環境づくりを自分でもしていこうと思った。たかが英語であり、サクッと勉強して身につけたいものである。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>廃藩置県</title>
+            <link>https://t32k.me/mol/log/978-4044092153-haihanchiken/</link>
+            <pubDate>Tue, 14 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4044092153-haihanchiken/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51o%2B-PPb2GL._SL160_.jpg&#34; alt=&#34;廃藩置県近代国家誕生の舞台裏 (角川ソフィア文庫)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;廃藩置県近代国家誕生の舞台裏 (角川ソフィア文庫)&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.14&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;勝田 政治&lt;br /&gt;KADOKAWA/角川学芸出版&lt;br /&gt;売り上げランキング: 65259&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/404409215X/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;高校生の頃日本史を選択していたのだけど、幕末・明治期はいろいろな改革や事件などあって、ただ用語と年号を覚えるだけだった。そのテストで覚えるための用語の背景には、ものすごいドラマがあるのだろうなぁといつも思っていた。廃藩置県もその１つだ。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;明治政府がそれまでの藩を廃止して地方統治を中央管下の府と県に一元化した行政改革である。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;みたいな感じで、さらっと習った憶えがあるが、ウェイウェイ。これってものすごいことじゃない？だって、藩は一つの国みたいなもので、お殿様は絶対的な存在であり、武士がちょっとでも無作法はたらいたら切腹でしょ、時代劇で見たソレ。ゆーてみたら、最高の既得権益みたいなものなわけで、何百もある藩主から、それを取り上げるのはものすごい抵抗があるんじゃない？と思ったけど、実際にその後の反乱などは日本史の授業では習わなかった。これがどうしても不思議だったので、読んでみた。&lt;/p&gt;
+
+&lt;p&gt;まぁ実際のところ、これといった理由はさだかではないが、時代の流れと言えばそうなのかもしれない。廃藩置県の前に版籍奉還を行ったが、これは建前は天皇に土地（版）と人（籍）を返還するものだが、実際の支配は藩主から知藩事に名前が変わっただけのものである。この裏側もおもしろいもので、建前と言えど、自分たちの権力は放棄するわけだからそれなりの覚悟みたいなものが必要なものだけど、実際のところは返還した後に再度天皇から付与されることを見込んでおり、その事実により幕末の動乱のなかで衰えてきた藩主の支配力に天皇のご威光を借りる目論見があったりなかったり。&lt;/p&gt;
+
+&lt;p&gt;結局、版籍奉還はなし崩しな形で終わるので中央集権で強い国家を作る明治政府にとってはなんの解決もしてない。そこで廃藩置県に至るわけだが、構想からたった２週間で実行されたというのも興味深い。また、廃藩置県が実施される前から廃藩の申し出がいくつかあったのも面白い。これは、戊辰戦争の軍事費の財政の圧迫や飢饉によりコメ不足などによるもので藩政が立ちゆかなくなったからとのこと。&lt;/p&gt;
+
+&lt;p&gt;政府も火の車だが、たいていの藩も財政に苦しんでいる状態だった。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;篤と熟考今日のままにして瓦解せんよりは寧ろ大英断に出て瓦解いたしたらん&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;廃藩置県を決めた大久保利通の日記には上のように記述されている。いかに当時の状況が切羽詰まっていたのか分かる一文だ。そしてこの英断は何事も無く実行されるわけだが、その背景には、ひとつに、江戸幕府を倒した薩長土肥の強大な軍事力があり、抵抗すれば負けるのが分かっていたこと。また、版籍奉還でもあったが、もとは天皇から借りているものという大義名分を明治政府が利用したこと、また知藩事はそのまま大名華族になり、ある程度の身分が保証されたこともあげられる。&lt;/p&gt;
+
+&lt;p&gt;廃藩置県後の抵抗を強いて挙げるのであれば、農民の一揆があったのも興味深い。これは役目がなくなり東京に出向しなければならない藩主（知藩事）を引き止めるためであり、どこの素性とも分からない中央の政府に統治される不安から、慣れ親しんだ藩主を求めたためと言われる。藩主は華族という名の身分保障、その家来の武士は天皇の大義名分に納得しており、結局農民が一番不安だったのかもしれない。&lt;/p&gt;
+
+&lt;p&gt;まぁいろいろあるけど、やっぱり根本にあるのは天皇の崇拝は影響力が高いのだなと感じた。現に、廃藩置県実行後から少し時は経つが、琉球藩の明治政府への編入に関しては、天皇の威光をふりかざしても役に立たなかったので、結局実行力をともなった解決をしている（琉球処分）。&lt;/p&gt;
+
+&lt;p&gt;廃藩置県をテーマに2時間ぐらいのドラマを作ってほしいものだ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>ロジ旅 ひとりでできる！ 失敗しない海外旅行術</title>
+            <link>https://t32k.me/mol/log/B019PBDZ10-trip/</link>
+            <pubDate>Mon, 13 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/B019PBDZ10-trip/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/5121wIzNHbL._SL160_.jpg&#34; alt=&#34;ロジ旅: ひとりでできる！ 失敗しない海外旅行術&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;ロジ旅: ひとりでできる！ 失敗しない海外旅行術&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;村上アシシ&lt;br /&gt;売り上げランキング: 888&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B019PBDZ10/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;今月のKindleオーナーライブラリの1冊。評価が高くて期待したが、そこまでではなかった。というのも、冒頭に日本人のパスポート所有率は24%しかなく、その人らもほとんどは旅行代理店が組んだパッケージツアーで旅行したものと記述があるように、本書はそういった海外旅行をしたことのない人、個人旅行をしたことない人向けの本である。&lt;/p&gt;
+
+&lt;p&gt;基本的にネットで探せば出てくるような情報ばかりだが、なにぶん情報量が多いだけにネットだけで調べるとなるといろいろ大変なのもである。自分も本書に書いてあるように、『これがあると便利だから今度の旅行は持って行こう』とか、『これはネットに書いてあったけど自分はあまり必要なかった』とか、PDCAを回して海外旅行に慣れていったものである。&lt;/p&gt;
+
+&lt;p&gt;ほんとうに、初めての海外旅行はドギマギしたもので、入国カード記入することすら知らなくて、慌てて入国審査の前で書いたりしたのも良い思い出。&lt;/p&gt;
+
+&lt;p&gt;まぁ僕はそうやってトライ＆エラーを繰り返しながら集めた情報を、たった数百円で買えるのは、海外旅行者初心者にとってはとてもお得なのではないかと思う。できることなら、もうちょっと早くこの本を知りたかった。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>インドネシアで快適に滞在するにはコツがある</title>
+            <link>https://t32k.me/mol/log/978-4526071614-indonesia/</link>
+            <pubDate>Tue, 07 Jun 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4526071614-indonesia/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51eXU8b5ZXL._SL160_.jpg&#34; alt=&#34;インドネシアで快適に滞在するにはコツがある&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;インドネシアで快適に滞在するにはコツがある&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.6.7&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;茂木 正朗&lt;br /&gt;日刊工業新聞社&lt;br /&gt;売り上げランキング: 99367&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-review&#34; style=&#34;margin-top:10px;margin-bottom:10px&#34;&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4526071617/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34; rel=&#34;nofollow&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ここ数年はフィリピン行ったり、シンガポール行ったり、タイ行ったりと、個人的に東南アジアブームなので、次に行くのはどこだろうと考えると、ベトナムとかマレーシアとかは知り合いがよく行ってたりするので、インドネシアが有力候補かなと考えている。&lt;/p&gt;
+
+&lt;p&gt;ただ、インドネシアというとイスラム教・人口多いくらいしかまったく知識がないので、インドネシアの習俗に関する本を読んでみた。&lt;/p&gt;
+
+&lt;p&gt;まぁ、その他の東南アジアの国口とほとんど似てるような感じかなぁ。プライドが高いのか人前であまり叱責しないとかフィリピンでも聞いた話だし、親日はやはり東南アジアだと良い物は日本製品みたいなイメージだし、タイのMRTの広告とかは日本旅行案内が大きく取り扱われてたし、マレー系と中華系の仲違いはマレーシアとかでも聞くような話。とはいえ、前に読んだ『&lt;a href=&#34;https://t32k.me/mol/mol/log/978-4862762085-culture/&#34;&gt;異文化理解力&lt;/a&gt;』でもあるように、ざっくり東南アジア系でくくって考えるのも気をつけたほうがいいのかなとも感じた。&lt;/p&gt;
+
+&lt;p&gt;あと、ビジネス進出に関しても記述があるので、インドネシアだけじゃなくて東南アジアでビジネスしたい人にはいいかもしれない。インドネシアはイスラム教徒が多いので、ラマダンがある。調べてみたら、今月からその時期らしい。何も知らなくてこの時期に観光してたら大変だったかもしれない（明らかに外国人と分かれば特に強要されるものではないがやはり配慮したほうがいいとのこと）。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>異文化理解力</title>
+            <link>https://t32k.me/mol/log/978-4862762085-culture/</link>
+            <pubDate>Wed, 11 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4862762085-culture/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61V2al4UycL._SL160_.jpg&#34; alt=&#34;異文化理解力――相手と自分の真意がわかる ビジネスパーソン必須の教養&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;異文化理解力&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.8&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;エリン・メイヤー,田岡恵,樋口武志&lt;br /&gt;英治出版&lt;br /&gt;売り上げランキング: 5596&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4862762085/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;日本人は行間を読むハイコンテキストな文化で、アメリカ人はざっくばらんにコミュニケーションするローコンテキストな文化であると、ステレオタイプな印象ならたいていの人は持っているはずだ。&lt;/p&gt;
+
+&lt;p&gt;では、同じ東アジアの中国人と日本人ではどう違う？、同じ英語を話す、アメリカ人とイギリス人ではどう違うのか？そこは、「欧米人は〜」、「東洋人は〜」とひとまとまりに考えてもいいのか？はたまた、ハイコンテキストとハイコンテキストの文化の人が仕事したらどうなる？ローコンテキストとローコンテキスト同士ならうまくいくのか？ハイコンテキストとローコンテキストこそ文化の食い違いに悩まされるのないだろうか？といった疑問に、本書では以下の8つの軸から解説している。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;コミュニケーション&lt;/strong&gt; : ローコンテクスト - ハイコンテクスト&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;評価&lt;/strong&gt; : 直接的なネガディブフィードバック - 間接的なネガディブフィードバック&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;説得&lt;/strong&gt; : 原理優先 - 応用優先&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;リード&lt;/strong&gt; : 平等主義 - 階層主義&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;決断&lt;/strong&gt; : 合意思考 - トップダウン式&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信頼&lt;/strong&gt; : タスクベース - 関係ベース&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;見解の相違&lt;/strong&gt; : 対立型 - 対立回避型&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;スケジューリング&lt;/strong&gt; : 直線的な時間 - 柔軟な時間&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;カルチャーマップというこのツールから見れば、同じ東アジア、ヨーロッパの国でも違いがあるのか一目瞭然だ。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://t32k.me/mol/mol/images/2016/0511-00.png&#34; alt=&#34;The Culture Map&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;全体として、異文化理解というのは想像以上に難しいものだと感じた。けれども、帯の売り文句「残念ながら、日本人の8割にこのビジネス書はいらない」とあるように、今の僕には必要ないというか、実感が持てない。外国人と働くといっても、今はアメリカ人としか働いてないし、職種もオフィスも基本的には違うので関わりないし。3カ国以上の同じ職種の人と一緒に働くことになったらまた読んでみようと思う。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>小さなチーム、大きな仕事</title>
+            <link>https://t32k.me/mol/log/978-4152092670-rework/</link>
+            <pubDate>Tue, 10 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4152092670-rework/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51Uwn-WBcTL._SL160_.jpg&#34; alt=&#34;小さなチーム、大きな仕事〔完全版〕: 37シグナルズ成功の法則&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;小さなチーム、大きな仕事〔完全版〕&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.8&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;ジェイソン・フリード&lt;br /&gt;早川書房&lt;br /&gt;&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/415209267X/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;基本的な資本主義の考えなら、企業は利潤を追い求めるため、会社の規模をどんどん大きくし、社員もどんどん雇おうとするが、ことソフトウェア（Webサービス）業界においては、ITのテコで、数人単位のチームでも数万・数十万人のユーザーへサービスを提供することができるため、そんなに大きくしなくても案外やってけるよというお話だと受け取った。&lt;/p&gt;
+
+&lt;p&gt;少数精鋭の体制なら、どこで働いていてもいいし、優秀な人材を世界中から探せるし、社員数も多くないため管理する手間もない。そうゆうわけで、大きくするだけが会社じゃないよと文字通り、彼らなりの&lt;strong&gt;REWORK&lt;/strong&gt;を提案している。&lt;/p&gt;
+
+&lt;p&gt;おおかた同意はできるが、37シグナルズのBasecampのサービスが売れたからとか、DHHみたいなスターエンジニアがいたからとか、言っていることに生存バイアス感が否めない。たぶん、普通の人が起業して5時に帰宅とかやってたら一生ヒットサービスとか作れねーだろ！とか思ってしまう。だって他が死に物狂いで働いているのだから。どうも勝ち組の意見としか思えないのは僕がひねくれているからか？&lt;/p&gt;
+
+&lt;p&gt;とはいえ起業する際に、えいや！と会社を辞めなくても、帰ってから1時間でも自分のサービス作ればいいじゃない？それ続けたらたいしたものになるし、本当に好きだったらできるよね？ってところが、スモールスタートでいいなと思った。あと簡単に資金調達を当てにしないとか、本当に自分たちでコントロールしようとしているところは、やはり参考にするべきだと思った。&lt;/p&gt;
+
+&lt;p&gt;自分にとって起業してでも成し遂げたいこと、ほんとうにやりたいことって、なんだろうなと思った。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>トヨタの強さの秘密</title>
+            <link>https://t32k.me/mol/log/978-4062883627-toyota/</link>
+            <pubDate>Mon, 09 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4062883627-toyota/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51N2cPsSbiL._SL160_.jpg&#34; alt=&#34;トヨタの強さの秘密 日本人の知らない日本最大のグローバル企業 (講談社現代新書)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;トヨタの強さの秘密&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.4&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;酒井 崇男&lt;br /&gt;講談社&lt;br /&gt;売り上げランキング: 756&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4062883627/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TPS: トヨタ生産方式（Toyota Production System)&lt;/li&gt;
+&lt;li&gt;TPD: トヨタ流製品開発（Toyota Product Development)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;トヨタは、&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%B3%E3%83%90%E3%83%B3&#34;&gt;カンバン&lt;/a&gt;などの&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%A8%E3%82%BF%E7%94%9F%E7%94%A3%E6%96%B9%E5%BC%8F&#34;&gt;トヨタ生産方式&lt;/a&gt;（TPS）と呼ばれる運用スタイルが有名で、それがトヨタの力の源泉であると一般的に思われているが、実際はTPSよって生み出される価値というのは全体ので5％程度で、そのほとんどの95%がトヨタ流製品開発（TPD）によって生み出されているという話。&lt;/p&gt;
+
+&lt;p&gt;TPSは有名すぎて、各社導入しているのが当たり前になっている昨今、そこでは差別化できない。トヨタくらいの生産規模なら別の話かもしれないが、これ以上生産を効率化してもリターンが少ないのだ。&lt;/p&gt;
+
+&lt;p&gt;そもそも&lt;strong&gt;売れるもの&lt;/strong&gt;を作りつづけていかなければ、改善もしようにもできない。そのためのシステムがTPDである。そのTPDの根幹といえるのが、トヨタで採用している&lt;strong&gt;主査制度&lt;/strong&gt;。主査は本書ではチーフエンジニアと訳されているが、我々のソフトウェア業界で言えば、プロダクトマネージャー（PM）のことであろう。そうゆうわけで本書はPMがどうゆうふうになるべきか参考にすべきところが多い。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;主査は製品の社長であり、社長は主査の助っ人である&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあるように、主査は製品（カローラとかプリウスとか）に対して絶対的な権限と責任を持っている。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;市場の情報、顧客、非顧客の情報、競合の情報&lt;/li&gt;
+&lt;li&gt;技術の情報（生産技術含）&lt;/li&gt;
+&lt;li&gt;原価の情報&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;主査は上記のことを踏まえて、製品を企画する。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;主査の使命は、自分が実現したい製品を作ることである。ライン組織の各部は専門的な仕事をするが、最終的に決定するのは「製品の社長である主査」なのである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;結局、みんなの意見を等しく聞いて総花的なモノを作るのを回避できるようなシステムになっている。それゆえ、できた車は主査の○○○さんの車と、トヨタでは呼ばれているらしい。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;そのタレントが発揮できる能力の上限が、最終的に実現できる商品価値の上限なのである。つまり「誰が」担当するかが大事になる。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;とあるように、主査がイケてないなら、製品もまたイケてるはずがない。主査はとても重要な存在である。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;たとえば、デザイン重視のソアラの主査は、デザイン部門出身の岡田稔弘氏が務めた。その場合、主査のスタッフである主査付には、シャーシやエンジン、足回りなど各分野の技術に強い人材があてがわれる。主査グループとしてトータルで機能させるためである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;すべての分野において完全無欠な主査なんて、そこかしこにいるわけではないので、主査を支える優秀なスタッフが用意できればの話ではあるが、チームとして機能させるのは妥当な判断だと思われる（でも最終的に判断するのは主査）。&lt;/p&gt;
+
+&lt;p&gt;トヨタぐらいの規模なら何種類も車種を同時並行で開発でき、ある程度の失敗も許される。しかし、すべての会社がトヨタ級の規模ではない。そうなると、都市全体を企業と見立てるならば、都市の社長は各ベンチャーキャピタル（主査の助っ人）であり、主査は各スタートアップの起業家であり、これがうまくワークしているのがシリコンバレーで、富を生み出していることになる。&lt;/p&gt;
+
+&lt;p&gt;主査の要件として、以下のようなことが挙げられる。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;主査は、常に広い知識、見識を学べ。&lt;/li&gt;
+&lt;li&gt;主査は、自分自身の方策を持て。&lt;/li&gt;
+&lt;li&gt;主査は、大きく、かつ良い調査の網を張れ。&lt;/li&gt;
+&lt;li&gt;主査は、良い結果を得るためには全知全能を傾注せよ。&lt;/li&gt;
+&lt;li&gt;主査は、物事を繰り返すことを面倒がってはならぬ。&lt;/li&gt;
+&lt;li&gt;主査は、自分に対して自信（信念）を持つべし。&lt;/li&gt;
+&lt;li&gt;主査は、物事の責任を他人のせいにしてはならぬ。&lt;/li&gt;
+&lt;li&gt;主査と主査付き（補佐役）は、同一人格であらねばならぬ。&lt;/li&gt;
+&lt;li&gt;主査は、要領よく立ちまわってはならない。&lt;/li&gt;
+&lt;li&gt;主査に必要な資質。（中略）要するに総合能力が必要。それは「人格」。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;まぁ、こうゆう心構え的なことはもちろんなわけだが、自動車のような複雑高度な製品を作るためのエンジニアリングも当然身につけなければならない。それも、意匠、ボディ、シャーシーなど各分野の技術をすべて身につけて、ちゃんとした主査になるには15~20年はかかるらしい。&lt;/p&gt;
+
+&lt;p&gt;プログラマー35歳定年説とか言ってたら、優秀なプロダクトマネージャーになれないなと感じた。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;重要なことは、製品の価値と実現手段を一人のアタマの中で把握していことである。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ここが重要だと個人的に感じていて、アナリシス（分析能力）で集めた圧倒的情報量をインプットしまくってシンセス（統合能力）で、よいプロダクトへ昇華させる。つまり、価値を生み出す富の源泉となるものは、結局、一人の人間なんだとということがよく分かる。&lt;/p&gt;
+
+&lt;p&gt;その後、売れた車の主査が取締役や社長になってるように、責任・役割に見合うリターンもあるのも良いことだと思う。&lt;/p&gt;
+
+&lt;p&gt;Web業界のような新しい業界で『先人から学べ！』が通用できないかと思っていたが、学ぶべきことはたくさんあるなと感じた。願わくば、主査の養成システムや、主査が失敗した時の保険・フォローなども詳しく書いてあるとなお良かった。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>明治維新という過ち</title>
+            <link>https://t32k.me/mol/log/978-4901622820/</link>
+            <pubDate>Wed, 04 May 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4901622820/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B018R7TBK2/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41Vh0wtmLSL._SL160_.jpg&#34; alt=&#34;明治維新という過ち 【改訂増補版】: ～日本を滅ぼした吉田松陰と長州テロリスト～&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B018R7TBK2/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;明治維新という過ち 【改訂増補版】&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.5.4&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;原田伊織&lt;br /&gt;毎日ワンズ&lt;br /&gt;売り上げランキング: 169&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B018R7TBK2/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;今月のKindleオーナーライブラリの1冊で読んだ。&lt;/p&gt;
+
+&lt;p&gt;いやーぶっ飛んでいる、ってのが率直な感想。幕末の長州は全員クソ野郎で、会津は可哀想ってのがだいたいの主張。いや確かに、幕末から明治にかけては多くのことが変わったりして、そこに無条件に綺麗なドラマを求めすぎているってのはあると思う。しかし戦時下なので、残虐なところは双方にあることだろう。&lt;/p&gt;
+
+&lt;p&gt;だが作者から言わせれば、たいていの長州藩の人物は、狂人の若造のヤクザ以下のチンピラどもとこき下ろしている。もう、全員狂ってるとしか評していないので、逆に突き抜けていて本書の面白いところであると思う。&lt;/p&gt;
+
+&lt;p&gt;徳川幕府は案外よい体制でうまくワークしていたという考えで、もし倒幕が成功していなかったら〜、スイスや独立心の強い北欧諸国みたいに日本になっていただろうって話は、素直に興味深かったので、その辺をもう少し掘り下げてほしかったなと個人的には思う。&lt;/p&gt;
+
+&lt;p&gt;読了後、著者略歴を見たが、この人は別に歴史学者でもなければ歴史小説を何本も書いているような作家ではないんだよなってことで、残念感があると同時に話半分にって感じだ。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>年収は「住むところ」で決まる</title>
+            <link>https://t32k.me/mol/log/978-4833420822-innovation/</link>
+            <pubDate>Wed, 30 Mar 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4833420822-innovation/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00JUDYNSS/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/61SeCYSMZ%2BL._SL160_.jpg&#34; alt=&#34;年収は「住むところ」で決まる ─ 雇用とイノベーションの都市経済学&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00JUDYNSS/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;年収は「住むところ」で決まる&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.3.30&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;エンリコ モレッティ,池村 千秋,安田 洋祐(解説）&lt;br /&gt;プレジデント社&lt;br /&gt;売り上げランキング: 58&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B00JUDYNSS/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;俗っぽいタイトルなのでサクッと読めるかなと購入したが、読んでみたらなかなか骨太な書籍だった。というのも、著者はカリフォルニア大学バークレー校の経済学教授ということで論文チックというか、データがふんだんに盛り込まれている。&lt;/p&gt;
+
+&lt;p&gt;これまた俗っぽく結論を言えば、年収をあげたかったらシリコンバレーに住むんだ！という話。現在のシリコンバレーは知識の集積地として、イノベーションをたくさん生み出している。それに伴い、新たに雇用される人が増えたり、イノベーション企業に勤める人はそれに見合う高給料なので、その従業員が地域で消費（還元）する額もまた大きい。ゆえにイノベーション企業以外の企業にも恩恵をもたらしているという。&lt;/p&gt;
+
+&lt;p&gt;興味深かったのは、フランスのインターネット関連産業についての研究によれば、WWWが登場して以来、インターネットが生み出した雇用が120万に対して、消滅させた雇用は50万だそうだ。問題は、雇用の消滅が幅広い地域で起きるのに対し、雇用の創出はいくつかの地域に集中していることで、これが実感とのズレの原因なんだと理解した。&lt;/p&gt;
+
+&lt;p&gt;イノベーションが経済を牽引するので、国家はイノベーションが生まれやすい都市を計画しなければならないが、それがまた難しい。結局、イケてる企業が集まれば、集積効果でさらにイケてる企業が集まる好循環が生まれ勝手にそうなるわけだけど、鶏が先か、卵が先かに通じるところがある。これを人工的・計画的に狙おうとすると、適切なビッグショットをしなければならない。ビッグショットというのは、いわゆる呼び水的な手法。&lt;/p&gt;
+
+&lt;p&gt;例えば、シアトルならマイクロソフト（MS）とアマゾンが幅を利かせる街である。シアトルにMSが引っ越してくる前はシアトルは全米でも有数に廃れた都市だったそうだ。MSが引っ越してからはMSの成長に伴いテッキーな人材を惹きつける魅力的な都市になったそうで、問題はMSのような企業をいかに自分たちの都市に招いてこれるかだが、税金の優遇政策とかあるけど、あんまりうまくいった試しがない（ビル・ゲイツがシアトル出身だからということだけで、特に合理的理由もなく、当時本社のあったアルバカーキから引っ越してきたそうだ）。&lt;/p&gt;
+
+&lt;p&gt;シリコンバレーとまでは言わないけども、東京も地方と比べれば知識の集積地だろう。事実、僕も石川から東京の企業へ転職した時は給料上がったし、東京の会社からまた別の東京の会社へ転職することで給料はあがった。多くのIT企業が集まればマッチングの幅も広がるし、企業間同士での知識も伝播しやすい。&lt;/p&gt;
+
+&lt;p&gt;一方、シリコンバレーはアメリカの集積地ばかりでなく世界の知識の集積地となっている。博士号を持つ高学歴の移民の受け入れに比較的寛容であったり、仕事の成果に見合う報酬も出すので、世界中から優秀な人材が集まる。優秀な人材は世界中にどこでもいるのだろうけど、1億人の中から優秀な人材が東京に集まるより、60億人の中から優秀な人材がシリコンバレーに集まるのなら、そりゃシリコンバレーに負けるのは当たり前だよな。多様性も違うだろうし、イノベーションが起きやすいだろう。&lt;/p&gt;
+
+&lt;p&gt;アメリカは飛び抜けた能力の持ち主に対しては、年功序列もなく速く出世させるし、給料も高くだす。そうゆうわけでアメリカは教育への投資が多くの見返りをもたらす国なので、世界中の俊英たちはアメリカを目指す。これはこれで博士号をもつインド人や中国人技術者に、アメリカ人が非技術職のレストランのウエイターなどで仕える構図が生まれたりする。&lt;/p&gt;
+
+&lt;p&gt;まぁ僕は日本の政治家ではないから、日本にシリコンバレーを作ることや、日本の教育制度に頭を巡らせてもしょうがないので、もう少し小さく考えてみてみる。優秀な人材が集まる企業とはなんだろうと。&lt;/p&gt;
+
+&lt;p&gt;Googleの採用方針的なもので、Aクラスの人材はAクラスの人材を連れてくる、Bクラスの人材はCクラスの人材を連れてくると聞いたことがある。だから採用には手を抜いてはいけないし、Aクラスの人間を是が非でも取らなければ、企業は緩やかに死に向かうだろう。ましてや、スタートアップの人材は企業規模に比べて個が目立つので創業時にスター・エンジニアを採用するのは適切なビッグショットと言える。&lt;/p&gt;
+
+&lt;p&gt;もう少しブレイクダウンして、例えば、僕は前職のフロントエンドエンジニアたちのSlackグループに入っているをが、やはりそこの人たちは優秀なので、プライベートなStackOverflow感覚で質問したらすぐに答えが返ってきたり、そこにいる友達のOSSがバズってHTML5 Weeklyとかに載った聞いたりすると、すごく刺激を受けるかけがえのない場となっている。これも小さな知識の集積の場と言えるだろう。&lt;/p&gt;
+
+&lt;p&gt;まぁ、話は長くなったけど、それだけいろいろ考えさせらた本だ。本書の最後でも引用されているイスラエル人起業家のヤニフ・ペンサドンの言葉を本記事でも引用して終わろう。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;確かに、世界中のどこにいても、インターネットを使えばなんでもできるが、結局のところ大事なのは人間だ。私達の仕事の環境と社会の基本的骨格はグローバル化とローカル化という、21世紀の二つの潮流によって根本から様変わりしようとしている。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;結局、人とのつながりが最も大事だし、適切な時に適切な場所にいなければならない。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>知の教室</title>
+            <link>https://t32k.me/mol/log/978-4167904272-intelligence/</link>
+            <pubDate>Tue, 29 Mar 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4167904272-intelligence/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013I2FWJK/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41tO9bM25jL._SL160_.jpg&#34; alt=&#34;知の教室　教養は最強の武器である (文春文庫)&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013I2FWJK/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;知の教室&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.3.28&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;佐藤　優&lt;br /&gt;文藝春秋&lt;br /&gt;売り上げランキング: 254&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013I2FWJK/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;この眼力である。&lt;/p&gt;
+
+&lt;p&gt;この人のことをよく知らなかったのだけど、失礼な話だが、この表紙を一目見て、こいつはヤバイやつだと感じ興味を持ったのだ。同志社で神学を専攻して、外務省でロシア担当、旨お事件で連座し逮捕されるが作家デビュー。睡眠時間4時間、月に500冊は読書するというヤバイお人。&lt;/p&gt;
+
+&lt;p&gt;佐藤優の父は東京大空襲を経験していて、ものは焼け落ちるけれど、知識だけは絶対なくならいと考えたそうだ。とあるように知識への取り込み方が半端ない。&lt;/p&gt;
+
+&lt;p&gt;率直の感想としては、世の中広いなと、というか適切に処理すべき情報量が多い。読後は重いボディブローを打たれたような感覚だが、それも悪くない。&lt;/p&gt;
+
+&lt;p&gt;本書は佐藤氏がこれまでの10年間に発表した論考、座談会、外交官時代の論文のいくつかをまとめたものである。聖書からの引用だったり、または&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E5%A4%AA%E5%B9%B3%E8%A8%98&#34;&gt;太平記&lt;/a&gt;からの洞察、ロシア時代の外交時代の論文など、ほんとうに知識の量がすさまじい。この情報量が1000円以下で買えるんだから安いもんだ。&lt;/p&gt;
+
+&lt;p&gt;さっきから、パないとかヤバイとかしか言えない自分のボキャブラリーに落胆するが、まぁそれほど高揚しているのだと思ってもらえばと思う。とりあえず、ニュースとかろくに見てない自分にとっては世界情勢とか理解するには、というか理解はできてはいないが、知らなくてはいけないことが世の中にはたくさんあると気づかされた、良い本だった。おすすめ！&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>アルゴリズムを、はじめよう</title>
+            <link>https://t32k.me/mol/log/978-4844332015-algorithm/</link>
+            <pubDate>Tue, 15 Mar 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4844332015-algorithm/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844332015/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51KKybcgfkL._SL160_.jpg&#34; alt=&#34;アルゴリズムを、はじめよう&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844332015/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;アルゴリズムを、はじめよう&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.3.14&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;伊藤 静香&lt;br /&gt;インプレス&lt;br /&gt;売り上げランキング: 12988&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4844332015/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;いやー、なんで今までこれを買わなかったんだろうと思うほどよかった。というか、今の自分に必要な1冊だった。&lt;/p&gt;
+
+&lt;p&gt;自分はエンジニアのバックグラウンドがないまま、Webフロントエンド開発でJavaScriptを書いている。アルゴリズムってなんじゃい！って自分だったが、バンクーバーで就活していた時、Webテストとかさせられたのだけど、こうゆうアルゴリズムというか数学的な問題が出るとさっぱりでお手上げだった。そうゆう自分にさよならバイバイしたかったので、いっちゃん易しそうなやつ買ってみたのだった。&lt;/p&gt;
+
+&lt;p&gt;例えば、配列の中から最大値を求めるアルゴリズムについて考えてみよう。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;_.max([4, 2, 8, 6]); // → 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://lodash.com/&#34;&gt;Lodash&lt;/a&gt;/&lt;a href=&#34;http://underscorejs.org/&#34;&gt;Underscore&lt;/a&gt;が使えれば、一発だよねー。でもそれが使えなかったら？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;Math.max.apply(null, [4, 2, 8, 6]); // → 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;Math.max&lt;/code&gt;メソッドで一発だよねー。でも、それが思い浮かばなかったら？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var array = [4, 2, 8, 6];
+var max = array[0];
+array.forEach((value) =&amp;gt; {
+    if(max &amp;lt; value) {
+        max = value;
+    }
+});
+console.log(max); // → 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;こんなかんじ？&lt;code&gt;forEach&lt;/code&gt;も使えないとしたら？&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// JavaScript
+var array = [4, 2, 8, 6];
+var max = array[0];
+for (var i = 0; i &amp;lt; array.length; i++) {
+    if(max &amp;lt; array[i]) {
+        max = array[i];
+    }
+}
+console.log(max); // → 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここまでくると、すごくプリミティブなコードになったので、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-ruby&#34;&gt;# Ruby
+array = [4, 2, 8, 6]
+max = array[0]
+for value in array do
+    if max &amp;lt; value then
+        max = value
+    end
+end
+puts max # → 8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-golang&#34;&gt;// golang
+package main
+
+import &amp;quot;fmt&amp;quot;
+
+func main() {
+    array := []int{4, 2, 8, 6}
+    max := array[0]
+    for i := 0; i &amp;lt; len(array); i++ {
+        if max &amp;lt; array[i] {
+            max = array[i]
+        }
+    }
+    fmt.Print(max) // → 8
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;他の言語に置き換えても大差ない。てか、ほぼ、&lt;a href=&#34;https://ja.wikipedia.org/wiki/%E6%93%AC%E4%BC%BC%E8%A8%80%E8%AA%9E&#34;&gt;擬似言語&lt;/a&gt;だ。&lt;/p&gt;
+
+&lt;p&gt;要は、&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;先頭の要素を暫定チャンピオンとして変数maxに代入する&lt;/li&gt;
+&lt;li&gt;次の要素と比較し大きければmaxに代入する、小さければスルー&lt;/li&gt;
+&lt;li&gt;2.を繰り返し&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;こうゆうことを理解しているのか？という問題。事実、前に「一番近い座標をもとめろ」的な問題をといた時に、こうゆうの必要だったなぁと思い出にふける。よく分からないまま、StackOverflowで似たような質問さがして、コピペ・改変して、案の定、落ちたけど。&lt;/p&gt;
+
+&lt;p&gt;とにかく、アルゴリズムを学ぶってこうゆうことなんだと理解した気がする。ちょっと前まで、エンジニアさんが、プログラミング言語何でも書けますよー！って人を理解できなくて、なんだよ新人類か！、神か！と思ってたけど、プログラミング言語が書けるってのはすべてのメソッド名を覚えるってことではないんだよなと。&lt;/p&gt;
+
+&lt;p&gt;言語毎に有名なライブラリやフレームワークの使い方まで覚えていたらそりゃすげーと思うけど、基本的なアルゴリズムを理解して、繰り返し処理と条件分岐さえできれば、あとはなんとか書けるんだよなって理解した。&lt;/p&gt;
+
+&lt;p&gt;最大値を求めるアルゴリズム自体は肩慣らし程度で、本書では以下の9つのアルゴリズムに関して解説している。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;線形探索法（リニアサーチ）&lt;/li&gt;
+&lt;li&gt;二分探索法（バイナリサーチ）&lt;/li&gt;
+&lt;li&gt;ハッシュ探索法&lt;/li&gt;
+&lt;li&gt;単純選択法（選択ソート）&lt;/li&gt;
+&lt;li&gt;単純交換法（バブルソート）&lt;/li&gt;
+&lt;li&gt;単純挿入法（挿入ソート）&lt;/li&gt;
+&lt;li&gt;クイックソート&lt;/li&gt;
+&lt;li&gt;エラトステネスのふるい（素数を求めるアルゴリズム）&lt;/li&gt;
+&lt;li&gt;ユークリッドの互除法（最大公約数を求めるアルゴリズム）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;ソートとか&lt;code&gt;Array.prototype.sort()&lt;/code&gt;使えるじゃんと思いつつも、ちゃんと書けるようになりたいものだと思った。&lt;/p&gt;
+
+&lt;p&gt;僕みたいなデザイナー上がりのへっぽこデベロッパーにとっても非常にわかりやすくて、挫折しないで読めた。ほかのアルゴリズムの本は難しそうだし、このレベルでもう何冊か読んでみたいと思った。&lt;/p&gt;
+</description>
+        </item>
+        
+        <item>
+            <title>シリコンバレー式 自分を変える最強の食事</title>
+            <link>https://t32k.me/mol/log/978-4478039670-bulletproof-diet/</link>
+            <pubDate>Mon, 14 Mar 2016 00:00:00 UTC</pubDate>
+            
+            <guid>https://t32k.me/mol/log/978-4478039670-bulletproof-diet/</guid>
+            <description>&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4478039674/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/51opAF5gsbL._SL160_.jpg&#34; alt=&#34;シリコンバレー式 自分を変える最強の食事&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4478039674/warikiru-22/ref=nosim/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;シリコンバレー式 自分を変える最強の食事&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.3.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;デイヴ・アスプリー,栗原 百代&lt;br /&gt;ダイヤモンド社&lt;br /&gt;売り上げランキング: 130&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/4478039674/warikiru-22/ref=nosim/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;レビューも高くておもしろそうだったので読んでみた。最初、シリコンバレー式ダイエットということで、&lt;a href=&#34;https://www.soylent.com/&#34;&gt;Soylent&lt;/a&gt;を飲み続けるものかと思っていたが、全然関係なかった。&lt;/p&gt;
+
+&lt;p&gt;シリコンバレーの実業家のデイヴ・アスプリー氏がいろいろ金に物を言わせて実験した結果の最高のダイエット方法を解説している。しかし、なんかスプリチュアル臭が半端ない。毒素を食べ物から摂取しているからいけないんだ！みたいこと言ってて、グラスフェッド（牧草飼育）バターや、ビーフをしきりに薦めている。要は良質なものを摂取せよとのこと。&lt;/p&gt;
+
+&lt;p&gt;前半は、これまでのダイエット方法を試した結果・経緯を解説していて、後半がどの食べ物が完全無欠かリストアップしてくれているのと、完全無欠レシピを紹介している。&lt;/p&gt;
+
+&lt;p&gt;基本的にカロリー計算に騙されてはいけないとのことで、小腹がすいたら良質なバターでもまるかじりしとけ！と言っていたのは、効果があったとしてもワイルドすぎるだろう&amp;hellip;と若干引いてしまった。&lt;/p&gt;
+
+&lt;div class=&#34;azlink-box&#34;&gt;&lt;div class=&#34;azlink-image&#34; style=&#34;float:left&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013MW3B4Y/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://images-na.ssl-images-amazon.com/images/I/41rrer%2BS4DL._SL160_.jpg&#34; alt=&#34;仙台勝山館 ＭＣＴオイル&#34; style=&#34;border:none&#34; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div class=&#34;azlink-info&#34; style=&#34;float:left;margin-left:15px;line-height:120%&#34;&gt;&lt;div class=&#34;azlink-name&#34; style=&#34;margin-bottom:10px;line-height:120%&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013MW3B4Y/warikiru-22/&#34; name=&#34;azlinklink&#34; target=&#34;_blank&#34;&gt;仙台勝山館 ＭＣＴオイル&lt;/a&gt;&lt;div class=&#34;azlink-powered-date&#34; style=&#34;font-size:7pt;margin-top:5px;font-family:verdana;line-height:120%&#34;&gt;posted at 2016.3.13&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-detail&#34;&gt;&lt;br /&gt;仙台勝山館&lt;br /&gt;売り上げランキング: 62&lt;br /&gt;&lt;/div&gt;&lt;div class=&#34;azlink-link&#34; style=&#34;margin-top:5px&#34;&gt;&lt;a href=&#34;http://www.amazon.co.jp/exec/obidos/ASIN/B013MW3B4Y/warikiru-22/&#34; target=&#34;_blank&#34;&gt;Amazon.co.jp で詳細を見る&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&#34;azlink-footer&#34; style=&#34;clear:left&#34;&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;とりあえず話半分に受け止めているが、本書で薦められていたMCTオイルを買ってしまった自分がいる。無味無臭なのでなんでも混ぜられる。効果があるのかは分からん。あと完全無欠コーヒーと呼ばれるバターコーヒーだけど、コーヒーは普通に飲んだほうがおいしいよねって思った。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
