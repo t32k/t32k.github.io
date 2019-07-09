@@ -3,11 +3,11 @@
   "version": "0.7.0",
   "private": true,
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-jade": "^1.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-csso": "^2.2.1"
+    "grunt-csso": "^2.2.4"
   },
   "scripts": {
     "start": "grunt",
