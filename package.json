@@ -5,7 +5,7 @@
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-jade": "^1.0.0",
+    "grunt-contrib-jade": "^0.14.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-csso": "^2.2.4"
   },
